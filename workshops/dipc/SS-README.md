@@ -4,7 +4,7 @@
 
 - To log issues and view the lab guide source, go to the [github oracle](https://github.com/oracle/learning-library/tree/master/workshops/dbcs-dba) repository.
 
-- The Labguides are best viewed using the workshop's [GitHub Pages Website URL](https://oracle.github.io/learning-library/workshops/dbcs-dba) 
+- The lab guides are best viewed using the workshop's [GitHub Pages Website URL](https://oracle.github.io/learning-library/workshops/dbcs-dba/) 
 
 - Once you are viewing the workshop's gitHub page's website, you can see a list of Lab Guides at any time by clicking on the **Menu Icon**
 
@@ -20,33 +20,30 @@ Welcome to the Oracle Database Cloud Service Workshop.  This particular version 
 
 ## Lab 100: Introduction and Database Creation
 
-**Documentation**: [CloudWorkshop\_DBCS\_100.md](CloudWorkshop\_DBCS\_100.md)
+**Documentation**: [CloudWorkshop\_DBCS\_100.md](SS-CloudWorkshop\_DBCS\_100.md)
 
 ### Objectives
 
 -   Log into the Cloud Console and get familiar with DBCS.
--   Configure archive logging.
--	Configure Transparent Data Encryption (TDE - required to restore from backup to the cloud).
--	Backup your local database to the Oracle Cloud.
 -	Drop a table and then restore it from your cloud backup.
--	Create Database Cloud Service from your on-premise backup.
+-	Create Database Cloud Service.
 -   SSH configuration.
 -   Explore VM and consoles.
 
 ## Lab 200: Data Migration
 
-**Documentation**: [CloudWorkshop\_DBCS\_200.md](CloudWorkshop\_DBCS\_200.md)
+**Documentation**: [CloudWorkshop\_DBCS\_200.md](SS-CloudWorkshop\_DBCS\_200.md)
 
 ### Objectives
 
 -   Clone, unplug, transfer and plug the AlphaPDB pluggable database using SQL Developer.
 -   Export and import a schema using SQL Developer to execute Oracle Data Pump jobs.
--   Export and import a tablespace using SQL Developer.
+-   Export and import a tablespace.
 -   Copy table data between an on-premise database and DBCS.
 
 ## Lab 300: Common DBA Tasks
 
-**Documentation**: [CloudWorkshop\_DBCS\_300.md](CloudWorkshop\_DBCS\_300.md)
+**Documentation**: [CloudWorkshop\_DBCS\_300.md](SS-CloudWorkshop\_DBCS\_300.md)
 
 ### Objectives
 
@@ -58,7 +55,7 @@ Welcome to the Oracle Database Cloud Service Workshop.  This particular version 
 
 ## Lab 400:  CLI/Curl Commands (Programatic Control of Services)
 
-**Documentation**: [CloudWorkshop\_DBCS\_400.md](CloudWorkshop\_DBCS\_400.md)
+**Documentation**: [CloudWorkshop\_DBCS\_400.md](SS-CloudWorkshop\_DBCS\_400.md)
 
 ### Objectives
 
