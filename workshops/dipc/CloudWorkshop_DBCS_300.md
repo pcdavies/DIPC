@@ -2,7 +2,7 @@
 
 Update: Dec 12, 2017
 
-## Introduction
+## Introduction - Remote Agent Install - Sync On-prem databases
 
 While the Oracle Cloud has greatly simplified DBA tasks, the DBA still has a role to play in the development and maintenance of DBCA instances.  This lab covers a few of the common DBA activities in a cloud environment.
 
@@ -12,6 +12,12 @@ This lab supports the following use cases:
 
 ## Objectives
 
+-   Configure Remote Agent as Trusted Application
+-   Download Agent Package
+-   Unzip and Configure Agent
+-   Configure Agent SSL
+-   Administer Agent: Start and Stop
+-   
 -   Create an instance.
 -   Maintain security access.
 -   Scale up an instance.
