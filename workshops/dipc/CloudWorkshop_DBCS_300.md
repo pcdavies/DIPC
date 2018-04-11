@@ -1,6 +1,6 @@
 ![](images/300/image1.png)
 
-Update: Dec 12, 2017
+Update: Apr 11, 2018
 
 ## Introduction - Remote Agent Install - Sync On-prem databases
 
