@@ -12,6 +12,7 @@ This lab supports the following use cases:
 
 ## Objectives
 
+-   Create Compute Instance to Simulate On-Prem Source
 -   Configure Remote Agent as Trusted Application
 -   Download Agent Package
 -   Unzip and Configure Agent
