@@ -4,89 +4,76 @@
 
 ## Before You Begin
 
-```
 This tutorial shows you how to create a Data Integration Platform
 Cloud instance and it takes approximately 30 minutes to complete.
 These 30 minutes don't include waiting times for instances to be
 created. (And there are a lot of screenshots here, otherwise, the
 tutorial is not that long.)
-```
+
 ## Background
 
-```
 Data Integration Platform Cloud (DIPC) is an Oracle cloud service that
 offers a single platform to connect to hundreds of on-premises and
 cloud data sources. From this platform you extract, load and transform
 (ELT) data entities of any shape and format, synchronize or replicate
 selected data sources, integrate with big data technologies, perform
 data analytics and maintain data quality.
-```
-```
+
 When you create an Oracle Data Integration Platform Cloud service
 instance, you create a Data Integration environment in the cloud. Data
 integration applications are installed for you on one or more VMs
 which offer you consoles to perform all your data integration needs.
-```
-```
+
 For Data Integration Platform Cloud, you can select one of the
 following editions:
-```
-```
-■ Standard Edition: For a bulk copy of your data sources to the
+
+- Standard Edition: For a bulk copy of your data sources to the
 cloud, or to extract, load and transform your data.
-■ Enterprise Edition: For a selective copy or real time replication of
+- Enterprise Edition: For a selective copy or real time replication of
 your data sources, or to extract, load and transform your data.
-■ Governance Edition: To extract, load, transform, manage,
+- Governance Edition: To extract, load, transform, manage,
 replicate, and maintain data quality.
-```
-```
+
 For this tutorial, you create an instance with Enterprise Edition.
-```
+
 ## What Do You Need?
 
-```
-■ The link, username and password to My Services page for your
+- The link, username and password to My Services page for your
 Oracle cloud services. (When you request for Oracle cloud
 services, you get an email with this information.)
-■ A web browser
-```
+- A web browser
 
 ## Find Your Services and Backup
 
 ## Location
 
-```
+
 1. In your web browser, paste the link you received in email for Oracle
 cloud's My Services page.
 2. Enter your user name and password, then click Sign In. (You'll
 need to reset your password, if it's your first time visiting this page.)
-```
-```
-Description of the illustration 001.002.png
-```
-```
+
+[[https://github.com/pcdavies/DIPC/workshops/dipc/images/100/image5.png|alt=Description of the illustration 001.002.png]]
+
 3. If it's your first time, you'll get tile options for the Guided Journey.
 For this tutorial, instead of the Guided Journey experience, click
 Dashboard. (And later, experience the tiles on your own.)
-```
 
-```
+
 Description of the illustration 001.003.png
-```
+
 4. Click Customize Dashboard and then click Show for the following
 three services:
-■ Infrastructure> Storage Classic
-■ Data Management > Database (If there's an existing database
+- Infrastructure> Storage Classic
+- Data Management > Database (If there's an existing database
 deployment, then this tile will already be in the Services section.)
-■ Integration > Data Integration Platform Cloud
+- Integration > Data Integration Platform Cloud
 
 5. Confirm that these three services appear as three tiles on your
 dashboard.
 
-
-```
 Description of the illustration 001.005.png
-```
+
 6. Click the action menu of the Storage Classic tile and then click
 View Details.
 
