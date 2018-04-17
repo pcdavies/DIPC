@@ -47,13 +47,12 @@ services, you get an email with this information.)
 
 ## Location
 
-
 1. In your web browser, paste the link you received in email for Oracle
 cloud's My Services page.
 2. Enter your user name and password, then click Sign In. (You'll
 need to reset your password, if it's your first time visiting this page.)
 
-![](DIPC/workshops/dipc/images/100/cloudsignon.png)
+![](images/100/cloudsignon.png)
 
 Description of the illustration 001.002.png
 
