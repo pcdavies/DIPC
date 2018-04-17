@@ -53,7 +53,9 @@ cloud's My Services page.
 2. Enter your user name and password, then click Sign In. (You'll
 need to reset your password, if it's your first time visiting this page.)
 
-[[https://github.com/pcdavies/DIPC/workshops/dipc/images/100/image5.png|alt=Description of the illustration 001.002.png]]
+![](DIPC/workshops/dipc/images/100/cloudsignon.png)
+
+Description of the illustration 001.002.png
 
 3. If it's your first time, you'll get tile options for the Guided Journey.
 For this tutorial, instead of the Guided Journey experience, click
