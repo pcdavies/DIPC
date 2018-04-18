@@ -1,426 +1,173 @@
-# Create a Data Integration Platform
-
-# Cloud Instance
-
-## Before You Begin
-
-This tutorial shows you how to create a Data Integration Platform
-Cloud instance and it takes approximately 30 minutes to complete.
-These 30 minutes don't include waiting times for instances to be
-created. (And there are a lot of screenshots here, otherwise, the
-tutorial is not that long.)
-
-## Background
-
-Data Integration Platform Cloud (DIPC) is an Oracle cloud service that
-offers a single platform to connect to hundreds of on-premises and
-cloud data sources. From this platform you extract, load and transform
-(ELT) data entities of any shape and format, synchronize or replicate
-selected data sources, integrate with big data technologies, perform
-data analytics and maintain data quality.
-
-When you create an Oracle Data Integration Platform Cloud service
-instance, you create a Data Integration environment in the cloud. Data
-integration applications are installed for you on one or more VMs
-which offer you consoles to perform all your data integration needs.
-
-For Data Integration Platform Cloud, you can select one of the
-following editions:
-
-- Standard Edition: For a bulk copy of your data sources to the
-cloud, or to extract, load and transform your data.
-- Enterprise Edition: For a selective copy or real time replication of
-your data sources, or to extract, load and transform your data.
-- Governance Edition: To extract, load, transform, manage,
-replicate, and maintain data quality.
-
-For this tutorial, you create an instance with Enterprise Edition.
-
-## What Do You Need?
-
-- The link, username and password to My Services page for your
-Oracle cloud services. (When you request for Oracle cloud
-services, you get an email with this information.)
-- A web browser
-
-## Find Your Services and Backup
-
-## Location
-
-1. In your web browser, paste the link you received in email for Oracle
-cloud's My Services page.
-2. Enter your user name and password, then click Sign In. (You'll
-need to reset your password, if it's your first time visiting this page.)
+Lab 100 -  Creating a Data Integration Platform Cloud Instance
 
 ![](images/100/cloudsignon.png)
 
-Description of the illustration 001.002.png
+## Before You Begin
 
-3. If it's your first time, you'll get tile options for the Guided Journey.
-For this tutorial, instead of the Guided Journey experience, click
-Dashboard. (And later, experience the tiles on your own.)
+Purpose
+This tutorial shows you how to create and start a service for Data Integration Cloud Service.
 
+Time to Complete
+Approximately 30 minutes, not including wait time for service activations.
 
-Description of the illustration 001.003.png
+Background
+Oracle Data Integration Platform Cloud is a platform that unifies various Data Integration components and leverages their core strengths and functionality to offer a seamless set of data integration services in the cloud.
 
-4. Click Customize Dashboard and then click Show for the following
-three services:
-- Infrastructure> Storage Classic
-- Data Management > Database (If there's an existing database
-deployment, then this tile will already be in the Services section.)
-- Integration > Data Integration Platform Cloud
+When using the Oracle Data Integration Platform Cloud, you create a Data Integration environment in the cloud. After you complete the instance creation wizard, your environment is provisioned and fully integrated for replication, extract, load and transform, streaming, data preparation, and data governance.
 
-5. Confirm that these three services appear as three tiles on your
-dashboard.
+For Data Integration Platform Cloud, you can select one of the following editions:
 
-Description of the illustration 001.005.png
+- Standard Edition: For a bulk copy of your data sources to the cloud, or to extract, load and transform your data.
+- Enterprise Edition: For a selective copy or real time replication of your data sources, or to extract, load and transform your data.
+- Governance Edition: To extract, load, transform, manage, replicate, and Data Quality.
 
-6. Click the action menu of the Storage Classic tile and then click
-View Details.
+What Do You Need?
 
-```
-Description of the illustration 001.006.png
-```
-7. In the Additional Information section, copy the URL displayed in
-the REST Endpoint field and paste it into a notepad, ready for the
-other sections which require the Storage Container information.
-Example for REST Endpoint URL: https://<your
+Your Oracle Cloud user name, password, and identity domain, which you should have received FROM Oracle
+- An Oracle Storage Cloud subscription
+- An Oracle Database Cloud Instance
 
+## Logging Into Oracle Cloud Instance
 
-```
-domain>.us.storage.oraclecloud.com/v1/Storage-
-<your domain>
-```
-```
-Description of the illustration 001.007.png
-```
-8. Click Open Service Console.
+1. In your web browser, navigate to cloud.oracle.com, then click Sign in.
+2. Enter your user name and password, then click Sign In.
 
-```
-Description of the illustration 001.008.png
-```
-9. A replication policy defines your primary data center (dc) and
-whether your data should be replicated to a geographically distant
-(secondary) data center. If it's your first time, then you'll get a Set a
-Georeplication Policy before Continuing dialog box. Read the
-instructions, consult with the Storage Classic administrator or your
-account administrator, select a policy from the drop-down menu
-and click Set Policy. You'll only have to set this policy once and
-you can't change it later. If your policy is already set, then go to the
-next section Learn more.
+![](images/100/image100_1.png)
 
+Click Services or Go to Console to access My Oracle Services.
 
-```
-Description of the illustration 001.009.png
-```
-10. Click the offscreen toggle menu (displayed as a hamburger icon)
-and then click My Services to go back to the list of services.
+## Creating an Oracle Database Cloud Instance
 
-## Create a Database Deployment
+1. Locate Database in your list of services, then select Open Service Console from the Action menu.
 
-```
-1. In the Dashboard, locate Database in the list of services. (Use
-Customize Dashboard to make your three services re-appear if
-they are not displayed. Refer to step 1-4.) From its Action Menu
-select Open Service Console.
-```
+![](images/100/image100_2.png)
 
-```
-Description of the illustration 002.001.png
-```
-2. In case you get a welcome page, click Go to Console.
+2. On the Services page, click Create Service. This launches the Create DBC instance wizard.
 
-3. In the Instances page, click Create Instance.
+![](images/100/image100_3.png)
 
-4. Complete the Instance page as follows: (You may have less fields
-due to your subscription type.)
-■ Service Name: DBCSDEF
-■ Description: DEF database for DIPC
-■ Notification Email: <a valid email address to receive
-provisioning status>
-■ Region: No Preference (If you select a region, then you'll get a
-deployment on Oracle Cloud Infrastructure (OCI) and you can't
-use it for the DIPC instance in the next section.)
-■ Tags: warehouse (Click the Click to Create a Tag button,
-create a tag called warehouse and then click OK.)
-■ Bring Your Own License : de-select (You may not have this
-option.)
-■ Service Level: Oracle Database Cloud Service (You may not
-have this option.)
-■ Metering Frequency: Monthly (You won't have this option for
-trial versions)
-■ Software Release: Oracle Database 12c Release 1
-■ Software Edition: Enterprise Edition
-■ Database Type: Single Instance
+3. Complete the Service form as follows and then click Next:
 
+- Service Name: DBCSABC
 
-```
-Description of the illustration 002.004.png
-```
-5. Click Next and then on the Details page, complete the Database
-Configuration fields as follows:
-■ DB Name: ORCL
-■ PDB Name: PDB
-■ Administration Password and Confirm Password fields:
-password
-■ Usable Data Storage (GB): 25
+- Description: ABC Replication Database for Data Integration Platform Cloud
 
-```
-The entry for Usable Database Storage, populates the
-Total Data File Storage (GB) field to reflect the amount
-of storage for your instance, such as space for
-operating system and product binaries, supporting
-files, database data and configuration files. After you
-create the instance, you can add more data storage
-later.
-```
-```
-■ Total Data File Storage (GB): 88.
-■ Compute Shape: OC3 - 1.0 OCPU, 7.5 GB RAM
-■ Click Edit for SSH Public Key.
-■ In the SSH Public Key for VM Access dialog, select Create a
-New Key, then click Enter.
-```
+- Notification Email: (a valid email address to receive provisioning status)
 
-```
-Description of the illustration 002.005.png
-```
-■ Click Download in the Download Keys dialog box.
+- Region: No Preference
 
-■ Save the sshkeybundle.zip file to your computer.
+- Software Release: Oracle Database 12c Release 1
 
-■ Confirm that the SSH Public Key field now contains a public key
-value.
+- Software Edition: Enterprise Edition
 
+- Database Type: Single Instance
 
-```
-Description of the illustration 002.005c.png
-```
-6. Expand Advanced Settings, and then complete the fields as
-follows:
-■ Listener Port: 1521
-■ Select your timezone from the Timezone menu.
-■ Select Enable Oracle GoldenGate.
-■ De-select Include "Demos" PDB to save database space.
+![](images/100/image100_4.png)
 
-```
-Description of the illustration 002.006.png
-```
+4. On the Service Details page, complete the Database Configuration fields as follows:
 
-7. Complete the Backup and Recovery Configuration fields as
-follows, and then click Next:
-■ Backup Destination: Both Cloud Storage and Local Storage
-■ Cloud Storage Container: Enter the URL of a new or existing
-container in the format of the REST Endpoint URL you found in
-step 2-6 and append it with a slash and then the container name.
-If you want a new container created for you, you append a new
-name, instead of an existing container name, and then select the
-checkbox to create the container. (For this tutorial, there are no
-existing containers, so you should create a new one.)
-Format: rest_endpoint_url/containerName
-Example: https://dipc.storage.oraclecloud.com/v1/S
-dipc/dbcsDEF
+- DB Name (SID): ORCL
+- Pluggable Database (PDB) name: PDB1
+- Administration Password and Confirm Password fields: Welcome_123#.
+- Usable Database Storage: 25
+- Based on your entry for Usable Database Storage, the Total Data File Storage (GB) field updates to reflect the amount of storage that will be allocated to your instance, including space for operating system and product binaries, supporting files, database data and configuration files, and so on. After you create the service instance, you can add more data storage as needed.
 
-```
-The Cloud Storage Container field is prepopulated with
-your cloud storage REST endpoint information,
-appended with a new container named DBaaS in the
-format of
-https://dipc.storage.oraclecloud.com/v1/S
-dipc/DBaaS. Change this container to a name that
-can be identified with this database instance. For this
-tutorial, it is dbcsDEF.
-.https://dipc.storage.oraclecloud.com/v1/
-dipc/dbcsDEF
-```
-```
-■ Username: Enter the username for My Services which applies to
-Storage Classic, Database and Data Integration Platform Cloud.
-If you don't know it, refer to the What Do You Need section of
-this tutorial.
-■ Password: Enter the password for My Services. Use your latest
-password. If you don't know it, refer to the What Do You Need
-section of this tutorial.
-```
+- Compute Shape: OC3
+- Click Edit for SSH Public Key.
+- In the SSH Public Key for VM Access dialog, select Create a New Key, then click Enter.
 
-```
-Description of the illustration 002.007.png
-```
-```
-8. Click Next and ensure that in the Confirm step, you get a message
-that the container was created.
-```
-```
-Description of the illustration 002.008.png
-```
-```
-9. Review the details for your database cloud deployment. If you need
-to make changes, click Previous or use the navigation train to go
-back. Otherwise, click Create.
-```
-10. Click the DBCSDEF instance and refresh the Service Overview
-page until the status displays Ready.
+![](images/100/image100_5.png)
 
+Click Download in the Download Keys dialog box.
 
-```
-Description of the illustration 002.010.png
-```
-## Create a Data Integration
+![](images/100/image100_6.png)
 
-## Platform Cloud Instance
+Save the sshkeybundle.zip file to your computer.
 
-```
-1. Locate Data Integration Platform Cloud in My Services
-dashboard and, then select Open Service Console from
-the Actions menu.
-```
-Before You Begin
+![](images/100/image100_7.png)
 
-Find Your Services and
-Backup Location
+Confirm that the SSH Public Key field now contains a public key value.
 
-Create a Database
-Deployment
+![](images/100/image100_8.png)
 
-Create a Data Integration
-Platform Cloud Instance
+5. Expand Advanced Settings, and then complete the fields as follows:
+- Listener Port: 1521
+- Select your timezone from the Timezone menu.
+- Select Enable Oracle GoldenGate.
+- Deselect Include "Demos" PDB to save database space.
 
-```
-Want to Learn More?
-```
+![](images/100/image100_9.png)
 
-```
-Description of the illustration 003.001.png
-```
-2. If you get a welcome page, click Go to Console.
+6. Complete the Backup and Recovery Configuration fields as follows, and then click Next:
 
-3. In the Instances page, click Create Instance.
+- Backup Destination: Both Cloud Storage and Local Storage
+- Cloud Storage Container: Enter the name of your storage container in the format, Storage-<identity domain name>/<container name>. For example, enter Storage-dipc/dipcABC.
+- Username: Enter your username for Oracle Storage Cloud
+- Password: Enter your password for Oracle Storage Cloud
+- Select Create Cloud Storage Container to create a new container.
 
-4. Complete the Instance fields as follows:
+![](images/100/image100_10.png)
 
-```
-■ Service Name: DIPCDEF
-■ Service Description: Data Integration Platform
-Cloud for DEF instance
-■ Notification Email:<a valid email address to receive
-provisioning status>
-■ Tags: DEF (Click the plus symbol to create a tag called DEF )
-■ Cluster Size: 2
-■ Service Edition: Governance Edition (Refer to Before you
-Begin section of this tutorial to learn more about these editions.)
-```
+7. Review the Service Details for your DBCS instance. If you need to make changes, click Previous or use the navigation train to go back. Otherwise, click Create.
+The instance creation process can take some time, you'll see, it starts out in the "In Progress" status. You have to wait until the instance creation before you can move on to the next section.
 
-```
-Description of the illustration 003.004.png
-```
-5. Complete the Database Configuration fields as follows: (This
-database is used to store the schema of the Data Integration
-Platform Cloud server for this instance.)
-■ Database Service: DBCSDEF (You'll have the database
-deployment from section 2 of this tutorial in the drop-down menu,
-if your database was created on OCI classic, is currently running
-and it is in the same domain (same My Services page) as this
-Data Integration Platform Cloud instance.)
-■ PDB Name: PDB
-■ Username: SYS
-■ Password: password
+The creation operation is completed, when the instance is automatically started and is in the "Running" status.
 
-```
-Description of the illustration 003.005.png
-```
-6. Complete the Backup and Recovery Configuration fields as
-follows:
+## Creating an Oracle Data Integration Platform Cloud Instance
 
+In this section, you create an Oracle Data Integration Platform Cloud instance using the instance creation wizard.
 
-```
-■ Cloud Storage Container: The container field is automatically
-filled with the proper container URL format. This format is the
-REST Endpoint URL you found in step 1-7, appended with a
-slash and then the container name. If you want a new container
-created for you, just append a new name, instead of an existing
-container name, and then select the checkbox to create a
-container.
-Format: rest_endpoint_url/containerName
-Example: https://dipc.storage.oraclecloud.com/v1/S
-dipc/dipcDEF
-■ Cloud Storage Username: Enter the username for My Services
-which applies to Storage Classic, Database and Data Integration
-Platform Cloud. If you don't know it, refer to the What Do You
-Need section of this tutorial.
-■ Cloud Storage Password: Enter the password for My Services.
-Use your latest password. If you don't know it, refer to the What
-Do You Need section of this tutorial.
-■ Create Cloud Storage Container: select checkbox
-```
-```
-Description of the illustration 003.006.png
-```
-7. Complete the WebLogic Server Configuration fields as follows:
+1. Locate Data Integration Platform Cloud in your list of services, then select Open Service Console from the Options menu.
 
-```
-■ Compute Shape: OC3m - 4.0 OCPU, 60.0 GB RAM
-■ Click Edit for SSH Public Key.
-■ Separately, in your computer's file browser, find the zipped folder
-containing the system generated key for the database
-deployment, called sshkeybundle.zip and unzip it. (Refer to
-section 2-5 of this tutorial. You can also create a new key for this
-section.)
-■ In the SSH Public Key for VM Access dialog box, select Key
-File Name and then browse to sshkeybundle folder and select
-publicKey. Then click Enter.
-```
+![](images/100/image100_11.png)
 
-```
-Description of the illustration 003.007a.png
-```
-■ Administrator Username: <Your choice of username to
-access consoles of Data Integration Platform
-Cloud>
+2. In the Services page, click Create Service.
 
-■ Password: <Your choice of password for the
-username in this section>
+![](images/100/image100_12.png)
 
-■ Confirm Password: <Confirm your choice of password
-for the username in this section>
+3. Complete the Service fields as follows, and hen click Next:
+- Service Name: DIPCABC
+- Description: Data Integration Platform Cloud for ABC instance
+- Email Address: (a valid email address to receive provisioning status)
+- Cluster Size: 2
+- Service Edition: Governance Edition
 
+![](images/100/image100_13.png)
 
-```
-Description of the illustration 003.007b.png
-```
-```
-8. Click Next.
-9. Review the details for your Data Integration Platform Cloud
-instance. If you need to make changes, click Previous or use the
-navigation train to go back. Otherwise, click Create.
-```
-10. In the Instances page, confirm that the DIPCDEF instance appears
-in the list of instances with the Status displayed as: Creating
-service....
+4. Complete the Database Configuration fields as follows:
 
-```
-Description of the illustration 003.010.png
-```
-```
-11. Refresh the Instances page until the Status: Creating service ...
-is no longer displayed on this page.
-```
-12. Click the DIPCDEF instance to go to the Instance Overview page.
+- Oracle Database Cloud Service Instance Name: DBCSABC
+- PDB Name: PDB1
+- Administration Username: SYS
+- Password: Welcome_123#
 
+![](images/100/image100_14.png)
 
-About Oracle Contact Us Legal Notices Terms of Use Your Privacy Rights Copyright © 2018, Oracle and/or its affiliates. All rights
-reserved.
+5. Complete the Backup and Recovery Configuration fields as follows:
 
-```
-13. Confirm that the Status field displays Ready.
-14. Go back to the Instances page.
-15. Click the Action Menu of DIPCDEF and then click Data
-Integration Platform Console to access this console.
-```
-## Want to Learn More?
+- Cloud Storage Container: Storage-dipc/dipcABC
+- Cloud Storage User Name: Enter your username for Oracle Storage Cloud
+- Cloud Storage Password: Enter your password for Oracle Storage Cloud
 
-```
-■ Data Integration Platform Cloud on Oracle Help Center
-■ Data Integration Platform Cloud on Oracle Cloud Website
-■ Oracle Database Cloud on Oracle Help Center
-```
+![](images/100/image100_15.png)
+
+6. Complete the Weblogic fields as follows:
+
+- Compute Shape: OC3m - 4.0 OCPU, 60.0GB RAM
+- SSH Public Key:
+a. Click Edit.
+b. In the SSH Public Key for VM Access dialog, select Create a New Key and then click Enter.
+c. In the Download Keys dialog, click Download and save your SSHkeybundle.zip to your local machine.
+
+- Administrator Username: weblogic
+
+- Admin Password: Enter the admin password that you'll use later to login to all the consoles for this service instance, with the correspondent username you have had specified. For example welcome1
+
+- Confirm Admin Password: Reenter the admin password
+
+![](images/100/image100_16.png)
+
+7. Click Next and review your Data Integration Platform Cloud instance configuration details. If you need to make any changes, click Previous use the navigation train to go back. Otherwise, click Create.
+
+The instance creation process can take up to 30 minutes. You have to wait until the instance is creation before you can move on to the next section.
 
