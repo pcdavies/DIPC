@@ -25,6 +25,25 @@ This lab supports the following use cases:
 
 	![](images/300/AgentImage01-HomePage.JPG)
 
+### **STEP 2**: Select Download Installer Drop Down Menu
+
+-   Select drop down menu and select zip file for your Operating System
+
+	![](images/300/AgentImage02-DownloadAgent.JPG)
+
+### **STEP 3**: Confirm your agent download selection
+
+-   Click "OK" to confirm selection
+
+	![](images/300/AgentImage03-DownloadAgent.JPG)
+
+### **STEP 4**: Save the agent zip file to your home directory
+
+-   Save the file to your home directory in preparation to unzip and install
+
+	![](images/300/AgentImage04-DownloadAgentSave.JPG)
+
+
 ## Required Artifacts
 
 -   The following lab does not require set up or artifacts from the previous labs.
