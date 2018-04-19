@@ -19,10 +19,11 @@ This lab supports the following use cases:
 -   Configure Agent SSL
 -   Administer Agent: Start and Stop
 -   
--   Create an instance.
--   Maintain security access.
--   Scale up an instance.
--   Add a SSH Key.
+### **STEP 1**: Log into DIPC Console and go to Agent Page
+
+-   Click "Agents" in left panel
+
+	![](images/300/AgentImage01-HomePage.JPG)
 
 ## Required Artifacts
 
