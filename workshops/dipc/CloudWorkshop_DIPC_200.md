@@ -1,6 +1,6 @@
 
 
-Lab 200 –
+Lab 200 – April 24 2018
 
 # Task 0: Preparation Steps
 
@@ -26,15 +26,24 @@ Public Cloud.
 
 a. For this download we will use Chrome running in the VM not the one
 running on your laptop/desktop
-b. Go to Applications > Internet and click Google Chrome
+
+b. Go to Applications - Internet and click Google Chrome
+
 c. Note: If Chrome ask for keyring password then enter “welcome1”
+
 d. In Chrome, click on DIPC Home bookmark or go to
 localhost:7003/dicloud/login.html
+
 e. Login with weblogic/password
+
 f. Click Agents
+
 g. Click Download Installer then select Linux 64 - bit
+
 h. Click OK in the Download Agent Installer window
+
 i. Create the DIPC_AGENT2 directory and click on Save
+
 j. Extract agent.zip to ~/DIPC_AGENT
 
 i. Click on downloaded file within Chrome
