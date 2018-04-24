@@ -1,6 +1,6 @@
 
 
-Lab 200 – April 24 2018
+This is derived from the Ravello Image recently released as of 4.24.2018 –
 
 # Task 0: Preparation Steps
 
@@ -11,46 +11,31 @@ _In these steps you will clean up and setup the environment for this exercise_
 ![](images/200/image200_1.png)
 
 2. Log into Data Integration Platform Cloud
-
 a. Open your browser
 b. Click on DIPC Home bookmark or go to your <Ravello Instance
 hostname>:7003/dicloud/login.html
 c. Login with weblogic/password
-
 After a few seconds, the following page should appear –
 
 3. Setup/ Download Agent/ GG Setup
-
 DIPC On-Premise Agents allow synchronizing data from outside of Oracle
 Public Cloud.
-
 a. For this download we will use Chrome running in the VM not the one
 running on your laptop/desktop
-
-b. Go to Applications - Internet and click Google Chrome
-
+b. Go to Applications > Internet and click Google Chrome
 c. Note: If Chrome ask for keyring password then enter “welcome1”
-
 d. In Chrome, click on DIPC Home bookmark or go to
 localhost:7003/dicloud/login.html
-
 e. Login with weblogic/password
-
 f. Click Agents
-
 g. Click Download Installer then select Linux 64 - bit
-
 h. Click OK in the Download Agent Installer window
-
 i. Create the DIPC_AGENT2 directory and click on Save
-
 j. Extract agent.zip to ~/DIPC_AGENT
-
 i. Click on downloaded file within Chrome
 ii. Extract with Unzip UI
 iii. Click Extract again (blue button)
 iv. Close all Unzip UI windows
-
 k. Open a new Terminal window
 l. cd /home/DIPC/DIPC_AGENT2/dicloud
 m. Execute ./dicloudConfigureAgent.sh -dipchost=localhost -dipcport=7003 -
@@ -58,14 +43,12 @@ user=weblogic - authType=BASIC
 n. Script will prompt for password - password
 o. cd /home/DIPC/DIPC_AGENT2/dicloud/agent/dipcagent001/conf
 p. vi agent.properties
-
 i. Use “i” to turn insert mode on
 ii. Change agent port (agentport) to 7009 since default is already
 used
 iii. Change GG manager port (gginstanceport) to 7919 since default is
 already used
 iv. Hit ESC then :wq to save
-
 q. cd /home/DIPC/DIPC_AGENT2/dicloud/agent/dipcagent001/bin
 r. Execute ./startAgentInstance.sh
 In the Terminal window you should see ‘NOTIFICATION Done.
@@ -88,7 +71,6 @@ Service: dics12c
 The next steps will walk you through how to setup each.
 
 1. Log into Data Integration Platform Cloud
-
 a. From your local laptop/desktop start Chrome (you can also continue to
 use Chrome on the Ravello instance)
 b. Go to your <Ravello Instance hostname>:7003/dicloud/login.html
@@ -98,11 +80,9 @@ The following page should appear –
 2. Click Home
 
 3. Create Source Connection
-
 a. Click Create Connection
 
 4. Enter the following information
-
 a. Name: Sync Source
 b. Description – Sales OLTP Source Data
 c. Agent – localhost:
@@ -119,11 +99,9 @@ j. Schema: DIPC_SRC
 6. Click Test Connection then Save
 
 7. Create Target Connection from the Catalog
-
 a. Click on the Create button and select Connection
 
 8. Enter the following information
-
 a. Name: Sync Target
 b. Description – Sales OLTP Replicated Data
 c. Agent – localhost:
@@ -141,12 +119,11 @@ j. Schema: DIPC_TGT
 
 11. Data Entities are harvested and profiled at Connection creation, their popularity
 is also calculated by reviewing the DB query logs
-
 Note: This process may take some time (5 minutes or so), the Catalog will show
 a message when new updates are available
 
-12. Click an entity – SRC_ORDERS
 
+12. Click an entity – SRC_ORDERS
 You can browse the Catalog pages to find it or you can use the Search bar
 (search for SRC_ for example)
 
@@ -200,7 +177,6 @@ the data pump execution from within ODI Console –
 7. Optional: Create a new tab within Chrome
 
 8. Optional: Log into ODI Console
-
 a. <Ravello Instance Hostname>:7003/odiconsole
 b. username: SUPERVISOR
 c. password: welcome
@@ -214,12 +190,10 @@ c. password: welcome
 12. Description: Sync Schemas - DIPC_SRC to DIPC_TGT
 
 13. Select your source connection and schema
-
 a. Connection: Sync Source
 b. Schema: DIPC_SRC
 
 14. Select your target connection and schema
-
 a. Connection: Sync Target
 b. Schema: DIPC_TGT
 
@@ -251,7 +225,6 @@ It is recommended to use two screens if possible.
 ## OR
 
 22. Run Synchronize Data Task
-
 a. Click Save and Run
 b. A notification will appear that the job was saved.
 c. A new DIPC Job will be created to executed the task.
@@ -301,7 +274,6 @@ window. You could also monitor the DIPC Managed Server, however there is a
 lot of detailed information here
 
 2. Click Jobs and refresh until the newly created DIPC Job shows up.
-
 a. You should see 5 Actions
 
 3. The DIPC agent is orchestrating this process. Additional details can be seen in
@@ -309,7 +281,6 @@ the GG logs as well as within ODI Studio.
 
 4. Before doing anything else monitor GG and watch for extracts and replicats to
 be created and started and RUNNING
-
 a. Open Terminal on DIPC host machine
 b. cd /home/DIPC
 c. Execute ./GGINFO_ALL.sh
