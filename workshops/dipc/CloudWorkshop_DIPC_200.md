@@ -7,7 +7,8 @@ Lab 200 –
 _In these steps you will clean up and setup the environment for this exercise_
 
 1. Login to the VM as DIPC user – Password is “welcome1”
-![](images/100/image200_1.png)
+
+![](images/200/image200_1.png)
 
 2. Log into Data Integration Platform Cloud
 
