@@ -108,10 +108,7 @@ Confirm that the SSH Public Key field now contains a public key value.
 
 ![](images/100/image100_10.png)
 
-7. Review the Service Details for your DBCS instance. If you need to make changes, click Previous or use the navigation train to go back. Otherwise, click Create.
-The instance creation process can take some time, you'll see, it starts out in the "In Progress" status. You have to wait until the instance creation before you can move on to the next section.
-
-The creation operation is completed, when the instance is automatically started and is in the "Running" status.
+7. Review the Service Details for your DBCS instance. If you need to make changes, click Previous or use the navigation train to go back. Otherwise, click CANCEL NOT Create! The instance creation process can take some time, you'll see, so we have alreadey created the instance in advance. Proceeed to the next section.
 
 ## Creating an Oracle Data Integration Platform Cloud Instance
 
@@ -167,7 +164,7 @@ c. In the Download Keys dialog, click Download and save your SSHkeybundle.zip to
 
 ![](images/100/image100_16.png)
 
-7. Click Next and review your Data Integration Platform Cloud instance configuration details. If you need to make any changes, click Previous use the navigation train to go back. Otherwise, click Create.
+7. Click Next and review your Data Integration Platform Cloud instance configuration details. If you need to make any changes, click Previous use the navigation train to go back. Otherwise, click CANCEL - we have already created the instance for you in advance.
 
-The instance creation process can take up to 30 minutes. You have to wait until the instance is creation before you can move on to the next section.
+The instance creation process would normally take up to 30 minutes, so we have already created the instance in advance of the workshop.
 
