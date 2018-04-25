@@ -1,14 +1,9 @@
 
-
-This is derived from the Ravello Image recently released as of 4.24.2018 –
-
 # Task 0: Preparation Steps
 
 _In these steps you will clean up and setup the environment for this exercise_
 
 1. Login to the VM as DIPC user – Password is “welcome1”
-
-![](images/200/image200_1.png)
 
 2. Log into Data Integration Platform Cloud
 a. Open your browser

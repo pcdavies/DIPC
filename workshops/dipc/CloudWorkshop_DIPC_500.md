@@ -1,6 +1,6 @@
 
 
-# Lab 500: ODI Lab Preparation
+# Lab 500: Preparation for ODI Lab 
 
 1. Login to the VM as DIPC user – Password is “welcome1”
 
