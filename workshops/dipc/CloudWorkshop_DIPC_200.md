@@ -5,12 +5,20 @@ _In these steps you will clean up and setup the environment for this exercise_
 
 1. Login to the VM as DIPC user – Password is “welcome1”
 
+![](images/200/image200_1.png)
+
 2. Log into Data Integration Platform Cloud
 a. Open your browser
 b. Click on DIPC Home bookmark or go to your <Ravello Instance
 hostname>:7003/dicloud/login.html
-c. Login with weblogic/password
+c. Login with weblogic/#!hyper1on!#
+
+![](images/200/image200_2.png)
+
+
 After a few seconds, the following page should appear –
+
+![](images/200/image200_3.png)
 
 3.	Setup/ Download Agent/ GG Setup
 DIPC On-Premise Agents allow synchronizing data from outside of Oracle Public Cloud.   
@@ -20,22 +28,39 @@ DIPC On-Premise Agents allow synchronizing data from outside of Oracle Public Cl
 - In Chrome, click on DIPC Home bookmark or go to localhost:7003/dicloud/login.html
 - Login with weblogic/password
 - Click Agents
+
+![](images/200/image200_4.png)
+
 - Click Download Installer then select Linux 64 - bit
+
+![](images/200/image200_5.png)
+
 - Click OK in the Download Agent Installer window
 - Create the DIPC_AGENT2 directory and click on Save
 - Extract agent.zip to ~/DIPC_AGENT i. Click on downloaded file within Chrome
 - Extract with Unzip UI
+
+![](images/200/image200_6.png)
+
 - Click Extract again (blue button)
+
+![](images/200/image200_7.png)
+
+
 - Close all Unzip UI windows
 - Open a new Terminal window
 - cd /home/DIPC/DIPC_AGENT2/dicloud
 - Execute ./dicloudConfigureAgent.sh -dipchost=localhost -dipcport=7003 - user=weblogic - authType=BASIC
-- Script will prompt for password - password
+- Script will prompt for password - #!hyper1on!#
 - cd /home/DIPC/DIPC_AGENT2/dicloud/agent/dipcagent001/conf
 - vi agent.properties
 - Use “i” to turn insert mode on
 - Change agent port (agentport) to 7009 since default is already used
 - Change GG manager port (gginstanceport) to 7919 since default is already used
+
+![](images/200/image200_8.png)
+
+
 - Hit ESC then :wq to save
 - cd /home/DIPC/DIPC_AGENT2/dicloud/agent/dipcagent001/bin
 - Execute ./startAgentInstance.sh In the Terminal window you should see ‘NOTIFICATION Done. GoldenGate manager is configured now.’ when the Agent is fully started
@@ -64,6 +89,8 @@ use Chrome on the Ravello instance)
 
 The following page should appear –
 
+![](images/200/image200_9.png)
+
 2. Click Home
 
 3. Create Source Connection
@@ -83,6 +110,8 @@ The following page should appear –
 
 5. Review Connections settings.
 
+![](images/200/image200_10.png)
+
 6. Click Test Connection then Save
 
 7. Create Target Connection from the Catalog
@@ -99,6 +128,8 @@ a. Click on the Create button and select Connection
 - Password: welcome
 - Service Name: dics12c
 - Schema: DIPC_TGT
+
+![](images/200/image200_11.png)
 
 9. Click Test Connection then Save
 
