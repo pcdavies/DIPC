@@ -1,16 +1,16 @@
 
 
-# Lab 500: Preparation for Oracle Data Integration Lab 
+# Lab 500: ODI Lab Preparation
 
 1. Login to the VM as DIPC user – Password is “welcome1”
 
 ![](images/500/image500_0.png)
 
 2. Log into Data Integration Platform Cloud
-a. Open your browser
-b. Click on DIPC Home bookmark or go to your <Ravello Instance
+- Open your browser
+- Click on DIPC Home bookmark or go to your <Ravello Instance
 hostname>:7003/dicloud/login.html
-c. Login with weblogic/password
+- Login with weblogic/password
 After a few seconds, the following page should appear –
 
 ![](images/500/image500_2.png)
@@ -29,10 +29,10 @@ Service: dics12c
 The next steps will walk you through how to setup each.
 
 1. Log into Data Integration Platform Cloud
-a. From your local laptop/desktop start Chrome (you can also continue to
+- From your local laptop/desktop start Chrome (you can also continue to
 use Chrome on the Ravello instance)
-b. Go to your <Ravello Instance hostname>:7003/dicloud/login.html
-c. Login with weblogic/#!hyper1on!#
+- Go to your <Ravello Instance hostname>:7003/dicloud/login.html
+- Login with weblogic/#!hyper1on!#
 The following page should appear –
 
 ![](images/500/image500_2.png)
@@ -40,38 +40,38 @@ The following page should appear –
 2. Click Home
 
 3. Create Source Connection
-a. Click Create Connection
+- Click Create Connection
 
 4. Enter the following information
-a. Name: Sync Source
-b. Description – Sales OLTP Source Data
-c. Agent – localhost:
-d. Type Oracle – selecting Oracle will expand the Connection Settings
-e. Hostname: localhost
-f. Port: 1521
-g. Username: DIPC_SRC
-h. Password: welcome
-i. Service Name: dics12c
-j. Schema: DIPC_SRC
+- Name: Sync Source
+- Description – Sales OLTP Source Data
+- Agent – localhost:
+- Type Oracle – selecting Oracle will expand the Connection Settings
+- Hostname: localhost
+- Port: 1521
+- Username: DIPC_SRC
+- Password: welcome
+- Service Name: dics12c
+- Schema: DIPC_SRC
 
 5. Review Connections settings.
 
 6. Click Test Connection then Save
 
 7. Create Target Connection from the Catalog
-a. Click on the Create button and select Connection
+- Click on the Create button and select Connection
 
 8. Enter the following information
-a. Name: Sync Target
-b. Description – Sales OLTP Replicated Data
-c. Agent – localhost:
-d. Type Oracle – selecting Oracle will expand the Connection Settings
-e. Hostname: localhost
-f. Port: 1521
-g. Username: DIPC_TGT
-h. Password: welcome
-i. Service Name: dics12c
-j. Schema: DIPC_TGT
+- Name: Sync Target
+- Description – Sales OLTP Replicated Data
+- Agent – localhost:
+- Type Oracle – selecting Oracle will expand the Connection Settings
+- Hostname: localhost
+- Port: 1521
+- Username: DIPC_TGT
+- Password: welcome
+- Service Name: dics12c
+- Schema: DIPC_TGT
 
 9. Click Test Connection then Save
 
@@ -117,6 +117,7 @@ SRC_ORDER_LINES and click on it in the Quick Search results
 
 ![](images/500/image500_3.png)
 
+
 # Task 2 : Create DIPC Synchronize Data Task
 
 ![](images/500/image500_5.png)
@@ -126,8 +127,7 @@ demo. This client is NOT part of DIPC, however it does help visualize the
 Synchronize Data and ODI Execution Job process.
 
 2. To start this client open a terminal window in the Ravello Console. If needed
-press Enter to see the Login window, re-enter the DIPC user password
-(welcome1) and press Enter or click Unlock
+press Enter to see the Login window, re-enter the DIPC user password (welcome1) and press Enter or click Unlock
 
 3. Open a Terminal
 
@@ -141,13 +141,10 @@ the data pump execution from within ODI Console –
 
 7. Optional: Create a new tab within Chrome
 
-
-# ODI Console 
-
-8. Log into ODI Console
-a. <Ravello Instance Hostname>:7003/odiconsole
-b. username: SUPERVISOR
-c. password: welcome
+8. Optional: Log into ODI Console
+- <Ravello Instance Hostname>:7003/odiconsole
+- username: SUPERVISOR
+- password: welcome1
 
 9. Within the DIPC App Click Home
 
@@ -158,12 +155,12 @@ c. password: welcome
 12. Description: Sync Schemas - DIPC_SRC to DIPC_TGT
 
 13. Select your source connection and schema
-a. Connection: Sync Source
-b. Schema: DIPC_SRC
+- Connection: Sync Source
+- Schema: DIPC_SRC
 
 14. Select your target connection and schema
-a. Connection: Sync Target
-b. Schema: DIPC_TGT
+- Connection: Sync Target
+- Schema: DIPC_TGT
 
 15. Leave ‘Include Initial Load’ and ‘Include Replication’ checked under Advanced
 Options. These options allow you to optionally enable or disable the initial load
@@ -190,19 +187,19 @@ screen as follows with the Demo Client at the top and the DIPC App below or
 have the two side by side.
 It is recommended to use two screens if possible.
 
-a. Click Save and Run
-b. A notification will appear that the job was saved.
-c. A new DIPC Job will be created to executed the task.
+- Click Save and Run
+- A notification will appear that the job was saved.
+- A new DIPC Job will be created to executed the task.
 
 A notification will appear in the notification bar as below:
 
-d. The job will automatically appear within the Jobs page. This may take
+- The job will automatically appear within the Jobs page. This may take
 up to 1 minute.
-e. Click on the Job to see the Job Details
-f. Auto-refresh is on, statuses will be updated frequently
-g. As the job executes, the Initial Load process is created in ODI while DIPC
+- Click on the Job to see the Job Details
+- Auto-refresh is on, statuses will be updated frequently
+- As the job executes, the Initial Load process is created in ODI while DIPC
 configures OGG for the Source Capture and Target Delivery
-h. As this job executes, the Replicated Sales OLTP Source Data table will
+- As this job executes, the Replicated Sales OLTP Source Data table will
 be updated in the Demo Client. As new tables are created they will show
 up as yellow, when the row counts of the source and replicated schemas
 match the rows will turn green
@@ -210,21 +207,21 @@ match the rows will turn green
 Note: It may take several minutes for the Replicated Sales OLTP Data side to
 show anything. This is normal.
 
-i. As the row counts of each table match the rows will turn green
-j. Optional: The Initial Load process (uses Data Pump) can also be
+- As the row counts of each table match the rows will turn green
+- Optional: The Initial Load process (uses Data Pump) can also be
 monitored within ODI Console- (second created tab in Chrome)
 Expand Runtime/Sessions/Load Plan Executions then click on Sessions
 and on the glasses icon to view the status
-k. Optional: Click on the Session at the top of the list to view the Details in
+- Optional: Click on the Session at the top of the list to view the Details in
 ODI Console
-l. Once the row counts match and the Initial Load process is complete the
+- Once the row counts match and the Initial Load process is complete the
 “Initial Load Complete” button within the Demo Client will be enabled.
-m. Go back to the Job Details in the DIPC App. to review the status there.
+- Go back to the Job Details in the DIPC App. to review the status there.
 The Initial load Action will show Successful after a little while (may take 7
 minutes or more)
-n. Once done, the Initial load Action can be expanded to review the various
+- Once done, the Initial load Action can be expanded to review the various
 Steps underneath
-o. Click on Procedure:Initial load_PROC:DBLINK_DATAPUMP to review the
+- Click on Procedure:Initial load_PROC:DBLINK_DATAPUMP to review the
 Code generated by DIPC for the Initial Load. Click Done when you’ve
 completed the code review
 
@@ -261,10 +258,10 @@ the GG logs as well as within ODI Studio.
 
 4. Before doing anything else monitor GG and watch for extracts and replicats to
 be created and started and RUNNING
-a. Open Terminal on DIPC host machine
-b. cd /home/DIPC
-c. Execute ./GGINFO_ALL.sh
-d. Ensure both Extract and Replicat are running
+- Open Terminal on DIPC host machine
+- cd /home/DIPC
+- Execute ./GGINFO_ALL.sh
+- Ensure both Extract and Replicat are running
 
 5. Once all rows are green in the Demo Client, proceed to next step
 
