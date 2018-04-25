@@ -2,9 +2,11 @@
 
 # Lab 500: ODI Lab Preparation Steps
 
-# Task 0: ODI Preparation Steps
+# Task 0: ODI Preparation
 
-_In these steps you will clean up and setup the environment for this exercise_
+For this hand-on lab the data flow is as follows:
+
+![](images/500/image500_1.png)
 
 1. Login to the VM as DIPC user – Password is “welcome1”
 
