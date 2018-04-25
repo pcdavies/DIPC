@@ -17,45 +17,36 @@ hostname>:7003/dicloud/login.html
 c. Login with weblogic/password
 After a few seconds, the following page should appear –
 
-3. Setup/ Download Agent/ GG Setup
-DIPC On-Premise Agents allow synchronizing data from outside of Oracle
-Public Cloud.
-a. For this download we will use Chrome running in the VM not the one
-running on your laptop/desktop
+3.	Setup/ Download Agent/ GG Setup
+DIPC On-Premise Agents allow synchronizing data from outside of Oracle Public Cloud.   
+a. For this download we will use Chrome running in the VM not the one running on your laptop/desktop
 b. Go to Applications > Internet and click Google Chrome
 c. Note: If Chrome ask for keyring password then enter “welcome1”
-d. In Chrome, click on DIPC Home bookmark or go to
-localhost:7003/dicloud/login.html
+d. In Chrome, click on DIPC Home bookmark or go to localhost:7003/dicloud/login.html
 e. Login with weblogic/password
 f. Click Agents
 g. Click Download Installer then select Linux 64 - bit
 h. Click OK in the Download Agent Installer window
 i. Create the DIPC_AGENT2 directory and click on Save
-j. Extract agent.zip to ~/DIPC_AGENT
-i. Click on downloaded file within Chrome
-ii. Extract with Unzip UI
-iii. Click Extract again (blue button)
-iv. Close all Unzip UI windows
+j. Extract agent.zip to ~/DIPC_AGENT i. Click on downloaded file within Chrome
+- Extract with Unzip UI
+- Click Extract again (blue button)
+- Close all Unzip UI windows
 k. Open a new Terminal window
 l. cd /home/DIPC/DIPC_AGENT2/dicloud
-m. Execute ./dicloudConfigureAgent.sh -dipchost=localhost -dipcport=7003 -
-user=weblogic - authType=BASIC
+m. Execute ./dicloudConfigureAgent.sh -dipchost=localhost -dipcport=7003 - user=weblogic - authType=BASIC
 n. Script will prompt for password - password
 o. cd /home/DIPC/DIPC_AGENT2/dicloud/agent/dipcagent001/conf
 p. vi agent.properties
-i. Use “i” to turn insert mode on
-ii. Change agent port (agentport) to 7009 since default is already
-used
-iii. Change GG manager port (gginstanceport) to 7919 since default is
-already used
-iv. Hit ESC then :wq to save
+- Use “i” to turn insert mode on
+- Change agent port (agentport) to 7009 since default is already used
+- Change GG manager port (gginstanceport) to 7919 since default is already used
+- Hit ESC then :wq to save
 q. cd /home/DIPC/DIPC_AGENT2/dicloud/agent/dipcagent001/bin
-r. Execute ./startAgentInstance.sh
-In the Terminal window you should see ‘NOTIFICATION Done.
-GoldenGate manager is configured now.’ when the Agent is fully started
+r. Execute ./startAgentInstance.sh In the Terminal window you should see ‘NOTIFICATION Done. GoldenGate manager is configured now.’ when the Agent is fully started
 s. In Browser : Within app, on your desktop go to Agents page in DIPC
-t. The new agent should appear as follows (it will be Stopped at first then
-Running):
+t. The new agent should appear as follows (it will be Stopped at first then Running)
+
 
 # Task 1: Setup DIPC Connections
 
@@ -160,9 +151,7 @@ demo. This client is NOT part of DIPC, however it does help visualize the
 Synchronize Data and ODI Execution Job process.
 
 2. To start this client open a terminal window in the Ravello Console. If needed
-press Enter to see the Login window, re-enter the DIPC user password
-
-(welcome1) and press Enter or click Unlock
+press Enter to see the Login window, re-enter the DIPC user password (welcome1) and press Enter or click Unlock
 
 3. Open a Terminal
 
