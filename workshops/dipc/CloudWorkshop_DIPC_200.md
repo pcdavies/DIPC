@@ -1,5 +1,5 @@
 
-# Task 0: Lab 200
+# Task 0: Workshop Lab 200
 
 _In these steps you will clean up and setup the environment for this exercise_
 
