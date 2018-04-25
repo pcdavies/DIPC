@@ -4,21 +4,22 @@ Update: Apr 11, 2018
 
 ## Introduction - Remote Agent Install - Sync On-prem databases
 
-While the Oracle Cloud has greatly simplified DBA tasks, the DBA still has a role to play in the development and maintenance of DBCA instances.  This lab covers a few of the common DBA activities in a cloud environment.
+This lab covers installation and configuration of DIPC remote agent along with synchronization of an on-prem database. Agents allow synchronization of data from sources outside Oracle Cloud. Two VMs within Ravello will be used to simulate a DIPC instance and an On-Prem database server.
 
 This lab supports the following use cases:
--	Rapid creation and scaling of cloud databases.
--	Maintenance of security access.
+-   Configure Remote DIPC Agent
+-   Synchronize On-Premise Database
 
 ## Objectives
 
 -   Create Compute Instance to Simulate On-Prem Source
--   Configure Remote Agent as Trusted Application
--   Download Agent Package
--   Unzip and Configure Agent
+-	Ensuring Remote Agent is Trusted by DIPC instance
+-   Agent Download
+-   Agent Installation and Configuration
 -   Configure Agent SSL
--   Administer Agent: Start and Stop
--   
+-	Agent Administration - Starting and Stopping.
+-   Synchronize On-Premise Database
+   
 ### **STEP 1**: Log into DIPC Console and go to Agent Page
 
 -   Click "Agents" in left panel
