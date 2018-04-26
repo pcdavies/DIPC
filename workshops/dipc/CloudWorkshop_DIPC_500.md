@@ -1,6 +1,6 @@
 April 26 2018
 
-# Lab 500: Oracle Data Integration Lab Preparation
+# Lab 500: Oracle Data Integration (ODI)  Lab Preparation
 
 1. Login to the VM as DIPC user – Password is “welcome1”
 
