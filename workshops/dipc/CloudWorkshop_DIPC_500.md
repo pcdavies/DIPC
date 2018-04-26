@@ -4,7 +4,7 @@ April 26 2018
 
 1. Login to the VM as DIPC user – Password is “welcome1”
 
-![](images/500/image500_0.png)
+![](images/500/image500_1.png)
 
 2. Log into Data Integration Platform Cloud
 - Open your browser
@@ -13,8 +13,7 @@ hostname>:7003/dicloud/login.html
 - Login with weblogic/password
 After a few seconds, the following page should appear –
 
-![](images/500/image500_1.png)
-
+![](images/500/image500_2.png)
 
 # Task 1: Setup ODI Connections
 
