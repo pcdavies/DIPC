@@ -8,11 +8,11 @@ In these steps you will clean up and setup the environment for this exercise
 
 1. Login to the VM as DIPC user – Password is “welcome1” 
   
- 
+![](images/100/image100_1.png)
+
 If the screensaver is on just press “enter” to open the login screen. 
  
- 
-#Task 1: Prep External Website Data  
+# Task 1: Prep External Website Data  
  
 1.	Log into Data Integration Platform Cloud 
 - From your local laptop/desktop start Chrome (you can also continue to use Chrome on the Ravello instance) 
@@ -21,7 +21,8 @@ If the screensaver is on just press “enter” to open the login screen.
 
 The following page should appear – 
   
- 
+![](images/100/image100_1.png)
+
 2.	Click Home 
 
 3.	Create Data Preparation Task 
@@ -29,7 +30,9 @@ The following page should appear –
 
  
 4.	On the Create Data Preparation Task enter the following information 
- 
+
+![](images/100/image100_1.png)
+
 - Name: PrepWebData 
 - Description  Prep External Website Data  
 - Agent – leave blank 
@@ -37,6 +40,9 @@ The following page should appear –
 - Directory: /home/DIPC 
 
 5. For Source Configuration click add new connection button
+
+![](images/100/image100_1.png)
+
 - Name Local File Store
 - Description Local File Store
 - Agent Leave Blank
@@ -51,7 +57,9 @@ The following page should appear –
 8.	Create Target Connection from the Catalog 
 NOTE: This connection may have already have been setup in a previous HOL. 
 - Click on the Create button and select Connection  
-  
+
+![](images/100/image100_1.png)
+
 9.	Enter the following information  
 
 - Name: Sync Target 
@@ -64,7 +72,9 @@ NOTE: This connection may have already have been setup in a previous HOL.
 - Password: welcome1 
 - Service Name: dics12c 
 - Schema: DIPC_TGT 
- 	  
+
+![](images/100/image100_1.png)
+
 10.	Click Test Connection, Review for errors 
 
 11.	Click Save 
@@ -77,6 +87,9 @@ NOTE: This connection may have already have been setup in a previous HOL.
 -  Directory: /home/DIPC 
 -  File: webclicks.txt 
 - Set options for webclicks.txt as follows 
+
+![](images/100/image100_1.png)
+
 - No Text Qualifier 
 - Ensure header is not enabled 
 - First Data Row 1 
@@ -84,23 +97,37 @@ NOTE: This connection may have already have been setup in a previous HOL.
 -  Connection: DIPC_TGT 
 -  Schema: DIPC_TGT 
 -  Data Entity: webclicks  
- 
+
+![](images/100/image100_1.png)
+
 13.	Click Save and Transform 
 
 14.	The following screen will appear as the file is being parsed and profiled 
- 
+
 15.	Once finished the data preparation screen will appear 
- 
+
+![](images/100/image100_1.png)
+
 16.	Begin prepping/transforming the file 
+
+![](images/100/image100_1.png)
 
 - The profiling process has captured advanced profiling information as the flat file was ingested.  Click each column to review the profiling results in the right hand data profile drawer. 
 - There are also two views in which data can be prepped and transformed. To view the data view click the data tab 
+
+![](images/100/image100_1.png)
  
 17.	To transform data click the menu bar on the column 
- 
+
+![](images/100/image100_1.png)
+
 18.	For Column 6 transform Shoes.html to shoes.html using the Replace transform 
- 
+
+![](images/100/image100_1.png)
+
 19.	Click Apply.  Clicking apply updates, the data, metadata and profiling statistics.  Also note the transform is saved and displayed in the left-hand drawer.  This transform can be deleted and the data, metadata and profiling statistics will be updated accordingly. 
+
+![](images/100/image100_1.png)
  
 - Column 1: Rename WROWID 
 - Column 2: Rename CUSTID 
@@ -109,11 +136,17 @@ NOTE: This connection may have already have been setup in a previous HOL.
 - Column 5: Rename PAGENAME 
 - Column 6: Rename PAGEREFERRER 
 - Column 7: Rename VISITDATE 
- 
-20.	Click Save and Run 
 
-21.	Review Job Execution 
+20. Review Transforms and Data
+
+![](images/100/image100_1.png)
  
+21.	Click Save and Run 
+
+22.	Review Job Execution 
+ 
+![](images/500/image100_1.png)
+
 Summary 
  
 You have now successfully completed the Hands on Lab, and have successfully performed an end-to-end data synchronization task through Oracle’s Data Integration Platform Cloud. 
