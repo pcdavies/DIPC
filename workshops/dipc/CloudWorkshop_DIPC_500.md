@@ -16,8 +16,9 @@ If the screensaver is on just press “enter” to open the login screen.
  
 1.	Log into Data Integration Platform Cloud 
 - From your local laptop/desktop start Chrome (you can also continue to use Chrome on the Ravello instance) 
-- Go to your <Ravello Instance hostname>:7003/dicloud/login.html 
+- Go to your Ravello Instance hostname:7003/dicloud/login.html 
 - Login with weblogic/#!hyper1on!# 
+
 The following page should appear – 
   
  
@@ -52,7 +53,7 @@ NOTE: This connection may have already have been setup in a previous HOL.
 - Click on the Create button and select Connection  
   
 9.	Enter the following information  
-10.  
+
 - Name: Sync Target 
 - Description – Sales OLTP Replicated Data 
 - Agent – leave blank 
@@ -64,11 +65,11 @@ NOTE: This connection may have already have been setup in a previous HOL.
 - Service Name: dics12c 
 - Schema: DIPC_TGT 
  	  
-11.	Click Test Connection, Review for errors 
+10.	Click Test Connection, Review for errors 
 
-12.	Click Save 
+11.	Click Save 
 
-13.	Ensure Create Data Preparation Task Entries as follows 
+12.	Ensure Create Data Preparation Task Entries as follows 
 - Name: Prep Web Data 
 - Description: Prep External Website Data 
 - Source Configuration 
@@ -84,22 +85,22 @@ NOTE: This connection may have already have been setup in a previous HOL.
 -  Schema: DIPC_TGT 
 -  Data Entity: webclicks  
  
-14.	Click Save and Transform 
+13.	Click Save and Transform 
 
-15.	The following screen will appear as the file is being parsed and profiled 
+14.	The following screen will appear as the file is being parsed and profiled 
  
-16.	Once finished the data preparation screen will appear 
+15.	Once finished the data preparation screen will appear 
  
-17.	Begin prepping/transforming the file 
+16.	Begin prepping/transforming the file 
 
 - The profiling process has captured advanced profiling information as the flat file was ingested.  Click each column to review the profiling results in the right hand data profile drawer. 
 - There are also two views in which data can be prepped and transformed. To view the data view click the data tab 
  
-18.	To transform data click the menu bar on the column 
+17.	To transform data click the menu bar on the column 
  
-19.	For Column 6 transform Shoes.html to shoes.html using the Replace transform 
+18.	For Column 6 transform Shoes.html to shoes.html using the Replace transform 
  
-20.	Click Apply.  Clicking apply updates, the data, metadata and profiling statistics.  Also note the transform is saved and displayed in the left-hand drawer.  This transform can be deleted and the data, metadata and profiling statistics will be updated accordingly. 
+19.	Click Apply.  Clicking apply updates, the data, metadata and profiling statistics.  Also note the transform is saved and displayed in the left-hand drawer.  This transform can be deleted and the data, metadata and profiling statistics will be updated accordingly. 
  
 - Column 1: Rename WROWID 
 - Column 2: Rename CUSTID 
@@ -109,8 +110,9 @@ NOTE: This connection may have already have been setup in a previous HOL.
 - Column 6: Rename PAGEREFERRER 
 - Column 7: Rename VISITDATE 
  
-23.	Click Save and Run 
-24.	Review Job Execution 
+20.	Click Save and Run 
+
+21.	Review Job Execution 
  
 Summary 
  
