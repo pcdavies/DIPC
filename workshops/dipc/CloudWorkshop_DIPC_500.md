@@ -26,7 +26,7 @@ The following page should appear –
 
 3.	Create Data Preparation Task 
 - Click Data Preparation 
-
+![](images/500/image500_2a.png)
  
 4.	On the Create Data Preparation Task enter the following information 
 
@@ -126,7 +126,7 @@ NOTE: This connection may have already have been setup in a previous HOL.
 
 19. Click Apply.  Clicking apply updates, the data, metadata and profiling statistics.  Also note the transform is saved and displayed in the left-hand drawer.  This transform can be deleted and the data, metadata and profiling statistics will be updated accordingly. 
 
-![](images/500/image500_14a.png)
+![](images/500/image500_14b.png)
 - Column 1: Rename WROWID 
 - Column 2: Rename CUSTID 
 - Column 3: Rename LNAME 
@@ -137,7 +137,7 @@ NOTE: This connection may have already have been setup in a previous HOL.
 
 20. Review Transforms and Data
 
-![](images/500/image500_15a.png)
+![](images/500/image500_15b.png)
 
 21. Click Save and Run 
 
