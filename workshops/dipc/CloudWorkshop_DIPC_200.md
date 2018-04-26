@@ -1,5 +1,5 @@
 
-# Task 0: Workshop Lab 200
+# Task 0: Preparation Steps
 
 _In these steps you will clean up and setup the environment for this exercise_
 
@@ -11,9 +11,8 @@ _In these steps you will clean up and setup the environment for this exercise_
 a. Open your browser
 b. Click on DIPC Home bookmark or go to your <Ravello Instance
 hostname>:7003/dicloud/login.html
-c. Login with weblogic/#!hyper1on!#
-
 ![](images/200/image200_2.png)
+c. Login with weblogic/#!hyper1on!#
 
 
 After a few seconds, the following page should appear –
@@ -24,6 +23,7 @@ After a few seconds, the following page should appear –
 DIPC On-Premise Agents allow synchronizing data from outside of Oracle Public Cloud.   
 - For this download we will use Chrome running in the VM not the one running on your laptop/desktop
 - Go to Applications > Internet and click Google Chrome
+![](images/200/image200_3a.png)
 - Note: If Chrome ask for keyring password then enter “welcome1”
 - In Chrome, click on DIPC Home bookmark or go to localhost:7003/dicloud/login.html
 - Login with weblogic/password
@@ -116,6 +116,7 @@ The following page should appear –
 
 7. Create Target Connection from the Catalog
 a. Click on the Create button and select Connection
+![](images/200/image200_10a.png)
 
 8. Enter the following information
 - Name: Sync Target
