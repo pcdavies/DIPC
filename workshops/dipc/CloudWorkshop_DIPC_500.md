@@ -22,7 +22,6 @@ If the screensaver is on just press “enter” to open the login screen.
 The following page should appear – 
   
 ![](images/500/image500_2.png)
-
 2.	Click Home 
 
 3.	Create Data Preparation Task 
@@ -105,32 +104,24 @@ NOTE: This connection may have already have been setup in a previous HOL.
 14.	The following screen will appear as the file is being parsed and profiled 
 
 ![](images/500/image500_9a.png)
-
 15.	Once finished the data preparation screen will appear 
 
 ![](images/500/image500_10a.png)
-
 16.	Begin prepping/transforming the file 
-
-![](images/100/image100_1.png)
 
 - The profiling process has captured advanced profiling information as the flat file was ingested.  Click each column to review the profiling results in the right hand data profile drawer. 
 - There are also two views in which data can be prepped and transformed. To view the data view click the data tab 
 
 ![](images/500/image500_11a.png)
- 
 17.	To transform data click the menu bar on the column 
 
 ![](images/500/image500_12a.png)
-
 18.	For Column 6 transform Shoes.html to shoes.html using the Replace transform 
 
 ![](images/500/image500_13a.png)
-
 19.	Click Apply.  Clicking apply updates, the data, metadata and profiling statistics.  Also note the transform is saved and displayed in the left-hand drawer.  This transform can be deleted and the data, metadata and profiling statistics will be updated accordingly. 
 
 ![](images/500/image500_14a.png)
- 
 - Column 1: Rename WROWID 
 - Column 2: Rename CUSTID 
 - Column 3: Rename LNAME 
@@ -142,7 +133,6 @@ NOTE: This connection may have already have been setup in a previous HOL.
 20. Review Transforms and Data
 
 ![](images/500/image500_15a.png)
- 
 21.	Click Save and Run 
 
 22.	Review Job Execution 
