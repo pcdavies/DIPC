@@ -15,7 +15,6 @@ After a few seconds, the following page should appear –
 
 ![](images/500/image500_1.png)
 
-![](images/500/image500_2.png)
 
 # Task 1: Setup ODI Connections
 
