@@ -8,11 +8,13 @@ _In these steps you will clean up and setup the environment for this exercise_
 ![](images/200/image200_1.png)
 
 2. Log into Data Integration Platform Cloud
-a. Open your browser
-b. Click on DIPC Home bookmark or go to your <Ravello Instance
+
+    a. Open your browser
+
+    b. Click on DIPC Home bookmark or go to your <Ravello Instance
 hostname>:7003/dicloud/login.html
 ![](images/200/image200_2.png)
-c. Login with weblogic/#!hyper1on!#
+    c. Login with weblogic/#!hyper1on!#
 
 
 After a few seconds, the following page should appear –
@@ -21,114 +23,135 @@ After a few seconds, the following page should appear –
 
 3.	Setup/ Download Agent/ GG Setup
 DIPC On-Premise Agents allow synchronizing data from outside of Oracle Public Cloud.   
-- For this download we will use Chrome running in the VM not the one running on your laptop/desktop
-- Go to Applications > Internet and click Google Chrome
+    a. For this download we will use Chrome running in the VM not the one running on your laptop/desktop
+
+    b. Go to Applications > Internet and click Google Chrome
+
 ![](images/200/image200_3a.png)
-- Note: If Chrome ask for keyring password then enter “welcome1”
-- In Chrome, click on DIPC Home bookmark or go to localhost:7003/dicloud/login.html
-- Login with weblogic/password
-- Click Agents
+   
+        c. Note: If Chrome ask for keyring password then enter “welcome1”
+        d. In Chrome, click on DIPC Home bookmark or go to localhost:7003/dicloud/login.html
+        e. Login with weblogic/password
+        f. Click Agents
 
 ![](images/200/image200_4.png)
 
-- Click Download Installer then select Linux 64 - bit
+        g. Click Download Installer then select Linux 64 - bit
 
 ![](images/200/image200_5.png)
 
-- Click OK in the Download Agent Installer window
-- Create the DIPC_AGENT2 directory and click on Save
-- Extract agent.zip to ~/DIPC_AGENT i. Click on downloaded file within Chrome
-- Extract with Unzip UI
+        h. Click OK in the Download Agent Installer window
+        i. Create the DIPC_AGENT2 directory and click on Save
+![](images/200/image200_5a.png)
+
+        j. Extract agent.zip to ~/DIPC_AGENT
+            i. Click on downloaded file within Chrome
+            ii. Extract with Unzip UI
 
 ![](images/200/image200_6.png)
 
-- Click Extract again (blue button)
+            iii. Click Extract again (blue button)
 
 ![](images/200/image200_7.png)
 
+            iv. Close all Unzip UI windows
+![](images/200/image200_7a.png)
 
-- Close all Unzip UI windows
-- Open a new Terminal window
-- cd /home/DIPC/DIPC_AGENT2/dicloud
-- Execute ./dicloudConfigureAgent.sh -dipchost=localhost -dipcport=7003 - user=weblogic - authType=BASIC
-- Script will prompt for password - #!hyper1on!#
-- cd /home/DIPC/DIPC_AGENT2/dicloud/agent/dipcagent001/conf
-- vi agent.properties
-- Use “i” to turn insert mode on
-- Change agent port (agentport) to 7009 since default is already used
-- Change GG manager port (gginstanceport) to 7919 since default is already used
 
+        k. Open a new Terminal window
+![](images/200/image200_7b.png)
+
+        l. cd /home/DIPC/DIPC_AGENT2/dicloud
+        m. Execute ./dicloudConfigureAgent.sh -dipchost=localhost -dipcport=7003 - user=weblogic - authType=BASIC
+![](images/200/image200_7c.png)
+
+        n. Script will prompt for password - #!hyper1on!#
+        o. cd /home/DIPC/DIPC_AGENT2/dicloud/agent/dipcagent001/conf
+        p. vi agent.properties
+            i. Use “i” to turn insert mode on
+            ii. Change agent port (agentport) to 7009 since default is already used
+            iii. Change GG manager port (gginstanceport) to 7919 since default is already used
+            iv. Hit ESC then :wq to save
 ![](images/200/image200_8.png)
 
+        q. cd /home/DIPC/DIPC_AGENT2/dicloud/agent/dipcagent001/bin
+        r. Execute ./startAgentInstance.sh In the Terminal window you should see ‘NOTIFICATION Done. GoldenGate manager is configured now.’ when the Agent is fully started
+![](images/200/image200_8a.png)
 
-- Hit ESC then :wq to save
-- cd /home/DIPC/DIPC_AGENT2/dicloud/agent/dipcagent001/bin
-- Execute ./startAgentInstance.sh In the Terminal window you should see ‘NOTIFICATION Done. GoldenGate manager is configured now.’ when the Agent is fully started
-- In Browser : Within app, on your desktop go to Agents page in DIPC
-- The new agent should appear as follows (it will be Stopped at first then Running)
+        s. In Browser : Within app, on your desktop go to Agents page in DIPC
+        t. The new agent should appear as follows (it will be Stopped at first then Running)
+![](images/200/image200_8b.png)
 
 
 # Task 1: Setup DIPC Connections
 
 The connectivity information for this hand-on lab is as follows:
 
-Source Schema/User: DIPC_SRC
-OLTP_Schema/User: DIPC_TGT
-Passwords: welcome
-Server: localhost
-Port: 1521
-Service: dics12c
+    * Source Schema/User: DIPC_SRC
+    * OLTP_Schema/User: DIPC_TGT
+    * Passwords: welcome
+    * Server: localhost
+    * Port: 1521
+    * Service: dics12c
 
 The next steps will walk you through how to setup each.
 
 1. Log into Data Integration Platform Cloud
-- From your local laptop/desktop start Chrome (you can also continue to
-use Chrome on the Ravello instance)
-- Go to your <Ravello Instance hostname>:7003/dicloud/login.html
-- Login with weblogic/#!hyper1on!#
 
-The following page should appear –
+    a. From your local laptop/desktop start Chrome (you can also continue to
+use Chrome on the Ravello instance)
+    
+    b. Go to your <Ravello Instance hostname>:7003/dicloud/login.html
+
+    c. Login with weblogic/#!hyper1on!#. The following page should appear
 
 ![](images/200/image200_9.png)
 
 2. Click Home
 
 3. Create Source Connection
-- Click Create Connection
 
-4. Enter the following information
-- Name: Sync Source
-- Description – Sales OLTP Source Data
-- Agent – localhost:
-- Type Oracle – selecting Oracle will expand the Connection Settings
-- Hostname: localhost
-- Port: 1521
-- Username: DIPC_SRC
-- Password: welcome
-- Service Name: dics12c
-- Schema: DIPC_SRC
+    a. Click Create Connection
+
+![](images/200/image200_9a.png)
+![](images/200/image200_9b.png)
+
+4. Enter the following information:
+
+    * Name: Sync Source
+    * Description – Sales OLTP Source Data
+    * Agent – localhost:
+    * Type Oracle – selecting Oracle will expand the Connection Settings
+    * Hostname: localhost
+    * Port: 1521
+    * Username: DIPC_SRC
+    * Password: welcome
+    * Service Name: dics1
+    * Schema: DIPC_SRC
+    
+![](images/200/image200_10.png)
 
 5. Review Connections settings.
-
-![](images/200/image200_10.png)
 
 6. Click Test Connection then Save
 
 7. Create Target Connection from the Catalog
-a. Click on the Create button and select Connection
+
+    a. Click on the Create button and select Connection
 ![](images/200/image200_10a.png)
 
 8. Enter the following information
-- Name: Sync Target
-- Description – Sales OLTP Replicated Data
-- Agent – localhost:
-- Type Oracle – selecting Oracle will expand the Connection Settings
-- Hostname: localhost
-- Port: 1521
-- Username: DIPC_TGT
-- Password: welcome
-- Service Name: dics12c
-- Schema: DIPC_TGT
+
+    - Name: Sync Target
+    - Description – Sales OLTP Replicated Data
+    - Agent – localhost:
+    - Type Oracle – selecting Oracle will expand the Connection Settings
+    - Hostname: localhost
+    - Port: 1521
+    - Username: DIPC_TGT
+    - Password: welcome
+    - Service Name: dics12c
+    - Schema: DIPC_TGT
 
 ![](images/200/image200_11.png)
 
@@ -146,6 +169,9 @@ a message when new updates are available
 You can browse the Catalog pages to find it or you can use the Search bar
 (search for SRC_ for example)
 
+![](images/200/image200_12.png)
+![](images/200/image200_13.png)
+
 Notice the Popularity score calculated for SRC_ORDERS, a full bar means that this
 is one of the Data Entities that has been used the most in queries. Right now
 SRC_ORDERS hasn’t been used yet so the bar is empty. Tags can be added as
@@ -153,20 +179,32 @@ well to group objects together
 
 13. Click on the Metadata tab
 
+![](images/200/image200_14.png)
+
 14. Click on an Attribute, ORDER_DATE for example
+
+![](images/200/image200_15.png)
 
 15. Notice the Profiling statistics appearing in the right-hand side drawer
 
 16. Click Data tab
 
+![](images/200/image200_16.png)
+
 17. Go back to the main Catalog page – Search for Data Entity –
 SRC_ORDER_LINES and click on it in the Quick Search results
 
+![](images/200/image200_17.png)
+
 18. Click Metadata tab
+
+![](images/200/image200_18.png)
 
 19. Click on a column, for example column – QTY
 
 20. Notice the Profiling statistics
+
+![](images/200/image200_19.png)
 
 21. Click Data tab
 
