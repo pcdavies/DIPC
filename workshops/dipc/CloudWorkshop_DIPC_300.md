@@ -12,8 +12,8 @@ This lab supports the following use cases:
 
 ## Objectives
 
--   Create Compute Instance to Simulate On-Prem Source
--	Ensuring Remote Agent is Trusted by DIPC instance
+-   Ensure Ravello VMs for DIPC and DB 
+-	Ensuring Remote Agent is trusted by DIPC instance
 -   Agent Download
 -   Agent Installation and Configuration
 -   Configure Agent SSL
@@ -44,7 +44,13 @@ This lab supports the following use cases:
 
 	![](images/300/AgentImage04-DownloadAgentSave.JPG)
 
+### **STEP 4**: Save the agent zip file to your home directory
 
+-   Save the file to your home directory in preparation to unzip and install
+
+	![](images/300/AgentImage04-DownloadAgentSave.JPG)
+
+    
 ## Required Artifacts
 
 -   The following lab does not require set up or artifacts from the previous labs.
