@@ -397,8 +397,11 @@ be created and started and RUNNING
 - cd /home/DIPC
 - Execute ./GGINFO_ALL.sh
 - Ensure both Extract and Replicat are running
+![](images/200/image200_46.png)
 
 5. Once all rows are green in the Demo Client, proceed to next step
+
+![](images/200/image200_47.png)
 
 # Task 4 : Monitor Source Inserts/Updates/Deletes
 
@@ -407,9 +410,11 @@ and are running, we can simulate insert/updates and deletes on the source and
 monitor the replicated data through the Demo Client.
 
 2. Using the Demo Client click on the “Initial Load Complete” Button.
+![](images/200/image200_48.png)
 
 3. The following screen will appear. NOTE – the current refresh of the client is 10
 seconds.
+![](images/200/image200_49.png)
 
 The demo client shows the source Sales OLTP data, the replicated Sales OLTP
 data, and the target Sales DW. As data is updated, inserted or deleted from the
@@ -430,10 +435,14 @@ When prompted enter the password: #DIPCR0CKS#
 the table grid. Update the first row’s status which contains ORDER_ID=1 from
 COM to CLO, clicking enter will commit the update and turn the column yellow –
 
+![](images/200/image200_50.png)
+
 5. This row will be automatically update on the replicated schema as the DIPC Job
 picks up the change. The Demo Client is set to refresh at 10 seconds, so it will
 at least take 10 seconds for the replicated table grid to update. Once the Demo
 Client finds the change both rows will be updated to yellow.
+
+![](images/200/image200_51.png)
 
 6. The yellow highlights will automatically expire within the client.
 
@@ -441,13 +450,17 @@ Client finds the change both rows will be updated to yellow.
 This will perform an insert and the demo client will scroll to the row that was
 inserted.
 
+![](images/200/image200_52.png)
+
 8. Depending on the refresh, the row may directly be replicated to the replicated
 schema or appear in the next refresh by the Demo Client.
 
 9. Both rows should show as yellow
 
-10. To perform a delete click last row and click on the icon. Notice this record
+10. To perform a delete click last row and click on the icon ![](images/200/image200_53.png) . Notice this record
 will be delete from the replicated schema as well.
+
+![](images/200/image200_54.png)
 
 # Summary
 
