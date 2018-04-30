@@ -1,8 +1,6 @@
 
 # Task 0: Preparation Steps
-
 ![](images/200/image200_0.png)
-
 _In these steps you will clean up and setup the environment for this exercise_
 
 1. Login to the VM as DIPC user – Password is “welcome1”
