@@ -13,8 +13,7 @@ _In these steps you will clean up and setup the environment for this exercise_
 
     a. Open your browser
 
-    b. Click on DIPC Home bookmark or go to your <Ravello Instance
-hostname>:7003/dicloud/login.html
+    b. Click on DIPC Home bookmark or go to your Ravello Instance hostname:7003/dicloud/login.html
 ![](images/200/image200_2.png)
     c. Login with weblogic/#!hyper1on!#
 
@@ -234,7 +233,7 @@ the data pump execution from within ODI Console –
 7. Optional: Create a new tab within Chrome
 
 8. Optional: Log into ODI Console
-- <Ravello Instance Hostname>:7003/odiconsole
+- Ravello Instance Hostname:7003/odiconsole
 - username: SUPERVISOR
 - password: welcome
 
