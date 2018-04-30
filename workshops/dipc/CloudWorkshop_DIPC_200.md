@@ -1,6 +1,6 @@
 
 # Task 0: Preparation Steps
-
+![](images/200/image200_0.png)
 _In these steps you will clean up and setup the environment for this exercise_
 
 1. Login to the VM as DIPC user – Password is “welcome1”
@@ -11,8 +11,7 @@ _In these steps you will clean up and setup the environment for this exercise_
 
     a. Open your browser
 
-    b. Click on DIPC Home bookmark or go to your <Ravello Instance
-hostname>:7003/dicloud/login.html
+    b. Click on DIPC Home bookmark or go to your Ravello Instance hostname:7003/dicloud/login.html
 ![](images/200/image200_2.png)
     c. Login with weblogic/#!hyper1on!#
 
@@ -239,12 +238,18 @@ the data pump execution from within ODI Console –
 7. Optional: Create a new tab within Chrome
 
 8. Optional: Log into ODI Console
+<<<<<<< HEAD
     
     a. \<Ravello Instance Hostname>:7003/odiconsole
     
     b. username: SUPERVISOR
     
     c. password: welcome
+=======
+- Ravello Instance Hostname:7003/odiconsole
+- username: SUPERVISOR
+- password: welcome
+>>>>>>> e024275cf3354d9f2d8cf4b4d13250514fa481ee
 
 9. Within the DIPC App Click Home
 

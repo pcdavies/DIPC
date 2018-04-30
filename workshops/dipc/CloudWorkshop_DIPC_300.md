@@ -1,4 +1,4 @@
-![](images/300/AgentImage01a-SplashScreen.JPG)
+![](images/300/AgentImage05-SplashScreen.JPG)
 
 Update: Apr 25, 2018
 
@@ -12,188 +12,138 @@ This lab supports the following use cases:
 
 ## Objectives
 
--   Create Compute Instance to Simulate On-Prem Source
--	Ensuring Remote Agent is Trusted by DIPC instance
+-   Ensure Ravello VMs for DIPC and DB 
+-	Ensuring Remote Agent is trusted by DIPC instance
 -   Agent Download
 -   Agent Installation and Configuration
 -   Configure Agent SSL
 -	Agent Administration - Starting and Stopping.
 -   Synchronize On-Premise Database
    
-### **STEP 1**: Log into DIPC Console and go to Agent Page
+### **STEP 1**: Identify Shared Ravello Blueprint
+
+-   In the Left Sidebar Click on Library>Blueprints
+
+	![](images/300/AgentImage010-IdentifyBlueprint.png)
+
+AgentImage015-CreateApplication.png
+
+### **STEP 2**: Create Ravello Application
+
+-   Click "Create Application"
+
+	![](images/300/AgentImage015-CreateApplication.png)
+
+-   Enter Ravello Application Details
+    Name: "DIPC 18.2.3 Agent - DB Sync"
+    Description: "DIPC Agent - DB Sync Configuration"
+    Click "Create"
+
+	![](images/300/AgentImage020-ReviewAppConfig.png)
+
+### **STEP 3**: Publish Ravello Application
+
+-   Publish the Blueprint VMs
+    Click "Publish" highlighted in top right
+
+	![](images/300/AgentImage025-PublishApp.png)
+
+-   Review publish parameters and click "Publish"
+    
+	![](images/300/AgentImage030-ReviewPublishApp.png)
+
+
+### **STEP 4**: Log into DIPC Console and go to Agent Page
 
 -   Click "Agents" in left panel
 
-	![](images/300/AgentImage01-HomePage.JPG)
+	![](images/300/AgentImage035-HomePage.JPG)
 
-### **STEP 2**: Select Download Installer Drop Down Menu
+### **STEP 5**: Select Download Installer Drop Down Menu
 
 -   Select drop down menu and select zip file for your Operating System
 
-	![](images/300/AgentImage02-DownloadAgent.JPG)
+	![](images/300/AgentImage040-DownloadAgent.JPG)
 
-### **STEP 3**: Confirm your agent download selection
+### **STEP 6**: Confirm your agent download selection
 
 -   Click "OK" to confirm selection
 
-	![](images/300/AgentImage03-DownloadAgent.JPG)
+	![](images/300/AgentImage045-DownloadAgent.JPG)
 
-### **STEP 4**: Save the agent zip file to your home directory
+### **STEP 7**: Save the agent zip file to your home directory
 
 -   Save the file to your home directory in preparation to unzip and install
 
-	![](images/300/AgentImage04-DownloadAgentSave.JPG)
+	![](images/300/AgentImage050-DownloadAgentSave.JPG)
 
+### **STEP 8**: Open a terminal and navigate to directory with agent
 
-## Required Artifacts
+-   view agent zip file
 
--   The following lab does not require set up or artifacts from the previous labs.
+	![](images/300/AgentImage055-UnzipAgent.png)
 
-## Create an instance
+-   unzip agent file
 
-In lab 100 we created an instance from a cloud backup of an on-premise instance.  To create an instance from scratch the process is very similar.  We will not actually create the instance, but will walk through the screens but cancel before the final step.
+	![](images/300/AgentImage060-UnzipAgent.png)
 
-### **STEP 1**: Log into the Oracle Cloud Console and select the database service (same a lab 100)
 
--   Open Firefox on the compute image desktop and log into the Oracle Cloud
+### **STEP 9**: Show current agent page in DIPC console
 
-	![](images/300/image2.png)
+-   Click "Agent" in the left toolbar
+-   There is only one local agent install
 
-	![](images/300/image3.png)
+	![](images/300/AgentImage065-Current_DIPC_Agent_Page.png)
 
--   You should end up on the Database service.  If not select the Dashboard link (upper right) and then Database (see below). 
 
-	![](images/300/image4.png)
+### **STEP 10**: Identify private IP for DIPC console
 
--   You may also land here if not on the database service (depending on what screens you had been in previously).  Then select database.
+-   Note the private IP listed in bottom left of DIPC console
 
-	![](images/300/image5.png)
+	![](images/300/AgentImage070-DIPC_Priv_IP.png)
 
-    ![](images/300/image6.png)
 
-### **STEP 2**: Create Service
+### **STEP 11**: Install the Agent from On-Prem Console
 
--   Select Create Service
- 
- 	![](images/300/image7.png)
+-   Open a terminal in On-Prem VM
+-   Navigate to the agent directory
+-   Execute command to install agent using password - #!hyper1on!#
+    ./dicloudConfigureAgent.sh -dipchost=10.0.0.3 -dipcport=7003 -user=weblogic -authType=BASIC
 
--   Enter the fields noted below.  Feel free to explore the various options in the drop down lists.  Hit Next.
+-   Set the "dipchost" parameter to 10.0.0.3
+-   This configuration does not have IDCS so use "BASIC" for parameter AuthType
 
- 	![](images/300/image8.png)
+	![](images/300/AgentImage075-Execute_Agent_Install.png)
+   
+-   Output shows agent created
+-   ![](images/300/AgentImage080-Execute_Agent_Install.png)
 
--   Very few fields are mandatory (highlighted in red) - just the sys password and the ssh public key. Also note that if you are planning on using this instance for GoldenGate you can select this option.  Also recall that in lab 100 we created a new instance from a backup.  We are not doing that here.  This is simply a review step.  We will not go futher. 
 
- 	![](images/300/image9.png)
-    
-## Maintain Security Access
+### **STEP 12**: Modify Agent Parameter 
 
-Once you have a running database you may wish to open (or close) various ports.  We will create a new rule to open 1522 (not used..this is just an example).
+-   Modify agent port "agentPort" in parameter file "agent.properties" to 7010
+path to parameter file: /home/DIPC/Documents/dicloud/agent/dipcagent001/conf 
 
-### **STEP 3**: Create Security Rule
+	![](images/300/AgentImage085-ModifyAgentParameter.png)
 
--   To the right of the Database Service select the hamburger menu and then 'Access Rules'.
+	![](images/300/AgentImage086-ModifyAgentParameter.png)
 
-	![](images/300/image10.png)
+### **STEP 13**: Start Agent
 
--   Note port 1521 is closed by default.  That is why we are using tunnels.  However you can open this port (not advised).  Select Create Rule.
+-   Start agent using script
 
-	![](images/300/image11.png)
+	![](images/300/AgentImage090-StartAgent.png)
 
--   Create Rule.  Enter the following fields:
-    - **Rule Name:**  `Open-1522`
-    - **Source:** `PUBLIC-INTERNET` -- this is the 'from' part of network access
-    - **Destination:** `DB` This is the security list (DB is a default one) that get attached to your instance.  You can add others.
-    - **Destination Port:** `1522`
-    - **Protocal:** `TCP`
+	![](images/300/AgentImage091-StartAgent.png)
 
-	![](images/300/image12.png)
+### **STEP 14**: View Remote Agent in DIPC Console
 
--   Initially the rule will not show while it is getting created.
+-   Note the private IP listed in bottom left of DIPC console
 
-	![](images/300/image13.png)
+	![](images/300/AgentImage095-Confirm_Agent_DIPC_Console.png)
 
--   After a minute or two refresh your browser, select access rules, and you should see the new rule enabled.  You can also select the hamburger menu on the right and disable the rule.
+### **STEP 15**: Database Sync
 
-	![](images/300/image14.png)
+-   Note the private IP listed in bottom left of DIPC console
 
-## Scale Up an Instance
-
-Databases typically grow and require additional storage and possibly compute resources.  This shows the elastic nature of the Oracle Cloud.
-
-### **STEP 4**: Scale Up An Instance
-
--   Navigate back to the Alpha01A-DBCS Service (either through the breadcrumbs or the top Dashboard).
-
-	![](images/300/image15.png)
-
--   Select the Alpha01A-DBCS Instance
-
-	![](images/300/image16.png)
-
--   On the hamburger menu on the right select Scale Up/Down.
-
-	![](images/300/image17.png)
-
--   We can scale the Compute Shape (CPU) and/or the storage.  We will add storage in this case.
-
-	![](images/300/image18.png)
-
-    ![](images/300/image19.png)
-
--   Refresh the screen - you should see the storage change from 185 GB to 210 GB.
-
-    ![](images/300/image20.png)
-
-## Add SSH Key
-
-SSHs are required when creating a new DBCS instance.  Later you can add additional keys (eg: if you lost your existing private key) through the database console.
-
-### **STEP 5**: Generate New Key Pair
-
--   Navigate to the compute desktop and open a new terminal window.  Enter the following.
-    - `ssh-keygen`
-    - **Enter filename:** `lab300`
-    - **Then hit enter twice for no password**
-
-    ![](images/300/image22.png)
-
--   Change private key permissons.  Enter the following.
-    - `ls` -- review files - see the new public and private keys.
-    - `chmod 600 lab300`
-
-    ![](images/300/image23.png)
-
-### **STEP 6**: Add SSH Key
-
--   Navigate to the DBCS Service page and select SSH Access.
-
-    ![](images/300/image21.png)
-
--   Select Add New Key.
-
-    ![](images/300/image24.png)
-
--   Browse for New Key and select lab300.pub key in the Oracle home directory.
-
-    ![](images/300/image25.png)
-
-    ![](images/300/image26.png)
-
-    ![](images/300/image27.png)
-
-    ![](images/300/image28.png)
-
--   In a few seconds you will see a message indicating the SSH Key has beenn accepted.
-
-   ![](images/300/image29.png)
-
-### **STEP 7**: Confirm Access
-
--   Go back to your terminal window and SSH to the image using the new key.  Enter the following.
-    - `ssh -i /home/oracle/lab300 oracle@<your DBCS IP>`
-    - `ls`
-
-   ![](images/300/image30.png)
-
--   Then exit.
-
+	![](images/300/AgentImage095-Confirm_Agent_DIPC_Console.png)
