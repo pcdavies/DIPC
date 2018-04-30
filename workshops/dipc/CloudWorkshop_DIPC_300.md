@@ -77,4 +77,73 @@ AgentImage015-CreateApplication.png
 
 	![](images/300/AgentImage050-DownloadAgentSave.JPG)
 
+### **STEP 8**: Open a terminal and navigate to directory with agent
 
+-   view agent zip file
+
+	![](images/300/AgentImage055-UnzipAgent.png)
+
+-   unzip agent file
+
+	![](images/300/AgentImage060-UnzipAgent.png)
+
+
+### **STEP 9**: Show current agent page in DIPC console
+
+-   Click "Agent" in the left toolbar
+-   There is only one local agent install
+
+	![](images/300/AgentImage065-Current_DIPC_Agent_Page.png)
+
+
+### **STEP 10**: Identify private IP for DIPC console
+
+-   Note the private IP listed in bottom left of DIPC console
+
+	![](images/300/AgentImage070-DIPC_Priv_IP.png)
+
+
+### **STEP 11**: Install the Agent from On-Prem Console
+
+-   Open a terminal in On-Prem VM
+-   Navigate to the agent directory
+-   Execute command to install agent using password - #!hyper1on!#
+    ./dicloudConfigureAgent.sh -dipchost=10.0.0.3 -dipcport=7003 -user=weblogic -authType=BASIC
+
+-   Set the "dipchost" parameter to 10.0.0.3
+-   This configuration does not have IDCS so use "BASIC" for parameter AuthType
+
+	![](images/300/AgentImage075-Execute_Agent_Install.png)
+   
+-   Output shows agent created
+-   ![](images/300/AgentImage080-Execute_Agent_Install.png)
+
+
+### **STEP 12**: Modify Agent Parameter 
+
+-   Modify agent port "agentPort" in parameter file "agent.properties" to 7010
+path to parameter file: /home/DIPC/Documents/dicloud/agent/dipcagent001/conf 
+
+	![](images/300/AgentImage085-ModifyAgentParameter.png)
+
+	![](images/300/AgentImage086-ModifyAgentParameter.png)
+
+### **STEP 13**: Start Agent
+
+-   Start agent using script
+
+	![](images/300/AgentImage090-StartAgent.png)
+
+	![](images/300/AgentImage091-StartAgent.png)
+
+### **STEP 14**: View Remote Agent in DIPC Console
+
+-   Note the private IP listed in bottom left of DIPC console
+
+	![](images/300/AgentImage095-Confirm_Agent_DIPC_Console.png)
+
+### **STEP 15**: Database Sync
+
+-   Note the private IP listed in bottom left of DIPC console
+
+	![](images/300/AgentImage095-Confirm_Agent_DIPC_Console.png)
