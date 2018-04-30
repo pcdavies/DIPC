@@ -1,4 +1,4 @@
-![](images/300/AgentImage05-SplashScreen.JPG)
+![](images/300/AgentImage05-WorkshopHeader.PNG)
 
 Update: Apr 25, 2018
 
