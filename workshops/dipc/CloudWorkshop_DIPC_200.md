@@ -250,7 +250,7 @@ the data pump execution from within ODI Console –
 =======
 - Ravello Instance Hostname:7003/odiconsole
 - username: SUPERVISOR
-- password: welcome
+- password: welcome1
 >>>>>>> e024275cf3354d9f2d8cf4b4d13250514fa481ee
 
 9. Within the DIPC App Click Home
