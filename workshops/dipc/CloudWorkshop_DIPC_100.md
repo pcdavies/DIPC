@@ -1,6 +1,5 @@
 Lab 100 -  Creating a Data Integration Platform Cloud Instance
-
-
+![](images/100/image100_0.png)
 ## Before You Begin
 
 Purpose
