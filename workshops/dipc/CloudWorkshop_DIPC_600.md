@@ -1,5 +1,5 @@
 
-# Lab 500: Oracle Data Integration (ODI) Lab Execution
+# Lab 600: Oracle Data Integration (ODI) Lab Execution
 ![](images/600/image600_0.png)
 # Overview 
 
@@ -44,8 +44,50 @@ After a few seconds, the following page should appear –
 - This hands-on lab uses a JDBC utility client that was built specifically for this demo.  This client is NOT part of DIPC, however it does help visualize the 
 Synchronize Data and ODI Execution Job process 
 - Open a Terminal 
+
 ![](images/600/image600_8.png)
 
 - From the home directory execute ./startDIPCDemoClient.sh 
 ![](images/600/image600_9.png)
 
+- Demo Client will open up and should be populated with the following data 
+
+![](images/600/image600_10.png)
+
+# Task 1: Create ODI Execution Task 
+
+- Click on Home in Navigation Bar
+![](images/600/image600_11.png)
+
+- Click on ODI Execution (you may need to scroll right in the carousel to see it)
+![](images/600/image600_12.png)
+
+- The ODI Execution Task screen appears 
+![](images/600/image600_13.png)
+
+4. Enter
+•	Name: Load Sales DW 
+•	Description: Execute ODI Scenario to load OLTP data into DW 
+
+5.	Under Connections click on Import to import a deployment archive created in ODI Studio that contains the Scenario we want to execute 
+- Navigate to DIPC/DIPC 18.2.3 and select LD_SALES_DIPC_18.2.3.zip 
+![](images/600/image600_14.png)
+
+- Click Open and wait for the import operation to complete (this will take about 2-3 minutes) 
+- Click on the Scenario Name drop-down and select LD_TRG_SALES 001 
+![](images/600/image600_15.png)
+
+This scenario joins SRC_ORDERS and SRC_ORDER_LINES, aggregates the data, filters for ORDERS with Status of ‘CLO’ as well as performs an incremental update. 
+So only replicated rows that have a status of ‘CLO’ closed, will be loaded to the target Sales DW. 
+
+6.	In the Connection table pick the following Connections and Schemas: 
+- ODI_DEMO_TRG:  
+-- Connection: Sync Target 
+-- Schema: ODI_TGT 
+-- ODI_DEMO_SRC 
+-- Connection: Sync Target ii. Schema: DIPC_TGT 
+![](images/600/image600_16.png)
+7.	Click on Save & Run to execute the Task  
+8.	You will be redirected to the Jobs page and you will see a notification that a new Job execution started 
+9.	When the Job appears in the list you can click on it to get more details 
+![](images/600/image600_17.png)
