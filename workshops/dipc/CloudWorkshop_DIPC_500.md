@@ -1,5 +1,5 @@
 
-# Lab 500: Oracle Data Integration (ODI)  Lab Preparation
+# Lab 500: Oracle Data Integration Lab Preparation
 ![](images/500/image500_0.png)
 # Task 0: Preparation Steps 
 
