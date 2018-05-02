@@ -138,12 +138,140 @@ path to parameter file: /home/DIPC/Documents/dicloud/agent/dipcagent001/conf
 
 ### **STEP 14**: View Remote Agent in DIPC Console
 
--   Note the private IP listed in bottom left of DIPC console
+-   Clict Agents in left toolbar
 
 	![](images/300/AgentImage095-Confirm_Agent_DIPC_Console.png)
 
-### **STEP 15**: Database Sync
+### **STEP 15**: Ensure local and Remote Agents are started
 
--   Note the private IP listed in bottom left of DIPC console
+-   Start agents as needed from Agent bin directory
 
-	![](images/300/AgentImage095-Confirm_Agent_DIPC_Console.png)
+
+	![](images/300/AgentImage096-Confirm_SRC_TRG_Agent_Started.png)
+
+
+### **STEP 16**: Review On-Prem Schema
+
+-   Connect to remote schema and view tables and row count
+
+
+	![](images/300/AgentImage100-ReviewOnPremSchema.png)
+
+### **STEP 17**: Create Source Connection to On-Prem Schema
+
+-   Click Home in left toolbar and click "Create Connections"
+
+
+	![](images/300/AgentImage101-CreateSourceConnection.png)
+
+-   Enter source connection information for On-prem schema
+
+    Name:        ONPREM_SRC
+    Description: Connection to on-prem database schema with source tables
+	Agent:       localhost:7010
+	Type:        Oracle
+	Connection Settings
+	  Hostname:   10.0.0.4
+	  Port:       1521
+	  Username:   DIPC_SRC
+	  Password:   welcome1
+	  Service:    Service Name: dics12c
+
+
+	![](images/300/AgentImage105-EnterSrcConnectionInfo.png)
+
+-   Click "Test Connection" and "Save"
+
+	![](images/300/AgentImage105-TestSaveSrcConnection.png)
+
+-   Search for source connection ONPREM_SRC in catalog
+
+	![](images/300/AgentImage110-SearchConnectionCatalog.png)
+
+    ![](images/300/AgentImage111-ViewSrcConnectionCatalog.png)
+
+-   Click connection name to view summary
+
+    ![](images/300/AgentImage112-ViewSrcConnectionSummary.png)
+
+-   Click metadata tab
+
+    ![](images/300/AgentImage113-ViewSrcConnectionMetadata.png)
+
+
+### **STEP 18**: Create blank target Schema CLOUD_TRG
+
+-   Create schema and ensure necessary privileges
+
+	![](images/300/AgentImage115-TargetSchema.png)
+
+-   View schema tables and row count - should be empty
+
+	![](images/300/AgentImage116-ViewTargetSchema.png)
+
+
+### **STEP 19**: Create Target Connection to Schema CLOUD_TRG
+
+-   Enter target connection information to schema CLOUD_TRG
+
+    Name:        CLOUD_TRG
+    Description: Connection to target schema cloud_trg
+	Agent:       localhost:7009
+	Type:        Oracle
+	Connection Settings
+	  Hostname:   localhost
+	  Port:       1521
+	  Username:   CLOUD_TRG
+	  Password:   welcome1
+	  Service:    Service Name: dics12c
+
+-   Click "Test Connection"
+
+	![](images/300/AgentImage120-CreateTargetConnection.png)
+
+-   Click "Save" to save target connection
+
+	![](images/300/AgentImage121-SaveTargetConnection.png)
+
+-   View Target Connection
+
+	![](images/300/AgentImage122-ViewTargetConnection.png)
+
+### **STEP 20**: Create Sync Job between Source and Target
+
+-   In DIPC Console click "Home" in left toolbar
+-   Click "Synchronize Data"
+
+	![](images/300/AgentImage125-CreateSyncJob.png)
+
+-   Enter Sync Job Information
+    General Information
+	  Name:        SYNC ONPREM SCHEMA
+	  Description: Job to sync on-prem schema with cloud target schema
+	Source Configuration
+	  Connection: ONPREM_SRC
+	  Schema:     DIPC_SRC
+	Target Configuration
+	  Connection: CLOUD_TRG
+	  Schema: CLOUD_TRG
+	Advanced Options
+	  Include Initial Load: <check for initial load>
+	  Include Replication: <check for replication>
+
+-   Click "Save & Run"
+
+	![](images/300/AgentImage125-EnterSynJobInfo.png)
+
+-   Click Job to review Sync Job Details
+
+	![](images/300/AgentImage130-SyncJobMonitor.png)
+
+-   Monitor Target Schema for table creation and row count
+AgentImage135-SyncJobMonitorSchema.png
+
+	![](images/300/AgentImage135-SyncJobMonitorSchema.png)
+
+	![](images/300/AgentImage136-SyncJobMonitorSchema2.png)
+
+	![](images/300/AgentImage137-SyncJobMonitorSchema3.png)
+
