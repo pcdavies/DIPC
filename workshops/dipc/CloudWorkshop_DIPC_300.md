@@ -255,8 +255,8 @@ path to parameter file: /home/DIPC/Documents/dicloud/agent/dipcagent001/conf
 	  - Connection: CLOUD_TRG
 	  - Schema: CLOUD_TRG
 	- Advanced Options
-	  - Include Initial Load: <check for initial load>
-	  - Include Replication: <check for replication>
+	  - Include Initial Load: check for initial load
+	  - Include Replication: check for replication
 
 -   Click "Save & Run"
 
