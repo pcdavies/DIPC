@@ -1,7 +1,7 @@
 
-# Lab 500: Oracle Data Integration (ODI) Lab Preparation
+# Lab 500: Oracle Data Integration Lab Preparation
 ![](images/500/image500_0.png)
-# Task 0: Preparation Steps 
+# Task 0: ODI Preparation Steps 
 
 In these steps you will clean up and setup the environment for this exercise 
 
