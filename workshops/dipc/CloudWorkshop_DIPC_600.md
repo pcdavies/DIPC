@@ -25,7 +25,7 @@ If the screensaver is on just press “enter” to open the login screen.
 
  
 2.	Log into Data Integration Platform Cloud 
-- Use VNC to log into the VM. Use your favorite VNC client and enter Ravello Instance Hostname:5901 as the URL to connect to  
+- Use VNC to log into the VM. Use your favorite VNC client and enter Ravello Hostname:5901 as the URL to connect to  
 ![](images/600/image600_4.png)
 - When prompted enter the password: welcome1 and click OK 
 ![](images/600/image600_5.png)
@@ -33,7 +33,7 @@ If the screensaver is on just press “enter” to open the login screen.
 - Go to Applications > Internet and click Google Chrome 
 
 ![](images/600/image600_6.png)
-- In Chrome, open up DIPC Home bookmark or go to localhostRavello Host Name:7003/dicloud/login.html
+- In Chrome, open up DIPC Home bookmark or go to Ravello Host Name:7003/dicloud/login.html
 - Login with weblogic/#!hyper1on!#  
 
 After a few seconds, the following page should appear – 
@@ -82,10 +82,12 @@ So only replicated rows that have a status of ‘CLO’ closed, will be loaded t
 
 6.	In the Connection table pick the following Connections and Schemas: 
 - ODI_DEMO_TRG:  
--- Connection: Sync Target 
--- Schema: ODI_TGT 
--- ODI_DEMO_SRC 
--- Connection: Sync Target ii. Schema: DIPC_TGT 
+- Connection: Sync Target 
+- Schema: ODI_TGT 
+
+- ODI_DEMO_SRC 
+- Connection: Sync Target 
+- Schema: DIPC_TGT 
 ![](images/600/image600_16.png)
 7.	Click on Save & Run to execute the Task  
 8.	You will be redirected to the Jobs page and you will see a notification that a new Job execution started 
