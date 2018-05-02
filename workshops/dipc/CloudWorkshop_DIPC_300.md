@@ -166,16 +166,16 @@ path to parameter file: /home/DIPC/Documents/dicloud/agent/dipcagent001/conf
 
 -   Enter source connection information for On-prem schema
 
-    Name:        ONPREM_SRC
-    Description: Connection to on-prem database schema with source tables
-	Agent:       localhost:7010
-	Type:        Oracle
-	Connection Settings
-	  Hostname:   10.0.0.4
-	  Port:       1521
-	  Username:   DIPC_SRC
-	  Password:   welcome1
-	  Service:    Service Name: dics12c
+    - Name:        ONPREM_SRC
+    - Description: Connection to on-prem database schema with source tables
+	- Agent:       localhost:7010
+	- Type:        Oracle
+	- Connection Settings
+	  - Hostname:   10.0.0.4
+	  - Port:       1521
+	  - Username:   DIPC_SRC
+	  - Password:   welcome1
+	  - Service:    Service Name: dics12c
 
 
 	![](images/300/AgentImage105-EnterSrcConnectionInfo.png)
@@ -214,16 +214,16 @@ path to parameter file: /home/DIPC/Documents/dicloud/agent/dipcagent001/conf
 
 -   Enter target connection information to schema CLOUD_TRG
 
-    Name:        CLOUD_TRG
-    Description: Connection to target schema cloud_trg
-	Agent:       localhost:7009
-	Type:        Oracle
-	Connection Settings
-	  Hostname:   localhost
-	  Port:       1521
-	  Username:   CLOUD_TRG
-	  Password:   welcome1
-	  Service:    Service Name: dics12c
+    - Name:        CLOUD_TRG
+    - Description: Connection to target schema cloud_trg
+	- Agent:       localhost:7009
+	- Type:        Oracle
+	- Connection Settings
+	  - Hostname:   localhost
+	  - Port:       1521
+	  - Username:   CLOUD_TRG
+	  - Password:   welcome1
+	  - Service:    Service Name: dics12c
 
 -   Click "Test Connection"
 
@@ -245,18 +245,18 @@ path to parameter file: /home/DIPC/Documents/dicloud/agent/dipcagent001/conf
 	![](images/300/AgentImage125-CreateSyncJob.png)
 
 -   Enter Sync Job Information
-    General Information
-	  Name:        SYNC ONPREM SCHEMA
-	  Description: Job to sync on-prem schema with cloud target schema
-	Source Configuration
-	  Connection: ONPREM_SRC
-	  Schema:     DIPC_SRC
-	Target Configuration
-	  Connection: CLOUD_TRG
-	  Schema: CLOUD_TRG
-	Advanced Options
-	  Include Initial Load: <check for initial load>
-	  Include Replication: <check for replication>
+    - General Information
+	  - Name:        SYNC ONPREM SCHEMA
+	  - Description: Job to sync on-prem schema with cloud target schema
+	- Source Configuration
+	  - Connection: ONPREM_SRC
+	  - Schema:     DIPC_SRC
+	- Target Configuration
+	  - Connection: CLOUD_TRG
+	  - Schema: CLOUD_TRG
+	- Advanced Options
+	  - Include Initial Load: <check for initial load>
+	  - Include Replication: <check for replication>
 
 -   Click "Save & Run"
 
