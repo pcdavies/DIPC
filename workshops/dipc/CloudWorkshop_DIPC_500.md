@@ -53,7 +53,8 @@ The following page should appear –
 - Click Save  
 
 8.	Create Target Connection from the Catalog 
-NOTE: This connection may have already have been setup in a previous HOL. 
+- NOTE: This connection may have already have been setup in a previous HOL 
+
 - Click on the Create button and select Connection  
 
 ![](images/500/image500_5a.png)
@@ -125,7 +126,6 @@ NOTE: This connection may have already have been setup in a previous HOL.
 ![](images/500/image500_13a.png)
 
 19. Click Apply.  Clicking apply updates, the data, metadata and profiling statistics.  Also note the transform is saved and displayed in the left-hand drawer.  This transform can be deleted and the data, metadata and profiling statistics will be updated accordingly. 
-
 ![](images/500/image500_14b.png)
 - Column 1: Rename WROWID 
 - Column 2: Rename CUSTID 
