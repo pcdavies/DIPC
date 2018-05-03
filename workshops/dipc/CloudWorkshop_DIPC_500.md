@@ -93,7 +93,9 @@ The following page should appear –
 - No Text Qualifier 
 - Ensure header is not enabled 
 - First Data Row should be 1 
--  Target Configuration 
+- Select OK
+ 
+- Target Configuration 
 -  Connection: DIPC_TGT 
 -  Schema: DIPC_TGT 
 -  Data Entity: webclicks  
