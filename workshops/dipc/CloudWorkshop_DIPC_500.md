@@ -1,14 +1,12 @@
 
-# Lab 500: Oracle Data Integration Lab Preparation
+# Lab 500: Oracle ODI Data Preparation Lab
 ![](images/500/image500_0.png)
 # Task 0: ODI Preparation Steps 
 
 In these steps you will clean up and setup the environment for this exercise 
 
 1. Login to the VM as DIPC user – Password is “welcome1” 
-  
 ![](images/500/image500_1.png)
-
 If the screensaver is on just press “enter” to open the login screen. 
  
 # Task 1: Prep External Website Data  
@@ -19,33 +17,27 @@ If the screensaver is on just press “enter” to open the login screen.
 - Login with weblogic/#!hyper1on!# 
 
 The following page should appear – 
-  
 ![](images/500/image500_2.png)
 2.	Click Home 
 
 3.	Create Data Preparation Task 
 - Click Data Preparation 
 ![](images/500/image500_2a.png)
- 
 4.	Create Data Preparation Task enter the following information 
-
 ![](images/500/image500_3a.png)
-
 - Name: PrepWebData 
-- Description  Prep External Website Data  
+- Description:  Prep External Website Data  
 - Agent – leave blank 
 - Type: File 
 - Directory: /home/DIPC 
 
 5. For Source Configuration click add new connection button
-
 ![](images/500/image500_4a.png)
-
-- Name Local File Store
-- Description Local File Store
-- Agent Leave Blank
-- Type File
-- Directory /home/DIPC
+- Name: Local File Store
+- Description: Local File Store
+- Agent: Leave Blank
+- Type: File
+- Directory: /home/DIPC
 
 6.	Review Connections settings. 
 
@@ -54,17 +46,14 @@ The following page should appear –
 
 8.	Create Target Connection from the Catalog 
 - NOTE: This connection may have already have been setup in a previous HOL 
-
 - Click on the Create button and select Connection  
-
 ![](images/500/image500_5a.png)
 
 9.	Enter the following information  
-
 - Name: Sync Target 
-- Description – Sales OLTP Replicated Data 
-- Agent – leave blank 
-- Type Oracle – selecting Oracle will expand the Connection Settings 
+- Description: Sales OLTP Replicated Data 
+- Agent: leave blank 
+- Type: Oracle – selecting Oracle will expand the Connection Settings 
 - Hostname: localhost 
 - Port: 1521 
 - Username: DIPC_TGT 
@@ -94,7 +83,7 @@ The following page should appear –
 - Ensure header is not enabled 
 - First Data Row should be 1 
 - Select OK
- 
+
 - Target Configuration 
 -  Connection: DIPC_TGT 
 -  Schema: DIPC_TGT 
