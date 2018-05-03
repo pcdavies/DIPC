@@ -6,7 +6,9 @@
 In these steps you will clean up and setup the environment for this exercise 
 
 1. Login to the VM as DIPC user – Password is “welcome1” 
+
 ![](images/500/image500_1.png)
+
 If the screensaver is on just press “enter” to open the login screen. 
  
 # Task 1: Prep External Website Data  
