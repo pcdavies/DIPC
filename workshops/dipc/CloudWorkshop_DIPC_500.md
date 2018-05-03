@@ -27,7 +27,7 @@ The following page should appear –
 - Click Data Preparation 
 ![](images/500/image500_2a.png)
  
-4.	On the Create Data Preparation Task enter the following information 
+4.	Create Data Preparation Task enter the following information 
 
 ![](images/500/image500_3a.png)
 
@@ -77,20 +77,21 @@ NOTE: This connection may have already have been setup in a previous HOL.
 
 11.	Click Save 
 
-12.	Ensure Create Data Preparation Task Entries as follows 
+12.	Create Data Preparation Task Entries as follows 
 - Name: Prep Web Data 
 - Description: Prep External Website Data 
 - Source Configuration 
 -  Connection: LocalFileStore 
 -  Directory: /home/DIPC 
--  File: webclicks.txt 
-- Set options for webclicks.txt as follows 
+-  File: Click Select - scroll to webclicks.txt 
+
+- Select options for webclicks.txt as follows 
 
 ![](images/500/image500_7a.png)
 
 - No Text Qualifier 
 - Ensure header is not enabled 
-- First Data Row 1 
+- First Data Row should be 1 
 -  Target Configuration 
 -  Connection: DIPC_TGT 
 -  Schema: DIPC_TGT 
