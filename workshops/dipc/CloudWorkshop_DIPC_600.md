@@ -1,5 +1,5 @@
 
-# Lab 600: Oracle Data Integration (ODI) Lab Execution
+# Lab 600: Oracle Data Integration Lab Execution
 ![](images/600/image600_0.png)
 # Overview 
 
