@@ -4,7 +4,8 @@ Update: Apr 25, 2018
 
 ## Introduction - Remote Agent Install and Synchronization of an On-prem database
 
-This lab covers installation and configuration of DIPC remote agent along with synchronization of an on-prem database. Agents allow synchronization of data from sources outside Oracle Cloud. Two VMs within Ravello will be used to simulate a DIPC instance and an On-Prem database server.
+This lab covers installation and configuration of DIPC remote agent along with synchronization of an on-prem database. Agents allow synchronization of data from sources outside Oracle Cloud. Two VMs within Ravello will be used to simulate a DIPC instance and an On-Prem database server. 
+Ravello VMs are being used to simulate cloud instances and do not have Identity Cloud Service (IDCS). Modifications will be made before porting to a GSE environment.
 
 This lab supports the following use cases:
 -   Configure Remote DIPC Agent
@@ -13,23 +14,22 @@ This lab supports the following use cases:
 ## Objectives
 
 -   Ensure Ravello VMs for DIPC and DB 
--	Ensuring Remote Agent is trusted by DIPC instance
+-	Ensure Remote Agent is trusted by DIPC instance *MODIFY FOR GSE*
 -   Agent Download
 -   Agent Installation and Configuration
--   Configure Agent SSL
+-   Configure Agent SSL *MODIFY FOR GSE*
 -	Agent Administration - Starting and Stopping.
 -   Synchronize On-Premise Database
    
-### **STEP 1**: Identify Shared Ravello Blueprint
+### **STEP 1**: Identify Shared Ravello Blueprint *REMOVE FOR GSE*
 
 -   In the Left Sidebar Click on Library>Blueprints
 
 	![](images/300/AgentImage010-IdentifyBlueprint.png)
 
-AgentImage015-CreateApplication.png
+### **STEP 2**: Create Ravello Application  *REMOVE FOR GSE*
 
-### **STEP 2**: Create Ravello Application
-
+-   Select Blueprint "DIPC 18.2.3 V6-bp Werner 4.6.2018"
 -   Click "Create Application"
 
 	![](images/300/AgentImage015-CreateApplication.png)
@@ -43,67 +43,83 @@ AgentImage015-CreateApplication.png
 
 ### **STEP 3**: Publish Ravello Application
 
+-   The Blue Print has two VMs: "DIPC 18.2.3" & "DIPC 18.2.3.1"
+-   Change "DIPC 18.2.3.1" to "On-Prem DB Svr"
 -   Publish the Blueprint VMs
     Click "Publish" highlighted in top right
 
 	![](images/300/AgentImage025-PublishApp.png)
 
 -   Review publish parameters and click "Publish"
+-   Choose "Performance" for Optimize option
+-   Start the VMs and Log into the Consoles using:
+    -  Username/Password: DIPC/wecome1
     
 	![](images/300/AgentImage030-ReviewPublishApp.png)
 
 
-### **STEP 4**: Log into DIPC Console and go to Agent Page
+### **STEP 4**: [DIPC 18.2.3] Log into DIPC Console and go to Agent Page
 
+-   From "DIPC 18.2.3" lauch DIPC Console from Chrome browser bookmark
+-   Login using:
+    - Username/Password: weblogic/welcome1
 -   Click "Agents" in left panel
 
 	![](images/300/AgentImage035-HomePage.JPG)
 
-### **STEP 5**: Select Download Installer Drop Down Menu
+### **STEP 5**: [DIPC 18.2.3] Select Download Installer Drop Down Menu
 
 -   Select drop down menu and select zip file for your Operating System
 
 	![](images/300/AgentImage040-DownloadAgent.JPG)
 
-### **STEP 6**: Confirm your agent download selection
+### **STEP 6**: [DIPC 18.2.3] Confirm your agent download selection
 
 -   Click "OK" to confirm selection
 
 	![](images/300/AgentImage045-DownloadAgent.JPG)
 
-### **STEP 7**: Save the agent zip file to your home directory
+### **STEP 7**: [DIPC 18.2.3] Save the agent zip file to your home directory
 
 -   Save the file to your home directory in preparation to unzip and install
+-   ftp agent zip file to "On-Prem DB Svr"
 
 	![](images/300/AgentImage050-DownloadAgentSave.JPG)
 
-### **STEP 8**: Open a terminal and navigate to directory with agent
+### **STEP 8**: [On-Prem DB Svr] View and unzip agent file
 
--   view agent zip file
+-   Open terminal on "On-Prem DB Svr]
+-   view agent zip file "agent-linux.64.bit.zip"
 
 	![](images/300/AgentImage055-UnzipAgent.png)
 
 -   unzip agent file
+    -   $unzip agent-linux.64.bit.zip
 
 	![](images/300/AgentImage060-UnzipAgent.png)
 
 
-### **STEP 9**: Show current agent page in DIPC console
+### **STEP 9**: [DIPC 18.2.3] Show current agent page in DIPC console
 
+-   Navigate to DIPC console on VM "DIPC 18.2.3"
 -   Click "Agent" in the left toolbar
--   There is only one local agent install
+-   There is only one local agent install 
+
 
 	![](images/300/AgentImage065-Current_DIPC_Agent_Page.png)
 
 
-### **STEP 10**: Identify private IP for DIPC console
+### **STEP 10**: [DIPC 18.2.3] Identify private IP for DIPC console
 
--   Note the private IP listed in bottom left of DIPC console
+-   Navigate to Ravello Application to get information for agent install
+-   Click VM "DIPC 18.2.3" (DIPC Instance and Target DB)
+-   Note the private IP listed in bottom left of DIPC console (10.0.0.3)
+
 
 	![](images/300/AgentImage070-DIPC_Priv_IP.png)
 
 
-### **STEP 11**: Install the Agent from On-Prem Console
+### **STEP 11**: [On-Prem DB Svr] Install the Agent from On-Prem Console
 
 -   Open a terminal in On-Prem VM
 -   Navigate to the agent directory
@@ -113,52 +129,63 @@ AgentImage015-CreateApplication.png
 -   Set the "dipchost" parameter to 10.0.0.3
 -   This configuration does not have IDCS so use "BASIC" for parameter AuthType
 
+
 	![](images/300/AgentImage075-Execute_Agent_Install.png)
    
 -   Output shows agent created
+
 -   ![](images/300/AgentImage080-Execute_Agent_Install.png)
 
 
-### **STEP 12**: Modify Agent Parameter 
+### **STEP 12**: [On-Prem DB Svr] Modify Agent Parameter 
 
 -   Modify agent port "agentPort" in parameter file "agent.properties" to 7010
-path to parameter file: /home/DIPC/Documents/dicloud/agent/dipcagent001/conf 
+-   path to parameter file: 
+-   /home/DIPC/Documents/dicloud/agent/dipcagent001/conf 
+
 
 	![](images/300/AgentImage085-ModifyAgentParameter.png)
 
 	![](images/300/AgentImage086-ModifyAgentParameter.png)
 
-### **STEP 13**: Start Agent
+### **STEP 13**: [On-Prem DB Svr] Start Agent
 
--   Start agent using script
+-   Navigate to the agent bin directory
+    -   /home/DIPC/Documents/dicloud/agent/dipcagent001/bin
+-   Start agent using script startAgentInstance.sh
+    -   $ ./startAgentInstance.sh
+
 
 	![](images/300/AgentImage090-StartAgent.png)
 
 	![](images/300/AgentImage091-StartAgent.png)
 
-### **STEP 14**: View Remote Agent in DIPC Console
+### **STEP 14**: [DIPC 18.2.3] View Remote Agent in DIPC Console
 
+-   Navigate to DIPC Console
 -   Clict Agents in left toolbar
+
 
 	![](images/300/AgentImage095-Confirm_Agent_DIPC_Console.png)
 
-### **STEP 15**: Ensure local and Remote Agents are started
+### **STEP 15**: [DIPC 18.2.3] Ensure local and Remote Agents are started
 
 -   Start agents as needed from Agent bin directory
+    -   $ ./startAgentInstance.sh
 
 
 	![](images/300/AgentImage096-Confirm_SRC_TRG_Agent_Started.png)
 
-
-### **STEP 16**: Review On-Prem Schema
+### **STEP 16**: [On-Prem DB Svr] Review On-Prem Schema
 
 -   Connect to remote schema and view tables and row count
 
 
 	![](images/300/AgentImage100-ReviewOnPremSchema.png)
 
-### **STEP 17**: Create Source Connection to On-Prem Schema
+### **STEP 17**: [DIPC 18.2.3] Create Source Connection to On-Prem Schema
 
+-   Navigate to DIPC console
 -   Click Home in left toolbar and click "Create Connections"
 
 
@@ -199,7 +226,7 @@ path to parameter file: /home/DIPC/Documents/dicloud/agent/dipcagent001/conf
     ![](images/300/AgentImage113-ViewSrcConnectionMetadata.png)
 
 
-### **STEP 18**: Create blank target Schema CLOUD_TRG
+### **STEP 18**: [DIPC 18.2.3] Create blank target Schema CLOUD_TRG
 
 -   Create schema and ensure necessary privileges
 
@@ -210,7 +237,7 @@ path to parameter file: /home/DIPC/Documents/dicloud/agent/dipcagent001/conf
 	![](images/300/AgentImage116-ViewTargetSchema.png)
 
 
-### **STEP 19**: Create Target Connection to Schema CLOUD_TRG
+### **STEP 19**: [DIPC 18.2.3] Create Target Connection to Schema CLOUD_TRG
 
 -   Enter target connection information to schema CLOUD_TRG
 
@@ -237,7 +264,7 @@ path to parameter file: /home/DIPC/Documents/dicloud/agent/dipcagent001/conf
 
 	![](images/300/AgentImage122-ViewTargetConnection.png)
 
-### **STEP 20**: Create Sync Job between Source and Target
+### **STEP 20**: [DIPC 18.2.3] Create Sync Job between Source and Target
 
 -   In DIPC Console click "Home" in left toolbar
 -   Click "Synchronize Data"
