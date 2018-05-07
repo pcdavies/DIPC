@@ -32,24 +32,19 @@ Welcome to the Oracle Data Integration Platform Cloud Service Workshop. The labs
 
 ### Objectives
 
--   Understand provisioning
--   Reveiw Elevated Tasks (tasks of tasks)
--	Configure a remote agent.
--	Understand steps to migrate from on-prem to cloud.
--	Conduct data preparation using flat files.
--	Understand ODI integration tasks for sources & targets.
--   Review DIPC internals
+-   Provision a Data Integration Cloud Service instance.
 
 ## Lab 200: Sync Elevated Task
 
 **Documentation**: [CloudWorkshop\_DIPCS\_200.md](CloudWorkshop\_DIPCS\_200.md)
 
 ### Objectives
-
--   Clone, unplug, transfer and plug the AlphaPDB pluggable database using SQL Developer.
--   Export and import a schema using SQL Developer to execute Oracle Data Pump jobs.
--   Export and import a tablespace using SQL Developer.
--   Copy table data between an on-premise database and DBCS.
+Review the following elevated tasks
+-   Sync Data
+-   Create Data Lake
+-   Add Data to Data Mart
+-   Data Replication
+-   Data Validation
 
 ## Lab 300: Remote Agent Install & Sync on-prem databases
 
@@ -57,10 +52,13 @@ Welcome to the Oracle Data Integration Platform Cloud Service Workshop. The labs
 
 ### Objectives
 
--   Create an instance.
--   Maintain security access.
--   Scale up an instance.
--   Add a SSH Key.
+-   Ensure Ravello VMs for DIPC and DB 
+-	Ensure Remote Agent is trusted by DIPC instance *MODIFY FOR GSE*
+-   Agent Download
+-   Agent Installation and Configuration
+-   Configure Agent SSL *MODIFY FOR GSE*
+-	Agent Administration - Starting and Stopping.
+-   Synchronize On-Premise Database
 
 
 ## Lab 400:  Migrate on-prem to Cloud
@@ -69,8 +67,9 @@ Welcome to the Oracle Data Integration Platform Cloud Service Workshop. The labs
 
 ### Objectives
 
--   Request information about DBCS related configuration and services.
--   Create services with curl commands.
+-   Install on-prem and cloud agent
+-   configure connections to target and source from DIPC console
+-   Sync target and source
 
 
 ## Lab 500:  Prepare Data
@@ -79,8 +78,9 @@ Welcome to the Oracle Data Integration Platform Cloud Service Workshop. The labs
 
 ### Objectives
 
--   Request information about DBCS related configuration and services.
--   Create services with curl commands.
+-   Prepare data from flat files
+-   Transform data elements
+-   Administer transformations
 
 
 ## Lab 600:  ODI Execution Task
@@ -89,8 +89,8 @@ Welcome to the Oracle Data Integration Platform Cloud Service Workshop. The labs
 
 ### Objectives
 
--   Request information about DBCS related configuration and services.
--   Create services with curl commands.
+-   Explore ODI Interface
+-   Load data from target to source
 
 ## Lab 700:  Under the covers DIPCS
 
@@ -98,5 +98,7 @@ Welcome to the Oracle Data Integration Platform Cloud Service Workshop. The labs
 
 ### Objectives
 
--   Request information about DBCS related configuration and services.
--   Create services with curl commands.
+-   Understand underlying DIPC architecture
+-   Review default Oracle Golden Gate configurations
+-   Review weblogic components
+-   Revew required ports for communication between agent and DIPC console
