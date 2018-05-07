@@ -10,32 +10,39 @@
 
 ![](images/WorkshopMenu.png)  
 
-## Database Cloud Services Workshop
+## Oracle Data Integration Platform Cloud (DIPC) Services Workshop
 
-Welcome to the Oracle Database Cloud Service Workshop.  This particular version is based on Oracle's 'Classic' services, versus Oracle Compute Infrastructure (OCI) services.  These labs will give you a basic understanding of the Oracle Database Cloud Service and many of the capabilities around administration and database management.  Lab 100 will introduce you to DBCS and show you how to create a Cloud Database from an on-premise backup.  Lab 200 will cover various data migration use cases, including pluggable database migration, tablespace migration, and schema migration.  Lab 300 covers some common Database management activities.  Lab 400 show you how to use curl commands to perform various tasks.
+Welcome to the Oracle Data Integration Platform Cloud Service Workshop. The labs simulate instances in Oracle Compute Infrastructure (OCI) services along with on premise evironments.  The content will give you a basic understanding of Oracle Data Integration Platform Cloud Service and many of the capabilities related to provisioning, elevated tasks, agent install, data preparation and internals.  The labs are as follows:
+-  Lab 100 - Provisioning DIPCS
+-  Lab 200 - Sync Elevated Task
+-  Lab 300 - Remote Agent Install & Sync on-prem database
+-  Lab 400 - Migrate on-prem to Cloud
+-  Lab 500 - Prepare Data
+-  Lab 600 - ODI Execution Task
+-  Lab 700 - Under the covers DIPCS
+
 
 ## Workshop Details
 
 **Reference the following Lab Guides by opening their Documentation Files:**
 
-## Lab 100: Introduction and Database Creation
+## Lab 100: Provisioning DIPCS
 
-**Documentation**: [CloudWorkshop\_DBCS\_100.md](CloudWorkshop\_DBCS\_100.md)
+**Documentation**: [CloudWorkshop\_DIPCS\_100.md](CloudWorkshop\_DIPCS\_100.md)
 
 ### Objectives
 
--   Log into the Cloud Console and get familiar with DBCS.
--   Configure archive logging.
--	Configure Transparent Data Encryption (TDE - required to restore from backup to the cloud).
--	Backup your local database to the Oracle Cloud.
--	Drop a table and then restore it from your cloud backup.
--	Create Database Cloud Service from your on-premise backup.
--   SSH configuration.
--   Explore VM and consoles.
+-   Understand provisioning
+-   Reveiw Elevated Tasks (tasks of tasks)
+-	Configure a remote agent.
+-	Understand steps to migrate from on-prem to cloud.
+-	Conduct data preparation using flat files.
+-	Understand ODI integration tasks for sources & targets.
+-   Review DIPC internals
 
-## Lab 200: Data Migration
+## Lab 200: Sync Elevated Task
 
-**Documentation**: [CloudWorkshop\_DBCS\_200.md](CloudWorkshop\_DBCS\_200.md)
+**Documentation**: [CloudWorkshop\_DIPCS\_200.md](CloudWorkshop\_DIPCS\_200.md)
 
 ### Objectives
 
@@ -44,9 +51,9 @@ Welcome to the Oracle Database Cloud Service Workshop.  This particular version 
 -   Export and import a tablespace using SQL Developer.
 -   Copy table data between an on-premise database and DBCS.
 
-## Lab 300: Common DBA Tasks
+## Lab 300: Remote Agent Install & Sync on-prem databases
 
-**Documentation**: [CloudWorkshop\_DBCS\_300.md](CloudWorkshop\_DBCS\_300.md)
+**Documentation**: [CloudWorkshop\_DIPCS\_300.md](CloudWorkshop\_DIPCS\_300.md)
 
 ### Objectives
 
@@ -56,9 +63,38 @@ Welcome to the Oracle Database Cloud Service Workshop.  This particular version 
 -   Add a SSH Key.
 
 
-## Lab 400:  CLI/Curl Commands (Programatic Control of Services)
+## Lab 400:  Migrate on-prem to Cloud
 
-**Documentation**: [CloudWorkshop\_DBCS\_400.md](CloudWorkshop\_DBCS\_400.md)
+**Documentation**: [CloudWorkshop\_DIPCS\_400.md](CloudWorkshop\_DIPCS\_400.md)
+
+### Objectives
+
+-   Request information about DBCS related configuration and services.
+-   Create services with curl commands.
+
+
+## Lab 500:  Prepare Data
+
+**Documentation**: [CloudWorkshop\_DIPCS\_500.md](CloudWorkshop\_DIPCS\_500.md)
+
+### Objectives
+
+-   Request information about DBCS related configuration and services.
+-   Create services with curl commands.
+
+
+## Lab 600:  ODI Execution Task
+
+**Documentation**: [CloudWorkshop\_DIPCS\_600.md](CloudWorkshop\_DIPCS\_600.md)
+
+### Objectives
+
+-   Request information about DBCS related configuration and services.
+-   Create services with curl commands.
+
+## Lab 700:  Under the covers DIPCS
+
+**Documentation**: [CloudWorkshop\_DIPCS\_700.md](CloudWorkshop\_DIPCS\_700.md)
 
 ### Objectives
 
