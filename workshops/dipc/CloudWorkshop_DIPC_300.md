@@ -229,6 +229,10 @@ This lab supports the following use cases:
 ### **STEP 18**: [DIPC 18.2.3] Create blank target Schema CLOUD_TRG
 
 -   Create schema and ensure necessary privileges
+-   SQL> create user cloud_trg identified by welcome1;
+-   SQL> grant connect, resource, unlimited tablespace to cloud_trg;
+-   SQL> grant create database link to cloud_trg;
+-   
 
 	![](images/300/AgentImage115-TargetSchema.png)
 
