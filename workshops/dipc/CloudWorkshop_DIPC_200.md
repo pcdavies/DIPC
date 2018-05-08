@@ -11,10 +11,10 @@ _In these steps you will clean up and setup the environment for this exercise_
 
 2. Log into Data Integration Platform Cloud
 
-    a. Open your browser
+    a. Open a browser window from your laptop/desktop (not inside the DIPC VM)
 
-    b. Click on DIPC Home bookmark or go to your Ravello Instance hostname:7003/dicloud/login.html
-![](images/200/image200_2.png)
+    b. Click on DIPC Home bookmark or go to  \<Ravello Instance hostname>:7003/dicloud/login.html
+    ![](images/200/image200_2.png)
     c. Login with weblogic/#!hyper1on!#
 
 
@@ -22,65 +22,78 @@ After a few seconds, the following page should appear –
 
 ![](images/200/image200_3.png)
 
-3.	Setup/ Download Agent/ GG Setup
-DIPC On-Premise Agents allow synchronizing data from outside of Oracle Public Cloud.   
+3.	DIPC On-Premise agent allows synchronizing data from outside of Oracle Public Cloud. We will download and setup an agent.   
+
     a. For this download we will use Chrome running in the VM not the one running on your laptop/desktop
 
     b. Go to Applications > Internet and click Google Chrome
-
-![](images/200/image200_3a.png)
+    ![](images/200/image200_3a.png)
    
-        c. Note: If Chrome ask for keyring password then enter “welcome1”
-        d. In Chrome, click on DIPC Home bookmark or go to localhost:7003/dicloud/login.html
-        e. Login with weblogic/password
-        f. Click Agents
+    c. Note: If Chrome ask for keyring password then enter “welcome1”
 
-![](images/200/image200_4.png)
+    d. In Chrome, click on DIPC Home bookmark or go to localhost:7003/dicloud/login.html
 
-        g. Click Download Installer then select Linux 64 - bit
+    e. Login with weblogic/#!hyper1on!#
+    
+    f. Click Agents    
+    ![](images/200/image200_4.png)
 
-![](images/200/image200_5.png)
+    g. Click Download Installer then select Linux 64 - bit
+    ![](images/200/image200_5.png)
 
-        h. Click OK in the Download Agent Installer window
-        i. Create the DIPC_AGENT2 directory and click on Save
-![](images/200/image200_5a.png)
+    h. Click OK in the Download Agent Installer window
 
-        j. Extract agent.zip to ~/DIPC_AGENT
-            i. Click on downloaded file within Chrome
-            ii. Extract with Unzip UI
+    i. Create the DIPC_AGENT2 directory and click on Save
+    ![](images/200/image200_5a.png)
 
-![](images/200/image200_6.png)
+    j. Extract agent.zip to ~/DIPC_AGENT
+    
+        i. Click on downloaded file within Chrome
+       ![](images/200/image200_5b.png)
+        
+        ii. Select Open
+       ![](images/200/image200_6.png)
 
-            iii. Click Extract again (blue button)
+        iii. Extract with Unzip UI
+       ![](images/200/image200_6a.png)
 
-![](images/200/image200_7.png)
+        iv. Click Extract again (blue button)
+    ![](images/200/image200_7.png)
 
-            iv. Close all Unzip UI windows
-![](images/200/image200_7a.png)
+        v. Close all Unzip UI windows
+    ![](images/200/image200_7a.png)
 
 
-        k. Open a new Terminal window
+    k. Open a new Terminal window
+
 ![](images/200/image200_7b.png)
 
-        l. cd /home/DIPC/DIPC_AGENT2/dicloud
-        m. Execute ./dicloudConfigureAgent.sh -dipchost=localhost -dipcport=7003 - user=weblogic - authType=BASIC
+    l. cd /home/DIPC/DIPC_AGENT2/dicloud
+
+    m. Execute ./dicloudConfigureAgent.sh -dipchost=localhost -dipcport=7003 - user=weblogic -authType=BASIC
+
 ![](images/200/image200_7c.png)
 
-        n. Script will prompt for password - #!hyper1on!#
-        o. cd /home/DIPC/DIPC_AGENT2/dicloud/agent/dipcagent001/conf
-        p. vi agent.properties
-            i. Use “i” to turn insert mode on
-            ii. Change agent port (agentport) to 7009 since default is already used
-            iii. Change GG manager port (gginstanceport) to 7919 since default is already used
-            iv. Hit ESC then :wq to save
+    n. Script will prompt for password twice - #!hyper1on!#
+
+    o. cd /home/DIPC/DIPC_AGENT2/dicloud/agent/dipcagent001/conf
+
+    p. vi agent.properties
+        i. Use “i” to turn insert mode on
+        ii. Change agent port (agentPort) to 7009 since default is already used
+        iii. Change GG manager port (gginstanceport) to 7919 since default is already used
+        iv. Hit ESC then :wq to save
+        
 ![](images/200/image200_8.png)
 
-        q. cd /home/DIPC/DIPC_AGENT2/dicloud/agent/dipcagent001/bin
-        r. Execute ./startAgentInstance.sh In the Terminal window you should see ‘NOTIFICATION Done. GoldenGate manager is configured now.’ when the Agent is fully started
+    q. cd /home/DIPC/DIPC_AGENT2/dicloud/agent/dipcagent001/bin
+
+    r. Execute ./startAgentInstance.sh In the Terminal window you should see ‘NOTIFICATION Done. GoldenGate manager is configured now.’ when the agent is fully started
 ![](images/200/image200_8a.png)
 
-        s. In Browser : Within app, on your desktop go to Agents page in DIPC
-        t. The new agent should appear as follows (it will be Stopped at first then Running)
+    s. In Browser : Within app, on your desktop go to Agents page in DIPC
+
+    t. The new agent should appear as follows (it will be Stopped at first then Running)
 ![](images/200/image200_8b.png)
 
 
@@ -134,7 +147,7 @@ use Chrome on the Ravello instance)
 
 5. Review Connections settings.
 
-6. Click Test Connection then Save
+6. Click Test Connection button then Save
 
 7. Create Target Connection from the Catalog
 
@@ -156,17 +169,15 @@ use Chrome on the Ravello instance)
 
 ![](images/200/image200_11.png)
 
-9. Click Test Connection then Save
+9. Click Test Connection button then Save
 
 10. Review Catalog after saving –
 
-11. Data Entities are harvested and profiled at Connection creation, their popularity
-is also calculated by reviewing the DB query logs
-Note: This process may take some time (5 minutes or so), the Catalog will show
+Note: Data Entities are harvested and profiled at Connection creation, their popularity
+is also calculated by reviewing the DB query logs. This process may take some time (5 minutes or so), the Catalog will show
 a message when new updates are available
 
-
-12. Click an entity – SRC_ORDERS
+11. Click entity – SRC_ORDERS
 You can browse the Catalog pages to find it or you can use the Search bar
 (search for SRC_ for example)
 
@@ -178,38 +189,38 @@ is one of the Data Entities that has been used the most in queries. Right now
 SRC_ORDERS hasn’t been used yet so the bar is empty. Tags can be added as
 well to group objects together
 
-13. Click on the Metadata tab
+12. Click on the Metadata tab
 
 ![](images/200/image200_14.png)
 
-14. Click on an Attribute, ORDER_DATE for example
+13. Click on an Attribute, ORDER_DATE for example
 
 ![](images/200/image200_15.png)
 
-15. Notice the Profiling statistics appearing in the right-hand side drawer
+14. Notice the Profiling statistics appearing in the right-hand side drawer
 
-16. Click Data tab
+15. Click Data tab
 
 ![](images/200/image200_16.png)
 
-17. Go back to the main Catalog page – Search for Data Entity –
+16. suing the left-most panel, go back to the main Catalog page – Search for Data Entity –
 SRC_ORDER_LINES and click on it in the Quick Search results
 
 ![](images/200/image200_17.png)
 
-18. Click Metadata tab
+17. Click Metadata tab
 
 ![](images/200/image200_18.png)
 
-19. Click on a column, for example column – QTY
+18. Click on a column, for example column – QTY
 
-20. Notice the Profiling statistics
+19. Notice the Profiling statistics
 
 ![](images/200/image200_19.png)
 
-21. Click Data tab
+20. Click Data tab
 
-22. Review other entities as needed
+21. Review other entities as needed
 
 # Task 2 : Create DIPC Synchronize Data Task
 
@@ -232,7 +243,7 @@ press Enter to see the Login window, re-enter the DIPC user password (welcome1) 
 ![](images/200/image200_23.png)
 
 5. Once the Synchronize Data task is saved and executed this client will be used
-to visually monitory the Replicated Schema, the tables and their row counts
+to visually monitor the Replicated Schema, the tables and their row counts
 
 6. Optional: If you are also familiar with ODI Console, you will be able to monitor
 the data pump execution from within ODI Console –
@@ -240,20 +251,11 @@ the data pump execution from within ODI Console –
 7. Optional: Create a new tab within Chrome
 
 8. Optional: Log into ODI Console
-<<<<<<< HEAD
-    
-    a. \<Ravello Instance Hostname>:7003/odiconsole
-    
-    b. username: SUPERVISOR
-    
-    c. password: welcome
-=======
-- Ravello Instance Hostname:7003/odiconsole
-- username: SUPERVISOR
-- password: welcome1
->>>>>>> e024275cf3354d9f2d8cf4b4d13250514fa481ee
+    - \<Ravello Instance Hostname>:7003/odiconsole
+    - username: SUPERVISOR
+    - password: welcome 
 
-9. Within the DIPC App Click Home
+9. Within the DIPC App, click Home (from the left-most panel)
 
 10. Click Synchronize Data
 
@@ -266,12 +268,12 @@ the data pump execution from within ODI Console –
 ![](images/200/image200_25.png)
 
 13. Select your source connection and schema
-- Connection: Sync Source
-- Schema: DIPC_SRC
+    - Connection: Sync Source
+    - Schema: DIPC_SRC
 
 14. Select your target connection and schema
-- Connection: Sync Target
-- Schema: DIPC_TGT
+    - Connection: Sync Target
+    - Schema: DIPC_TGT
 
 15. Leave ‘Include Initial Load’ and ‘Include Replication’ checked under Advanced
 Options. These options allow you to optionally enable or disable the initial load
@@ -317,64 +319,51 @@ It is recommended to use two screens if possible.
 ![](images/200/image200_33.png)
 
 22. Run Synchronize Data Task
-- Click Save and Run
-![](images/200/image200_34.png)
+    
+    a. Click Save and Run
+    ![](images/200/image200_34.png)
+    
+    b. A notification will appear that the job was saved.
 
-- A notification will appear that the job was saved.
-- A new DIPC Job will be created to executed the task.
+    c. A new DIPC Job will be created to execute the task. A notification will appear in the notification bar as below:
+    ![](images/200/image200_35.png)
 
-A notification will appear in the notification bar as below:
+    d. The job will automatically appear within the Jobs page. This may take up to 1 minute.
+    ![](images/200/image200_36.png)
 
-![](images/200/image200_35.png)
+    e. Click on the Job to see the Job Details
+    ![](images/200/image200_37.png)
 
-- The job will automatically appear within the Jobs page. This may take
-up to 1 minute.
-![](images/200/image200_36.png)
+    f. Auto-refresh is on, statuses will be updated frequently
 
-- Click on the Job to see the Job Details
-![](images/200/image200_37.png)
+    g. As the job executes, the Initial Load process is created in ODI while DIPC configures OGG for the Source Capture and Target Delivery
 
-- Auto-refresh is on, statuses will be updated frequently
-- As the job executes, the Initial Load process is created in ODI while DIPC
-configures OGG for the Source Capture and Target Delivery
-- As this job executes, the Replicated Sales OLTP Source Data table will
-be updated in the Demo Client. As new tables are created they will show
-up as yellow, when the row counts of the source and replicated schemas
-match the rows will turn green
-![](images/200/image200_38.png)
+    h. As this job executes, the Replicated Sales OLTP Source Data table will be updated in the Demo Client. As new tables are created they will show up as yellow, when the row counts of the source and replicated schemas match the rows will turn green
+    ![](images/200/image200_38.png)
 
 Note: It may take several minutes for the Replicated Sales OLTP Data side to
 show anything. This is normal.
 
-- As the row counts of each table match the rows will turn green
+    i. As the row counts of each table match the rows will turn green
 ![](images/200/image200_39.png)
 
-- Optional: The Initial Load process (uses Data Pump) can also be
-monitored within ODI Console- (second created tab in Chrome)
-Expand Runtime/Sessions/Load Plan Executions then click on Sessions
-and on the glasses icon to view the status
+    j. Optional: The Initial Load process (uses Data Pump) can also be monitored within ODI Console- (second created tab in Chrome) Expand Runtime/Sessions/Load Plan Executions then click on Sessions and on the glasses icon to view the status
+    
 ![](images/200/image200_40.png)
 
-- Optional: Click on the Session at the top of the list to view the Details in
-ODI Console
+    k. Optional: Click on the Session at the top of the list to view the Details in ODI Console
 ![](images/200/image200_41.png)
 
-- Once the row counts match and the Initial Load process is complete the
-“Initial Load Complete” button within the Demo Client will be enabled.
+    l. Once the row counts match and the Initial Load process is complete the “Initial Load Complete” button within the Demo Client will be enabled.
 ![](images/200/image200_42.png)
 
-- Go back to the Job Details in the DIPC App. to review the status there.
-The Initial load Action will show Successful after a little while (may take 7
-minutes or more)
+    m. Go back to the Job Details in the DIPC App. to review the status there. The Initial load Action will show Successful after a little while (may take 7 minutes or more)
 ![](images/200/image200_43.png)
 
-- Once done, the Initial load Action can be expanded to review the various
-Steps underneath
+    n. Once done, the Initial load Action can be expanded to review the various steps underneath
 ![](images/200/image200_44.png)
 
-- Click on Procedure:Initial load_PROC:DBLINK_DATAPUMP to review the
-Code generated by DIPC for the Initial Load. Click Done when you’ve
-completed the code review
+    o. Click on Procedure:Initial load_PROC:DBLINK_DATAPUMP to review the Code generated by DIPC for the Initial Load. Click Done when you’ve completed the code review
 ![](images/200/image200_45.png)
 
 # Task 3 : Validate DIPC data Synchronization Job
@@ -388,17 +377,18 @@ window. You could also monitor the DIPC Managed Server, however there is a
 lot of detailed information here
 
 2. Click Jobs and refresh until the newly created DIPC Job shows up.
-- You should see 5 Actions
+    - You should see 5 Actions
 
 3. The DIPC agent is orchestrating this process. Additional details can be seen in
 the GG logs as well as within ODI Studio.
 
 4. Before doing anything else monitor GG and watch for extracts and replicats to
 be created and started and RUNNING
-- Open Terminal on DIPC host machine
-- cd /home/DIPC
-- Execute ./GGINFO_ALL.sh
-- Ensure both Extract and Replicat are running
+
+    a. Open Terminal on DIPC host machine
+    b. cd /home/DIPC
+    c. Execute ./GGINFO_ALL.sh
+    d. Ensure both Extract and Replicat are running
 ![](images/200/image200_46.png)
 
 5. Once all rows are green in the Demo Client, proceed to next step
@@ -411,7 +401,7 @@ be created and started and RUNNING
 and are running, we can simulate insert/updates and deletes on the source and
 monitor the replicated data through the Demo Client.
 
-2. Using the Demo Client click on the “Initial Load Complete” Button.
+2. Using the Demo Client click on the “Initial Load Complete” Button (if you have NOT done it already).
 ![](images/200/image200_48.png)
 
 3. The following screen will appear. NOTE – the current refresh of the client is 10
@@ -459,13 +449,11 @@ schema or appear in the next refresh by the Demo Client.
 
 9. Both rows should show as yellow
 
-10. To perform a delete click last row and click on the icon ![](images/200/image200_53.png) . Notice this record
-will be delete from the replicated schema as well.
+10. To perform a delete click last row and click on the icon ![](images/200/image200_53.png) . Notice this record will be deleted from the replicated schema as well.
 
 ![](images/200/image200_54.png)
 
 # Summary
 
-You have now successfully completed the Hands on Lab, and have successfully performed an
-end-to-end data synchronization task through Oracle’s Data Integration Platform Cloud.
+You have now successfully completed the Hands on Lab, and have successfully performed an end-to-end data synchronization task through Oracle’s Data Integration Platform Cloud.
 
