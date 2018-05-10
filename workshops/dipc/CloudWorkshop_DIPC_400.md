@@ -1,8 +1,8 @@
-![](images/400/AgentImage05-WorkshopHeader.PNG)
+![](images/400/400AgentImage05-WorkshopHeader.PNG)
 
 Update: May 10, 2018
 
-## Introduction - Remote Agent Install and Synchronization of an On-prem database
+## Introduction - Migrate On-Prem Database to Cloud
 
 This lab covers installation and configuration of DIPC remote agent along with synchronization of an on-prem database. Agents allow synchronization of data from sources outside Oracle Cloud. Two VMs within Ravello will be used to simulate a DIPC instance and an On-Prem database server. 
 Ravello VMs are being used to simulate cloud instances and do not have Identity Cloud Service (IDCS). Modifications will be made before porting to a GSE environment.
@@ -14,11 +14,11 @@ This lab supports the following use cases:
 ## Objectives
 
 -   Ensure Ravello VMs for DIPC and DB 
--	Ensure Remote Agent is trusted by DIPC instance *MODIFY FOR GSE*
+-	  Ensure Remote Agent is trusted by DIPC instance *MODIFY FOR GSE*
 -   Agent Download
 -   Agent Installation and Configuration
 -   Configure Agent SSL *MODIFY FOR GSE*
--	Agent Administration - Starting and Stopping.
+-	  Agent Administration - Starting and Stopping.
 -   Synchronize On-Premise Database
    
 ### **STEP 1**: Identify Shared Ravello Blueprint *REMOVE FOR GSE*
@@ -41,7 +41,7 @@ This lab supports the following use cases:
 
 	![](images/400/AgentImage020-ReviewAppConfig.png)
 
-### **STEP 3**: Publish Ravello Application
+### **STEP 3**: Publish Ravello Application *REMOVE FOR GSE*
 
 -   The Blue Print has two VMs: "DIPC 18.2.3" & "DIPC 18.2.3.1"
 -   Change "DIPC 18.2.3.1" to "On-Prem DB Svr"
