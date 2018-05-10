@@ -1,4 +1,4 @@
-![](images/400/AgentImage05-400_WorkshopHeader.PNG)
+![](images/400/AgentImage05-400WorkshopHeader.PNG)
 
 Update: May 10, 2018
 
