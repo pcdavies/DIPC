@@ -18,16 +18,14 @@ For this lab, the Data Integration Platform Cloud and the client environment are
 ## Logging Into Oracle Cloud Instance
 
 1. In your web browser, navigate to cloud.oracle.com, then click Sign in.
+![](images/600/image600_1.png)
 -  Enter your user name and password, then click Sign In.
 
-![](images/600/image600_1.png)
-
- 
 If the screensaver is on just press “enter” to open the login screen. 
 
  
 2.	Log into Data Integration Platform Cloud 
-- Use VNC to log into the VM. Use your favorite VNC client and enter Ravello Hostname:5901 as the URL to connect to  
+- Use VNC to log into the VM. Use your favorite VNC client and enter \<hostname>:5901 as the URL to connect to  
 ![](images/600/image600_4.png)
 - When prompted enter the password: welcome1 and click OK 
 ![](images/600/image600_5.png)

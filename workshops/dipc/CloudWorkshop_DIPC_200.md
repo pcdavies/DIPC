@@ -6,9 +6,9 @@
 ## Logging Into Oracle Cloud Instance
 
 1. In your web browser, navigate to cloud.oracle.com, then click Sign in.
-- Enter your user name and password, then click Sign In.
 
 ![](images/200/image200_1.png)
+- Enter your user name and password, then click Sign In.
 
 2. Log into Data Integration Platform Cloud
 
@@ -19,29 +19,20 @@
 
 - Login with weblogic/#!hyper1on!#
 
-
 After a few seconds, the following page should appear –
 
 ![](images/200/image200_3.png)
 
-
-    a. Note: If Chrome ask for keyring password then enter “welcome1”
-
-    b. In Chrome, click on DIPC Home bookmark or go to \<hostname>:7003/dicloud/login.html
-
-    c. Login with weblogic/#!hyper1on!#
-    
-    d. (Optional)  If the Agent is not started:
+## Optional 
+    - (Optional)  If the Agent is not started:
     - Open a Terminal windows:
-    
     - cd /home/DIPC/DIPC_AGENT2/dicloud/agent/dipcagent001/bin
-
-    e.(Optional) Execute ./startAgentInstance.sh In the Terminal window you should see ‘NOTIFICATION Done. GoldenGate manager is configured now.’ when the agent is fully started
+    - Execute ./startAgentInstance.sh In the Terminal window you should see ‘NOTIFICATION Done. GoldenGate manager is configured now.’ when the agent is fully started
 ![](images/200/image200_8a.png)
 
-    f. In Browser : Within app, on your desktop go to Agents page in DIPC
+- In Browser : Within app, on your desktop go to Agents page in DIPC
 
-    g. The agent should appear as follows (it will be Stopped at first then Running)
+- The agent should appear as follows (it will be Stopped at first then Running)
 ![](images/200/image200_8b.png)
 
 
