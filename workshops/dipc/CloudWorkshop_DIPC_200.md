@@ -167,7 +167,12 @@ SRC_ORDER_LINES and click on it in the Quick Search results
 demo. This client is NOT part of DIPC, however it does help visualize the
 Synchronize Data and ODI Execution Job process.
 
-2. To start this client open a terminal window in the Ravello Console. If needed
+   a. Open a browser window from your laptop/desktop (not inside the DIPC VM)
+
+    b. Click on DIPC Home bookmark or go to  \<hostname>:7003/dicloud/login.html
+    ![](images/200/image200_3.png)
+
+- If needed
 press Enter to see the Login window, re-enter the DIPC user password (welcome1) and press Enter or click Unlock
 
 ![](images/200/image200_20.png)
@@ -190,7 +195,7 @@ the data pump execution from within ODI Console –
 7. Optional: Create a new tab within Chrome
 
 8. Optional: Log into ODI Console
-    - \<Ravello Instance Hostname>:7003/odiconsole
+    - \<hostname>:7003/odiconsole
     - username: SUPERVISOR
     - password: welcome 
 
@@ -388,7 +393,10 @@ schema or appear in the next refresh by the Demo Client.
 
 9. Both rows should show as yellow
 
-10. To perform a delete click last row and click on the icon ![](images/200/image200_53.png) . Notice this record will be deleted from the replicated schema as well.
+10. To perform a delete click last row and click on the icon
+ ![](images/200/image200_53.png) 
+ 
+- Notice this record will be deleted from the replicated schema as well.
 
 ![](images/200/image200_54.png)
 
