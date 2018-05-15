@@ -151,7 +151,7 @@ This lab supports the following use cases:
 ### **STEP 13**: [On-Prem DB Svr] Start Agent
 
 -   Navigate to the agent bin directory
-    -   /home/DIPC/Documents/dicloud/agent/dipcagent001/bin
+    -   $ cd /home/DIPC/dipcagent/dicloud/agent/dipcagent001/bin
 -   Start agent using script startAgentInstance.sh
     -   $ ./startAgentInstance.sh
 
@@ -226,22 +226,21 @@ This lab supports the following use cases:
     ![](images/300/AgentImage113-ViewSrcConnectionMetadata.png)
 
 
-### **STEP 18**: [DIPC 18.2.3] Create blank target Schema ONPREM_TRG
+### **STEP 18**: [On-Prem DB Svr] Create blank target Schema ONPREM_TRG
 
 -   Create schema and ensure necessary privileges
 -   SQL> create user onprem_trg identified by welcome1;
 -   SQL> grant connect, resource, unlimited tablespace to onprem_trg;
 -   SQL> grant create database link to onprem_trg;
 -   
-
-	![](images/300/AgentImage115-TargetSchema.png)
-
 -   View schema tables and row count - should be empty
+-   SQL> connect onprem_trg
+-   SQL> select table_name from user_tables;
 
-	![](images/300/AgentImage116-ViewTargetSchema.png)
+	![](images/300/AgentImage115-OnpremTrgSchema.png)
 
 
-### **STEP 19**: [DIPC 18.2.3] Create Target Connection to Schema CLOUD_TRG
+### **STEP 19**: [DIPC 18.2.3] Create Target Connection to Schema ONPREM_TRG
 
 -   Enter target connection information to schema ONPREM_TRG
 -   Use same remote agent on port 7010 for target connection
@@ -259,11 +258,11 @@ This lab supports the following use cases:
 
 -   Click "Test Connection"
 
-	![](images/300/AgentImage120-CreateTargetConnection.png)
+	![](images/300/AgentImage120-CreateOnpremTargetConnection.png)
 
 -   Click "Save" to save target connection
 
-	![](images/300/AgentImage121-SaveTargetConnection.png)
+	![](images/300/AgentImage121-TestSaveTargetConnection.png)
 
 -   View Target Connection
 
