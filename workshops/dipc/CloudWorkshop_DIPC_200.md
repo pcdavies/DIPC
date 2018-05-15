@@ -51,8 +51,7 @@ The next steps will walk you through how to setup each.
 
 1. Log into Data Integration Platform Cloud
 
-    a. From your local laptop/desktop start Chrome (you can also continue to
-use Chrome on the Ravello instance)
+    a. From your local laptop/desktop start Chrome 
     
     b. Go to your \<hostname>:7003/dicloud/login.html
 
