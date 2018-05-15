@@ -1,24 +1,24 @@
 ![](images/400/AgentImage05-400WorkshopHeader.PNG)
 
-Update: May 10, 2018
+Update: May 15, 2018
 
 ## Introduction - Migrate On-Prem Database to Cloud
 
-This lab covers installation and configuration of DIPC remote agent along with synchronization of an on-prem database. Agents allow synchronization of data from sources outside Oracle Cloud. Two VMs within Ravello will be used to simulate a DIPC instance and an On-Prem database server. 
+This lab covers synchronization of an on-prem and cloud database using a previously installed remote DIPC agent. Agents allow synchronization of data from sources outside Oracle Cloud. Two VMs within Ravello will be used to simulate a DIPC instance and an On-Prem database server. The DIPC repository database also host the cloud target schema.
 Ravello VMs are being used to simulate cloud instances and do not have Identity Cloud Service (IDCS). Modifications will be made before porting to a GSE environment.
 
 This lab supports the following use cases:
--   Configure Remote DIPC Agent
+-   Configure Remote DIPC  (Optional already done in Lab 300)
 -   Synchronize On-Premise Database
 
 ## Objectives
 
 -   Ensure Ravello VMs for DIPC and DB 
--	  Ensure Remote Agent is trusted by DIPC instance *MODIFY FOR GSE*
+-	Ensure Remote Agent is trusted by DIPC instance *MODIFY FOR GSE*
 -   Agent Download
 -   Agent Installation and Configuration
 -   Configure Agent SSL *MODIFY FOR GSE*
--	  Agent Administration - Starting and Stopping.
+-	Agent Administration - Starting and Stopping.
 -   Synchronize On-Premise Database
    
 ### **STEP 1**: Identify Shared Ravello Blueprint *REMOVE FOR GSE*
@@ -64,6 +64,8 @@ This lab supports the following use cases:
 -   Login using:
     - Username/Password: weblogic/welcome1
 -   Click "Agents" in left panel
+-   !!! If there is an agent listed as localhost:7010 
+-   !!! then the remote agent is already installed (SKIP STEPS 5 - 14 covering agent install)
 
 	![](images/400/AgentImage035-HomePage.JPG)
 

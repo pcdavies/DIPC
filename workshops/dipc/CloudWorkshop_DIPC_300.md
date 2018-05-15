@@ -2,14 +2,14 @@
 
 Update: Apr 25, 2018
 
-## Introduction - Remote Agent Install and Synchronization of an On-prem database
+## Introduction - Remote Agent Install and On-prem to On-prem database Synchronization
 
-This lab covers installation and configuration of DIPC remote agent along with synchronization of an on-prem database. Agents allow synchronization of data from sources outside Oracle Cloud. Two VMs within Ravello will be used to simulate a DIPC instance and an On-Prem database server. 
+This lab covers installation and configuration of DIPC remote agent along with synchronization of two on-prem database schemas. Agents allow synchronization of data from sources outside Oracle Cloud. Two VMs within Ravello will be used to simulate a DIPC instance and an On-Prem database servers. The target and source schemas will reside in the same database.
 Ravello VMs are being used to simulate cloud instances and do not have Identity Cloud Service (IDCS). Modifications will be made before porting to a GSE environment.
 
 This lab supports the following use cases:
 -   Configure Remote DIPC Agent
--   Synchronize On-Premise Database
+-   Synchronize two On-Premise Databases
 
 ## Objectives
 
@@ -19,7 +19,7 @@ This lab supports the following use cases:
 -   Agent Installation and Configuration
 -   Configure Agent SSL *MODIFY FOR GSE*
 -	Agent Administration - Starting and Stopping.
--   Synchronize On-Premise Database
+-   Synchronize two On-Premise Databases
    
 ### **STEP 1**: Identify Shared Ravello Blueprint *REMOVE FOR GSE*
 
@@ -226,12 +226,12 @@ This lab supports the following use cases:
     ![](images/300/AgentImage113-ViewSrcConnectionMetadata.png)
 
 
-### **STEP 18**: [DIPC 18.2.3] Create blank target Schema CLOUD_TRG
+### **STEP 18**: [DIPC 18.2.3] Create blank target Schema ONPREM_TRG
 
 -   Create schema and ensure necessary privileges
--   SQL> create user cloud_trg identified by welcome1;
--   SQL> grant connect, resource, unlimited tablespace to cloud_trg;
--   SQL> grant create database link to cloud_trg;
+-   SQL> create user onprem_trg identified by welcome1;
+-   SQL> grant connect, resource, unlimited tablespace to onprem_trg;
+-   SQL> grant create database link to onprem_trg;
 -   
 
 	![](images/300/AgentImage115-TargetSchema.png)
@@ -243,16 +243,17 @@ This lab supports the following use cases:
 
 ### **STEP 19**: [DIPC 18.2.3] Create Target Connection to Schema CLOUD_TRG
 
--   Enter target connection information to schema CLOUD_TRG
+-   Enter target connection information to schema ONPREM_TRG
+-   Use same remote agent on port 7010 for target connection
 
-    - Name:        CLOUD_TRG
-    - Description: Connection to target schema cloud_trg
-	- Agent:       localhost:7009
+    - Name:        ONPREM_TRG
+    - Description: Connection to target schema onprem_trg
+	- Agent:       localhost:7010
 	- Type:        Oracle
 	- Connection Settings
 	  - Hostname:   localhost
 	  - Port:       1521
-	  - Username:   CLOUD_TRG
+	  - Username:   ONPREM_TRG
 	  - Password:   welcome1
 	  - Service:    Service Name: dics12c
 
@@ -283,8 +284,8 @@ This lab supports the following use cases:
 	  - Connection: ONPREM_SRC
 	  - Schema:     DIPC_SRC
 	- Target Configuration
-	  - Connection: CLOUD_TRG
-	  - Schema: CLOUD_TRG
+	  - Connection: ONPREM_TRG
+	  - Schema: ONPREM_TRG
 	- Advanced Options
 	  - Include Initial Load: check for initial load
 	  - Include Replication: check for replication
