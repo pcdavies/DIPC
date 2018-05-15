@@ -9,12 +9,12 @@ If the screensaver is on just press “enter” to open the login screen.
  
 ## Logging Into Oracle Cloud Instance
 
-1. In your web browser, navigate to cloud.oracle.com, then click Sign in.
-- Enter your user name and password, then click Sign In.
+1. In your web browser, navigate to cloud.oracle.com
+
 
 The following page should appear – 
 ![](images/500/image500_1.png)
-
+- Enter your user name and password, then click Sign In.
 2.	Click Home 
 
 3.	Create Data Preparation Task 

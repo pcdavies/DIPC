@@ -17,7 +17,7 @@ For this lab, the Data Integration Platform Cloud and the client environment are
 
 ## Logging Into Oracle Cloud Instance
 
-1. In your web browser, navigate to cloud.oracle.com, then click Sign in.
+1. In your web browser, navigate to cloud.oracle.com
 ![](images/600/image600_1.png)
 -  Enter your user name and password, then click Sign In.
 
