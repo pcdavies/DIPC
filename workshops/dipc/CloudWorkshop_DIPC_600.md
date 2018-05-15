@@ -35,7 +35,7 @@ If the screensaver is on just press “enter” to open the login screen.
 - Go to Applications > Internet and click Google Chrome 
 
 ![](images/600/image600_6.png)
-- In Chrome, open up DIPC Home bookmark or go to Ravello Host Name:7003/dicloud/login.html
+- In Chrome, open up DIPC Home bookmark or go to \<hostname>:7003/dicloud/login.html
 - Login with weblogic/#!hyper1on!#  
 
 After a few seconds, the following page should appear – 

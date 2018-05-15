@@ -24,30 +24,24 @@ After a few seconds, the following page should appear –
 
 ![](images/200/image200_3.png)
 
-3.	DIPC On-Premise agent allows synchronizing data from outside of Oracle Public Cloud. We will download and setup an agent.   
 
-    a. For this download we will use Chrome running in the VM not the one running on your laptop/desktop
+    a. Note: If Chrome ask for keyring password then enter “welcome1”
 
-    b. Go to Applications > Internet and click Google Chrome
-    ![](images/200/image200_3a.png)
-   
-    c. Note: If Chrome ask for keyring password then enter “welcome1”
+    b. In Chrome, click on DIPC Home bookmark or go to \<hostname>:7003/dicloud/login.html
 
-    d. In Chrome, click on DIPC Home bookmark or go to \<hostname>:7003/dicloud/login.html
-
-    e. Login with weblogic/#!hyper1on!#
+    c. Login with weblogic/#!hyper1on!#
     
-    f. (Optional)  If the Agent is not started:
+    d. (Optional)  If the Agent is not started:
     - Open a Terminal windows:
     
     - cd /home/DIPC/DIPC_AGENT2/dicloud/agent/dipcagent001/bin
 
-    g.(Optional) Execute ./startAgentInstance.sh In the Terminal window you should see ‘NOTIFICATION Done. GoldenGate manager is configured now.’ when the agent is fully started
+    e.(Optional) Execute ./startAgentInstance.sh In the Terminal window you should see ‘NOTIFICATION Done. GoldenGate manager is configured now.’ when the agent is fully started
 ![](images/200/image200_8a.png)
 
-    h. In Browser : Within app, on your desktop go to Agents page in DIPC
+    f. In Browser : Within app, on your desktop go to Agents page in DIPC
 
-    i. The agent should appear as follows (it will be Stopped at first then Running)
+    g. The agent should appear as follows (it will be Stopped at first then Running)
 ![](images/200/image200_8b.png)
 
 
