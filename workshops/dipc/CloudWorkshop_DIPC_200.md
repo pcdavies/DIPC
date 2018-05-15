@@ -169,13 +169,8 @@ Synchronize Data and ODI Execution Job process.
 
    a. Open a browser window from your laptop/desktop (not inside the DIPC VM)
 
-    b. Click on DIPC Home bookmark or go to  \<hostname>:7003/dicloud/login.html
+    b. Click on DIPC Home bookmark or go to  \<hostname>:7003/dicloud/login.html and sign in
     ![](images/200/image200_3.png)
-
-- If needed
-press Enter to see the Login window, re-enter the DIPC user password (welcome1) and press Enter or click Unlock
-
-![](images/200/image200_20.png)
 
 3. Open a Terminal
 
@@ -329,10 +324,10 @@ the GG logs as well as within ODI Studio.
 4. Before doing anything else monitor GG and watch for extracts and replicats to
 be created and started and RUNNING
 
-    a. Open Terminal on DIPC host machine
-    b. cd /home/DIPC
-    c. Execute ./GGINFO_ALL.sh
-    d. Ensure both Extract and Replicat are running
+- Open Terminal on DIPC host machine
+- cd /home/DIPC
+- Execute ./GGINFO_ALL.sh
+- Ensure both Extract and Replicat are running
 ![](images/200/image200_46.png)
 
 5. Once all rows are green in the Demo Client, proceed to next step
