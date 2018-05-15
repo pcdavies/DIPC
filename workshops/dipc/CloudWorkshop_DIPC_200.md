@@ -3,9 +3,10 @@
 
 ![](images/200/image200_0.png)
 
-_In these steps you will clean up and setup the environment for this exercise_
+## Logging Into Oracle Cloud Instance
 
-1. Login to the VM as DIPC user – Password is “welcome1”
+1. In your web browser, navigate to cloud.oracle.com, then click Sign in.
+- Enter your user name and password, then click Sign In.
 
 ![](images/200/image200_1.png)
 
@@ -13,7 +14,7 @@ _In these steps you will clean up and setup the environment for this exercise_
 
     a. Open a browser window from your laptop/desktop (not inside the DIPC VM)
 
-    b. Click on DIPC Home bookmark or go to  \<Ravello Instance hostname>:7003/dicloud/login.html
+    b. Click on DIPC Home bookmark or go to  \<hostname>:7003/dicloud/login.html
     ![](images/200/image200_2.png)
     c. Login with weblogic/#!hyper1on!#
 
@@ -31,69 +32,21 @@ After a few seconds, the following page should appear –
    
     c. Note: If Chrome ask for keyring password then enter “welcome1”
 
-    d. In Chrome, click on DIPC Home bookmark or go to localhost:7003/dicloud/login.html
+    d. In Chrome, click on DIPC Home bookmark or go to \<hostname>:7003/dicloud/login.html
 
     e. Login with weblogic/#!hyper1on!#
     
-    f. Click Agents    
-    ![](images/200/image200_4.png)
-
-    g. Click Download Installer then select Linux 64 - bit
-    ![](images/200/image200_5.png)
-
-    h. Click OK in the Download Agent Installer window
-
-    i. Create the DIPC_AGENT2 directory and click on Save
-    ![](images/200/image200_5a.png)
-
-    j. Extract agent.zip to ~/DIPC_AGENT
+    f. If the Agent is not started:
+    - Open a Terminal windows:
     
-        i. Click on downloaded file within Chrome
-       ![](images/200/image200_5b.png)
-        
-        ii. Select Open
-       ![](images/200/image200_6.png)
+    cd /home/DIPC/DIPC_AGENT2/dicloud/agent/dipcagent001/bin
 
-        iii. Extract with Unzip UI
-       ![](images/200/image200_6a.png)
-
-        iv. Click Extract again (blue button)
-    ![](images/200/image200_7.png)
-
-        v. Close all Unzip UI windows
-    ![](images/200/image200_7a.png)
-
-
-    k. Open a new Terminal window
-
-![](images/200/image200_7b.png)
-
-    l. cd /home/DIPC/DIPC_AGENT2/dicloud
-
-    m. Execute ./dicloudConfigureAgent.sh -dipchost=localhost -dipcport=7003 - user=weblogic -authType=BASIC
-
-![](images/200/image200_7c.png)
-
-    n. Script will prompt for password twice - #!hyper1on!#
-
-    o. cd /home/DIPC/DIPC_AGENT2/dicloud/agent/dipcagent001/conf
-
-    p. vi agent.properties
-        i. Use “i” to turn insert mode on
-        ii. Change agent port (agentPort) to 7009 since default is already used
-        iii. Change GG manager port (gginstanceport) to 7919 since default is already used
-        iv. Hit ESC then :wq to save
-        
-![](images/200/image200_8.png)
-
-    q. cd /home/DIPC/DIPC_AGENT2/dicloud/agent/dipcagent001/bin
-
-    r. Execute ./startAgentInstance.sh In the Terminal window you should see ‘NOTIFICATION Done. GoldenGate manager is configured now.’ when the agent is fully started
+    g. Execute ./startAgentInstance.sh In the Terminal window you should see ‘NOTIFICATION Done. GoldenGate manager is configured now.’ when the agent is fully started
 ![](images/200/image200_8a.png)
 
-    s. In Browser : Within app, on your desktop go to Agents page in DIPC
+    h. In Browser : Within app, on your desktop go to Agents page in DIPC
 
-    t. The new agent should appear as follows (it will be Stopped at first then Running)
+    i. The agent should appear as follows (it will be Stopped at first then Running)
 ![](images/200/image200_8b.png)
 
 
@@ -115,7 +68,7 @@ The next steps will walk you through how to setup each.
     a. From your local laptop/desktop start Chrome (you can also continue to
 use Chrome on the Ravello instance)
     
-    b. Go to your <Ravello Instance hostname>:7003/dicloud/login.html
+    b. Go to your \<hostname>:7003/dicloud/login.html
 
     c. Login with weblogic/#!hyper1on!#. The following page should appear
 

@@ -15,8 +15,10 @@ For this lab, the Data Integration Platform Cloud and the client environment are
 
 # Task 0: Preparation Steps 
 
+## Logging Into Oracle Cloud Instance
 
-1. Login to the VM as DIPC user – Password is “welcome1”
+1. In your web browser, navigate to cloud.oracle.com, then click Sign in.
+-  Enter your user name and password, then click Sign In.
 
 ![](images/600/image600_1.png)
 
