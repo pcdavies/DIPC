@@ -16,7 +16,8 @@
 
     b. Click on DIPC Home bookmark or go to  \<hostname>:7003/dicloud/login.html
     ![](images/200/image200_2.png)
-    c. Login with weblogic/#!hyper1on!#
+
+- Login with weblogic/#!hyper1on!#
 
 
 After a few seconds, the following page should appear –
@@ -36,12 +37,12 @@ After a few seconds, the following page should appear –
 
     e. Login with weblogic/#!hyper1on!#
     
-    f. If the Agent is not started:
+    f. (Optional)  If the Agent is not started:
     - Open a Terminal windows:
     
-    cd /home/DIPC/DIPC_AGENT2/dicloud/agent/dipcagent001/bin
+    - cd /home/DIPC/DIPC_AGENT2/dicloud/agent/dipcagent001/bin
 
-    g. Execute ./startAgentInstance.sh In the Terminal window you should see ‘NOTIFICATION Done. GoldenGate manager is configured now.’ when the agent is fully started
+    g.(Optional) Execute ./startAgentInstance.sh In the Terminal window you should see ‘NOTIFICATION Done. GoldenGate manager is configured now.’ when the agent is fully started
 ![](images/200/image200_8a.png)
 
     h. In Browser : Within app, on your desktop go to Agents page in DIPC
