@@ -3,15 +3,6 @@
 ![](images/500/image500_0.png)
 # Task 0: ODI Preparation Steps
 
-## Logging Into Oracle Cloud Instance
-
-1. In your web browser, navigate to cloud.oracle.com, then click Sign in.
-2. Enter your user name and password, then click Sign In.
-
-![](images/200/image200_1.png)
-
-![](images/500/image500_1.png)
-
 If the screensaver is on just press “enter” to open the login screen. 
  
 # Task 1: Prep External Website Data  
@@ -22,7 +13,7 @@ If the screensaver is on just press “enter” to open the login screen.
 - Enter your user name and password, then click Sign In.
 
 The following page should appear – 
-![](images/500/image500_2.png)
+![](images/500/image500_1.png)
 
 2.	Click Home 
 
