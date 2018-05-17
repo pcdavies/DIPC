@@ -1,6 +1,6 @@
 ![](images/300/AgentImage05-WorkshopHeader.PNG)
 
-Update: Apr 25, 2018
+Update: May 17, 2018
 
 ## Introduction - Remote Agent Install and On-prem to On-prem database Synchronization
 
@@ -13,7 +13,7 @@ This lab supports the following use cases:
 
 ## Objectives
 
--   Ensure Ravello VMs for DIPC and DB 
+-   Ensure Ravello VMs for DIPC and DB *REMOVE FOR GSE*
 -	Ensure Remote Agent is trusted by DIPC instance *MODIFY FOR GSE*
 -   Agent Download
 -   Agent Installation and Configuration
@@ -41,7 +41,7 @@ This lab supports the following use cases:
 
 	![](images/300/AgentImage020-ReviewAppConfig.png)
 
-### **STEP 3**: Publish Ravello Application
+### **STEP 3**: Publish Ravello Application *REMOVE FOR GSE*
 
 -   The Blue Print has two VMs: "DIPC 18.2.3" & "DIPC 18.2.3.1"
 -   Change "DIPC 18.2.3.1" to "On-Prem DB Svr"
@@ -109,7 +109,7 @@ This lab supports the following use cases:
 	![](images/300/AgentImage065-Current_DIPC_Agent_Page.png)
 
 
-### **STEP 10**: [DIPC 18.2.3] Identify private IP for DIPC console
+### **STEP 10**: [DIPC 18.2.3] Identify private IP for DIPC console *MODIFY FOR GSE*
 
 -   Navigate to Ravello Application to get information for agent install
 -   Click VM "DIPC 18.2.3" (DIPC Instance and Target DB)
@@ -119,7 +119,7 @@ This lab supports the following use cases:
 	![](images/300/AgentImage070-DIPC_Priv_IP.png)
 
 
-### **STEP 11**: [On-Prem DB Svr] Install the Agent from On-Prem Console
+### **STEP 11**: [On-Prem DB Svr] Install the Agent from On-Prem Console *MODIFY FOR GSE*
 
 -   Open a terminal in On-Prem VM
 -   Navigate to the agent directory
@@ -163,7 +163,7 @@ This lab supports the following use cases:
 ### **STEP 14**: [DIPC 18.2.3] View Remote Agent in DIPC Console
 
 -   Navigate to DIPC Console
--   Clict Agents in left toolbar
+-   Click "Agents" in left toolbar
 
 
 	![](images/300/AgentImage095-Confirm_Agent_DIPC_Console.png)
@@ -186,7 +186,7 @@ This lab supports the following use cases:
 ### **STEP 17**: [DIPC 18.2.3] Create Source Connection to On-Prem Schema
 
 -   Navigate to DIPC console
--   Click Home in left toolbar and click "Create Connections"
+-   Click "Home" in left toolbar and click "Create Connections"
 
 
 	![](images/300/AgentImage101-CreateSourceConnection.png)
