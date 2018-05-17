@@ -3,97 +3,36 @@
 
 ![](images/200/image200_0.png)
 
-_In these steps you will clean up and setup the environment for this exercise_
+## Logging Into Oracle Cloud Instance
 
-1. Login to the VM as DIPC user – Password is “welcome1”
+1. In your web browser, navigate to cloud.oracle.com
 
 ![](images/200/image200_1.png)
+- Enter your user name and password, then click Sign In.
 
 2. Log into Data Integration Platform Cloud
 
     a. Open a browser window from your laptop/desktop (not inside the DIPC VM)
 
-    b. Click on DIPC Home bookmark or go to  \<Ravello Instance hostname>:7003/dicloud/login.html
+    b. Click on DIPC Home bookmark or go to  \<hostname>:7003/dicloud/login.html
     ![](images/200/image200_2.png)
-    c. Login with weblogic/#!hyper1on!#
 
+- Login with weblogic/#!hyper1on!#
 
 After a few seconds, the following page should appear –
 
 ![](images/200/image200_3.png)
 
-3.	DIPC On-Premise agent allows synchronizing data from outside of Oracle Public Cloud. We will download and setup an agent.   
-
-    a. For this download we will use Chrome running in the VM not the one running on your laptop/desktop
-
-    b. Go to Applications > Internet and click Google Chrome
-    ![](images/200/image200_3a.png)
-   
-    c. Note: If Chrome ask for keyring password then enter “welcome1”
-
-    d. In Chrome, click on DIPC Home bookmark or go to localhost:7003/dicloud/login.html
-
-    e. Login with weblogic/#!hyper1on!#
-    
-    f. Click Agents    
-    ![](images/200/image200_4.png)
-
-    g. Click Download Installer then select Linux 64 - bit
-    ![](images/200/image200_5.png)
-
-    h. Click OK in the Download Agent Installer window
-
-    i. Create the DIPC_AGENT2 directory and click on Save
-    ![](images/200/image200_5a.png)
-
-    j. Extract agent.zip to ~/DIPC_AGENT
-    
-        i. Click on downloaded file within Chrome
-       ![](images/200/image200_5b.png)
-        
-        ii. Select Open
-       ![](images/200/image200_6.png)
-
-        iii. Extract with Unzip UI
-       ![](images/200/image200_6a.png)
-
-        iv. Click Extract again (blue button)
-    ![](images/200/image200_7.png)
-
-        v. Close all Unzip UI windows
-    ![](images/200/image200_7a.png)
-
-
-    k. Open a new Terminal window
-
-![](images/200/image200_7b.png)
-
-    l. cd /home/DIPC/DIPC_AGENT2/dicloud
-
-    m. Execute ./dicloudConfigureAgent.sh -dipchost=localhost -dipcport=7003 - user=weblogic -authType=BASIC
-
-![](images/200/image200_7c.png)
-
-    n. Script will prompt for password twice - #!hyper1on!#
-
-    o. cd /home/DIPC/DIPC_AGENT2/dicloud/agent/dipcagent001/conf
-
-    p. vi agent.properties
-        i. Use “i” to turn insert mode on
-        ii. Change agent port (agentPort) to 7009 since default is already used
-        iii. Change GG manager port (gginstanceport) to 7919 since default is already used
-        iv. Hit ESC then :wq to save
-        
-![](images/200/image200_8.png)
-
-    q. cd /home/DIPC/DIPC_AGENT2/dicloud/agent/dipcagent001/bin
-
-    r. Execute ./startAgentInstance.sh In the Terminal window you should see ‘NOTIFICATION Done. GoldenGate manager is configured now.’ when the agent is fully started
+## Optional 
+    - (Optional)  If the Agent is not started:
+    - Open a Terminal window:
+    - cd /home/DIPC/DIPC_AGENT2/dicloud/agent/dipcagent001/bin
+    - Execute ./startAgentInstance.sh In the Terminal window you should see ‘NOTIFICATION Done. GoldenGate manager is configured now.’ when the agent is fully started
 ![](images/200/image200_8a.png)
 
-    s. In Browser : Within app, on your desktop go to Agents page in DIPC
+- In Browser : Within app, on your desktop go to Agents page in DIPC
 
-    t. The new agent should appear as follows (it will be Stopped at first then Running)
+- The agent should appear as follows (Running)
 ![](images/200/image200_8b.png)
 
 
@@ -112,10 +51,9 @@ The next steps will walk you through how to setup each.
 
 1. Log into Data Integration Platform Cloud
 
-    a. From your local laptop/desktop start Chrome (you can also continue to
-use Chrome on the Ravello instance)
+    a. From your local laptop/desktop start Chrome 
     
-    b. Go to your <Ravello Instance hostname>:7003/dicloud/login.html
+    b. Go to your \<hostname>:7003/dicloud/login.html
 
     c. Login with weblogic/#!hyper1on!#. The following page should appear
 
@@ -228,10 +166,10 @@ SRC_ORDER_LINES and click on it in the Quick Search results
 demo. This client is NOT part of DIPC, however it does help visualize the
 Synchronize Data and ODI Execution Job process.
 
-2. To start this client open a terminal window in the Ravello Console. If needed
-press Enter to see the Login window, re-enter the DIPC user password (welcome1) and press Enter or click Unlock
+   a. Open a browser window from your laptop/desktop (not inside the DIPC VM)
 
-![](images/200/image200_20.png)
+    b. Click on DIPC Home bookmark or go to  \<hostname>:7003/dicloud/login.html and sign in
+    ![](images/200/image200_3.png)
 
 3. Open a Terminal
 
@@ -251,7 +189,7 @@ the data pump execution from within ODI Console –
 7. Optional: Create a new tab within Chrome
 
 8. Optional: Log into ODI Console
-    - \<Ravello Instance Hostname>:7003/odiconsole
+    - \<hostname>:7003/odiconsole
     - username: SUPERVISOR
     - password: welcome 
 
@@ -385,10 +323,10 @@ the GG logs as well as within ODI Studio.
 4. Before doing anything else monitor GG and watch for extracts and replicats to
 be created and started and RUNNING
 
-    a. Open Terminal on DIPC host machine
-    b. cd /home/DIPC
-    c. Execute ./GGINFO_ALL.sh
-    d. Ensure both Extract and Replicat are running
+- Open Terminal on DIPC host machine
+- cd /home/DIPC
+- Execute ./GGINFO_ALL.sh
+- Ensure both Extract and Replicat are running
 ![](images/200/image200_46.png)
 
 5. Once all rows are green in the Demo Client, proceed to next step
@@ -449,7 +387,10 @@ schema or appear in the next refresh by the Demo Client.
 
 9. Both rows should show as yellow
 
-10. To perform a delete click last row and click on the icon ![](images/200/image200_53.png) . Notice this record will be deleted from the replicated schema as well.
+10. To perform a delete click last row and click on the icon
+ ![](images/200/image200_53.png) 
+ 
+- Notice this record will be deleted from the replicated schema as well.
 
 ![](images/200/image200_54.png)
 

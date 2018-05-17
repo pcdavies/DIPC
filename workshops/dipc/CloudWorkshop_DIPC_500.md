@@ -1,25 +1,20 @@
 
 # Lab 500: Oracle ODI Data Preparation Lab
 ![](images/500/image500_0.png)
-# Task 0: ODI Preparation Steps 
-
-In these steps you will clean up and setup the environment for this exercise 
-
-1. Login to the VM as DIPC user – Password is “welcome1” 
-
-![](images/500/image500_1.png)
+# Task 0: ODI Preparation Steps
 
 If the screensaver is on just press “enter” to open the login screen. 
  
 # Task 1: Prep External Website Data  
  
-1.	Log into Data Integration Platform Cloud 
-- From your local laptop/desktop start Chrome (you can also continue to use Chrome on the Ravello instance) 
-- Go to your Ravello Instance hostname:7003/dicloud/login.html 
-- Login with weblogic/#!hyper1on!# 
+## Logging Into Oracle Cloud Instance
+
+1. In your web browser, navigate to cloud.oracle.com
+
 
 The following page should appear – 
-![](images/500/image500_2.png)
+![](images/500/image500_1.png)
+- Enter your user name and password, then click Sign In.
 2.	Click Home 
 
 3.	Create Data Preparation Task 

@@ -15,17 +15,17 @@ For this lab, the Data Integration Platform Cloud and the client environment are
 
 # Task 0: Preparation Steps 
 
+## Logging Into Oracle Cloud Instance
 
-1. Login to the VM as DIPC user – Password is “welcome1”
-
+1. In your web browser, navigate to cloud.oracle.com
 ![](images/600/image600_1.png)
+-  Enter your user name and password, then click Sign In.
 
- 
 If the screensaver is on just press “enter” to open the login screen. 
 
  
 2.	Log into Data Integration Platform Cloud 
-- Use VNC to log into the VM. Use your favorite VNC client and enter Ravello Hostname:5901 as the URL to connect to  
+- Use VNC to log into the VM. Use your favorite VNC client and enter \<hostname>:5901 as the URL to connect to  
 ![](images/600/image600_4.png)
 - When prompted enter the password: welcome1 and click OK 
 ![](images/600/image600_5.png)
@@ -33,7 +33,7 @@ If the screensaver is on just press “enter” to open the login screen.
 - Go to Applications > Internet and click Google Chrome 
 
 ![](images/600/image600_6.png)
-- In Chrome, open up DIPC Home bookmark or go to Ravello Host Name:7003/dicloud/login.html
+- In Chrome, open up DIPC Home bookmark or go to \<hostname>:7003/dicloud/login.html
 - Login with weblogic/#!hyper1on!#  
 
 After a few seconds, the following page should appear – 
