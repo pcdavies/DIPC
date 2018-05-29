@@ -61,9 +61,7 @@ In your web browser, navigate to cloud.oracle.com
 3. Use DIPC Demo Client 
 - This hands-on lab uses a JDBC utility client that was built specifically for this demo.  This client is NOT part of DIPC, however it does help visualize the 
 Synchronize Data and ODI Execution Job process 
-- Open a Terminal 
-
-![](images/600/image600_8.png)
+- Open a Terminal session
 
 - From the home directory execute ./startDIPCDemoClient.sh 
 ![](images/600/image600_9.png)
