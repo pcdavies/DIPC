@@ -31,18 +31,11 @@ Log into Data Integration Platform Cloud
 	![](images/300/AgentImage017-DemoLogin.png)
 	![](images/300/AgentImage018-DemoLogin.png)
 
-## Optional 
-    - (Optional)  If the Agent is not started:
-    - Open a Terminal window:
-    - cd /home/DIPC/DIPC_AGENT2/dicloud/agent/dipcagent001/bin
-    - Execute ./startAgentInstance.sh In the Terminal window you should see ‘NOTIFICATION Done. GoldenGate manager is configured now.’ when the agent is fully started
-![](images/200/image200_8a.png)
 
 - In Browser : Within app, on your desktop go to Agents page in DIPC
 
 - The agent should appear as follows (Running)
 ![](images/200/image200_8b.png)
-
 
 # Task 1: Setup DIPC Connections
 
