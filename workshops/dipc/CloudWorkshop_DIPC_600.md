@@ -15,22 +15,6 @@ For this lab, the Data Integration Platform Cloud and the client environment are
 
 # Task 0: Preparation Steps 
 
-## Logging Into Oracle Cloud Instance
-
-1. In your web browser, navigate to cloud.oracle.com
-![](images/600/image600_1.png)
--  Enter your user name and password, then click Sign In.
-
-If the screensaver is on just press “enter” to open the login screen. 
-
- 
-2.	Log into Data Integration Platform Cloud 
-- Use VNC to log into the VM. Use your favorite VNC client and enter \<hostname>:5901 as the URL to connect to  
-![](images/600/image600_4.png)
-- When prompted enter the password: welcome1 and click OK 
-![](images/600/image600_5.png)
-
-- Go to Applications > Internet and click Google Chrome 
 In your web browser, navigate to cloud.oracle.com
 ### **STEP 1**: [DIPC 18.2.3] Log into DIPC Console
 
@@ -58,10 +42,19 @@ In your web browser, navigate to cloud.oracle.com
 
 2.	Click Home 
 
+## Logging Into Oracle Cloud Instance using VNC
+- Use VNC to log into the VM. Use your favorite VNC client and enter \<hostname>:5901 as the URL to connect to  
+![](images/600/image600_4.png)
+- When prompted enter the password: welcome1 and click OK 
+![](images/600/image600_5.png)
+
+
 3. Use DIPC Demo Client 
 - This hands-on lab uses a JDBC utility client that was built specifically for this demo.  This client is NOT part of DIPC, however it does help visualize the 
 Synchronize Data and ODI Execution Job process 
-- Open a Terminal session
+- Open a Terminal 
+
+![](images/600/image600_8.png)
 
 - From the home directory execute ./startDIPCDemoClient.sh 
 ![](images/600/image600_9.png)
