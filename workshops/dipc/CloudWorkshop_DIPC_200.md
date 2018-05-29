@@ -3,16 +3,11 @@
 
 ![](images/200/image200_0.png)
 
-## Logging Into Oracle Cloud Instance
 
-1. In your web browser, navigate to cloud.oracle.com
 
-![](images/200/image200_1.png)
-- Enter your user name and password, then click Sign In.
+Log into Data Integration Platform Cloud
 
-2. Log into Data Integration Platform Cloud
-
-### **STEP 1**: [DIPC 18.2.3] Log into DIPC Console and go to Agent Page
+### **STEP 1**: [DIPC 18.2.3] Log into DIPC Console
 
 -   Log into demo.oracle.com with your single signon into domain ucm-gse00015126 (Discuss with Subrah/Rick)
 	![](images/300/AgentImage010-DemoLogin.png)
