@@ -10,9 +10,9 @@ If the screensaver is on just press “enter” to open the login screen.
 ## Logging Into Oracle Cloud Instance
 
 In your web browser, navigate to cloud.oracle.com
-### **STEP 1**: [DIPC 18.2.3] Log into DIPC Console and go to Agent Page
+### **STEP 1**: [DIPC 18.2.3] Log into DIPC Console
 
--   Log into demo.oracle.com with your single signon into domain ucm-gse00015126 (Discuss with Subrah/Rick)
+-   Log into demo.oracle.com with your single signon into domain ucm-gse00015126
 	![](images/300/AgentImage010-DemoLogin.png)
 
 -   In top right of page click "Login to Cloud Services Dashboard"
@@ -33,7 +33,7 @@ In your web browser, navigate to cloud.oracle.com
 -   Click menu on right and select "Data Integration Platform Console
 	![](images/300/AgentImage017-DemoLogin.png)
 	![](images/300/AgentImage018-DemoLogin.png)
-    
+
 2.	Click Home 
 
 3.	Create Data Preparation Task 

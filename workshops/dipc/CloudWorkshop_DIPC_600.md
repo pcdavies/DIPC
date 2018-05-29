@@ -31,14 +31,32 @@ If the screensaver is on just press “enter” to open the login screen.
 ![](images/600/image600_5.png)
 
 - Go to Applications > Internet and click Google Chrome 
+In your web browser, navigate to cloud.oracle.com
+### **STEP 1**: [DIPC 18.2.3] Log into DIPC Console
 
-![](images/600/image600_6.png)
-- In Chrome, open up DIPC Home bookmark or go to \<hostname>:7003/dicloud/login.html
-- Login with weblogic/#!hyper1on!#  
+-   Log into demo.oracle.com with your single signon into domain ucm-gse00015126
+	![](images/300/AgentImage010-DemoLogin.png)
 
-After a few seconds, the following page should appear – 
+-   In top right of page click "Login to Cloud Services Dashboard"
+-   Enter single signon user id or id provided
+	![](images/300/AgentImage011-DemoLogin.png)
 
-![](images/600/image600_7.png)
+	![](images/300/AgentImage012-DemoLogin.png)
+
+-   Click "Data Integration Platform Cloud" (no login info was required)
+-   Login may be required if accessing directly using console url
+-   https://myservices-gse00015126.console.oraclecloud.com/mycloud/cloudportal/dashboard
+
+	![](images/300/AgentImage015-DemoLogin.png)
+
+-   Click "Open Service Console" in top right of page to view DIPC instance "DIPCINST'
+	![](images/300/AgentImage016-DemoLogin.png)
+
+-   Click menu on right and select "Data Integration Platform Console
+	![](images/300/AgentImage017-DemoLogin.png)
+	![](images/300/AgentImage018-DemoLogin.png)
+
+2.	Click Home 
 
 3. Use DIPC Demo Client 
 - This hands-on lab uses a JDBC utility client that was built specifically for this demo.  This client is NOT part of DIPC, however it does help visualize the 
