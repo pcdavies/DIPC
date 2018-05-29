@@ -10,57 +10,95 @@
 
 ![](images/WorkshopMenu.png)  
 
-## Database Cloud Services Workshop
+## Oracle Data Integration Platform Cloud (DIPC) Services Workshop
 
-Welcome to the Oracle Database Cloud Service Workshop.  This particular version is based on Oracle's 'Classic' services, versus Oracle Compute Infrastructure (OCI) services.  These labs will give you a basic understanding of the Oracle Database Cloud Service and many of the capabilities around administration and database management.  Lab 100 will introduce you to DBCS and show you how to create a Cloud Database from an on-premise backup.  Lab 200 will cover various data migration use cases, including pluggable database migration, tablespace migration, and schema migration.  Lab 300 covers some common Database management activities.  Lab 400 show you how to use curl commands to perform various tasks.
+Welcome to the Oracle Data Integration Platform Cloud Service Workshop. The labs simulate instances in Oracle Compute Infrastructure (OCI) services along with on premise evironments.  The content will give you a basic understanding of Oracle Data Integration Platform Cloud Service and many of the capabilities related to provisioning, elevated tasks, agent install, data preparation and internals.  The labs are as follows:
+-  Lab 100 - Provisioning DIPCS
+-  Lab 200 - Sync Elevated Task
+-  Lab 300 - Remote Agent Install & Sync on-prem database
+-  Lab 400 - Migrate on-prem to Cloud
+-  Lab 500 - Prepare Data
+-  Lab 600 - ODI Execution Task
+-  Lab 700 - Under the covers DIPCS
+
 
 ## Workshop Details
 
 **Reference the following Lab Guides by opening their Documentation Files:**
 
-## Lab 100: Introduction and Database Creation
+## Lab 100: Provisioning DIPCS
 
-**Documentation**: [CloudWorkshop\_DBCS\_100.md](CloudWorkshop\_DBCS\_100.md)
-
-### Objectives
-
--   Log into the Cloud Console and get familiar with DBCS.
--   Configure archive logging.
--	Configure Transparent Data Encryption (TDE - required to restore from backup to the cloud).
--	Backup your local database to the Oracle Cloud.
--	Drop a table and then restore it from your cloud backup.
--	Create Database Cloud Service from your on-premise backup.
--   SSH configuration.
--   Explore VM and consoles.
-
-## Lab 200: Data Migration
-
-**Documentation**: [CloudWorkshop\_DBCS\_200.md](CloudWorkshop\_DBCS\_200.md)
+**Documentation**: [CloudWorkshop\_DIPCS\_100.md](CloudWorkshop\_DIPCS\_100.md)
 
 ### Objectives
 
--   Clone, unplug, transfer and plug the AlphaPDB pluggable database using SQL Developer.
--   Export and import a schema using SQL Developer to execute Oracle Data Pump jobs.
--   Export and import a tablespace using SQL Developer.
--   Copy table data between an on-premise database and DBCS.
+-   Provision a Data Integration Cloud Service instance.
 
-## Lab 300: Common DBA Tasks
+## Lab 200: Sync Elevated Task
 
-**Documentation**: [CloudWorkshop\_DBCS\_300.md](CloudWorkshop\_DBCS\_300.md)
+**Documentation**: [CloudWorkshop\_DIPCS\_200.md](CloudWorkshop\_DIPCS\_200.md)
+
+### Objectives
+Review the following elevated tasks
+-   Sync Data
+-   Create Data Lake
+-   Add Data to Data Mart
+-   Data Replication
+-   Data Validation
+
+## Lab 300: Remote Agent Install & Sync on-prem databases
+
+**Documentation**: [CloudWorkshop\_DIPCS\_300.md](CloudWorkshop\_DIPCS\_300.md)
 
 ### Objectives
 
--   Create an instance.
--   Maintain security access.
--   Scale up an instance.
--   Add a SSH Key.
+-   Ensure Ravello VMs for DIPC and DB 
+-	Ensure Remote Agent is trusted by DIPC instance *MODIFY FOR GSE*
+-   Agent Download
+-   Agent Installation and Configuration
+-   Configure Agent SSL *MODIFY FOR GSE*
+-	Agent Administration - Starting and Stopping.
+-   Synchronize On-Premise Database
 
 
-## Lab 400:  CLI/Curl Commands (Programatic Control of Services)
+## Lab 400:  Migrate on-prem to Cloud
 
-**Documentation**: [CloudWorkshop\_DBCS\_400.md](CloudWorkshop\_DBCS\_400.md)
+**Documentation**: [CloudWorkshop\_DIPCS\_400.md](CloudWorkshop\_DIPCS\_400.md)
 
 ### Objectives
 
--   Request information about DBCS related configuration and services.
--   Create services with curl commands.
+-   Install on-prem and cloud agent
+-   configure connections to target and source from DIPC console
+-   Sync target and source
+
+
+## Lab 500:  Prepare Data
+
+**Documentation**: [CloudWorkshop\_DIPCS\_500.md](CloudWorkshop\_DIPCS\_500.md)
+
+### Objectives
+
+-   Prepare data from flat files
+-   Transform data elements
+-   Administer transformations
+
+
+## Lab 600:  ODI Execution Task
+
+**Documentation**: [CloudWorkshop\_DIPCS\_600.md](CloudWorkshop\_DIPCS\_600.md)
+
+### Objectives
+
+-   Explore ODI Interface
+-   Load data from target to source
+
+## Lab 700:  Under the covers DIPCS
+
+**Documentation**: [CloudWorkshop\_DIPCS\_700.md](CloudWorkshop\_DIPCS\_700.md)
+
+### Objectives
+
+-   Understand underlying DIPC architecture
+-   Review default Oracle Golden Gate configurations
+-   Review weblogic components
+-   Revew required ports for communication between agent and DIPC console

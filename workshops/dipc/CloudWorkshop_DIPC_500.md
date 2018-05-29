@@ -1,51 +1,59 @@
 
-# Lab 500: Oracle Data Integration (ODI)  Lab Preparation
+# Lab 500: Oracle ODI Data Preparation Lab
 ![](images/500/image500_0.png)
-# Task 0: Preparation Steps 
-
-In these steps you will clean up and setup the environment for this exercise 
-
-1. Login to the VM as DIPC user – Password is “welcome1” 
-  
-![](images/500/image500_1.png)
+# Task 0: ODI Preparation Steps
 
 If the screensaver is on just press “enter” to open the login screen. 
  
 # Task 1: Prep External Website Data  
  
-1.	Log into Data Integration Platform Cloud 
-- From your local laptop/desktop start Chrome (you can also continue to use Chrome on the Ravello instance) 
-- Go to your Ravello Instance hostname:7003/dicloud/login.html 
-- Login with weblogic/#!hyper1on!# 
+## Logging Into Oracle Cloud Instance
 
-The following page should appear – 
-  
-![](images/500/image500_2.png)
+In your web browser, navigate to cloud.oracle.com
+### **STEP 1**: [DIPC 18.2.3] Log into DIPC Console and go to Agent Page
+
+-   Log into demo.oracle.com with your single signon into domain ucm-gse00015126 (Discuss with Subrah/Rick)
+	![](images/300/AgentImage010-DemoLogin.png)
+
+-   In top right of page click "Login to Cloud Services Dashboard"
+-   Enter single signon user id or id provided
+	![](images/300/AgentImage011-DemoLogin.png)
+
+	![](images/300/AgentImage012-DemoLogin.png)
+
+-   Click "Data Integration Platform Cloud" (no login info was required)
+-   Login may be required if accessing directly using console url
+-   https://myservices-gse00015126.console.oraclecloud.com/mycloud/cloudportal/dashboard
+
+	![](images/300/AgentImage015-DemoLogin.png)
+
+-   Click "Open Service Console" in top right of page to view DIPC instance "DIPCINST'
+	![](images/300/AgentImage016-DemoLogin.png)
+
+-   Click menu on right and select "Data Integration Platform Console
+	![](images/300/AgentImage017-DemoLogin.png)
+	![](images/300/AgentImage018-DemoLogin.png)
+    
 2.	Click Home 
 
 3.	Create Data Preparation Task 
 - Click Data Preparation 
 ![](images/500/image500_2a.png)
- 
-4.	On the Create Data Preparation Task enter the following information 
-
+4.	Create Data Preparation Task enter the following information 
 ![](images/500/image500_3a.png)
-
 - Name: PrepWebData 
-- Description  Prep External Website Data  
+- Description:  Prep External Website Data  
 - Agent – leave blank 
 - Type: File 
 - Directory: /home/DIPC 
 
 5. For Source Configuration click add new connection button
-
 ![](images/500/image500_4a.png)
-
-- Name Local File Store
-- Description Local File Store
-- Agent Leave Blank
-- Type File
-- Directory /home/DIPC
+- Name: Local File Store
+- Description: Local File Store
+- Agent: Leave Blank
+- Type: File
+- Directory: /home/DIPC
 
 6.	Review Connections settings. 
 
@@ -53,17 +61,15 @@ The following page should appear –
 - Click Save  
 
 8.	Create Target Connection from the Catalog 
-NOTE: This connection may have already have been setup in a previous HOL. 
+- NOTE: This connection may have already have been setup in a previous HOL 
 - Click on the Create button and select Connection  
-
 ![](images/500/image500_5a.png)
 
 9.	Enter the following information  
-
 - Name: Sync Target 
-- Description – Sales OLTP Replicated Data 
-- Agent – leave blank 
-- Type Oracle – selecting Oracle will expand the Connection Settings 
+- Description: Sales OLTP Replicated Data 
+- Agent: leave blank 
+- Type: Oracle – selecting Oracle will expand the Connection Settings 
 - Hostname: localhost 
 - Port: 1521 
 - Username: DIPC_TGT 
@@ -77,21 +83,24 @@ NOTE: This connection may have already have been setup in a previous HOL.
 
 11.	Click Save 
 
-12.	Ensure Create Data Preparation Task Entries as follows 
+12.	Create Data Preparation Task Entries as follows 
 - Name: Prep Web Data 
 - Description: Prep External Website Data 
 - Source Configuration 
 -  Connection: LocalFileStore 
 -  Directory: /home/DIPC 
--  File: webclicks.txt 
-- Set options for webclicks.txt as follows 
+-  File: Click Select - scroll to webclicks.txt 
+
+- Select options for webclicks.txt as follows 
 
 ![](images/500/image500_7a.png)
 
 - No Text Qualifier 
 - Ensure header is not enabled 
-- First Data Row 1 
--  Target Configuration 
+- First Data Row should be 1 
+- Select OK
+
+- Target Configuration 
 -  Connection: DIPC_TGT 
 -  Schema: DIPC_TGT 
 -  Data Entity: webclicks  
@@ -124,7 +133,6 @@ NOTE: This connection may have already have been setup in a previous HOL.
 ![](images/500/image500_13a.png)
 
 19. Click Apply.  Clicking apply updates, the data, metadata and profiling statistics.  Also note the transform is saved and displayed in the left-hand drawer.  This transform can be deleted and the data, metadata and profiling statistics will be updated accordingly. 
-
 ![](images/500/image500_14b.png)
 - Column 1: Rename WROWID 
 - Column 2: Rename CUSTID 

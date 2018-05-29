@@ -1,139 +1,310 @@
-![](images/400/image1.png)
+![](images/400/AgentImage05-400WorkshopHeader.PNG)
 
-Update: December 12, 2017
+Update: May 15, 2018
 
-## Introduction
+## Introduction - Migrate On-Prem Database to Cloud
 
-In this Lab you will use curl commands to retrieve information about the configuration and status of various cloud services without the need to use the Cloud Console.  Note you may wish to open a separate text window with your identity domain account and password to copy/paste these into the placeholders in the following commands, and then copy this into the terminal windows.
+This lab covers synchronization of an on-prem and cloud database using a previously installed remote DIPC agent. Agents allow synchronization of data from sources outside Oracle Cloud. Two VMs within Ravello will be used to simulate a DIPC instance and an On-Prem database server. The DIPC repository database also host the cloud target schema.
+Ravello VMs are being used to simulate cloud instances and do not have Identity Cloud Service (IDCS). Modifications will be made before porting to a GSE environment.
 
 This lab supports the following use cases:
--	Programatic control of cloud databases.
-
-Please direct comments to: Derrick Cameron (derrick.cameron@oracle.com)
+-   Configure Remote DIPC  (Optional already done in Lab 300)
+-   Synchronize On-Premise Database
 
 ## Objectives
 
--   Request information about DBCS related configuration and services.
--   Create services with curl commands.
+-   Ensure Ravello VMs for DIPC and DB 
+-	Ensure Remote Agent is trusted by DIPC instance *MODIFY FOR GSE*
+-   Agent Download
+-   Agent Installation and Configuration
+-   Configure Agent SSL *MODIFY FOR GSE*
+-	Agent Administration - Starting and Stopping.
+-   Synchronize On-Premise Database
+   
+### **STEP 1**: Identify Shared Ravello Blueprint *REMOVE FOR GSE*
 
-## Required Artifacts
+-   In the Left Sidebar Click on Library>Blueprints
 
--   There are now dependencies for this lab.
+	![](images/400/AgentImage010-IdentifyBlueprint.png)
 
-## Curl 'Get' Examples (all commands enter in a terminal window)
+### **STEP 2**: Create Ravello Application  *REMOVE FOR GSE*
 
-### **STEP 1**: Fetch a List of Access Rules
+-   Select Blueprint "DIPC 18.2.3 V6-bp Werner 4.6.2018"
+-   Click "Create Application"
 
--	Enter the following in a terminal window on the compute image.  This will return a JSON formatted response providing security access rules.  Note that we are using a US data center (see the highlight below).  Many GSE instances are EMEA, in which case the URL would have an EM where the US is.  This holds for all the examples that follow.  Be sure to replace the Identity Domain and Identity Domain passwords below with your own.
+	![](images/400/AgentImage015-CreateApplication.png)
 
-```
-curl -i -X GET \
--u "cloud.admin:<IDENTITY DOMAIN PASSWORD>" \
--H "X-ID-TENANT-NAME: <IDENTITY DOMAIN>" \
--H "Accept: application/json" \
-https://psm.us.oraclecloud.com/paas/api/v1.1/instancemgmt/<IDENTITY DOMAIN>/services/dbaas/instances/Alpha01A-DBCS/accessrules
-```
-![](images/400/image2.png)
+-   Enter Ravello Application Details
+    Name: "DIPC 18.2.3 Agent - DB Sync"
+    Description: "DIPC Agent - DB Sync Configuration"
+    Click "Create"
 
-### **STEP 2**: Fetch a List of All Instances
+	![](images/400/AgentImage020-ReviewAppConfig.png)
 
--	Enter the following in a terminal window on the compute image.  This will return a JSON formatted response providing a list of instances (not just database - all instances).
-```
-curl -i -X GET \
--u "cloud.admin:<IDENTITY DOMAIN PASSWORD>" \
--H "X-ID-TENANT-NAME: <IDENTITY DOMAIN>" \
--H "Accept: application/json"  \
-https://psm.us.oraclecloud.com/paas/service/dbcs/api/v1.1/instances/<IDENTITY DOMAIN>
-```
-![](images/400/image3.png)
+### **STEP 3**: Publish Ravello Application *REMOVE FOR GSE*
 
-### **STEP 3**: Fetch a List of All Image Files
+-   The Blue Print has two VMs: "DIPC 18.2.3" & "DIPC 18.2.3.1"
+-   Change "DIPC 18.2.3.1" to "On-Prem DB Svr"
+-   Publish the Blueprint VMs
+    Click "Publish" highlighted in top right
 
--	Enter the following in a terminal window on the compute image.  This will return a JSON formatted response providing a list of all image files.
-```
-curl -X GET \
--u "cloud.admin:<IDENTITY DOMAIN PASSWORD>" \
--H "X-ID-TENANT-NAME: <IDENTITY DOMAIN>" \
-https://us2.storage.oraclecloud.com/v1/Storage-<IDENTITY DOMAIN>/compute_images
-```
-![](images/400/image4.png)
+	![](images/400/AgentImage025-PublishApp.png)
 
-### **STEP 4**: Fetch Details of DBCS Instance Alpha01A-DBCS
-
--	Enter the following in a terminal window on the compute image.  This will return a JSON formatted response providing details of a particular instance (Alpha01A-DBCS in this case).
-```
-curl -i -X GET \
--u "cloud.admin:<IDENTITY DOMAIN PASSWORD>" \
--H "X-ID-TENANT-NAME: <IDENTITY DOMAIN>" \
--H "Accept: application/json" \
-https://psm.us.oraclecloud.com/paas/api/v1.1/instancemgmt/<IDENTITY DOMAIN>/services/dbaas/instances/Alpha01A-DBCS
-```
-![](images/400/image5.png)
-
-### **STEP 5**: Isolate the IP Address of Alpha01A-DBCS in the example above using 
-
--	Enter the following in a terminal window on the compute image.  This will return a JSON formatted response providing the IP address particular instance (Alpha01A-DBCS in this case).
-```
-curl -i -X GET \
--u "cloud.admin:<IDENTITY DOMAIN PASSWORD>" \
--H "X-ID-TENANT-NAME: <IDENTITY DOMAIN>" \
--H "Accept: application/json" \
-https://psm.us.oraclecloud.com/paas/api/v1.1/instancemgmt/<IDENTITY DOMAIN>/services/dbaas/instances/Alpha01A-DBCS|sed -e 's/[{}]/''/g'|awk -v k="text" '{n=split($0,a,","); for (i=1; i<=n; i++) print a[i]}'|grep "ipAddress"|sed -n 1p
-```
-![](images/400/image6.png)
-
-## Curl 'Put' Examples (all commands enter in a terminal window)
-
-### **STEP 6**: Create New Access Rule - Open Port 1523
-
--	This creates a new access rule and enables it.
-```
-curl -i -X POST \
-  -u "cloud.admin:<IDENTITY DOMAIN PASSWORD>" \
-  -H "X-ID-TENANT-NAME: <IDENTITY DOMAIN>" \
-  -d '{"ruleName":"open1523","ruleType":"USER","description":"","source":"PUBLIC-INTERNET","destination":"DB","ports":"1523","protocol":"tcp","status":"enabled"}' \
-  -H "Accept: application/json" \
-  -H "Content-Type: application/json" \
-https://psm.us.oraclecloud.com/paas/api/v1.1/instancemgmt/<IDENTITY DOMAIN>/services/dbaas/instances/Alpha01A-DBCS/accessrules 
-```
+-   Review publish parameters and click "Publish"
+-   Choose "Performance" for Optimize option
+-   Start the VMs and Log into the Consoles using:
+    -  Username/Password: DIPC/wecome1
+    
+	![](images/400/AgentImage030-ReviewPublishApp.png)
 
 
-### **STEP 7**: Create New DBCS Instance EXAMPLE
+### **STEP 4**: [DIPC 18.2.3] Log into DIPC Console and go to Agent Page
 
--	This creates a new DBCS Instance.  This is only an example.  We will not do this as you may be over quota, and it can take over 30 minutes to provision.
-```
----------- create instance ---------- 
-curl -X POST \
--u "cloud.admin:<IDENTITY DOMAIN PASSWORD>" \
--H "X-ID-TENANT-NAME: <IDENTITY DOMAIN>" \
--H "Content-Type:application/json" \
--H "Accept: application/json" \
--d @createrequestbody.json \ -- this references the file below
-https://dbaas.oraclecloud.com/paas/service/dbcs/api/v1.1/instances/<IDENTITY DOMAIN>
+-   From "DIPC 18.2.3" lauch DIPC Console from Chrome browser bookmark
+-   Login using:
+    - Username/Password: weblogic/welcome1
+-   Click "Agents" in left panel
+-   !!! If there is an agent listed as localhost:7010 
+-   !!! then the remote agent is already installed (SKIP STEPS 5 - 14 covering agent install)
 
----------- createrequestbody.json ---------- 
-{
-  "description": "Example service instance",
-  "edition": "EE_HP",
-  "level": "PAAS",
-  "serviceName": "orcl2",
-  "shape": "oc3",
-  "subscriptionType": "HOURLY",
-  "version": "12.1.0.2",
-  "vmPublicKeyText": "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAjjVf7hUGWOjWa1bcPSJ1uA9Tu3rYJ/9OkmtUzPiLSv6bKs2RjxnH6l80cfZibWned7wlqZeEA1iMWza+E8nMk/0sMkO+f9HpkTCc/N4wD7nFmLiAmhivWnS2HFj4oiNPdmBM4tFhSsfEextTSRKOlIZG0m9aIAOUh7e6Tf1/XS+MTLyUYwNGkNWHtAH03J3sVf3AaJ+SxS8YyVz5SY0VnJTWRqKs5nrLfLuJEsrBZdme4RYowIqxUlYWpkaf/RjFk2kIvIN1sEQHmMe+RTZmCvaDaOmOKlLOg9pmUN7Ybra3r7BnVbr1FuAJBjFj45XisY5lmhJCNZNFl79GJ8H8hw== rsa-key-20160415",
-  "parameters": [
-    {
-      "type": "db",
-      "usableStorage": "15",
-      "adminPassword": "Welcome_1",
-      "sid": "orcl",
-      "pdbName": "pdb1",
-      "failoverDatabase": "no",
-      "backupDestination": "BOTH",
-      "cloudStorageContainer": "Storage-<IDENTITY DOMAIN>\/Alpha01A_DBCS_SC",
-      "cloudStorageUser": "cloud.admin",
-      "cloudStoragePwd": "<IDENTITY DOMAIN PASSWORD>"
-    }
-  ]
-}
-```
+	![](images/400/AgentImage035-HomePage.JPG)
+
+### **STEP 5**: [DIPC 18.2.3] Select Download Installer Drop Down Menu
+
+-   Select drop down menu and select zip file for your Operating System
+
+	![](images/400/AgentImage040-DownloadAgent.JPG)
+
+### **STEP 6**: [DIPC 18.2.3] Confirm your agent download selection
+
+-   Click "OK" to confirm selection
+
+	![](images/400/AgentImage045-DownloadAgent.JPG)
+
+### **STEP 7**: [DIPC 18.2.3] Save the agent zip file to your home directory
+
+-   Save the file to your home directory in preparation to unzip and install
+-   ftp agent zip file to "On-Prem DB Svr"
+
+	![](images/400/AgentImage050-DownloadAgentSave.JPG)
+
+### **STEP 8**: [On-Prem DB Svr] View and unzip agent file
+
+-   Open terminal on "On-Prem DB Svr]
+-   view agent zip file "agent-linux.64.bit.zip"
+
+	![](images/400/AgentImage055-UnzipAgent.png)
+
+-   unzip agent file
+    -   $unzip agent-linux.64.bit.zip
+
+	![](images/400/AgentImage060-UnzipAgent.png)
+
+
+### **STEP 9**: [DIPC 18.2.3] Show current agent page in DIPC console
+
+-   Navigate to DIPC console on VM "DIPC 18.2.3"
+-   Click "Agent" in the left toolbar
+-   There is only one local agent install 
+
+
+	![](images/400/AgentImage065-Current_DIPC_Agent_Page.png)
+
+
+### **STEP 10**: [DIPC 18.2.3] Identify private IP for DIPC console
+
+-   Navigate to Ravello Application to get information for agent install
+-   Click VM "DIPC 18.2.3" (DIPC Instance and Target DB)
+-   Note the private IP listed in bottom left of DIPC console (10.0.0.3)
+
+
+	![](images/400/AgentImage070-DIPC_Priv_IP.png)
+
+
+### **STEP 11**: [On-Prem DB Svr] Install the Agent from On-Prem Console
+
+-   Open a terminal in On-Prem VM
+-   Navigate to the agent directory
+-   Execute command to install agent using password - #!hyper1on!#
+    ./dicloudConfigureAgent.sh -dipchost=10.0.0.3 -dipcport=7003 -user=weblogic -authType=BASIC
+
+-   Set the "dipchost" parameter to 10.0.0.3
+-   This configuration does not have IDCS so use "BASIC" for parameter AuthType
+
+
+	![](images/400/AgentImage075-Execute_Agent_Install.png)
+   
+-   Output shows agent created
+
+-   ![](images/400/AgentImage080-Execute_Agent_Install.png)
+
+
+### **STEP 12**: [On-Prem DB Svr] Modify Agent Parameter 
+
+-   Modify agent port "agentPort" in parameter file "agent.properties" to 7010
+-   path to parameter file: 
+-   /home/DIPC/Documents/dicloud/agent/dipcagent001/conf 
+
+
+	![](images/400/AgentImage085-ModifyAgentParameter.png)
+
+	![](images/400/AgentImage086-ModifyAgentParameter.png)
+
+### **STEP 13**: [On-Prem DB Svr] Start Agent
+
+-   Navigate to the agent bin directory
+    -   /home/DIPC/Documents/dicloud/agent/dipcagent001/bin
+-   Start agent using script startAgentInstance.sh
+    -   $ ./startAgentInstance.sh
+
+
+	![](images/400/AgentImage090-StartAgent.png)
+
+	![](images/400/AgentImage091-StartAgent.png)
+
+### **STEP 14**: [DIPC 18.2.3] View Remote Agent in DIPC Console
+
+-   Navigate to DIPC Console
+-   Clict Agents in left toolbar
+
+
+	![](images/400/AgentImage095-Confirm_Agent_DIPC_Console.png)
+
+### **STEP 15**: [DIPC 18.2.3] Ensure local and Remote Agents are started
+
+-   Start agents as needed from Agent bin directory
+    -   $ ./startAgentInstance.sh
+
+
+	![](images/400/AgentImage096-Confirm_SRC_TRG_Agent_Started.png)
+
+### **STEP 16**: [On-Prem DB Svr] Review On-Prem Schema
+
+-   Connect to remote schema and view tables and row count
+
+
+	![](images/400/AgentImage100-ReviewOnPremSchema.png)
+
+### **STEP 17**: [DIPC 18.2.3] Create Source Connection to On-Prem Schema
+
+-   Navigate to DIPC console
+-   Click Home in left toolbar and click "Create Connections"
+
+
+	![](images/400/AgentImage101-CreateSourceConnection.png)
+
+-   Enter source connection information for On-prem schema
+
+    - Name:        ONPREM_SRC
+    - Description: Connection to on-prem database schema with source tables
+	- Agent:       localhost:7010
+	- Type:        Oracle
+	- Connection Settings
+	  - Hostname:   10.0.0.4
+	  - Port:       1521
+	  - Username:   DIPC_SRC
+	  - Password:   welcome1
+	  - Service:    Service Name: dics12c
+
+
+	![](images/400/AgentImage105-EnterSrcConnectionInfo.png)
+
+-   Click "Test Connection" and "Save"
+
+	![](images/400/AgentImage105-TestSaveSrcConnection.png)
+
+-   Search for source connection ONPREM_SRC in catalog
+
+	![](images/400/AgentImage110-SearchConnectionCatalog.png)
+
+    ![](images/400/AgentImage111-ViewSrcConnectionCatalog.png)
+
+-   Click connection name to view summary
+
+    ![](images/400/AgentImage112-ViewSrcConnectionSummary.png)
+
+-   Click metadata tab
+
+    ![](images/400/AgentImage113-ViewSrcConnectionMetadata.png)
+
+
+### **STEP 18**: [DIPC 18.2.3] Create blank target Schema CLOUD_TRG
+
+-   Create schema and ensure necessary privileges
+-   SQL> create user cloud_trg identified by welcome1;
+-   SQL> grant connect, resource, unlimited tablespace to cloud_trg;
+-   SQL> grant create database link to cloud_trg;
+-   
+
+	![](images/400/AgentImage115-TargetSchema.png)
+
+-   View schema tables and row count - should be empty
+
+	![](images/400/AgentImage116-ViewTargetSchema.png)
+
+
+### **STEP 19**: [DIPC 18.2.3] Create Target Connection to Schema CLOUD_TRG
+
+-   Enter target connection information to schema CLOUD_TRG
+
+    - Name:        CLOUD_TRG
+    - Description: Connection to target schema cloud_trg
+	- Agent:       localhost:7009
+	- Type:        Oracle
+	- Connection Settings
+	  - Hostname:   localhost
+	  - Port:       1521
+	  - Username:   CLOUD_TRG
+	  - Password:   welcome1
+	  - Service:    Service Name: dics12c
+
+-   Click "Test Connection"
+
+	![](images/400/AgentImage120-CreateTargetConnection.png)
+
+-   Click "Save" to save target connection
+
+	![](images/400/AgentImage121-SaveTargetConnection.png)
+
+-   View Target Connection
+
+	![](images/400/AgentImage122-ViewTargetConnection.png)
+
+### **STEP 20**: [DIPC 18.2.3] Create Sync Job between Source and Target
+
+-   In DIPC Console click "Home" in left toolbar
+-   Click "Synchronize Data"
+
+	![](images/400/AgentImage125-CreateSyncJob.png)
+
+-   Enter Sync Job Information
+    - General Information
+	  - Name:        SYNC ONPREM SCHEMA
+	  - Description: Job to sync on-prem schema with cloud target schema
+	- Source Configuration
+	  - Connection: ONPREM_SRC
+	  - Schema:     DIPC_SRC
+	- Target Configuration
+	  - Connection: CLOUD_TRG
+	  - Schema: CLOUD_TRG
+	- Advanced Options
+	  - Include Initial Load: check for initial load
+	  - Include Replication: check for replication
+
+-   Click "Save & Run"
+
+	![](images/400/AgentImage125-EnterSynJobInfo.png)
+
+-   Click Job to review Sync Job Details
+
+	![](images/400/AgentImage130-SyncJobMonitor.png)
+
+-   Monitor Target Schema for table creation and row count
+AgentImage135-SyncJobMonitorSchema.png
+
+	![](images/400/AgentImage135-SyncJobMonitorSchema.png)
+
+	![](images/400/AgentImage136-SyncJobMonitorSchema2.png)
+
+	![](images/400/AgentImage137-SyncJobMonitorSchema3.png)
+
