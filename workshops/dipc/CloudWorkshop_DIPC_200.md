@@ -12,16 +12,29 @@
 
 2. Log into Data Integration Platform Cloud
 
-    a. Open a browser window from your laptop/desktop (not inside the DIPC VM)
+### **STEP 1**: [DIPC 18.2.3] Log into DIPC Console and go to Agent Page
 
-    b. Click on DIPC Home bookmark or go to  \<hostname>:7003/dicloud/login.html
-    ![](images/200/image200_2.png)
+-   Log into demo.oracle.com with your single signon into domain ucm-gse00015126 (Discuss with Subrah/Rick)
+	![](images/300/AgentImage010-DemoLogin.png)
 
-- Login with weblogic/#!hyper1on!#
+-   In top right of page click "Login to Cloud Services Dashboard"
+-   Enter single signon user id or id provided
+	![](images/300/AgentImage011-DemoLogin.png)
 
-After a few seconds, the following page should appear –
+	![](images/300/AgentImage012-DemoLogin.png)
 
-![](images/200/image200_3.png)
+-   Click "Data Integration Platform Cloud" (no login info was required)
+-   Login may be required if accessing directly using console url
+-   https://myservices-gse00015126.console.oraclecloud.com/mycloud/cloudportal/dashboard
+
+	![](images/300/AgentImage015-DemoLogin.png)
+
+-   Click "Open Service Console" in top right of page to view DIPC instance "DIPCINST'
+	![](images/300/AgentImage016-DemoLogin.png)
+
+-   Click menu on right and select "Data Integration Platform Console
+	![](images/300/AgentImage017-DemoLogin.png)
+	![](images/300/AgentImage018-DemoLogin.png)
 
 ## Optional 
     - (Optional)  If the Agent is not started:
