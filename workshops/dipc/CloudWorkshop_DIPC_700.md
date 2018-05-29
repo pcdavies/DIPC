@@ -24,9 +24,9 @@
     - Follow similar pattern of using VNC as above.
     - Use existing EDQ lab use case from DIS Master V4.
 
+### Useful VNC Server commands 
 
-
-### Useful VNC Server comamnds 
+You might want to consider making VNC management a desktop launcher or some type of shell tool.   Unfortunatley vnc is not enabled as a system service which makes it a bit difficult to operationalize.   Its possible to do this but its not a default configuration in the DIPCS instance in the public cloud.
 
 To starting vncserver:
 
