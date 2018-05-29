@@ -13,9 +13,6 @@ Before you begin this tutorial, you should
 Lab Environment 
 For this lab, the Data Integration Platform Cloud and the client environment are contained within on environment for simplicity.  Most user interactions with Data Integration Platform Cloud will be through a browser installed on your local machine (Chrome preferred, Firefox is also supported).   
 
-# Task 0: Preparation Steps 
-
-In your web browser, navigate to cloud.oracle.com
 ### **STEP 1**: [DIPC 18.2.3] Log into DIPC Console
 
 -   Log into demo.oracle.com with your single signon into domain ucm-gse00015126
@@ -54,8 +51,6 @@ In your web browser, navigate to cloud.oracle.com
 Synchronize Data and ODI Execution Job process 
 - Open a Terminal 
 
-![](images/600/image600_8.png)
-
 - From the home directory execute ./startDIPCDemoClient.sh 
 ![](images/600/image600_9.png)
 
@@ -66,7 +61,6 @@ Synchronize Data and ODI Execution Job process
 # Task 1: Create ODI Execution Task 
 
 1. Click on Home in Navigation Bar
-![](images/600/image600_11.png)
 
 2. Click on ODI Execution (you may need to scroll right in the carousel to see it)
 ![](images/600/image600_12.png)
