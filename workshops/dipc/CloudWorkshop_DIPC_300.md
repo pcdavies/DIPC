@@ -1,11 +1,11 @@
 ![](images/300/AgentImage05-WorkshopHeader.PNG)
 
-Update: May 17, 2018
+Update: May 30, 2018
 
 ## Introduction - Remote Agent Install and On-prem to On-prem database Synchronization
 
 This lab covers installation and configuration of DIPC remote agent along with synchronization of two on-prem database schemas. Agents allow synchronization of data from sources outside Oracle Cloud. Two VMs within Ravello will be used to simulate a DIPC instance and an On-Prem database servers. The target and source schemas will reside in the same database.
-Ravello VMs are being used to simulate cloud instances and do not have Identity Cloud Service (IDCS). Modifications will be made before porting to a GSE environment.
+These labs are being done in the GSE environment.
 
 This lab supports the following use cases:
 -   Configure Remote DIPC Agent
@@ -13,10 +13,10 @@ This lab supports the following use cases:
 
 ## Objectives
 
--	Ensure Remote Agent is trusted by DIPC instance *MODIFY FOR GSE*
+-	Ensure Remote Agent is trusted by DIPC instance
 -   Agent Download
 -   Agent Installation and Configuration
--   Configure Agent SSL *MODIFY FOR GSE*
+-   Configure Agent SSL
 -	Agent Administration - Starting and Stopping.
 -   Synchronize two On-Premise Databases
    
@@ -25,10 +25,9 @@ This lab supports the following use cases:
 
 ### **STEP 1**: [DIPC 18.2.3] Log into DIPC Console and go to Agent Page
 
--   Log into demo.oracle.com with your single signon into domain ucm-gse00015126 (Discuss with Subrah/Rick)
-	![](images/300/AgentImage010-DemoLogin.png)
+-   Log into dashboard url provided with your single signon (update url for delivery)
+-   https://myservices-gse00015126.console.oraclecloud.com/mycloud/cloudportal/dashboard
 
--   In top right of page click "Login to Cloud Services Dashboard"
 -   Enter single signon user id or id provided
 	![](images/300/AgentImage011-DemoLogin.png)
 
@@ -55,24 +54,32 @@ This lab supports the following use cases:
 
 -   Select drop down menu and select zip file for your Operating System
 
-	![](images/300/AgentImage040-DownloadAgent.JPG)
+	![](images/300/AgentImage040-DownloadAgent.png)
 
 ### **STEP 3**: [DIPC 18.2.3] Confirm your agent download selection
 
 -   Click "OK" to confirm selection
 
-	![](images/300/AgentImage045-DownloadAgent.JPG)
+	![](images/300/AgentImage045-DownloadAgent.png)
 
-### **STEP 4**: [DIPC 18.2.3] Save the agent zip file to your home directory
+### **STEP 4**: [DIPC 18.2.3] Save the agent zip file to a directory on your local machine.
+-   Save the file to a download directory on your local machine
 
--   Save the file to your home directory in preparation to unzip and install
--   ftp agent zip file to "On-Prem DB Svr"
+	![](images/300/AgentImage050-DownloadAgentSave.png)
 
-	![](images/300/AgentImage050-DownloadAgentSave.JPG)
+	![](images/300/AgentImage051-DownloadAgentSave.png)
 
-### **STEP 5**: [On-Prem DB Svr] View and unzip agent file
+-   ftp agent zip file from download directory to "OnPremiseVM" using WinSCP
+-   Confirm with Subrah/Rick on ftp software - how to deliver to workshop participant
+-   direct participant to download or provide version from Oracle desktop
 
--   Open terminal on "On-Prem DB Svr]
+-   Launch 
+
+
+
+### **STEP 5**: [OnPremiseVM] View and unzip agent file
+
+-   Open terminal on "OnPremiseVM"
 -   view agent zip file "agent-linux.64.bit.zip"
 
 	![](images/300/AgentImage055-UnzipAgent.png)
@@ -103,7 +110,7 @@ This lab supports the following use cases:
 	![](images/300/AgentImage070-DIPC_Priv_IP.png)
 
 
-### **STEP 8**: [On-Prem DB Svr] Install the Agent from On-Prem Console *MODIFY FOR GSE*
+### **STEP 8**: [OnPremiseVM] Install the Agent from On-Prem Console *MODIFY FOR GSE*
 
 -   Open a terminal in On-Prem VM
 -   Navigate to the agent directory
@@ -121,7 +128,7 @@ This lab supports the following use cases:
 -   ![](images/300/AgentImage080-Execute_Agent_Install.png)
 
 
-### **STEP 9**: [On-Prem DB Svr] Modify Agent Parameter 
+### **STEP 9**: [OnPremiseVM] Modify Agent Parameter 
 
 -   Modify agent port "agentPort" in parameter file "agent.properties" to 7010
 -   path to parameter file: 
@@ -132,7 +139,7 @@ This lab supports the following use cases:
 
 	![](images/300/AgentImage086-ModifyAgentParameter.png)
 
-### **STEP 10**: [On-Prem DB Svr] Start Agent
+### **STEP 10**: [OnPremiseVM] Start Agent
 
 -   Navigate to the agent bin directory
     -   $ cd /home/DIPC/dipcagent/dicloud/agent/dipcagent001/bin
@@ -160,7 +167,7 @@ This lab supports the following use cases:
 
 	![](images/300/AgentImage096-Confirm_SRC_TRG_Agent_Started.png)
 
-### **STEP 13**: [On-Prem DB Svr] Review On-Prem Schema
+### **STEP 13**: [OnPremiseVM] Review On-Prem Schema
 
 -   Connect to remote schema and view tables and row count
 
@@ -210,7 +217,7 @@ This lab supports the following use cases:
     ![](images/300/AgentImage113-ViewSrcConnectionMetadata.png)
 
 
-### **STEP 15**: [On-Prem DB Svr] Create blank target Schema ONPREM_TRG
+### **STEP 15**: [OnPremiseVM] Create blank target Schema ONPREM_TRG
 
 -   Create schema and ensure necessary privileges
 -   SQL> create user onprem_trg identified by welcome1;
