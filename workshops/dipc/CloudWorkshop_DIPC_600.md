@@ -13,39 +13,43 @@ Before you begin this tutorial, you should
 Lab Environment 
 For this lab, the Data Integration Platform Cloud and the client environment are contained within on environment for simplicity.  Most user interactions with Data Integration Platform Cloud will be through a browser installed on your local machine (Chrome preferred, Firefox is also supported).   
 
-# Task 0: Preparation Steps 
+### **STEP 1**: [DIPC 18.2.3] Log into DIPC Console
 
-## Logging Into Oracle Cloud Instance
+-   Log into demo.oracle.com with your single signon into domain ucm-gse00015126
+	![](images/300/AgentImage010-DemoLogin.png)
 
-1. In your web browser, navigate to cloud.oracle.com
-![](images/600/image600_1.png)
--  Enter your user name and password, then click Sign In.
+-   In top right of page click "Login to Cloud Services Dashboard"
+-   Enter single signon user id or id provided
+	![](images/300/AgentImage011-DemoLogin.png)
 
-If the screensaver is on just press “enter” to open the login screen. 
+	![](images/300/AgentImage012-DemoLogin.png)
 
- 
-2.	Log into Data Integration Platform Cloud 
+-   Click "Data Integration Platform Cloud" (no login info was required)
+-   Login may be required if accessing directly using console url
+-   https://myservices-gse00015126.console.oraclecloud.com/mycloud/cloudportal/dashboard
+
+	![](images/300/AgentImage015-DemoLogin.png)
+
+-   Click "Open Service Console" in top right of page to view DIPC instance "DIPCINST'
+	![](images/300/AgentImage016-DemoLogin.png)
+
+-   Click menu on right and select "Data Integration Platform Console
+	![](images/300/AgentImage017-DemoLogin.png)
+	![](images/300/AgentImage018-DemoLogin.png)
+
+2.	Click Home 
+
+## Logging Into Oracle Cloud Instance using VNC
 - Use VNC to log into the VM. Use your favorite VNC client and enter \<hostname>:5901 as the URL to connect to  
 ![](images/600/image600_4.png)
 - When prompted enter the password: welcome1 and click OK 
 ![](images/600/image600_5.png)
 
-- Go to Applications > Internet and click Google Chrome 
-
-![](images/600/image600_6.png)
-- In Chrome, open up DIPC Home bookmark or go to \<hostname>:7003/dicloud/login.html
-- Login with weblogic/#!hyper1on!#  
-
-After a few seconds, the following page should appear – 
-
-![](images/600/image600_7.png)
 
 3. Use DIPC Demo Client 
 - This hands-on lab uses a JDBC utility client that was built specifically for this demo.  This client is NOT part of DIPC, however it does help visualize the 
 Synchronize Data and ODI Execution Job process 
 - Open a Terminal 
-
-![](images/600/image600_8.png)
 
 - From the home directory execute ./startDIPCDemoClient.sh 
 ![](images/600/image600_9.png)
@@ -57,7 +61,6 @@ Synchronize Data and ODI Execution Job process
 # Task 1: Create ODI Execution Task 
 
 1. Click on Home in Navigation Bar
-![](images/600/image600_11.png)
 
 2. Click on ODI Execution (you may need to scroll right in the carousel to see it)
 ![](images/600/image600_12.png)

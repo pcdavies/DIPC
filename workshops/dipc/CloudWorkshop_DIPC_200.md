@@ -3,38 +3,39 @@
 
 ![](images/200/image200_0.png)
 
-## Logging Into Oracle Cloud Instance
 
-1. In your web browser, navigate to cloud.oracle.com
 
-![](images/200/image200_1.png)
-- Enter your user name and password, then click Sign In.
+Log into Data Integration Platform Cloud
 
-2. Log into Data Integration Platform Cloud
+### **STEP 1**: [DIPC 18.2.3] Log into DIPC Console
 
-    a. Open a browser window from your laptop/desktop (not inside the DIPC VM)
+-   Log into demo.oracle.com with your single signon into domain ucm-gse00015126 (Discuss with Subrah/Rick)
+	![](images/300/AgentImage010-DemoLogin.png)
 
-    b. Click on DIPC Home bookmark or go to  \<hostname>:7003/dicloud/login.html
-    ![](images/200/image200_2.png)
+-   In top right of page click "Login to Cloud Services Dashboard"
+-   Enter single signon user id or id provided
+	![](images/300/AgentImage011-DemoLogin.png)
 
-- Login with weblogic/#!hyper1on!#
+	![](images/300/AgentImage012-DemoLogin.png)
 
-After a few seconds, the following page should appear –
+-   Click "Data Integration Platform Cloud" (no login info was required)
+-   Login may be required if accessing directly using console url
+-   https://myservices-gse00015126.console.oraclecloud.com/mycloud/cloudportal/dashboard
 
-![](images/200/image200_3.png)
+	![](images/300/AgentImage015-DemoLogin.png)
 
-## Optional 
-    - (Optional)  If the Agent is not started:
-    - Open a Terminal window:
-    - cd /home/DIPC/DIPC_AGENT2/dicloud/agent/dipcagent001/bin
-    - Execute ./startAgentInstance.sh In the Terminal window you should see ‘NOTIFICATION Done. GoldenGate manager is configured now.’ when the agent is fully started
-![](images/200/image200_8a.png)
+-   Click "Open Service Console" in top right of page to view DIPC instance "DIPCINST'
+	![](images/300/AgentImage016-DemoLogin.png)
+
+-   Click menu on right and select "Data Integration Platform Console
+	![](images/300/AgentImage017-DemoLogin.png)
+	![](images/300/AgentImage018-DemoLogin.png)
+
 
 - In Browser : Within app, on your desktop go to Agents page in DIPC
 
 - The agent should appear as follows (Running)
 ![](images/200/image200_8b.png)
-
 
 # Task 1: Setup DIPC Connections
 
