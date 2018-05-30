@@ -20,7 +20,15 @@ This lab supports the following use cases:
 -	Agent Administration - Starting and Stopping.
 -   Synchronize two On-Premise Databases
    
+## Prerequisites
 
+-   Cloud Dashboard URL and login credentials
+-   1 DIPC Instance - DIPCINST
+-   2 DBCS Instances - DBCSAMER, DBCSEMEA
+-   1 Compute Instance - OnPremiseVM
+-   OnPremiseVM public IP address
+-   WinSCP for ftp to instances
+-	Putty for ssh connection to instances
 
 
 ### **STEP 1**: [DIPC 18.2.3] Log into DIPC Console and go to Agent Page
