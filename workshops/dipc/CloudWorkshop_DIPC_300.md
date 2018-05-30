@@ -106,10 +106,23 @@ This lab supports the following use cases:
 
 ### **STEP 5**: [OnPremiseVM] View and unzip agent file
 
--   Open terminal on "OnPremiseVM"
--   view agent zip file "agent-linux.64.bit.zip"
+-   Launch Putty for connection to "OnPremiseVM"
+-   Enter OnPremiseVM IP address
+	![](images/300/AgentImage055-1-LaunchPutty.png)
 
-	![](images/300/AgentImage055-ViewAgentFileOnPrem.png)
+-   Expand "Connection"and click "Data" in left pane to add username "opc" 
+	![](images/300/AgentImage055-2-PuttyAutoLoginUsername.png)
+
+-   Expand "Connection" -> "SSH" and click "Auth" in left pane to add OnPremiseVM private key
+-   Click "Open" to connect to OnPremiseVM
+	![](images/300/AgentImage055-3-PuttyAddPrivKey.png)
+
+-   Navigate to the target directory "/home/opc/dipcagent"
+-   $ cd /home/opc/dipcagent
+-   $ ls
+-   View agent zip file "agent-linux.64.bit.zip"
+
+	![](images/300/AgentImage055-4-ViewAgentFileOnPrem.png)
 
 -   unzip agent file
     -   $unzip agent-linux.64.bit.zip
