@@ -46,14 +46,14 @@ This lab supports the following use cases:
 -   Login may be required if accessing directly using console url
 -   https://myservices-gse00015126.console.oraclecloud.com/mycloud/cloudportal/dashboard
 
-	![](images/300/AgentImage015-DemoLogin.png)
+	![](images/300/AgentImage015-DIPC_Console.png)
 
 -   Click "Open Service Console" in top right of page to view DIPC instance "DIPCINST'
-	![](images/300/AgentImage016-DemoLogin.png)
+	![](images/300/AgentImage016-DIPC_Console.png)
 
 -   Click menu on right and select "Data Integration Platform Console
-	![](images/300/AgentImage017-DemoLogin.png)
-	![](images/300/AgentImage018-DemoLogin.png)
+	![](images/300/AgentImage017-DIPC_Console.png)
+	![](images/300/AgentImage018-DIPC_Console.png)
 
 -   Click "Agents" in left panel
 
@@ -140,17 +140,7 @@ This lab supports the following use cases:
 	![](images/300/AgentImage065-Current_DIPC_Agent_Page.png)
 
 
-### **STEP 7**: [DIPC 18.2.3] Identify private IP for DIPC console *MODIFY FOR GSE*
-
--   Navigate to Ravello Application to get information for agent install
--   Click VM "DIPC 18.2.3" (DIPC Instance and Target DB)
--   Note the private IP listed in bottom left of DIPC console (10.0.0.3)
-
-
-	![](images/300/AgentImage070-DIPC_Priv_IP.png)
-
-
-### **STEP 8**: [OnPremiseVM] Install the Agent from On-Prem Console *MODIFY FOR GSE*
+### **STEP 7**: [OnPremiseVM] Install the Agent from On-Prem Console *MODIFY FOR GSE*
 
 -   Open a terminal in On-Prem VM
 -   Navigate to the agent directory
@@ -168,7 +158,7 @@ This lab supports the following use cases:
 -   ![](images/300/AgentImage080-Execute_Agent_Install.png)
 
 
-### **STEP 9**: [OnPremiseVM] Modify Agent Parameter 
+### **STEP 8**: [OnPremiseVM] Modify Agent Parameter 
 
 -   Modify agent port "agentPort" in parameter file "agent.properties" to 7010
 -   path to parameter file: 
@@ -179,7 +169,7 @@ This lab supports the following use cases:
 
 	![](images/300/AgentImage086-ModifyAgentParameter.png)
 
-### **STEP 10**: [OnPremiseVM] Start Agent
+### **STEP 9**: [OnPremiseVM] Start Agent
 
 -   Navigate to the agent bin directory
     -   $ cd /home/DIPC/dipcagent/dicloud/agent/dipcagent001/bin
@@ -191,7 +181,7 @@ This lab supports the following use cases:
 
 	![](images/300/AgentImage091-StartAgent.png)
 
-### **STEP 11**: [DIPC 18.2.3] View Remote Agent in DIPC Console
+### **STEP 10**: [DIPC 18.2.3] View Remote Agent in DIPC Console
 
 -   Navigate to DIPC Console
 -   Click "Agents" in left toolbar
@@ -199,7 +189,7 @@ This lab supports the following use cases:
 
 	![](images/300/AgentImage095-Confirm_Agent_DIPC_Console.png)
 
-### **STEP 12**: [DIPC 18.2.3] Ensure local and Remote Agents are started
+### **STEP 11**: [DIPC 18.2.3] Ensure local and Remote Agents are started
 
 -   Start agents as needed from Agent bin directory
     -   $ ./startAgentInstance.sh
@@ -207,14 +197,14 @@ This lab supports the following use cases:
 
 	![](images/300/AgentImage096-Confirm_SRC_TRG_Agent_Started.png)
 
-### **STEP 13**: [OnPremiseVM] Review On-Prem Schema
+### **STEP 12**: [OnPremiseVM] Review On-Prem Schema
 
 -   Connect to remote schema and view tables and row count
 
 
 	![](images/300/AgentImage100-ReviewOnPremSchema.png)
 
-### **STEP 14**: [DIPC 18.2.3] Create Source Connection to On-Prem Schema
+### **STEP 13**: [DIPC 18.2.3] Create Source Connection to On-Prem Schema
 
 -   Navigate to DIPC console
 -   Click "Home" in left toolbar and click "Create Connections"
@@ -257,7 +247,7 @@ This lab supports the following use cases:
     ![](images/300/AgentImage113-ViewSrcConnectionMetadata.png)
 
 
-### **STEP 15**: [OnPremiseVM] Create blank target Schema ONPREM_TRG
+### **STEP 14**: [OnPremiseVM] Create blank target Schema ONPREM_TRG
 
 -   Create schema and ensure necessary privileges
 -   SQL> create user onprem_trg identified by welcome1;
@@ -271,7 +261,7 @@ This lab supports the following use cases:
 	![](images/300/AgentImage115-OnpremTrgSchema.png)
 
 
-### **STEP 16**: [DIPC 18.2.3] Create Target Connection to Schema ONPREM_TRG
+### **STEP 15**: [DIPC 18.2.3] Create Target Connection to Schema ONPREM_TRG
 
 -   Enter target connection information to schema ONPREM_TRG
 -   Use same remote agent on port 7010 for target connection
@@ -299,7 +289,7 @@ This lab supports the following use cases:
 
 	![](images/300/AgentImage122-ViewTargetConnection.png)
 
-### **STEP 17**: [DIPC 18.2.3] Create Sync Job between Source and Target
+### **STEP 16**: [DIPC 18.2.3] Create Sync Job between Source and Target
 
 -   In DIPC Console click "Home" in left toolbar
 -   Click "Synchronize Data"
