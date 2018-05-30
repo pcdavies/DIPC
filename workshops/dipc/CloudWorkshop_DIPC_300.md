@@ -26,6 +26,7 @@ This lab supports the following use cases:
 -   1 DIPC Instance - DIPCINST
 -   2 DBCS Instances - DBCSAMER, DBCSEMEA
 -   1 Compute Instance - OnPremiseVM
+-   Private keys in OpenSSH format for all instances 
 -   OnPremiseVM public IP address
 -   WinSCP for ftp to instances
 -	Putty for ssh connection to instances
@@ -81,16 +82,34 @@ This lab supports the following use cases:
 -   Confirm with Subrah/Rick on ftp software - how to deliver to workshop participant
 -   direct participant to download or provide version from Oracle desktop
 
--   Launch 
+-   Launch WinSCP
+	![](images/300/AgentImage052-LaunchWinSCP.png)
 
+-   WinSCP: enter OnPremiseVM IP address and username
+	![](images/300/AgentImage052-1-WinSCP_ConnOnPrem.png)
 
+-   Click "Advance Button to load On Prem private key"
+	![](images/300/AgentImage052-2-WinSCP_LoadPrivKey.png)
+
+-   Select the private key and click "OK"
+	![](images/300/AgentImage052-3-WinSCP_SelectPrivKey.png)
+	![](images/300/AgentImage052-4-WinSCP_SelectPrivKey.png)
+
+-   Click Login to connect to OnPremiseVM
+	![](images/300/AgentImage052-5-WinSCP_LoginOnPrem.png)
+
+-   Within WinSCP:
+-   Navigate to the agent download directory on your local machine
+-   Navigate to the target directory on the OnPremiseVM
+-   Drag and Drop agent from source to target directory
+	![](images/300/AgentImage052-6-WinSCP_NavSrcTrgDir.png)
 
 ### **STEP 5**: [OnPremiseVM] View and unzip agent file
 
 -   Open terminal on "OnPremiseVM"
 -   view agent zip file "agent-linux.64.bit.zip"
 
-	![](images/300/AgentImage055-UnzipAgent.png)
+	![](images/300/AgentImage055-ViewAgentFileOnPrem.png)
 
 -   unzip agent file
     -   $unzip agent-linux.64.bit.zip
