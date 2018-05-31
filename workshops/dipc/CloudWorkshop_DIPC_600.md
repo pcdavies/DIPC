@@ -1,6 +1,5 @@
 
 # Lab 600: Oracle Data Integration Lab Execution
-May 31, 2018
 ![](images/600/image600_0.png)
 # Overview 
 
