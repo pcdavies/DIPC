@@ -4,7 +4,7 @@ Update: May 30, 2018
 
 ## Introduction - Remote Agent Install and On-prem to On-prem database Synchronization
 
-This lab covers installation and configuration of DIPC remote agent along with synchronization of two on-prem database schemas. Agents allow synchronization of data from sources outside Oracle Cloud. Two VMs within Ravello will be used to simulate a DIPC instance and an On-Prem database servers. The target and source schemas will reside in the same database.
+This lab covers installation and configuration of DIPC remote agent along with synchronization of two on-prem database schemas. Agents allow synchronization of data from sources outside Oracle Cloud. The target and source schemas will reside in the same database.
 These labs are being done in the GSE environment.
 
 This lab supports the following use cases:
