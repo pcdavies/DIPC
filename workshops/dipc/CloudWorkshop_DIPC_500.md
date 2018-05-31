@@ -1,5 +1,6 @@
 
 # Lab 500: Oracle ODI Data Preparation Lab
+May 31, 2018
 ![](images/500/image500_0.png)
 # Task 0: ODI Preparation Steps
 
