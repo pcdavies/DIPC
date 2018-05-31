@@ -34,11 +34,10 @@ In your web browser, navigate to cloud.oracle.com
 	
 2.	Click Home 
 3.	Create Data Preparation Task 
-- Click Data Preparation 
 ![](images/600/image600_12b.png)
 scroll right
 ![](images/600/image600_12a.png)
-
+- Click Data Preparation 
 4.	Create Data Preparation Task enter the following information 
 ![](images/500/image500_3a.png)
 - Name: PrepWebData 
