@@ -64,7 +64,7 @@ Synchronize Data and ODI Execution Job process
 
 2. Click on ODI Execution (you may need to scroll right in the carousel to see it)
 ![](images/600/image600_12.png)
-
+![](images/600/image600_12a.png)
 3. The ODI Execution Task screen appears 
 ![](images/600/image600_13.png)
 
