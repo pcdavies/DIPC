@@ -68,7 +68,7 @@ scroll right
 scroll right
 ![](images/600/image600_12c.png)
 
-3. The ODI Execution Task screen appears 
+3. The ODI Execution Task screen appears - double click on it
 ![](images/600/image600_13.png)
 
 4. Enter
