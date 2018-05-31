@@ -34,7 +34,9 @@ For this lab, the Data Integration Platform Cloud and the client environment are
 	![](images/300/AgentImage016-DIPC_Console.png)
 
 -   Click menu on right and select "Data Integration Platform Console
-	![](images/300/AgentImage017-DIPC_Console.png)2.	Click Home 
+	![](images/300/AgentImage017-DIPC_Console.png)	
+	
+2. Click Home 
 
 ## Logging Into Oracle Cloud Instance using VNC
 - Use VNC to log into the VM. Use your favorite VNC client and enter \<hostname>:5901 as the URL to connect to  
