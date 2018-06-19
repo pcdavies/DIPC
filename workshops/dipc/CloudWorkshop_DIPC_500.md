@@ -10,7 +10,7 @@ If the screensaver is on just press “enter” to open the login screen.
 ## Logging Into Oracle Cloud Instance
 
 In your web browser, navigate to cloud.oracle.com
-### **STEP 1**: [DIPC 18.2.3] Log into DIPC Console and go to Agent Page
+### **STEP 1**: [DIPC 18.2.3] Log into DIPC Console
 
 -   Log into dashboard url provided with your single signon (update url for delivery)
 -   https://myservices-gse00015126.console.oraclecloud.com/mycloud/cloudportal/dashboard
