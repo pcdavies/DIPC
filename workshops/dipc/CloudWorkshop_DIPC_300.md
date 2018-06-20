@@ -28,11 +28,11 @@ This lab supports the following use cases:
 -   1 Compute Instance - OnPremiseVM
 -   Private keys in OpenSSH format for all instances 
 -   OnPremiseVM public IP address
--   WinSCP for ftp to instances
+-   VNC Client
 -	Putty for ssh connection to instances
 
 
-### **STEP 1**: [DIPC 18.2.3] Log into DIPC Console and go to Agent Page
+### **STEP 1**: [DIPC 18.2.3] Determine the DIPC Console url
 
 -   Log into dashboard url provided with your single signon (update url for delivery)
 -   https://myservices-gse00015126.console.oraclecloud.com/mycloud/cloudportal/dashboard
@@ -48,18 +48,33 @@ This lab supports the following use cases:
 
 	![](images/300/AgentImage015-DIPC_Console.png)
 
--   Click "Open Service Console" in top right of page to view DIPC instance "DIPCINST'
+-   Click "Open Service Console" in top right of page to view DIPC instance "DIPCINST"
 	![](images/300/AgentImage016-DIPC_Console.png)
 
--   Click menu on right and select "Data Integration Platform Console
+-   Click menu on right and right click "Data Integration Platform Console"
 	![](images/300/AgentImage017-DIPC_Console.png)
-	![](images/300/AgentImage018-DIPC_Console.png)
 
--   Click "Agents" in left panel
+-   Click "Copy link address" and take note
+-   This url will be used in the OnPremiseVM to download the agent
+	![](images/300/AgentImage018-DIPC_Console_url.png)
 
-	![](images/300/AgentImage020-DIPC_Console_Agent.png)
+### **STEP 2**: [OnPremiseVM] Log into OnPremiseVM using "VNC Viewer"
 
-### **STEP 2**: [DIPC 18.2.3] Select Download Installer Drop Down Menu
+-   Start "VNC Viewer" and enter the OnPremiseVM IP provided with port 5901
+-   		VNC Server: <OnPremiseVM IP:5901>
+-   		Encryption: "Let VNC Server choose"
+-   Click "Connect"
+	![](images/300/AgentImage020-VNC_Login.png)
+
+-   Click "Continue" for VNC Viewer Encryption
+	![](images/300/AgentImage020-VNC_Login_Encryption.png)
+
+-   Enter the VNC Viewer - Authentication password provided
+-   Click "Ok"
+	![](images/300/AgentImage021-VNC_Login_Authentication.png)
+	![](images/300/AgentImage022-VNC_Desktop.png)
+
+### **STEP 3**: [OnPremiseVM] Navigate to the DIPC Console
 
 -   Select drop down menu and select zip file for your Operating System
 
