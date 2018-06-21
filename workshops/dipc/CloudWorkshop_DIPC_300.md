@@ -71,6 +71,7 @@ This lab supports the following use cases:
 
 -   Enter the VNC Viewer - Authentication password provided
 -   Click "Ok"
+
 	![](images/300/AgentImage021-VNC_Login_Authentication.png)
 	![](images/300/AgentImage022-VNC_Desktop.png)
 
