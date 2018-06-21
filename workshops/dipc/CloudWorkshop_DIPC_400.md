@@ -4,8 +4,8 @@ Update: May 15, 2018
 
 ## Introduction - Migrate On-Prem Database to Cloud
 
-This lab covers synchronization of an on-prem and cloud database using a previously installed remote DIPC agent. Agents allow synchronization of data from sources outside Oracle Cloud. Two VMs within Ravello will be used to simulate a DIPC instance and an On-Prem database server. The DIPC repository database also host the cloud target schema.
-Ravello VMs are being used to simulate cloud instances and do not have Identity Cloud Service (IDCS). Modifications will be made before porting to a GSE environment.
+This lab covers synchronization of an on-prem and cloud database using a previously installed remote DIPC agent. Agents allow synchronization of data from sources outside Oracle Cloud. Two VMs will be used to simulate a DIPC instance and an On-Prem database server. The DIPC repository database also host the cloud target schema.
+
 
 This lab supports the following use cases:
 -   Configure Remote DIPC  (Optional already done in Lab 300)
