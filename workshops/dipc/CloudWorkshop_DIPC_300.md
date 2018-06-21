@@ -76,48 +76,29 @@ This lab supports the following use cases:
 
 ### **STEP 3**: [OnPremiseVM] Navigate to the DIPC Console
 
+-   Open the firefox web browser and enter the DIPC Console url noted in step 1
+	![](images/300/AgentImage030-VNC_DIPC_Console.png)
+
+-   Navigate to the Agent page (Click Agent in left toolbar).
+	![](images/300/AgentImage031-VNC_DIPC_Agent_page.png)
+
 -   Select drop down menu and select zip file for your Operating System
 
 	![](images/300/AgentImage040-DownloadAgent.png)
 
-### **STEP 3**: [DIPC 18.2.3] Confirm your agent download selection
-
+-   Confirm your agent download selection
 -   Click "OK" to confirm selection
 
 	![](images/300/AgentImage045-DownloadAgent.png)
 
-### **STEP 4**: [DIPC 18.2.3] Save the agent zip file to a directory on your local machine.
--   Save the file to a download directory on your local machine
+### **STEP 4**: [DIPC 18.2.3] Save the agent zip file to the download directory
+
+-   Save the agent file to the download directory
 
 	![](images/300/AgentImage050-DownloadAgentSave.png)
 
 	![](images/300/AgentImage051-DownloadAgentSave.png)
 
--   ftp agent zip file from download directory to "OnPremiseVM" using WinSCP
--   Confirm with Subrah/Rick on ftp software - how to deliver to workshop participant
--   direct participant to download or provide version from Oracle desktop
-
--   Launch WinSCP
-	![](images/300/AgentImage052-LaunchWinSCP.png)
-
--   WinSCP: enter OnPremiseVM IP address and username
-	![](images/300/AgentImage052-1-WinSCP_ConnOnPrem.png)
-
--   Click "Advance Button to load On Prem private key"
-	![](images/300/AgentImage052-2-WinSCP_LoadPrivKey.png)
-
--   Select the private key and click "OK"
-	![](images/300/AgentImage052-3-WinSCP_SelectPrivKey.png)
-	![](images/300/AgentImage052-4-WinSCP_SelectPrivKey.png)
-
--   Click Login to connect to OnPremiseVM
-	![](images/300/AgentImage052-5-WinSCP_LoginOnPrem.png)
-
--   Within WinSCP:
--   Navigate to the agent download directory on your local machine
--   Navigate to the target directory on the OnPremiseVM
--   Drag and Drop agent from source to target directory
-	![](images/300/AgentImage052-6-WinSCP_NavSrcTrgDir.png)
 
 ### **STEP 5**: [OnPremiseVM] View and unzip agent file
 
