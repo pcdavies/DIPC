@@ -13,12 +13,12 @@ Before you begin this tutorial, you should
 Lab Environment 
 For this lab, the Data Integration Platform Cloud and the client environment are contained within on environment for simplicity.  Most user interactions with Data Integration Platform Cloud will be through a browser installed on your local machine (Chrome preferred, Firefox is also supported).   
 
-### **STEP 1**: [DIPC 18.2.3] Log into DIPC Console
 
--   Log into demo.oracle.com with your single signon into domain ucm-gse00015126
-	![](images/300/AgentImage010-DemoLogin.png)
+### **STEP 1**: [DIPC 18.2.3] Log into DIPC Console and go to Agent Page
 
--   In top right of page click "Login to Cloud Services Dashboard"
+-   Log into dashboard url provided with your single signon (update url for delivery)
+-   https://myservices-gse00015126.console.oraclecloud.com/mycloud/cloudportal/dashboard
+
 -   Enter single signon user id or id provided
 	![](images/300/AgentImage011-DemoLogin.png)
 
@@ -28,16 +28,15 @@ For this lab, the Data Integration Platform Cloud and the client environment are
 -   Login may be required if accessing directly using console url
 -   https://myservices-gse00015126.console.oraclecloud.com/mycloud/cloudportal/dashboard
 
-	![](images/300/AgentImage015-DemoLogin.png)
+	![](images/300/AgentImage015-DIPC_Console.png)
 
 -   Click "Open Service Console" in top right of page to view DIPC instance "DIPCINST'
-	![](images/300/AgentImage016-DemoLogin.png)
+	![](images/300/AgentImage016-DIPC_Console.png)
 
 -   Click menu on right and select "Data Integration Platform Console
-	![](images/300/AgentImage017-DemoLogin.png)
-	![](images/300/AgentImage018-DemoLogin.png)
-
-2.	Click Home 
+	![](images/300/AgentImage017-DIPC_Console.png)	
+	
+2. Click Home 
 
 ## Logging Into Oracle Cloud Instance using VNC
 - Use VNC to log into the VM. Use your favorite VNC client and enter \<hostname>:5901 as the URL to connect to  
@@ -63,9 +62,13 @@ Synchronize Data and ODI Execution Job process
 1. Click on Home in Navigation Bar
 
 2. Click on ODI Execution (you may need to scroll right in the carousel to see it)
-![](images/600/image600_12.png)
+![](images/600/image600_12b.png)
+scroll right
+![](images/600/image600_12a.png)
+scroll right
+![](images/600/image600_12c.png)
 
-3. The ODI Execution Task screen appears 
+3. The ODI Execution Task screen appears - double click on it
 ![](images/600/image600_13.png)
 
 4. Enter

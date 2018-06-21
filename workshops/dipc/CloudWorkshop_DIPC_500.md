@@ -12,10 +12,9 @@ If the screensaver is on just press “enter” to open the login screen.
 In your web browser, navigate to cloud.oracle.com
 ### **STEP 1**: [DIPC 18.2.3] Log into DIPC Console
 
--   Log into demo.oracle.com with your single signon into domain ucm-gse00015126
-	![](images/300/AgentImage010-DemoLogin.png)
+-   Log into dashboard url provided with your single signon (update url for delivery)
+-   https://myservices-gse00015126.console.oraclecloud.com/mycloud/cloudportal/dashboard
 
--   In top right of page click "Login to Cloud Services Dashboard"
 -   Enter single signon user id or id provided
 	![](images/300/AgentImage011-DemoLogin.png)
 
@@ -25,20 +24,20 @@ In your web browser, navigate to cloud.oracle.com
 -   Login may be required if accessing directly using console url
 -   https://myservices-gse00015126.console.oraclecloud.com/mycloud/cloudportal/dashboard
 
-	![](images/300/AgentImage015-DemoLogin.png)
+	![](images/300/AgentImage015-DIPC_Console.png)
 
 -   Click "Open Service Console" in top right of page to view DIPC instance "DIPCINST'
-	![](images/300/AgentImage016-DemoLogin.png)
+	![](images/300/AgentImage016-DIPC_Console.png)
 
 -   Click menu on right and select "Data Integration Platform Console
-	![](images/300/AgentImage017-DemoLogin.png)
-	![](images/300/AgentImage018-DemoLogin.png)
-
+	![](images/300/AgentImage017-DIPC_Console.png)	
+	
 2.	Click Home 
-
 3.	Create Data Preparation Task 
+![](images/600/image600_12b.png)
+scroll right
+![](images/600/image600_12a.png)
 - Click Data Preparation 
-![](images/500/image500_2a.png)
 4.	Create Data Preparation Task enter the following information 
 ![](images/500/image500_3a.png)
 - Name: PrepWebData 
