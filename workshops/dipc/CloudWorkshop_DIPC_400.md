@@ -103,12 +103,7 @@ This lab supports the following use cases:
 
 ### **STEP 8**: [DIPC 18.2.3] Identify private IP for DIPC console
 
--   Navigate to Ravello Application to get information for agent install
--   Click VM "DIPC 18.2.3" (DIPC Instance and Target DB)
--   Note the private IP listed in bottom left of DIPC console (10.0.0.3)
-
-
-	![](images/400/AgentImage070-DIPC_Priv_IP.png)
+-   Note DIPC instance IP Address
 
 
 ### **STEP 9**: [OnPremiseVM] Install the Agent from On-Prem Console
@@ -116,7 +111,7 @@ This lab supports the following use cases:
 -   Open a terminal in On-Prem VM
 -   Navigate to the agent directory
 -   Execute command to install agent using password - #!hyper1on!#
-    ./dicloudConfigureAgent.sh -dipchost=10.0.0.3 -dipcport=7003 -user=weblogic -authType=BASIC
+    ./dicloudConfigureAgent.sh -dipchost=<DIPC Instance IP> -dipcport=7003 -user=weblogic -authType=BASIC
 
 -   Set the "dipchost" parameter to 10.0.0.3
 -   This configuration does not have IDCS so use "BASIC" for parameter AuthType
