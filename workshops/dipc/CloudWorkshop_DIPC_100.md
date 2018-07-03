@@ -33,6 +33,7 @@ An Oracle Cloud subscription with the following services:
 -     1. identity domain / account
 -     2. username
 -     3. password
+
 -   Private keys in OpenSSH format for all instances 
 -   OnPremiseVM public IP address
 -   VNC Client
