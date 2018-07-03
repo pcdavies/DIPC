@@ -35,9 +35,9 @@ Your Oracle Cloud user name, password, and identity domain, which you should hav
      3. password
 
 -   Private keys in OpenSSH format for all instances 
--   OnPremiseVM public IP address
--   VNC Client
--	Putty for ssh connection to instances
+-   Public IP address for each workshop instance
+-   VNC Client Desktop Software
+-	Putty Desktop Software for ssh connection to instances
 
 What is the baseline architecture?
 The above cloud services will be used to create:
