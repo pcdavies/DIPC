@@ -39,13 +39,16 @@ Your Oracle Cloud user name, password, and identity domain, which you should hav
 -   VNC Client Desktop Software
 -	Putty Desktop Software for ssh connection to instances
 
+
 What is the baseline architecture?
 The above cloud services will be used to create:
 -   1 DIPC Instance - DIPCINST
 -   2 DBCS Instances - DBCSAMER, DBCSEMEA
 -   1 Compute Instance - OnPremiseVM
 
+
 ![](images/100/image90_0.png)
+
 
 ## Logging Into Oracle Cloud Instance
 
@@ -92,7 +95,7 @@ Click Services or Go to Console to access My Oracle Services.
 - Usable Database Storage: 25
 - Based on your entry for Usable Database Storage, the Total Data File Storage (GB) field updates to reflect the amount of storage that will be allocated to your instance, including space for operating system and product binaries, supporting files, database data and configuration files, and so on. After you create the service instance, you can add more data storage as needed.
 
-- Compute Shape: OC3
+- Compute Shape: OC4
 - Click Edit for SSH Public Key.
 - In the SSH Public Key for VM Access dialog, select Create a New Key, then click Enter.
 
