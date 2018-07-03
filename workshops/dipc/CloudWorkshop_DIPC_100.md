@@ -23,16 +23,16 @@ What Do You Need?
 
 Your Oracle Cloud user name, password, and identity domain, which you should have received FROM Oracle
 
-An Oracle Cloud subscription with the following services:
--     1. Data Integration Platform Cloud Service
--     2. Database Cloud Service
--     3. Compute Classic Cloud Service
--     4. Storage Cloud Service
--   Cloud Dashboard URL
--   Cloud Dashboard login credentials:
--     1. identity domain / account
--     2. username
--     3. password
+-  An Oracle Cloud subscription with the following services:
+     1. Data Integration Platform Cloud Service
+     2. Database Cloud Service
+     3. Compute Classic Cloud Service
+     4. Storage Cloud Service
+-  Cloud Dashboard URL
+-  Cloud Dashboard login credentials:
+     1. identity domain / account
+     2. username
+     3. password
 
 -   Private keys in OpenSSH format for all instances 
 -   OnPremiseVM public IP address
