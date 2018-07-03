@@ -137,14 +137,14 @@ This lab supports the following use cases:
 	![](images/300/AgentImage065-Current_DIPC_Agent_Page.png)
 
 
-### **STEP 7**: [OnPremiseVM] Install the Agent from On-Prem Console *MODIFY FOR GSE*
+### **STEP 7**: [OnPremiseVM] Install the Agent from On-Prem Console
 
 -   Open a terminal in On-Prem VM
 -   Navigate to the agent directory
 -   Execute command to install agent using password - #!hyper1on!#
-    ./dicloudConfigureAgent.sh -dipchost=10.0.0.3 -dipcport=7003 -user=weblogic -authType=BASIC
+    ./dicloudConfigureAgent.sh -dipchost=<DIPC Pub IP> -dipcport=7003 -user=weblogic -authType=BASIC
 
--   Set the "dipchost" parameter to 10.0.0.3
+-   Set the "dipchost" parameter to <DIPC Pub IP>
 -   This configuration does not have IDCS so use "BASIC" for parameter AuthType
 
 
