@@ -16,7 +16,6 @@ This lab supports the following use cases:
 -	Ensure Remote Agent is trusted by DIPC instance
 -   Agent Download
 -   Agent Installation and Configuration
--   Configure Agent SSL
 -	Agent Administration - Starting and Stopping.
 -   Synchronize two On-Premise Databases
    

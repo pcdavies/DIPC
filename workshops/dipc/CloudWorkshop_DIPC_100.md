@@ -22,8 +22,29 @@ For Data Integration Platform Cloud, you can select one of the following edition
 What Do You Need?
 
 Your Oracle Cloud user name, password, and identity domain, which you should have received FROM Oracle
-- An Oracle Storage Cloud subscription
-- An Oracle Database Cloud Instance
+
+An Oracle Cloud subscription with the following services:
+-     1. Data Integration Platform Cloud Service
+-     2. Database Cloud Service
+-     3. Compute Classic Cloud Service
+-     4. Storage Cloud Service
+-   Cloud Dashboard URL
+-   Cloud Dashboard login credentials:
+-     1. identity domain / account
+-     2. username
+-     3. password
+-   Private keys in OpenSSH format for all instances 
+-   OnPremiseVM public IP address
+-   VNC Client
+-	Putty for ssh connection to instances
+
+What is the baseline architecture?
+The above cloud services will be used to create:
+-   1 DIPC Instance - DIPCINST
+-   2 DBCS Instances - DBCSAMER, DBCSEMEA
+-   1 Compute Instance - OnPremiseVM
+
+![](images/100/image90_0.png)
 
 ## Logging Into Oracle Cloud Instance
 
