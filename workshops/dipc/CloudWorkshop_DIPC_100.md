@@ -35,7 +35,7 @@ Your Oracle Cloud user name, password, and identity domain, which you should hav
      3. password
 
 -   Private keys in OpenSSH format for all instances 
--   Public IP address for each workshop instance
+-   Public IP address for each workshop service instance
 -   VNC Client Desktop Software
 -	Putty Desktop Software for ssh connection to instances
 
