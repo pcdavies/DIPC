@@ -1,15 +1,14 @@
-##Lab 100 -  Creating a Data Integration 
-Platform Cloud Instance
+# Lab 100 -  Creating a Data Integration Platform Cloud Instance
 ![](images/100/image100_0.png)
 ## Before You Begin
 
-Purpose
-This tutorial shows you how to create and start a service for Data Integration Cloud Service.
+### Purpose
+The pupose of this lab is to show you how to create and start an instance of a Data Integration Platform Service (DIPC).
 
-Time to Complete
+### Time to Complete
 Approximately 30 minutes, not including wait time for service activations.
 
-Background
+### Background
 Oracle Data Integration Platform Cloud is a platform that unifies various Data Integration components and leverages their core strengths and functionality to offer a seamless set of data integration services in the cloud.
 
 When using the Oracle Data Integration Platform Cloud, you create a Data Integration environment in the cloud. After you complete the instance creation wizard, your environment is provisioned and fully integrated for replication, extract, load and transform, streaming, data preparation, and data governance.
@@ -20,9 +19,9 @@ For Data Integration Platform Cloud, you can select one of the following edition
 - Enterprise Edition: For a selective copy or real time replication of your data sources, or to extract, load and transform your data.
 - Governance Edition: To extract, load, transform, manage, replicate, and Data Quality.
 
-What Do You Need?
+### What Do You Need?
 
-Your Oracle Cloud user name, password, and identity domain, which you should have received FROM Oracle
+Your Oracle Cloud user name, password, and identity domain, which you should have received from Oracle
 
 -  An Oracle Cloud subscription with the following services:
      1. Data Integration Platform Cloud Service
