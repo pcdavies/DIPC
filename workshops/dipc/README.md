@@ -8,7 +8,7 @@
 
 - Once you are viewing the workshop's gitHub page's website, you can see a list of Lab Guides at any time by clicking on the **Menu Icon**
 
-![](images/WorkshopMenu.png)  
+![](images/100/image80_workshoplayout.png)  
 
 ## Oracle Data Integration Platform Cloud (DIPC) Services Workshop
 
