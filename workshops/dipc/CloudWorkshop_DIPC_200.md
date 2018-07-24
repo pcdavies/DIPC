@@ -1,167 +1,135 @@
 
-# Task 0: Preparation Steps
-
+# Lab 200 - Data Synch Elevated Task
 ![](images/200/image200_0.png)
 
+## Before You Begin
 
+### Purpose
+This lab shows you how to execute a Data Synch elevated task; as well as how to define all necessary elements to run the task.
 
-Log into Data Integration Platform Cloud
+### Time to Complete 
+Approximately 60 minutes.
 
-### **STEP 1**: [DIPC 18.2.3] Log into DIPC Console
+### What Do You Need?
+Your will need:
+- DIPC Instance URL
+- DIPC User and Password
+- General understanding of RDBMS and data integration concepts
 
--   Log into demo.oracle.com with your single signon into domain ucm-gse00015126 (Discuss with Subrah/Rick)
-	![](images/300/AgentImage010-DemoLogin.png)
+## Log into DIPC Server
 
--   In top right of page click "Login to Cloud Services Dashboard"
--   Enter single signon user id or id provided
-	![](images/300/AgentImage011-DemoLogin.png)
+### Login into DIPC using Oracle Cloud Services Dashboard
+1. In your web browser, navigate to cloud.oracle.com, then click Sign in.
+2. Provide the cloud account: oscnas001 then <Enter>
+3. Provide your user name and password, then click "Sign In" button. You will land in the Dasboard screen
 
-	![](images/300/AgentImage012-DemoLogin.png)
+	![](images/200/image200_1.png)
 
--   Click "Data Integration Platform Cloud" (no login info was required)
--   Login may be required if accessing directly using console url
--   https://myservices-gse00015126.console.oraclecloud.com/mycloud/cloudportal/dashboard
+4. In the "Data Integration Platform Cloud" service box click on the hamburguer menu and then select "Open Service Console"
 
-	![](images/300/AgentImage015-DemoLogin.png)
+![](images/200/image200_1a.png)
 
--   Click "Open Service Console" in top right of page to view DIPC instance "DIPCINST'
-	![](images/300/AgentImage016-DemoLogin.png)
+5. Click on the hamburger menu of the DIPC server assigned to you, then click "Data Integration Platform Console"
 
--   Click menu on right and select "Data Integration Platform Console
-	![](images/300/AgentImage017-DemoLogin.png)
-	![](images/300/AgentImage018-DemoLogin.png)
+![](images/200/image200_1b.png)
 
-
-- In Browser : Within app, on your desktop go to Agents page in DIPC
-
-- The agent should appear as follows (Running)
-![](images/200/image200_8b.png)
-
-# Task 1: Setup DIPC Connections
-
-The connectivity information for this hand-on lab is as follows:
-
-    * Source Schema/User: DIPC_SRC
-    * OLTP_Schema/User: DIPC_TGT
-    * Passwords: welcome
-    * Server: localhost
-    * Port: 1521
-    * Service: dics12c
-
-The next steps will walk you through how to setup each.
-
-1. Log into Data Integration Platform Cloud
-
-    a. From your local laptop/desktop start Chrome 
-    
-    b. Go to your \<hostname>:7003/dicloud/login.html
-
-    c. Login with weblogic/#!hyper1on!#. The following page should appear
+You will be navigated to your DIPC server Home page.
 
 ![](images/200/image200_9.png)
 
-2. Click Home
+### Login into DIPC using direct URL
+1. Open a browser window an provide your DIPC server URL. The URL will be provided by the instructor and will look like this one
 
-3. Create Source Connection
+https://osc132657dipc-oscnas001.uscom-central-1.oraclecloud.com/dicloud
 
-    a. Click Create Connection
+2. Provide your user name and password, then click "Sign In" button
 
+![](images/200/image200_1.png)
+
+You will be navigated to your DIPC server Home page.
+
+
+## Create Connections and Review Catalog
+1. Log into your Workshop DIPC Server
+2.	In the Home Page click “Create Connection” from top section
 ![](images/200/image200_9a.png)
-![](images/200/image200_9b.png)
 
-4. Enter the following information:
+3.	Enter the following information:
+    - Name: DIPC_SRC
+    - Description: Sales OLTP Source Data
+    - Agent: \<LOCAL_AGENT>
+    - Type Oracle: selecting Oracle will expand the Connection Settings
 
-    * Name: Sync Source
-    * Description – Sales OLTP Source Data
-    * Agent – localhost:
-    * Type Oracle – selecting Oracle will expand the Connection Settings
-    * Hostname: localhost
-    * Port: 1521
-    * Username: DIPC_SRC
-    * Password: welcome
-    * Service Name: dics1
-    * Schema: DIPC_SRC
-    
-![](images/200/image200_10.png)
+    ![](images/200/image200_9b.png)
 
-5. Review Connections settings.
+    - Hostname: <SOURCE_DB>
+    - Port: 1521
+    - Username: DIPC_SRC
+    - Password: Welcome#123
+    - Service Name: <SOURCE_DB_SERVICE_NAME>
+    - Schema: DIPC_SRC
+    - Schema Name: DIPC_SRC (Default) – When you try to select the schema, you are testing the connection at the same time
+    - CDB Connection: SRC_CDB
 
-6. Click Test Connection button then Save
+    ![](images/200/image200_10.png)
 
-7. Create Target Connection from the Catalog
+4. Click "Test Connection" button and when the test is successful click "Save" button. DIPC will create the connection and will harvest the entities in the schema. You will be navigated to the Catalog and you will see, after some time, the connection you just created and the entities in that schema
 
-    a. Click on the Create button and select Connection
+**Note: Data Entities are harvested and profiled at the time the connection is created, their popularity is also calculated by reviewing the DB query logs. This process may take some time (5 minutes or so), the Catalog will show a message when new updates are available**
+
 ![](images/200/image200_10a.png)
 
-8. Enter the following information
+5.	Click on entity “SRC_CUSTOMER” to drill down in it and look at the information DIPC brought in
 
-    - Name: Sync Target
-    - Description – Sales OLTP Replicated Data
-    - Agent – localhost:
+![](images/200/image200_10b.png) 
+
+If you would like to associate a tag or a contact to this entity, click on “Edit” button on the top right corner.
+
+6.	Click on the “Metadata” tab on top
+
+![](images/200/image200_10c.png) 
+
+DIPCS shows attributes, primary keys, data types and some sample values of the selected entity. If you click in one of the attributes, profiling information will be shown on the right side of the screen.
+
+![](images/200/image200_10d.png)  
+
+7.	Click on the “Data” tab on top
+
+![](images/200/image200_10e.png) 
+
+8.	Click on the back icon, located on the top left corner (left of the entity name) to go back to the Catalog
+9.	In the catalog you can use the drop-down menu located at the top to select the type of object that will be shown
+
+![](images/200/image200_10f.png)
+
+10.	It is also possible to use the filter to search for a specific object
+
+![](images/200/image200_10g.png)
+
+11.	Now, we are going to create the target connection. From the top bar, Open the drop-down menu from the top far right corner and then select “Connection” 
+
+![](images/200/image200_10h.png)
+
+12.	Enter the following information:
+    - Name: DIPC_TGT
+    - Description: Sales OLTP Replicated Data
+    - Agent: <LOCAL_AGENT>
     - Type Oracle – selecting Oracle will expand the Connection Settings
-    - Hostname: localhost
+    - Hostname: <TARGET_DB>
     - Port: 1521
     - Username: DIPC_TGT
-    - Password: welcome
-    - Service Name: dics12c
-    - Schema: DIPC_TGT
+    - Password: Welcome#123
+    - Service Name: <SOURCE_DB_SERVICE_NAME>
+    - Schema: DIPC_TGT (Default)
 
 ![](images/200/image200_11.png)
 
-9. Click Test Connection button then Save
+13. Click "Test Connection" button and when the test is successful click "Save" button. DIPC will create the connection and will harvest the entities in the schema. You will be navigated to the Catalog and you will see, after some time, the new connection you just created and the entities in that schema (if any)
 
-10. Review Catalog after saving –
 
-Note: Data Entities are harvested and profiled at Connection creation, their popularity
-is also calculated by reviewing the DB query logs. This process may take some time (5 minutes or so), the Catalog will show
-a message when new updates are available
 
-11. Click entity – SRC_ORDERS
-You can browse the Catalog pages to find it or you can use the Search bar
-(search for SRC_ for example)
 
-![](images/200/image200_12.png)
-![](images/200/image200_13.png)
-
-Notice the Popularity score calculated for SRC_ORDERS, a full bar means that this
-is one of the Data Entities that has been used the most in queries. Right now
-SRC_ORDERS hasn’t been used yet so the bar is empty. Tags can be added as
-well to group objects together
-
-12. Click on the Metadata tab
-
-![](images/200/image200_14.png)
-
-13. Click on an Attribute, ORDER_DATE for example
-
-![](images/200/image200_15.png)
-
-14. Notice the Profiling statistics appearing in the right-hand side drawer
-
-15. Click Data tab
-
-![](images/200/image200_16.png)
-
-16. suing the left-most panel, go back to the main Catalog page – Search for Data Entity –
-SRC_ORDER_LINES and click on it in the Quick Search results
-
-![](images/200/image200_17.png)
-
-17. Click Metadata tab
-
-![](images/200/image200_18.png)
-
-18. Click on a column, for example column – QTY
-
-19. Notice the Profiling statistics
-
-![](images/200/image200_19.png)
-
-20. Click Data tab
-
-21. Review other entities as needed
-
-# Task 2 : Create DIPC Synchronize Data Task
+## Create Synchronize Data Elevated Task
 
 1. This hands-on lab uses a JDBC utility client that was built specifically for this
 demo. This client is NOT part of DIPC, however it does help visualize the
