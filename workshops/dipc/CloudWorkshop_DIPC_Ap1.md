@@ -8,14 +8,14 @@
  
 
 2.	In the screen provide the following information:
--  Host: **<SERVER_IP_ADDRESS>**
-- Saved Session: Provide a name 
+    -  Host: **<SERVER_IP_ADDRESS>**
+    - Saved Session: Provide a name 
 
 ![](images/Ap1/imageAp1_20.png)
  
 3.	Click on “Save” button
 4.	From the hierarchical panel on the left, select “Connection > Data” and provide the following information:
-- Auto-login username: opc
+    - Auto-login username: opc
 
 ![](images/Ap1/imageAp1_30.png)
 
@@ -28,8 +28,8 @@
  ![](images/Ap1/imageAp1_50.png)
 
 7.	From the hierarchical panel on the left, select “Connection > SSH > Tunnels” and provide the following information:
-- Source port: 6905
-- Destination: **<SERVER_IP_ADDRESS>**:5901
+    - Source port: 6905
+    - Destination: **<SERVER_IP_ADDRESS>**:5901
 8.	Click on “Add” button
 
  ![](images/Ap1/imageAp1_60.png)

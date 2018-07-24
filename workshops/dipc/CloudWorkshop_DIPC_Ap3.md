@@ -10,14 +10,14 @@ SQL developer can be used to verify data in sources and targets.
 ![](images/Ap3/imageAp3_20.png)
 
 3.	Provide the following information
-- Connection Name: WS SALES - SALES_SRC
-- Username: SALES_SRC
-- Password: Welcome#123
-- Save Password: SELECTED
-- Connector Type: Basic
-- Hostname: **<SRC_DB_IP_ADDRESS>**
-- Port: 1521
-- Service Name: **<SRC_DB_SERVICE_NAME>**
+>    - Connection Name: WS SALES - SALES_SRC
+>    - Username: SALES_SRC
+>    - Password: Welcome#123
+>    - Save Password: SELECTED
+>    - Connector Type: Basic
+>    - Hostname: **<SRC_DB_IP_ADDRESS>**
+>    - Port: 1521
+>    - Service Name: **<SRC_DB_SERVICE_NAME>**
 
 ![](images/Ap3/imageAp3_30.png)
 
@@ -31,22 +31,22 @@ SQL developer can be used to verify data in sources and targets.
 ## Additional Connections
 You will need to define the following connections:
 1. WS TARGET - DIPC_TGT
-- Connection Name: WS TARGET - DIPC_TGT
-- Username: DIPC_TGT
-- Password: Welcome#123
-- Save Password: SELECTED
-- Connector Type: Basic
-- Hostname: **<TRG_DB_IP_ADDRESS>**
-- Port: 1521
-- Service Name: **<TRG_DB_SERVICE_NAME>**
+>    - Connection Name: WS TARGET - DIPC_TGT
+>    - Username: DIPC_TGT
+>    - Password: Welcome#123
+>    - Save Password: SELECTED
+>    - Connector Type: Basic
+>    - Hostname: **<TRG_DB_IP_ADDRESS>**
+>    - Port: 1521
+>    - Service Name: **<TRG_DB_SERVICE_NAME>**
 
 
 2. WS TARGET - TRG_AGG_SALES
-- Connection Name: WS TARGET - TRG_AGG_SALES
-- Username: TRG_AGG_SALES
-- Password: Welcome#123
-- Save Password: SELECTED
-- Connector Type: Basic
-- Hostname: **<TRG_DB_IP_ADDRESS>**
-- Port: 1521
-- Service Name: **<TRG_DB_SERVICE_NAME>**
+>   - Connection Name: WS TARGET - TRG_AGG_SALES
+>   - Username: TRG_AGG_SALES
+>   - Password: Welcome#123
+>   - Save Password: SELECTED
+>   - Connector Type: Basic
+>   - Hostname: **<TRG_DB_IP_ADDRESS>**
+>   - Port: 1521
+>   - Service Name: **<TRG_DB_SERVICE_NAME>**

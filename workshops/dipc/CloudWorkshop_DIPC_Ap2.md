@@ -10,9 +10,9 @@
 ![](images/Ap2/imageAp2_20.png)
 
 3.	Provide the following information:
-- VNC Server: localhost:6905
-- Name: provide ANY name you want to assign to this session
-- All other values: defaults
+    - VNC Server: localhost:6905
+    - Name: provide ANY name you want to assign to this session
+    - All other values: defaults
 
 ![](images/Ap2/imageAp2_30.png)
 
