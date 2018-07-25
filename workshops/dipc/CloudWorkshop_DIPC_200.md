@@ -131,181 +131,248 @@ DIPCS shows attributes, primary keys, data types and some sample values of the s
 
 1.	Connections have been defined. We are ready to create and execute our “Synch Data” elevated task. From the top bar, open the drop-down menu from the top far right corner and then select “Synchronize Data”
 
- 
+![](images/200/image200_15.png) 
 
 2.	Provide the following information:
-•	Name: Sync Sales Data
-•	Description: Sync Schemas - DIPC_SRC to DIPC_TGT 
-•	Source – Connection: DIPC_SRC
-•	Source – Schema: DIPC_SRC – The default schema will be automatically selected. Leave it
-•	Target – Connection: DIPC_TGT
-•	Target – Schema: DIPC_TGT – The default schema will be automatically selected. Leave it
-•	Advanced – Include Initial Load: SELECTED
-•	Advanced – Include Replication: SELECTED
+    - Name: Sync Sales Data
+    - Description: Sync Schemas - DIPC_SRC to DIPC_TGT 
+    - Source – Connection: DIPC_SRC
+    - Source – Schema: DIPC_SRC – The default schema will be automatically selected. Leave it
+    - Target – Connection: DIPC_TGT
+    - Target – Schema: DIPC_TGT – The default schema will be automatically selected. Leave it
+    - Advanced – Include Initial Load: SELECTED
+    - Advanced – Include Replication: SELECTED
+
 The “Advanced Options” allow you to optionally enable or disable the initial load and/or the on-going schema replication.
-Note: If you run into any issues when trying to select a Connection refresh the page manually. The Schemas may take some time to appear as well, this is expected.
 
+**Note: If you run into any issues when trying to select a Connection refresh the page manually. The Schemas may take some time to appear as well, this is expected.**
 
+![](images/200/image200_17.png)
 
+3.	Next click on “Configure Entities” on the top bar to filter the objects that will be transferred from source into target.
 
-
-
+![](images/200/image200_18.png)
  
-17.	Next click on “Configure Entities” on the top bar to filter the objects that will be transferred from source into target.
+4.	The “Configure Entities” screen allows you to create include or exclude rules to define precisely which database objects will be moved over to the target schema. By default, all data entities are transferred. Enter SRC* in the "Rules" field and click on “Include” button.
+
+![](images/200/image200_19.png)  
+
+5.	Select the hamburger menu   (located on the right side of the row) of the rule you just created and select “Delete”. You should end up with the original rule only
+
+![](images/200/image200_20.png)
  
-18.	The “Configure Entities” screen allows you to create include or exclude rules to define precisely which database objects will be moved over to the target schema. By default, all data entities are transferred. Enter SRC* in the Rules field and click on “Include” button.
+6.	Click on “Save & Run” button on the top right to execute the task
 
-  
+![](images/200/image200_21.png)
 
-19.	Select the hamburger menu   (located on the right side of the row) of the rule you just created and select “Delete”
-20.	You should end up with the original rule only
+7.	You will be navigated to the “Jobs” screen. After some time, a notification will appear in the notification bar
 
- 
-21.	Click on “Save & Run” button on the top right to execute the task
-22.	You will be navigated to the “Jobs” screen. After some time, a notification will appear in the notification bar
+![](images/200/image200_22.png)
 
- 
+8.	The job will automatically appear within the Jobs page. This may take up to 1 minute
 
-23.	The job will automatically appear within the Jobs page. This may take up to 1 minute
+![](images/200/image200_23.png) 
 
- 
+Auto-refresh is on, statuses will be updated frequently.
 
-
-Auto-refresh is on, statuses will be updated frequently
 As the job executes, the Initial Load process is created in ODI while DIPC configures OGG for the Source Capture and Target Delivery.
-OPTIONAL: ODI Console
-Optional: The Initial Load process (uses Data Pump) can also be monitored within ODI Console. Expand Runtime/Sessions/Load Plan Executions then click on Sessions and on the glasses icon to view the status
+
+## Review Task Execution
+
+### In ODI Console (Optional)
+The Initial Load process uses Data Pump and can be monitored within ODI Console. 
 
 1.	Click on the picture icon located on the top right corner of the screen and then select “Open ODI”
 
- 
+![](images/200/image200_24.png)  
 
 2.	Click on “Proceed” button
- 
-3.	On the hierarchical panel on the left select “Runtime > Sessions > Sessions”
 
- 
+![](images/200/image200_25.png)  
 
-4.	Now click on the “View” ( ) icon (sunglasses located on top left corner). This will open a tab on the right side with information about the executed sessions.
+3.	On the hierarchical panel on the left select “Runtime > Sessions > Sessions”. Then select the row.
 
- 
+![](images/200/image200_26.png)
+
+4.	Now click on the “View” icon (sunglasses located on top left corner). This will open a tab on the right side with information about the executed sessions.
+
+![](images/200/image200_27.png)
 
 5.	Click on the session name to drill down and look at more detail
- 
+
+![](images/200/image200_28.png)
+
 6.	Scroll down to see the detailed steps. When finished, you can close the browser tab with ODI Console
 
- 
+![](images/200/image200_29.png)
 
-Review Job in DIPC
+
+
+### Review Job in DIPC
 1.	You should be in the “Jobs” screen. Click on the Job to see the Job Details. The Initial load Action will show Successful after a little while
 
- 
+![](images/200/image200_30.png) 
 
 2.	Once done, the “Initial Load” Action can be expanded to review the various steps underneath
 
- 
+![](images/200/image200_31.png) 
 
 3.	Click on “Procedure:Initial load_PROC:DBLINK_DATAPUMP” to review the code generated by DIPC for the Initial Load. 
 
- 
+![](images/200/image200_32.png) 
 
 4.	Click Done when you’ve completed the code review
 5.	Close “Initial Load” action. Let’s review what else has been created. You should see 5 Actions
 
- 
+![](images/200/image200_33.png)
 
-6.	DIPC has created and orchestrated the initial load and the data synchronization processes between the source (for example, an OLTP system) and the target (for example, an operational data store, stand-by copy, etc.) -- (additional details can be seen in the GG logs as well as within ODI Studio)
+DIPC has created and orchestrated the initial load and the data synchronization processes between the source (for example, an OLTP system) and the target (for example, an operational data store, stand-by copy, etc.) -- (additional details can be seen in the GG logs as well as within ODI Studio)
 
-Optional: Verify data in source and target DBs
+## # Verify data in source and target DBs (Optional)
 Up until this point, we have monitored the job within DIPC but it would nice to see the data in both source and target to verify that they are the same. For such task, we will use SQL Developer; please refer to Appendix 3 to learn how to create connections against the workshop databases.
+
 1.	Start SQL Developer. On the connections panel, select your source database and click on the plus (+) sign to open the connection
+
+    ![](images/200/image200_34.png)
  
 2.	Once opened, copy and paste the following statements in the panel on the right:
+
 SELECT COUNT(*) AGE_GROUP FROM SRC_AGE_GROUP;
+
 SELECT COUNT(*) CITY FROM SRC_CITY;
+
 SELECT COUNT(*) CUSTOMER FROM SRC_CUSTOMER;
+
 SELECT COUNT(*) ORDER_LINES FROM SRC_ORDER_LINES;
+
 SELECT COUNT(*) ORDERS FROM SRC_ORDERS;
+
 SELECT COUNT(*) PRODUCTS FROM SRC_PRODUCT;
+
 SELECT COUNT(*) REGION FROM SRC_REGION;
+
 SELECT COUNT(*) SALES_PERSON FROM SRC_SALES_PERSON;
 
- 
-3.	Execute the statements by clicking on the “Run script” ( ) icon (second from left to right on the icon bar
+3.	Execute the statements by clicking on the “Run script” icon (second icon from left to right on the icon bar; right-ponting green arrow head on top of a page)
+
+![](images/200/image200_35.png)
+
 4.	This will show all entities count on the results panel (lower section)
- 
-5.	Repeat steps 1 through 4 for connection “WS EMEA - DIPC_TGT”
- 
-This will show that the count in both DBs is exactly the same
 
-Optional: Verify GG processes
+![](images/200/image200_36.png)
+
+5.	Repeat steps 1 through 4 for connection “WS TARGET - DIPC_TGT”
+
+    ![](images/200/image200_37.png)
+ 
+This will show that the count in both data bases is exactly the same.
+
+### Verify GG processes (Optional)
 If you want to take a look and verify that the GG processes (extract and replicat) are running, these are the steps:
-1.	Open an SSH session into the DIPC server; please refer to Appendix 1 to learn how to establish a SSH session against the DIPC server
-2.	Execute : source .ggsetup 
-3.	Execute: /u01/app/oracle/suite/gghome/ggsci
- 
-4.	You are now in GG console, execute: info all
- 
 
-Now you have ensured both Extract and Replicat are running. Exit from GGSCI
-Monitor data changes Source
+1.	Open an SSH session into the DIPC server; please refer to Appendix 1 to learn how to establish a SSH session against the DIPC server
+2.	Execute: source .ggsetup 
+3.	Execute: /u01/app/oracle/suite/gghome/ggsci
+
+![](images/200/image200_38.png)
+
+4.	You are now in GG console, execute: info all
+
+![](images/200/image200_39.png)
+
+Now you have verified that both Extract and Replicat are running. Exit from GGSCI
+
+## Monitor Data Changes 
+
 We are going to apply some changes to the source DB and verify how our “Synchronize Data” task takes care of these changes and replicates them to the target.
-1.	Go to your SQL Developer and expand “WS AMER - DIPC_SRC” connection and its tables.
+
+1.	Go to your SQL Developer and expand “WS SALES - DIPC_SRC” connection and its tables.
+
+![](images/200/image200_40.png)
  
 2.	Select “SRC_CUSTOMER” table
 3.	On the right panel, select “Data” tab
- 
+
+![](images/200/image200_41.png)
+
 4.	Click on “Insert Row” ( ) icon and provide the following data:
-•	CUSTID: 1000
-•	DEAR: 0
-•	LAST_NAME: Parker
-•	FIRST_NAME: Peter
-•	ADDRESS: 1200 Smith Street
-•	CITY_ID: 12
-•	PHONE: (510) 556 4879
-•	AGE: 48
-•	SALES_PERS_ID: 12
+    - CUSTID: 1000
+    - DEAR: 0
+    - LAST_NAME: Parker
+    - FIRST_NAME: Peter
+    - ADDRESS: 1200 Smith Street
+    - CITY_ID: 12
+    - PHONE: (510) 556 4879
+    - AGE: 48
+    - SALES_PERS_ID: 12
  
-5.	Click on “Commit” ( ) icon to insert the row into the DB
-6.	Verify the insert in the target. Go to SQL developer and expand “WS EMEA - DIPC_TGT” connection and its tables
+![](images/200/image200_42.png)
+
+5.	Click on “Commit” icon to insert the row into the DB (fifth icon from left to right on the icon bar; green checkmark on top of a disk)
+6.	Verify the insert in the target. Go to SQL developer and expand “WS TARGET - DIPC_TGT” connection and its tables
+
+![](images/200/image200_43.png)
  
 7.	Select “SRC_CUSTOMER”  table
 8.	On the right panel, select “Data” tab. You will need to scroll all the way down to see the new row
+
+![](images/200/image200_44.png)
  
 As data is updated, inserted or deleted from the source the data will be automatically synchronized with the replicated schema by the DIPC Sync Sales Data Job. 
+
 9.	Go back to DIPC, you should be in the detail screen of the Data Synch job
 10.	Verify that the screen has auto refresh ON so you will see the changes 
+
+![](images/200/image200_45.png)
  
 11.	It might take some time. The screen will reflect the insertion in the source
  
+![](images/200/image200_46.png)
+
 12.	And the insertion in the target
+
+![](images/200/image200_47.png)
  
 13.	Now, we will perform a delete. On your “WS AMER - DIPC_SRC” connection (SQL Developer) select “SRC_CUSTOMER” table
 14.	On the right panel, select “Data” tab and look for “Peter Parker”, select it.
- 
-15.	Click on “delete icon ( ) 
-16.	Click on “Commit” ( ) icon 
-17.	Let’s verify the deletion in the target. On your “WS EMEA - DIPC_TGT” connection (SQL Developer) select “SRC_CUSTOMER” table
+
+![](images/200/image200_48.png)
+
+15.	Click on “delete icon (fourth icon from left to right on the icon bar; red X) 
+16.	Click on “Commit” (fifth icon from left to right on the icon bar; green checkmark on top of a disk) icon 
+17.	Let’s verify the deletion in the target. On your “WS TARGET - DIPC_TGT” connection (SQL Developer) select “SRC_CUSTOMER” table
 18.	Look for “Peter Parker”, it will not be there
 19.	Go back to DIPC, you should be in the detail screen of the Data Synch job
 20.	It might take some time. The screen will reflect the deletion in the source
- 
+
+![](images/200/image200_49.png)
+
 21.	And the deletion in the target
- 
-22.	Now let’s perform an update. On your “WS AMER - DIPC_SRC” connection (SQL Developer) select “SRC_CUSTOMER” table
+
+![](images/200/image200_50.png)
+
+22.	Now let’s perform an update. On your “WS SALES - DIPC_SRC” connection (SQL Developer) select “SRC_CUSTOMER” table
 23.	On the right panel, select “Data” tab and look for “Paul Brendt”, double click in his age
- 
+
+![](images/200/image200_51.png)
+
 24.	Change it to 25
- 
-25.	Click on “Commit” ( ) icon. This row will be automatically updated on the target as the DIPC Job picks up the change
-26.	Let’s verify the update in the target. On your “WS EMEA - DIPC_TGT” connection (SQL Developer) select “SRC_CUSTOMER” table
+
+![](images/200/image200_52.png)
+
+25.	Click on “Commit” (fifth icon from left to right on the icon bar; green checkmark on top of a disk) icon. This row will be automatically updated on the target as the DIPC Job picks up the change
+26.	Let’s verify the update in the target. On your “WS TARGET - DIPC_TGT” connection (SQL Developer) select “SRC_CUSTOMER” table
 27.	On the right panel, select “Data” tab and look for “Paul Brendt”, his age has change to 25
 28.	Go back to DIPC, you should be in the detail screen of the Data Synch job
 29.	It might take some time. The screen will reflect the update in the source
- 
-30.	And the update in the target
- 
 
-Summary
+![](images/200/image200_53.png)
+
+30.	And the update in the target
+
+![](images/200/image200_54.png)
+
+
+## Summary
 You have now successfully completed the Hands-on Lab, and have successfully performed an end-to-end data synchronization task through Oracle’s Data Integration Platform Cloud.
  
