@@ -4,7 +4,7 @@
 
 ## Before You Begin
 
-### Introduction - 
+### Introduction
 
 This lab covers installation and configuration of DIPC remote agent along with synchronization of two on-prem database schemas. Agents allow synchronization of data from sources outside Oracle Cloud. The target and source schemas will reside in the same database.
 
