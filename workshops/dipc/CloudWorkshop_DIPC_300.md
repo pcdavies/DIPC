@@ -118,7 +118,7 @@ Approximately 45 minutes.
 
 ### Execute Data Synch Elevated Task
 1. You should be logged into DIPC, if that is NOT the case, log in.
-2. from the left side pANEL, SELECT "Home"
+2. From the left side panel, SELECT "Home"
 
 ![](images/300/image300_30.png)
 
