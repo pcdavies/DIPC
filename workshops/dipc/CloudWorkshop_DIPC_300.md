@@ -111,141 +111,92 @@ Approximately 45 minutes.
 
 ## On-Prem to On-Prem synchronization
 
-### Verify
+### Verify Data in Source and Target DBs (Optional)
+** MISSING STEPS
+** Saves images 15 to 29 for this section
 
 
+### Execute Data Synch Elevated Task
+1. You should be logged into DIPC, if that is NOT the case, log in.
+2. from the left side pANEL, SELECT "Home"
+
+![](images/300/image300_30.png)
+
+3. In the Home Page click "Create Connections" from the top section
+
+![](images/300/image300_31.png)
+
+4. Enter the following information:
+    - Name: ONPREM_SRC
+    - Description: Connection to on-prem database schema with source tables. AMER
+	- Agent: <REMOTE_AGENT>
+	- Type: Oracle
+  	- Hostname: <COMPUTE_INSTANCE_IP>
+	- Port: 1521
+	- Username: AMER_SRC
+	- Password: Welcome#123
+	- Service Name: orcl
+
+** MISSING ![](images/300/image300_32.png)
+
+5. Click on "Test Connection" button at the bottom. a green message should appear on top when everything is in order
+6. Click on "Save"
+
+** MISSING ![](images/300/image300_33.png)
+
+7. From the top bar, open the drop-down menu and the select "Connection"
+
+** MISSING ![](images/300/image300_34.png)
+
+8. Enter the following information:
+    - Name: ONPREM_TRG
+    - Description: Connection to target schema onprem_trg EMEA
+	- Agent: <REMOTE_AGENT>
+	- Type: Oracle
+	- Hostname: <COMPUTE_INSTANCE_IP>
+	- Port: 1521
+	- Username: EMEA_TRG
+	- Password: Welcome#123
+	- Service Name: orcl
+
+** MISSING ![](images/300/image300_35.png)
+
+5. Click on "Test Connection" button at the bottom. a green message should appear on top when everything is in order
+6. Click on "Save"
+
+** MISSING ![](images/300/image300_36.png)
+
+7. From the top bar, open the drop-down menu and the select "Synchronize Data"
+
+** MISSING ![](images/300/image300_37.png)
+
+8. Enter the following information:
+	- Name: Sync OnPrem Schemas
+	- Description: Sync on-prem schemas AMER to EMEA
+	- Connection: ONPREM_SRC
+	- Schema: AMER
+	- Connection: ONPREM_TRG
+	- Schema: EMEA
+	- Advanced - Include Initial Load: SELECTED
+	- Advanced - Include Replication: SELECTED
+
+** MISSING ![](images/300/image300_38.png)
+
+9. Click on "Save & Run" button on the top right of the screen to execute the task
+10. You will be navigated to teh "Jobs"screen. After some time, a message will appear in the notification bar
+
+** MISSING ![](images/300/image300_39.png)
+
+11. The job will automatically appear within the "Jobs" page
+
+** MISSING ![](images/300/image300_40.png)
+
+12. Click job to review details
+
+** MISSING ![](images/300/image300_41.png)
 
 
-
-
-
-### **STEP 12**: [OnPremiseVM] Review On-Prem Schema
-
--   Connect to remote schema and view tables and row count
-
-
-	![](images/300/AgentImage100-ReviewOnPremSchema.png)
-
-### **STEP 13**: [DIPC 18.2.3] Create Source Connection to On-Prem Schema
-
--   Navigate to DIPC console
--   Click "Home" in left toolbar and click "Create Connections"
-
-
-	![](images/300/AgentImage101-CreateSourceConnection.png)
-
--   Enter source connection information for On-prem schema
-
-    - Name:        ONPREM_SRC
-    - Description: Connection to on-prem database schema with source tables
-	- Agent:       localhost:7010
-	- Type:        Oracle
-	- Connection Settings
-	  - Hostname:   10.0.0.4
-	  - Port:       1521
-	  - Username:   DIPC_SRC
-	  - Password:   welcome1
-	  - Service:    Service Name: dics12c
-
-
-	![](images/300/AgentImage105-EnterSrcConnectionInfo.png)
-
--   Click "Test Connection" and "Save"
-
-	![](images/300/AgentImage105-TestSaveSrcConnection.png)
-
--   Search for source connection ONPREM_SRC in catalog
-
-	![](images/300/AgentImage110-SearchConnectionCatalog.png)
-
-    ![](images/300/AgentImage111-ViewSrcConnectionCatalog.png)
-
--   Click connection name to view summary
-
-    ![](images/300/AgentImage112-ViewSrcConnectionSummary.png)
-
--   Click metadata tab
-
-    ![](images/300/AgentImage113-ViewSrcConnectionMetadata.png)
-
-
-### **STEP 14**: [OnPremiseVM] Create blank target Schema ONPREM_TRG
-
--   Create schema and ensure necessary privileges
--   SQL> create user onprem_trg identified by welcome1;
--   SQL> grant connect, resource, unlimited tablespace to onprem_trg;
--   SQL> grant create database link to onprem_trg;
--   
--   View schema tables and row count - should be empty
--   SQL> connect onprem_trg
--   SQL> select table_name from user_tables;
-
-	![](images/300/AgentImage115-OnpremTrgSchema.png)
-
-
-### **STEP 15**: [DIPC 18.2.3] Create Target Connection to Schema ONPREM_TRG
-
--   Enter target connection information to schema ONPREM_TRG
--   Use same remote agent on port 7010 for target connection
-
-    - Name:        ONPREM_TRG
-    - Description: Connection to target schema onprem_trg
-	- Agent:       localhost:7010
-	- Type:        Oracle
-	- Connection Settings
-	  - Hostname:   localhost
-	  - Port:       1521
-	  - Username:   ONPREM_TRG
-	  - Password:   welcome1
-	  - Service:    Service Name: dics12c
-
--   Click "Test Connection"
-
-	![](images/300/AgentImage120-CreateOnpremTargetConnection.png)
-
--   Click "Save" to save target connection
-
-	![](images/300/AgentImage121-TestSaveTargetConnection.png)
-
--   View Target Connection
-
-	![](images/300/AgentImage122-ViewTargetConnection.png)
-
-### **STEP 16**: [DIPC 18.2.3] Create Sync Job between Source and Target
-
--   In DIPC Console click "Home" in left toolbar
--   Click "Synchronize Data"
-
-	![](images/300/AgentImage125-CreateSyncJob.png)
-
--   Enter Sync Job Information
-    - General Information
-	  - Name:        SYNC ONPREM SCHEMA
-	  - Description: Job to sync on-prem schema with cloud target schema
-	- Source Configuration
-	  - Connection: ONPREM_SRC
-	  - Schema:     DIPC_SRC
-	- Target Configuration
-	  - Connection: ONPREM_TRG
-	  - Schema: ONPREM_TRG
-	- Advanced Options
-	  - Include Initial Load: check for initial load
-	  - Include Replication: check for replication
-
--   Click "Save & Run"
-
-	![](images/300/AgentImage125-EnterSynJobInfo.png)
-
--   Click Job to review Sync Job Details
-
-	![](images/300/AgentImage130-SyncJobMonitor.png)
-
--   Monitor Target Schema for table creation and row count
-AgentImage135-SyncJobMonitorSchema.png
-
-	![](images/300/AgentImage135-SyncJobMonitorSchema.png)
-
-	![](images/300/AgentImage136-SyncJobMonitorSchema2.png)
-
-	![](images/300/AgentImage137-SyncJobMonitorSchema3.png)
+### Verify Data in Target DB (Optional)
+** MISSING STEPS
+** MISSING IMAGES
 

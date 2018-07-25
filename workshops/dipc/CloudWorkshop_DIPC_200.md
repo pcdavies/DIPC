@@ -52,6 +52,7 @@ You will be navigated to your DIPC server Home page.
 ## Create Connections and Review Catalog
 1. Log into your Workshop DIPC Server
 2.	In the Home Page click “Create Connection” from top section
+
 ![](images/200/image200_5.png)
 
 3.	Enter the following information:
@@ -228,7 +229,7 @@ The Initial Load process uses Data Pump and can be monitored within ODI Console.
 
 DIPC has created and orchestrated the initial load and the data synchronization processes between the source (for example, an OLTP system) and the target (for example, an operational data store, stand-by copy, etc.) -- (additional details can be seen in the GG logs as well as within ODI Studio)
 
-### Verify data in source and target DBs (Optional)
+### Verify Data in Source and Target DBs (Optional)
 Up until this point, we have monitored the job within DIPC but it would nice to see the data in both source and target to verify that they are the same. For such task, we will use SQL Developer; please refer to Appendix 3 to learn how to create connections against the workshop databases.
 
 1.	Start SQL Developer. On the connections panel, select your source database and click on the plus (+) sign to open the connection
