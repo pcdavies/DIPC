@@ -1,4 +1,4 @@
-# Workshop Introduction
+# DIPC Workshop Introduction
 
 ## How to Prepare for This Workshop
 
