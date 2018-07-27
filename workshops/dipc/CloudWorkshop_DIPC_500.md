@@ -1,58 +1,107 @@
 
 # Lab 500: Oracle ODI Data Preparation Lab
 ![](images/500/image500_0.png)
-# Task 0: ODI Preparation Steps
 
-If the screensaver is on just press “enter” to open the login screen. 
- 
-# Task 1: Prep External Website Data  
- 
-## Logging Into Oracle Cloud Instance
 
-In your web browser, navigate to cloud.oracle.com
-### **STEP 1**: [DIPC 18.2.3] Log into DIPC Console
+## Before You Begin
 
--   Log into dashboard url provided with your single signon (update url for delivery)
--   https://myservices-gse00015126.console.oraclecloud.com/mycloud/cloudportal/dashboard
+### Purpose
+This lab shows you how to execute a Data Preparation elevated task; as well as how to define all necessary elements to run the task.
 
--   Enter single signon user id or id provided
-	![](images/300/AgentImage011-DemoLogin.png)
+### Time to Complete 
+Approximately 15 minutes.
 
-	![](images/300/AgentImage012-DemoLogin.png)
+### What Do You Need?
+Your will need:
+- DIPC Instance URL
+- DIPC User and Password
+- Flat file "webclicks.txt"
 
--   Click "Data Integration Platform Cloud" (no login info was required)
--   Login may be required if accessing directly using console url
--   https://myservices-gse00015126.console.oraclecloud.com/mycloud/cloudportal/dashboard
 
-	![](images/300/AgentImage015-DIPC_Console.png)
+## Execute Data Preparation Elevated Task
 
--   Click "Open Service Console" in top right of page to view DIPC instance "DIPCINST'
-	![](images/300/AgentImage016-DIPC_Console.png)
+### Login to DIPC
+1. Open a browser window an provide your DIPC server URL. The URL will be provided by the instructor and will look like this one
 
--   Click menu on right and select "Data Integration Platform Console
-	![](images/300/AgentImage017-DIPC_Console.png)	
+https://osc132657dipc-oscnas001.uscom-central-1.oraclecloud.com/dicloud
+
+2. Provide your user name and password, then click "Sign In" button
+
+![](images/500/image500_1.png)
+
+You will be navigated to your DIPC server Home page.
+
+![](images/500/image500_2.png)
+
+3. In the Home Page click on "Next" icon (>) located at the far right side of the top panel to locate the "Data Preparation" task icon
+
+![](images/500/image500_3.png)
+
+4. Once you have located the "Data Preparation" task icon, click on it
+
+![](images/500/image500_4.png)
+
+### Staging Connection Definition (Optional)
+If you receive the following error message:
+
+![](images/500/image500_5.png)
+
+Click on "Select a default staging connection" hyperlink. You will navigate to the admin screen in which you can define this defualt connection.
+
+1. Click on "Edit"
+
+![](images/500/image500_6.png)
+
+2. Open the "Oracle" field drop-down menu and select "SALES_TRG"
+3. Click "Save" button.
+
+![](images/500/image500_7.png)
+
+4. You are now ready to run your "Data Preparation" task. Using the left panel, click on "Home".
+
+![](images/500/image500_8.png)
+
+5. In the Home Page click on "Next" icon (>) located at the far right side of the top panel to locate the "Data Preparation" task icon
+
+![](images/500/image500_3.png)
+
+4. Once you have located the "Data Preparation" task icon, click on it
+
+![](images/500/image500_4.png)
+
+
+### Execute Data Preparation Task
+
+1.	Provide the following information:
+	- Name: PrepWebData 
+	- Description:  Prep External Website Data
+2. For "Source Configuration" click on "Create Connection" button
+
+![](images/500/image500_9.png)
+
+3. Provide the following information:
+	- Name: WebClicks_File
+	- Description: Website Clicks information
+	- Agent: Leave Blank
+	- Type: File
+	- Directory: /home/DIPC
+ 4. Click "Test Connection" button and when the test is successful click "Save" button
+
+![](images/500/image500_10.png)
+
+5. Provide the following information:
 	
-2.	Click Home 
-3.	Create Data Preparation Task 
-![](images/600/image600_12b.png)
-scroll right
-![](images/600/image600_12a.png)
-- Click Data Preparation 
-4.	Create Data Preparation Task enter the following information 
-![](images/500/image500_3a.png)
-- Name: PrepWebData 
-- Description:  Prep External Website Data  
-- Agent – leave blank 
-- Type: File 
-- Directory: /home/DIPC 
+	**Source Configuration**
+	- Connection: WebClicks_File
+	- Directory: /home/DIPC
+	- File: 
+	
+	**Target Configuration**
+	- Connection: 
+	- Schema: 
+	- Data Entity: 
 
-5. For Source Configuration click add new connection button
-![](images/500/image500_4a.png)
-- Name: Local File Store
-- Description: Local File Store
-- Agent: Leave Blank
-- Type: File
-- Directory: /home/DIPC
+
 
 6.	Review Connections settings. 
 
@@ -71,10 +120,10 @@ scroll right
 - Type: Oracle – selecting Oracle will expand the Connection Settings 
 - Hostname: localhost 
 - Port: 1521 
-- Username: DIPC_TGT 
+- Username: DIPC_TRG 
 - Password: welcome1 
 - Service Name: dics12c 
-- Schema: DIPC_TGT 
+- Schema: DIPC_TRG 
 
 ![](images/500/image500_6a.png)
 
@@ -100,8 +149,8 @@ scroll right
 - Select OK
 
 - Target Configuration 
--  Connection: DIPC_TGT 
--  Schema: DIPC_TGT 
+-  Connection: DIPC_TRG 
+-  Schema: DIPC_TRG 
 -  Data Entity: webclicks  
 
 ![](images/500/image500_8a.png)

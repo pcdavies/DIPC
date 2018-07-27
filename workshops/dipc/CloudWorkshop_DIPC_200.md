@@ -56,7 +56,7 @@ You will be navigated to your DIPC server Home page.
 ![](images/200/image200_5.png)
 
 3.	Enter the following information:
-    - Name: DIPC_SRC
+    - Name: SALES_SRC
     - Description: Sales OLTP Source Data
     - Agent: \<LOCAL_AGENT>
     - Type Oracle: selecting Oracle will expand the Connection Settings
@@ -65,11 +65,10 @@ You will be navigated to your DIPC server Home page.
 
     - Hostname: <SOURCE_DB>
     - Port: 1521
-    - Username: DIPC_SRC
+    - Username: SALES_SRC
     - Password: Welcome#123
     - Service Name: <SOURCE_DB_SERVICE_NAME>
-    - Schema: DIPC_SRC
-    - Schema Name: DIPC_SRC (Default) – When you try to select the schema, you are testing the connection at the same time
+    - Schema Name: SALES_SRC (Default) – When you try to select the schema, you are testing the connection at the same time
     - CDB Connection: SRC_CDB
 
     ![](images/200/image200_7.png)
@@ -112,16 +111,16 @@ DIPCS shows attributes, primary keys, data types and some sample values of the s
 ![](images/200/image200_15.png)
 
 12.	Enter the following information:
-    - Name: DIPC_TGT
+    - Name: SALES_TRG 
     - Description: Sales OLTP Replicated Data
     - Agent: <LOCAL_AGENT>
     - Type Oracle – selecting Oracle will expand the Connection Settings
     - Hostname: <TARGET_DB>
     - Port: 1521
-    - Username: DIPC_TGT
+    - Username: SALES_TRG 
     - Password: Welcome#123
     - Service Name: <SOURCE_DB_SERVICE_NAME>
-    - Schema: DIPC_TGT (Default)
+    - Schema Name: SALES_TRG  (Default)
 
 ![](images/200/image200_16.png)
 
@@ -136,11 +135,11 @@ DIPCS shows attributes, primary keys, data types and some sample values of the s
 
 2.	Provide the following information:
     - Name: Sync Sales Data
-    - Description: Sync Schemas - DIPC_SRC to DIPC_TGT 
-    - Source – Connection: DIPC_SRC
-    - Source – Schema: DIPC_SRC – The default schema will be automatically selected. Leave it
-    - Target – Connection: DIPC_TGT
-    - Target – Schema: DIPC_TGT – The default schema will be automatically selected. Leave it
+    - Description: Sync Schemas - SALES_SRC to SALES_TRG  
+    - Source – Connection: SALES_SRC
+    - Source – Schema: SALES_SRC – The default schema will be automatically selected. Leave it
+    - Target – Connection: SALES_TRG 
+    - Target – Schema: SALES_TRG  – The default schema will be automatically selected. Leave it
     - Advanced – Include Initial Load: SELECTED
     - Advanced – Include Replication: SELECTED
 
@@ -262,7 +261,7 @@ SELECT COUNT(*) SALES_PERSON FROM SRC_SALES_PERSON;
 
 ![](images/200/image200_36.png)
 
-5.	Repeat steps 1 through 4 for connection “WS TARGET - DIPC_TGT”
+5.	Repeat steps 1 through 4 for connection “WS TARGET - SALES_TRG ”
 
     ![](images/200/image200_37.png)
  
@@ -287,7 +286,7 @@ Now you have verified that both Extract and Replicat are running. Exit from GGSC
 
 We are going to apply some changes to the source DB and verify how our “Synchronize Data” task takes care of these changes and replicates them to the target.
 
-1.	Go to your SQL Developer and expand “WS SALES - DIPC_SRC” connection and its tables.
+1.	Go to your SQL Developer and expand “WS SALES - SALES_SRC” connection and its tables.
 
 ![](images/200/image200_40.png)
  
@@ -310,7 +309,7 @@ We are going to apply some changes to the source DB and verify how our “Synchr
 ![](images/200/image200_42.png)
 
 5.	Click on “Commit” icon to insert the row into the DB (fifth icon from left to right on the icon bar; green checkmark on top of a disk)
-6.	Verify the insert in the target. Go to SQL developer and expand “WS TARGET - DIPC_TGT” connection and its tables
+6.	Verify the insert in the target. Go to SQL developer and expand “WS TARGET - SALES_TRG ” connection and its tables
 
 ![](images/200/image200_43.png)
  
@@ -334,14 +333,14 @@ As data is updated, inserted or deleted from the source the data will be automat
 
 ![](images/200/image200_47.png)
  
-13.	Now, we will perform a delete. On your “WS AMER - DIPC_SRC” connection (SQL Developer) select “SRC_CUSTOMER” table
+13.	Now, we will perform a delete. On your “WS AMER - SALES_SRC” connection (SQL Developer) select “SRC_CUSTOMER” table
 14.	On the right panel, select “Data” tab and look for “Peter Parker”, select it.
 
 ![](images/200/image200_48.png)
 
 15.	Click on “delete icon (fourth icon from left to right on the icon bar; red X) 
 16.	Click on “Commit” (fifth icon from left to right on the icon bar; green checkmark on top of a disk) icon 
-17.	Let’s verify the deletion in the target. On your “WS TARGET - DIPC_TGT” connection (SQL Developer) select “SRC_CUSTOMER” table
+17.	Let’s verify the deletion in the target. On your “WS TARGET - SALES_TRG ” connection (SQL Developer) select “SRC_CUSTOMER” table
 18.	Look for “Peter Parker”, it will not be there
 19.	Go back to DIPC, you should be in the detail screen of the Data Synch job
 20.	It might take some time. The screen will reflect the deletion in the source
@@ -352,7 +351,7 @@ As data is updated, inserted or deleted from the source the data will be automat
 
 ![](images/200/image200_50.png)
 
-22.	Now let’s perform an update. On your “WS SALES - DIPC_SRC” connection (SQL Developer) select “SRC_CUSTOMER” table
+22.	Now let’s perform an update. On your “WS SALES - SALES_SRC” connection (SQL Developer) select “SRC_CUSTOMER” table
 23.	On the right panel, select “Data” tab and look for “Paul Brendt”, double click in his age
 
 ![](images/200/image200_51.png)
@@ -362,7 +361,7 @@ As data is updated, inserted or deleted from the source the data will be automat
 ![](images/200/image200_52.png)
 
 25.	Click on “Commit” (fifth icon from left to right on the icon bar; green checkmark on top of a disk) icon. This row will be automatically updated on the target as the DIPC Job picks up the change
-26.	Let’s verify the update in the target. On your “WS TARGET - DIPC_TGT” connection (SQL Developer) select “SRC_CUSTOMER” table
+26.	Let’s verify the update in the target. On your “WS TARGET - SALES_TRG ” connection (SQL Developer) select “SRC_CUSTOMER” table
 27.	On the right panel, select “Data” tab and look for “Paul Brendt”, his age has change to 25
 28.	Go back to DIPC, you should be in the detail screen of the Data Synch job
 29.	It might take some time. The screen will reflect the update in the source

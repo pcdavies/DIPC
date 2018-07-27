@@ -139,20 +139,21 @@ https://osc132657dipc-oscnas001.uscom-central-1.oraclecloud.com/dicloud
 
 ** MISSING ![](images/300/image300_33.png)
 
-7. From the top bar, open the drop-down menu and the select "Connection"
+7. If you are in the Home page, click "create Connection" from the top panel. If you are in the catalog screen, from the top bar, open the drop-down menu and the select "Connection"
 
 ** MISSING ![](images/300/image300_34.png)
 
 8. Enter the following information:
-    - Name: CLOUD_TRG
+    - Name: EMEA_CLOUD
     - Description: Connection to target schema cloud target EMEA
 	- Agent: <LOCAL_AGENT>
 	- Type: Oracle
 	- Hostname: <TARGET_DB>
 	- Port: 1521
-	- Username: EMEA_TRG
+	- Username: EMEA_CL_TRG
 	- Password: Welcome#123
 	- Service Name: <SOURCE_DB_SERVICE_NAME>
+    - Schema Name: EMEA_CL_TRG (Default)	
 
 ** MISSING ![](images/400/image400_1.png)
 
