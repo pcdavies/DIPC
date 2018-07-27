@@ -165,7 +165,7 @@ The “Advanced Options” allow you to optionally enable or disable the initial
 
 ![](images/200/image200_21.png)
 
-7.	You will be navigated to the “Jobs” screen. After some time, a notification will appear in the notification bar
+7.	You will be navigated to the “Jobs” screen. After some time, a message will appear in the notification bar
 
 ![](images/200/image200_22.png)
 
@@ -231,7 +231,7 @@ DIPC has created and orchestrated the initial load and the data synchronization 
 ### Verify Data in Source and Target DBs (Optional)
 Up until this point, we have monitored the job within DIPC but it would nice to see the data in both source and target to verify that they are the same. For such task, we will use SQL Developer; please refer to Appendix 3 to learn how to create connections against the workshop databases.
 
-1.	Start SQL Developer. On the connections panel, select your source database and click on the plus (+) sign to open the connection
+1.	Start SQL Developer. On the connections panel, select your source database (WS - SALES_SRC) and click on the plus (+) sign to open the connection
 
     ![](images/200/image200_34.png)
  
@@ -261,7 +261,7 @@ SELECT COUNT(*) SALES_PERSON FROM SRC_SALES_PERSON;
 
 ![](images/200/image200_36.png)
 
-5.	Repeat steps 1 through 4 for connection “WS TARGET - SALES_TRG ”
+5.	Repeat steps 1 through 4 for connection “WS - SALES_TRG ”
 
     ![](images/200/image200_37.png)
  
@@ -286,7 +286,7 @@ Now you have verified that both Extract and Replicat are running. Exit from GGSC
 
 We are going to apply some changes to the source DB and verify how our “Synchronize Data” task takes care of these changes and replicates them to the target.
 
-1.	Go to your SQL Developer and expand “WS SALES - SALES_SRC” connection and its tables.
+1.	Go to your SQL Developer and expand “WS - SALES_SRC” connection and its tables.
 
 ![](images/200/image200_40.png)
  
@@ -309,7 +309,7 @@ We are going to apply some changes to the source DB and verify how our “Synchr
 ![](images/200/image200_42.png)
 
 5.	Click on “Commit” icon to insert the row into the DB (fifth icon from left to right on the icon bar; green checkmark on top of a disk)
-6.	Verify the insert in the target. Go to SQL developer and expand “WS TARGET - SALES_TRG ” connection and its tables
+6.	Verify the insert in the target. Go to SQL developer and expand “WS - SALES_TRG ” connection and its tables
 
 ![](images/200/image200_43.png)
  
@@ -333,14 +333,14 @@ As data is updated, inserted or deleted from the source the data will be automat
 
 ![](images/200/image200_47.png)
  
-13.	Now, we will perform a delete. On your “WS AMER - SALES_SRC” connection (SQL Developer) select “SRC_CUSTOMER” table
+13.	Now, we will perform a delete. On your “WS - SALES_SRC” connection (SQL Developer) select “SRC_CUSTOMER” table
 14.	On the right panel, select “Data” tab and look for “Peter Parker”, select it.
 
 ![](images/200/image200_48.png)
 
 15.	Click on “delete icon (fourth icon from left to right on the icon bar; red X) 
 16.	Click on “Commit” (fifth icon from left to right on the icon bar; green checkmark on top of a disk) icon 
-17.	Let’s verify the deletion in the target. On your “WS TARGET - SALES_TRG ” connection (SQL Developer) select “SRC_CUSTOMER” table
+17.	Let’s verify the deletion in the target. On your “WS - SALES_TRG ” connection (SQL Developer) select “SRC_CUSTOMER” table
 18.	Look for “Peter Parker”, it will not be there
 19.	Go back to DIPC, you should be in the detail screen of the Data Synch job
 20.	It might take some time. The screen will reflect the deletion in the source
@@ -351,7 +351,7 @@ As data is updated, inserted or deleted from the source the data will be automat
 
 ![](images/200/image200_50.png)
 
-22.	Now let’s perform an update. On your “WS SALES - SALES_SRC” connection (SQL Developer) select “SRC_CUSTOMER” table
+22.	Now let’s perform an update. On your “WS - SALES_SRC” connection (SQL Developer) select “SRC_CUSTOMER” table
 23.	On the right panel, select “Data” tab and look for “Paul Brendt”, double click in his age
 
 ![](images/200/image200_51.png)
@@ -361,7 +361,7 @@ As data is updated, inserted or deleted from the source the data will be automat
 ![](images/200/image200_52.png)
 
 25.	Click on “Commit” (fifth icon from left to right on the icon bar; green checkmark on top of a disk) icon. This row will be automatically updated on the target as the DIPC Job picks up the change
-26.	Let’s verify the update in the target. On your “WS TARGET - SALES_TRG ” connection (SQL Developer) select “SRC_CUSTOMER” table
+26.	Let’s verify the update in the target. On your “WS - SALES_TRG ” connection (SQL Developer) select “SRC_CUSTOMER” table
 27.	On the right panel, select “Data” tab and look for “Paul Brendt”, his age has change to 25
 28.	Go back to DIPC, you should be in the detail screen of the Data Synch job
 29.	It might take some time. The screen will reflect the update in the source

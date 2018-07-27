@@ -94,112 +94,95 @@ Click on "Select a default staging connection" hyperlink. You will navigate to t
 	**Source Configuration**
 	- Connection: WebClicks_File
 	- Directory: /home/DIPC
-	- File: 
-	
+	- File: Click on "Select" button, click on "webclicks.txt" hyperlink and then the "Select" button
+
+	![](images/500/image500_11.png)
+
 	**Target Configuration**
-	- Connection: 
-	- Schema: 
-	- Data Entity: 
+	- Connection: SALES_TRG
+	- Schema: SALES_TRG 
+	- Data Entity: WEB_CLICKS
+
+![](images/500/image500_12.png)
 
 
 
-6.	Review Connections settings. 
+6.	Let's review the file option DIPC offers, Click on "Options" button.
+7. Provide the following information:
+	- Edcoding: UTF-8
+	- Delimiter: Comma
+	- Text Qualifier: Leave blank
+	- Header: UNSELECTED 
+	- First Data Row: 1 
+8. Click on "OK" button
 
-7.	Click Test Connection – Review for Errors. 
-- Click Save  
+![](images/500/image500_13.png)
 
-8.	Create Target Connection from the Catalog 
-- NOTE: This connection may have already have been setup in a previous HOL 
-- Click on the Create button and select Connection  
-![](images/500/image500_5a.png)
+9. Execute the task, click on "Save and Transform" button
 
-9.	Enter the following information  
-- Name: Sync Target 
-- Description: Sales OLTP Replicated Data 
-- Agent: leave blank 
-- Type: Oracle – selecting Oracle will expand the Connection Settings 
-- Hostname: localhost 
-- Port: 1521 
-- Username: DIPC_TRG 
-- Password: welcome1 
-- Service Name: dics12c 
-- Schema: DIPC_TRG 
+![](images/500/image500_14.png)
 
-![](images/500/image500_6a.png)
+10.	As the file is being parsed and profiled, the following screen will appear  
 
-10.	Click Test Connection, Review for errors 
+![](images/500/image500_15.png)
 
-11.	Click Save 
+11. Once finished, the data preparation screen will come up. The profiling process has captured advanced profiling information as the flat file was ingested.  Click each column to review the profiling results in the right hand data profile drawer.
+12. There is a second tab in which is possible to review the data in the file; click the "Data" tab 
 
-12.	Create Data Preparation Task Entries as follows 
-- Name: Prep Web Data 
-- Description: Prep External Website Data 
-- Source Configuration 
--  Connection: LocalFileStore 
--  Directory: /home/DIPC 
--  File: Click Select - scroll to webclicks.txt 
+![](images/500/image500_16.png)
 
-- Select options for webclicks.txt as follows 
 
-![](images/500/image500_7a.png)
+13. To transform data on a particular column, click the hamburger menu on the column you want to transfom.  
 
-- No Text Qualifier 
-- Ensure header is not enabled 
-- First Data Row should be 1 
-- Select OK
+![](images/500/image500_17.png)
 
-- Target Configuration 
--  Connection: DIPC_TRG 
--  Schema: DIPC_TRG 
--  Data Entity: webclicks  
-
-![](images/500/image500_8a.png)
-
-13.	Click Save and Transform 
-
-14.	The following screen will appear as the file is being parsed and profiled 
-
-![](images/500/image500_9a.png)
-
-15. Once finished the data preparation screen will appear 
-
-![](images/500/image500_10a.png)
-
-16. Begin prepping/transforming the file 
-
-- The profiling process has captured advanced profiling information as the flat file was ingested.  Click each column to review the profiling results in the right hand data profile drawer. 
-- There are also two views in which data can be prepped and transformed. To view the data view click the data tab 
-
-![](images/500/image500_11a.png)
-
-17. To transform data click the menu bar on the column 
-
-![](images/500/image500_12a.png)
-
-18. For Column 6 transform Shoes.html to shoes.html using the Replace transform 
-
-![](images/500/image500_13a.png)
-
-19. Click Apply.  Clicking apply updates, the data, metadata and profiling statistics.  Also note the transform is saved and displayed in the left-hand drawer.  This transform can be deleted and the data, metadata and profiling statistics will be updated accordingly. 
-![](images/500/image500_14b.png)
-- Column 1: Rename WROWID 
-- Column 2: Rename CUSTID 
-- Column 3: Rename LNAME 
-- Column 4: Rename FNAME 
-- Column 5: Rename PAGENAME 
-- Column 6: Rename PAGEREFERRER 
-- Column 7: Rename VISITDATE 
-
-20. Review Transforms and Data
-
-![](images/500/image500_15b.png)
-
-21. Click Save and Run 
-
-22. Review Job Execution 
+14. For Column 6, click on the hamburger menu and then select "Replace".
  
-![](images/500/image500_16a.png)
+![](images/500/image500_18.png)
 
-Summary 
+15. Provide the following information:
+	- Search String: SHoe.html
+	- Replace String: shoes.html
+16. Click the "Apply" button.
+
+![](images/500/image500_19.png)
+
+Clicking apply updates data, metadata and profiling statistics.  Also note the transform is saved and displayed in the left-hand drawer.  This transform can be deleted and the data, metadata and profiling statistics will be updated accordingly. 
+
+![](images/500/image500_20.png)
+
+17. Now please perform the following transformations:
+	- Column 1: Rename to WROWID 
+	- Column 2: Rename to CUSTID 
+	- Column 3: Rename to LNAME 
+	- Column 4: Rename to FNAME 
+	- Column 5: Rename to PAGENAME 
+	- Column 6: Rename to PAGEREFERRER 
+	- Column 7: Rename to VISITDATE 
+18. Review Transforms and Data
+19. Click "Save and Run" button (top right corner)
+
+![](images/500/image500_21.png)
+
+20.	You will be navigated to the “Jobs” screen. After some time, a message will appear in the notification bar
+21.	The job will automatically appear within the "Jobs" page. This may take up to 1 minute
+
+![](images/500/image500_22.png)
+
+22. Review the job execution, click on the job name
  
-You have now successfully completed the Hands on Lab, and have successfully performed an end-to-end data synchronization task through Oracle’s Data Integration Platform Cloud. 
+![](images/500/image500_23.png)
+
+
+### Verify Uploaded Data (Optional)
+
+1.	Go to your SQL Developer and expand "WS - SALES_TRG" connection and its tables. If it is already opened, just refresh the information)
+2.	Select “SRC_CUSTOMER” table
+3.	On the right panel, select “Data” tab
+
+![](images/500/image500_24.png)
+ 
+
+## Summary 
+ 
+You have now successfully completed the Hands on Lab, and have successfully performed an Data Preparation task through Oracle’s Data Integration Platform Cloud. 
