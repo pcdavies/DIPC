@@ -6,7 +6,7 @@
 
 - Intent of this lab is to show the various engines within DIPC that do various types of processing like ODI for batch ELT processing and GoldenGate for streaming replication processing.
 - This helps to communicate the value of DIPCS by showing the power of the individual "engines" that are part of DIPCS.
-- This "feature" will not be included in ADIPCS per PM.   Some determination will need to be made with ADIPCS is released if it makes sense to have this lap, or if  specific labs can be added for ADIPCS to this workshop once its released.   
+- This "feature" will not be included in ADIPCS per PM.   Some determination will need to be made with ADIPCS is released if it makes sense to have this lab, or if  specific labs can be added for ADIPCS to this workshop once its released.   
 - Labs can use/repurpose content from existing on-premise workshop (DIS Master V4).
 - Download for DIS Master Workshop (Tim Garrod's OneDrive Account): https://onedrive.live.com/?authkey=%21ADa5xuFznYLGk50&id=3084185E628A11B2%21241&cid=3084185E628A11B2
 - ODI Lab
@@ -44,132 +44,185 @@ To forcefully stop VNC Servers:
 
 
 
-Before You Begin
-Purpose
-This lab shows how to execute ODI Studio in the DIPC server.
-Time to Complete 
-Approximately 5 minutes.
-What Do You Need?
+## Before You Begin
+
+### Purpose
+This lab shows how to show the power of the individual "engines" that are part of DIPCS. DIPCS is powerful on its own but this power is increased with the possibility of accessing and working directly with the "engines" underneath.
+
+### Time to Complete 
+GG: Approximately ** minutes
+ODI: Approximately ** minutes
+EDQ: Approximately 90 minutes
+
+### What Do You Need?
 Your will need:
-•	DIPC Instance URL: https://osc152682dipc##-oscnas001.uscom-central-1.oraclecloud.com/dicloud
-•	DIPC User and Password
-Step by Step Process
+- DIPC Instance URL
+- DIPC User and Password
+- SSH acces to DIPC server
+- VNC viewer to establish a graphic session against DIPC server
+- General understanding of data quality
+
+
+## GoldenGate (GG)
+
+
+## Oracle Data Integration (ODI)
+
+### Accessing ODI Studio
 1.	Open an SSH session into the DIPC server; please refer to Appendix 1 to learn how to establish a SSH session against the DIPC server
 2.	Open a VNC viewer; please refer to Appendix 2 to learn how to establish a VNC session against the DIPC server
 3.	Open a terminal; select “Applications > System Tools > Terminal” from the top left corner of the screen
  
+![](images/700/image700_ODI_1.png)
+
 4.	Execute: sh /u01/app/oracle/suite/odi_studio/odi/studio/bin/odi 
- 
+
+![](images/700/image700_ODI_2.png)
+
 5.	ODI Studio will come up. Click on “Connect to Repository…”
- 
+
+![](images/700/image700_ODI_3.png)
+
 6.	Use login “ODIStudio”. Click on “OK” button
- 
+
+![](images/700/image700_ODI_4.png)
+
 7.	You are now in ODI Studio
- 
+
+![](images/700/image700_ODI_5.png)
 
 
- 
-Lab 6 – Enterprise Data Quality (EDQ)
+## Enterprise Data Quality (EDQ)
 
 Enterprise Data Quality brings to DIPC the necessary functionality for delivering Data Fit for Use and that satisfy an organization’s current and emerging Data Governance requirements for your Data Warehouse / Data Mart / Data Lake initiatives. EDQ offers an integrated suite of data quality tools that provide an end-to-end solution to measure, improve and manage the quality of data from any domain. EDQ also combines powerful data profiling, cleansing, matching and monitoring capabilities while offering unparalleled ease of use. Features of EDQ include: 
-• Advanced data profiling to identify and measure poor quality data and identify rule requirements to resolve your Project and/or Enterprise data quality issues 
-• Semantic and pattern-based recognition to accurately parse and standardize data that is poorly structured 
-• An innovative Open Reference Data Architecture enabling easy creation, customization and maintenance of business rules that adapt and learn from your data to enable and expedite automated solutions to jumpstart, continually improve and socialize your data quality over time 
-• Easy integration with ODI scenarios 
-Before You Begin
-Purpose
-This lab provides an overview of EDQ.
-Time to Complete 
-Approximately 90 minutes.
-What Do You Need?
-Your will need:
-•	DIPC Instance URL: https://osc152682dipc##-oscnas001.uscom-central-1.oraclecloud.com/dicloud
-•	DIPC User and Password
-•	General understanding of data quality
+- Advanced data profiling to identify and measure poor quality data and identify rule requirements to resolve your Project and/or Enterprise data quality issues 
+- Semantic and pattern-based recognition to accurately parse and standardize data that is poorly structured 
+- An innovative Open Reference Data Architecture enabling easy creation, customization and maintenance of business rules that adapt and learn from your data to enable and expedite automated solutions to jumpstart, continually improve and socialize your data quality over time 
+- Easy integration with ODI scenarios 
 
-Step by Step Process
-Start EDQ Director
-1.	Log into your Workshop DIPC Server
-c.	In your web browser, navigate to https://osc152682dipc##-oscnas001.uscom-central-1.oraclecloud.com/dicloud
-d.	Enter your user name and password, then click Sign In.
- 
 
-2.	Click on the picture icon located on the top right corner of the screen and then select “Open EDQ”
+### Start EDQ Director
+1.	Log into your Workshop DIPC Server. In your web browser, provide your DIPC server URL. The URL will be provided by the instructor and will look like this one:
+https://osc132657dipc-oscnas001.uscom-central-1.oraclecloud.com/dicloud
+2. Provide your user name and password, then click "Sign In" button
 
- 
+![](images/200/image200_1.png)
 
-3.	From the launchpad, click on “Director”
- 
-4.	Click “OK” to accept opening the program
- 
-5.	Wait a few minutes, you will receive a new message, click on “Run”
- 
-6.	EDQ director will appear on your screen. Take a moment to familiarize yourself with the Terminology of each of the four different areas of the Director application
- 
+You will be navigated to your DIPC server Home page.
 
-Create a new Project
-1.	In the Project Browser, right-click Projects and select New Project… to start the Wizard 
- 
+3. Click on the picture icon located on the top right corner of the screen and then select “Open EDQ”
+
+![](images/700/image700_EDQ_1.png)
+
+4.	From the launchpad, click on “Director”
+
+![](images/700/image700_EDQ_2.png)
+
+5.	Click “OK” to accept opening the program
+
+![](images/700/image700_EDQ_3.png)
+
+6.	Wait a few minutes, you will receive a new message, click on “Run”
+
+![](images/700/image700_EDQ_4.png)
+
+7.	EDQ director will appear on your screen. Take a moment to familiarize yourself with the Terminology of each of the four different areas of the Director application
+
+![](images/700/image700_EDQ_5.png)
+
+### Create a New Project
+1.	In the "Project Browser", right-click "Projects" and select "New Project…" to start the wizard 
+
+![](images/700/image700_EDQ_6.png)
+
 2.	Provide the following information:
-•	Name: Exploring Customer Data
-•	Description: Data Quality Project to Profile, Standardize, Match and Merge customer data
-
+    - Name: Exploring Customer Data
+    - Description: Data Quality Project to Profile, Standardize, Match and Merge customer data
 3.	Click on “Next >” button located at the bottom right corner
- 
+
+![](images/700/image700_EDQ_7.png)
+
 4.	Ensure the “All Groups” checkbox is selected in “Project Permissions”; then click “Finish” button located at the bottom right
- 
+
+![](images/700/image700_EDQ_8.png)
+
 The “Exploring Customer Data” project now appears in the Projects list!
 
-Create a Data Store and a Snapshot
-Now that we have created a project, the next step is creating a Data Store. A Data Store is a connection to a store of data, whether the data is stored in a database or in one or more files.
+### Create a Data Store and a Snapshot
+Now that we have created a project, the next step is creating a Data Store. A Data Store is a connection to a source of data, whether the data is stored in a database or in one or more files.
 1.	Expand the newly created project “Exploring Customer Data”, right click “Data Stores”, and select “New Data Store” to launch the wizard
- 
-2.	Select Server on “Data is accessed from” field.
+
+![](images/700/image700_EDQ_9.png)
+
+2.	Select "Server" on “Data is accessed from” field.
 3.	Leave “Database” on “Category” field
 4.	Select “Oracle” on the “Type” list and click “Next >” to continue
- 
+
+![](images/700/image700_EDQ_10.png)
+
 5.	Provide the following data:
-•	Database host: <SRC_DB_NAME>
-•	Port: 1521
-•	Database name: PDB1.602526658.oraclecloud.internal
-•	Name type: Service
-•	User name: EDQ_SRC
-•	Password: Welcome#123
-•	Schema: 
-
- 
+    - Database host: <SOURCE_DB>
+    - Port: 1521
+    - Database name: <SOURCE_DB_SERVICE_NAME>
+    - Name type: Service
+    - User name: EDQ_SRC
+    - Password: Welcome#123
+    - Schema: 
 6.	Click on “Test…” button located on the bottom right corner
+
+![](images/700/image700_EDQ_11.png)
+
 7.	When all information is correct, you will receive a message about connection success, click “OK”
- 
-8.	Click on “Test…” button located on the bottom right corner
+
+![](images/700/image700_EDQ_12.png)
+
+8.	Click on “Next > ” button located on the bottom right corner
 9.	Provide the following information
-•	Name: Connection to Oracle Database
-•	Description: Connection to US Custom Data
+    - Name: Connection to Oracle Database
+    - Description: Connection to US Custom Data
 10.	Click on “Finish” button located on the bottom right corner
- 
+
+![](images/700/image700_EDQ_13.png)
+
 11.	Now we will use this new connection and select a table for profiling and cleansing; the goal is to stage some of the data so we can begin to understand it. Right click “Staged Data” under your project and select “New Snapshot…”
- 
+
+![](images/700/image700_EDQ_14.png)
+
 12.	Select the newly created database connection, then click “Next >” to continue
- 
-13.	In “Table Selection”, only one table is presented in the list and is auto selected.  Click “Next >” to continue
- 
+
+![](images/700/image700_EDQ_15.png)
+
+13.	In “Table Selection”, select "US_Customers" from the list.  Click “Next >” to continue
+
+![](images/700/image700_EDQ_16.png)
+
 14.	In “Column Selection”, ensure all columns are selected, then click “Next >” to continue
- 
+
+![](images/700/image700_EDQ_17.png)
+
 15.	In “Filter Options”, leave the default value of Simple and click “Next >” to continue
- 
+
+![](images/700/image700_EDQ_18.png)
+
 16.	Sampling Options allows to specify the amount of data brought to the snapshot. If needed, it is possible to specify a certain “Count” or “Percentage” of data to be read for the snapshot. Leave the default and click “Next >“
- 
+
+![](images/700/image700_EDQ_19.png)
+
 17.	Leave the default empty value for the ‘No Data’ Reference Data field, click on “Next >“
- 
+
+![](images/700/image700_EDQ_20.png)
+
 18.	Provide the following data:
-•	Name: US Customer Data
-•	Description: Connection to Oracle Database.US_CUSTOMERS
+    - Name: US Customer Data
+    - Description: Connection to Oracle Database.US_CUSTOMERS
 19.	Verify that checkbox “Run Now?” is checked and click on “Finish”
- 
 
-After a short delay, the Results Browser is populated. Taking the Snapshot causes EDQ to stage the data from the database into the EDQ data repository. From now on we will be working with the data residing in the US Customer Data Snapshot and we will not be modifying or in any way accessing the source data.
+![](images/700/image700_EDQ_21.png)
 
-Profiling Data
+After a short delay, the Results Browser panel is populated. Taking the Snapshot causes EDQ to stage the data from the database into the EDQ data repository. From now on we will be working with the data residing in the "US_Customer" Data Snapshot and we will not be modifying or in any way accessing the source data.
+
+
+### Profiling Data
 The first step in improving the quality of your data is to understand it. You know you have data but is it good data? EDQ allows to quickly assess, find, investigate and understand anomalies regarding data content, standardization, relationships and duplication among others.
 1.	In the Project Browser right-click on “Processes” under your Project, then select “New Process”
  
