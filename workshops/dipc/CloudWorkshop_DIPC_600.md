@@ -3,6 +3,7 @@
 ![](images/600/image600_0.png)
 
 ## Before You Begin
+
 ### Purpose
 This lab shows you how to create and execute an ODI Execution elevated task.
 

@@ -2,8 +2,8 @@
 ![](images/400/image400_0.PNG)
 
 ## Before You Begin
-### Introduction 
 
+### Introduction 
 This lab covers synchronization of an on-prem and cloud database using a previously installed remote DIPC agent. Agents allow synchronization of data from sources outside Oracle Cloud. Two VMs will be used to simulate a DIPC instance and an On-Prem database server. The DIPC repository database also host the cloud target schema.
 
 
@@ -12,7 +12,6 @@ This lab supports the following use cases:
 -   Synchronize On-Premise Database
 
 ### Objectives
-
 -   Ensure Remote Agent is trusted by DIPC instance
 -   Agent Download
 -   Agent Installation and Configuration
