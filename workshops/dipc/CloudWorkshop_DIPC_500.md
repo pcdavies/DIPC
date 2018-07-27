@@ -1,5 +1,5 @@
 
-# Lab 500: Oracle ODI Data Preparation Lab
+# Lab 500 - Oracle ODI Data Preparation Lab
 ![](images/500/image500_0.png)
 
 

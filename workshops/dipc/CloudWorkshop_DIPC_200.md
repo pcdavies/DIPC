@@ -119,7 +119,7 @@ DIPCS shows attributes, primary keys, data types and some sample values of the s
     - Port: 1521
     - Username: SALES_TRG 
     - Password: Welcome#123
-    - Service Name: <SOURCE_DB_SERVICE_NAME>
+    - Service Name: <TARGET_DB_SERVICE_NAME>
     - Schema Name: SALES_TRG  (Default)
 
 ![](images/200/image200_16.png)
