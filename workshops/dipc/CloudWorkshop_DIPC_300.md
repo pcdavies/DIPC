@@ -1,26 +1,28 @@
-![](images/300/AgentImage05-WorkshopHeader.PNG)
+# Lab 300 - Remote Agent Install and On-prem to On-prem DB Synchronization
 
-Update: May 30, 2018
+![](images/300/image300_0.png)
 
-## Introduction - Remote Agent Install and On-prem to On-prem database Synchronization
+## Before You Begin
+
+### Introduction
 
 This lab covers installation and configuration of DIPC remote agent along with synchronization of two on-prem database schemas. Agents allow synchronization of data from sources outside Oracle Cloud. The target and source schemas will reside in the same database.
-These labs are being done in the GSE environment.
 
 This lab supports the following use cases:
 -   Configure Remote DIPC Agent
 -   Synchronize two On-Premise Databases
 
-## Objectives
-
+### Objectives
 -	Ensure Remote Agent is trusted by DIPC instance
 -   Agent Download
 -   Agent Installation and Configuration
 -	Agent Administration - Starting and Stopping.
 -   Synchronize two On-Premise Databases
    
-## Prerequisites
+### Time to complete
+Approximately 45 minutes.
 
+### What would you need
 -   Cloud Dashboard URL and login credentials
 -   1 DIPC Instance - DIPCINST
 -   2 DBCS Instances - DBCSAMER, DBCSEMEA
@@ -30,296 +32,173 @@ This lab supports the following use cases:
 -   VNC Client
 -	Putty for ssh connection to instances
 
+## Remote Agent
 
-### **STEP 1**: [DIPC 18.2.3] Determine the DIPC Console url
+### Download Agent
+1.	Open an SSH session into your compute server (we will simulate on-prem with a compute instance); please refer to Appendix 1 to learn how to establish a SSH session
+2.	Open a VNC viewer; please refer to Appendix 2 to learn how to establish a VNC session
+3.	Open a terminal; select “Applications > Favorites > Firefox” from the top left corner of the screen
 
--   Log into dashboard url provided with your single signon (update url for delivery)
--   https://myservices-gse00015126.console.oraclecloud.com/mycloud/cloudportal/dashboard
+![](images/300/image300_1.png)
+ 
+4.	Navigate to your DIPC server, provide the URL (it should look like this): https://osc132657dipc-oscnas001.uscom-central-1.oraclecloud.com/dicloud
+5.	Provide your user name and password, then click "Sign In" button
 
--   Enter single signon user id or id provided
-	![](images/300/AgentImage011-DemoLogin.png)
+![](images/300/image300_2.png)
+ 
+6.	This will bring you to your DIPC server’s  home page
+7.	Click on “Agents” (left part of your screen)
 
-	![](images/300/AgentImage012-DemoLogin.png)
+![](images/300/image300_3.png)
 
--   Click "Data Integration Platform Cloud" (no login info was required)
--   Login may be required if accessing directly using console url
--   https://myservices-gse00015126.console.oraclecloud.com/mycloud/cloudportal/dashboard
+8.	Select drop down menu and select zip file for your Operating System 
+9.	Select the “Linux” option
 
-	![](images/300/AgentImage015-DIPC_Console.png)
+![](images/300/image300_4.png)
 
--   Click "Open Service Console" in top right of page to view DIPC instance "DIPCINST"
-	![](images/300/AgentImage016-DIPC_Console.png)
+10.	Click "OK" to confirm selection
 
--   Click menu on right and right click "Data Integration Platform Console"
-	![](images/300/AgentImage017-DIPC_Console.png)
+![](images/300/image300_5.png)
+ 
+11.	Select “Save File” and the click “OK”, to download the file to your “on-premise” machine
 
--   Click "Copy link address" and take note
--   This url will be used in the OnPremiseVM to download the agent
-	![](images/300/AgentImage018-DIPC_Console_url.png)
+![](images/300/image300_6.png)
 
-### **STEP 2**: [OnPremiseVM] Log into OnPremiseVM using "VNC Viewer"
+12.	Open a terminal, select “Applications > Favorites > Terminal” from the top left corner of the screen
 
--   Start "VNC Viewer" and enter the OnPremiseVM IP provided with port 5901
--   		VNC Server: <OnPremiseVM IP:5901>
--   		Encryption: "Let VNC Server choose"
--   Click "Connect"
-	![](images/300/AgentImage020-VNC_Login.png)
+![](images/300/image300_7.png)
 
--   Click "Continue" for VNC Viewer Encryption
-	![](images/300/AgentImage020-VNC_Login_Encryption.png)
+### Install Agent
+1.	Create a directory for the agent, execute: mkdir dipcagent
+2.	Move the downloaded file to that new directory, execute: mv Downloads/* dipcagent
+3.	MOve to the new directory, execute: cd dipcagent
+4.	Unzip the file, execute: unzip agent-linux.64.bit.zip
+5.	Move to the agent directory, execute: cd dicloud
+6.	Execute command to install agent: 
+./dicloudConfigureAgent.sh -user=DIPCADMIN -dipchost=<DIPC_IP_ADDRESS> -dipcport=7003  -authType=BASIC
+7.	New directories will be created, to look at then execute: ls
+8.	We will take a look at the configuration file (agent.properties) and we will change the port in which this agent will talk to DIPC
+9.	Open the editor, select “Applications > Accessories > Editor” from the top left corner of the screen
 
--   Enter the VNC Viewer - Authentication password provided
--   Click "Ok"
+![](images/300/image300_9.png)
+ 
+10.	Click on “Open” then “Other Documents”
 
-	![](images/300/AgentImage021-VNC_Login_Authentication.png)
-	![](images/300/AgentImage022-VNC_Desktop.png)
+![](images/300/image300_10.png)
 
-### **STEP 3**: [OnPremiseVM] Navigate to the DIPC Console
+11.	Browse to “/home/oracle/dipcagent/dicloud/agent/dipcagent001/conf/agent.properties”
 
--   Open the firefox web browser and enter the DIPC Console url noted in step 1
-	![](images/300/AgentImage030-VNC_DIPC_Console.png)
+![](images/300/image300_11.png)
+ 
+12.	Modify agent port "agentPort" in parameter file "agent.properties" to 7010
 
--   Navigate to the Agent page (Click Agent in left toolbar).
-	![](images/300/AgentImage031-VNC_DIPC_Agent_page.png)
+![](images/300/image300_12.png)
+ 
+13.	Now look for “ggccServicePort” and change it to 80
 
--   Select drop down menu and select zip file for your Operating System
+![](images/300/image300_13.png)
+ 
+14.	Save and close. Click on “Save” button then on "Close" icon (top right corner)
 
-	![](images/300/AgentImage040-DownloadAgent.png)
+### Execute the Agent
+1.	We installed with defaults so we will move to the directory with the necessary commands to start the agent; execute: cd agent/dipcagent001/bin
+2.	We will start the agent by executing:
+./startAgentInstance.sh
+3.	Your agent is now running. Go back to Firefox and look the “Agent” screen in DIPC
+ 
+![](images/300/image300_14.png)
 
--   Confirm your agent download selection
--   Click "OK" to confirm selection
 
-	![](images/300/AgentImage045-DownloadAgent.png)
+## On-Prem to On-Prem synchronization
 
-### **STEP 4**: [DIPC 18.2.3] Save the agent zip file to the download directory
+### Verify Data in Source and Target DBs (Optional)
+** MISSING STEPS
+** Saves images 15 to 29 for this section
 
--   Save the agent file to the download directory
 
-	![](images/300/AgentImage050-DownloadAgentSave.png)
+### Execute Data Synch Elevated Task
+1. You should be logged into DIPC, if that is NOT the case, log in.
+2. From the left side panel, SELECT "Home"
 
-	![](images/300/AgentImage051-DownloadAgentSave.png)
+![](images/300/image300_30.png)
 
+3. In the Home Page click "Create Connections" from the top section
 
-### **STEP 5**: [OnPremiseVM] View and unzip agent file
+![](images/300/image300_31.png)
 
--   Launch Putty for connection to "OnPremiseVM"
--   Enter OnPremiseVM IP address
-	![](images/300/AgentImage055-1-LaunchPutty.png)
+4. Enter the following information:
+    - Name: ONPREM_SRC
+    - Description: Connection to on-prem database schema with source tables. AMER
+	- Agent: <REMOTE_AGENT>
+	- Type: Oracle
+  	- Hostname: <COMPUTE_INSTANCE_IP>
+	- Port: 1521
+	- Username: AMER_SRC
+	- Password: Welcome#123
+	- Service Name: orcl
+    - Schema Name: AMER_SRC (Default)	
 
--   Expand "Connection"and click "Data" in left pane to add username "opc" 
-	![](images/300/AgentImage055-2-PuttyAutoLoginUsername.png)
+** MISSING ![](images/300/image300_32.png)
 
--   Expand "Connection" -> "SSH" and click "Auth" in left pane to add OnPremiseVM private key
--   Click "Open" to connect to OnPremiseVM
-	![](images/300/AgentImage055-3-PuttyAddPrivKey.png)
+5. Click on "Test Connection" button at the bottom. a green message should appear on top when everything is in order
+6. Click on "Save"
 
--   Navigate to the target directory "/home/opc/dipcagent"
--   $ cd /home/opc/dipcagent
--   $ ls
--   View agent zip file "agent-linux.64.bit.zip"
+** MISSING ![](images/300/image300_33.png)
 
-	![](images/300/AgentImage055-4-ViewAgentFileOnPrem.png)
+7. From the top bar, open the drop-down menu and the select "Connection"
 
--   unzip agent file
-    -   $unzip agent-linux.64.bit.zip
+** MISSING ![](images/300/image300_34.png)
 
-	![](images/300/AgentImage060-UnzipAgent.png)
+8. Enter the following information:
+    - Name: ONPREM_TRG
+    - Description: Connection to target schema onprem_trg EMEA
+	- Agent: <REMOTE_AGENT>
+	- Type: Oracle
+	- Hostname: <COMPUTE_INSTANCE_IP>
+	- Port: 1521
+	- Username: EMEA_TRG
+	- Password: Welcome#123
+	- Service Name: orcl
+    - Schema Name: EMEA_TRG (Default)	
 
+** MISSING ![](images/300/image300_35.png)
 
-### **STEP 6**: [DIPC 18.2.3] Show current agent page in DIPC console
+5. Click on "Test Connection" button at the bottom. a green message should appear on top when everything is in order
+6. Click on "Save"
 
--   Navigate to DIPC console on VM "DIPC 18.2.3"
--   Click "Agent" in the left toolbar
--   There is only one local agent install 
+** MISSING ![](images/300/image300_36.png)
 
+7. From the top bar, open the drop-down menu and the select "Synchronize Data"
 
-	![](images/300/AgentImage065-Current_DIPC_Agent_Page.png)
+** MISSING ![](images/300/image300_37.png)
 
+8. Enter the following information:
+	- Name: Sync OnPrem Schemas
+	- Description: Sync on-prem schemas AMER to EMEA
+	- Connection: ONPREM_SRC
+	- Schema: AMER
+	- Connection: ONPREM_TRG
+	- Schema: EMEA
+	- Advanced - Include Initial Load: SELECTED
+	- Advanced - Include Replication: SELECTED
 
-### **STEP 7**: [OnPremiseVM] Install the Agent from On-Prem Console
+** MISSING ![](images/300/image300_38.png)
 
--   Open a terminal in On-Prem VM
--   Navigate to the agent directory
--   Execute command to install agent using password - #!hyper1on!#
-    ./dicloudConfigureAgent.sh -dipchost=<DIPC Pub IP> -dipcport=7003 -user=weblogic -authType=BASIC
+9. Click on "Save & Run" button on the top right of the screen to execute the task
+10. You will be navigated to teh "Jobs"screen. After some time, a message will appear in the notification bar
 
--   Set the "dipchost" parameter to <DIPC Pub IP>
--   This configuration does not have IDCS so use "BASIC" for parameter AuthType
+** MISSING ![](images/300/image300_39.png)
 
+11. The job will automatically appear within the "Jobs" page
 
-	![](images/300/AgentImage075-Execute_Agent_Install.png)
-   
--   Output shows agent created
+** MISSING ![](images/300/image300_40.png)
 
--   ![](images/300/AgentImage080-Execute_Agent_Install.png)
+12. Click job to review details
 
+** MISSING ![](images/300/image300_41.png)
 
-### **STEP 8**: [OnPremiseVM] Modify Agent Parameter 
 
--   Modify agent port "agentPort" in parameter file "agent.properties" to 7010
--   path to parameter file: 
--   /home/DIPC/Documents/dicloud/agent/dipcagent001/conf 
-
-
-	![](images/300/AgentImage085-ModifyAgentParameter.png)
-
-	![](images/300/AgentImage086-ModifyAgentParameter.png)
-
-### **STEP 9**: [OnPremiseVM] Start Agent
-
--   Navigate to the agent bin directory
-    -   $ cd /home/DIPC/dipcagent/dicloud/agent/dipcagent001/bin
--   Start agent using script startAgentInstance.sh
-    -   $ ./startAgentInstance.sh
-
-
-	![](images/300/AgentImage090-StartAgent.png)
-
-	![](images/300/AgentImage091-StartAgent.png)
-
-### **STEP 10**: [DIPC 18.2.3] View Remote Agent in DIPC Console
-
--   Navigate to DIPC Console
--   Click "Agents" in left toolbar
-
-
-	![](images/300/AgentImage095-Confirm_Agent_DIPC_Console.png)
-
-### **STEP 11**: [DIPC 18.2.3] Ensure local and Remote Agents are started
-
--   Start agents as needed from Agent bin directory
-    -   $ ./startAgentInstance.sh
-
-
-	![](images/300/AgentImage096-Confirm_SRC_TRG_Agent_Started.png)
-
-### **STEP 12**: [OnPremiseVM] Review On-Prem Schema
-
--   Connect to remote schema and view tables and row count
-
-
-	![](images/300/AgentImage100-ReviewOnPremSchema.png)
-
-### **STEP 13**: [DIPC 18.2.3] Create Source Connection to On-Prem Schema
-
--   Navigate to DIPC console
--   Click "Home" in left toolbar and click "Create Connections"
-
-
-	![](images/300/AgentImage101-CreateSourceConnection.png)
-
--   Enter source connection information for On-prem schema
-
-    - Name:        ONPREM_SRC
-    - Description: Connection to on-prem database schema with source tables
-	- Agent:       localhost:7010
-	- Type:        Oracle
-	- Connection Settings
-	  - Hostname:   10.0.0.4
-	  - Port:       1521
-	  - Username:   DIPC_SRC
-	  - Password:   welcome1
-	  - Service:    Service Name: dics12c
-
-
-	![](images/300/AgentImage105-EnterSrcConnectionInfo.png)
-
--   Click "Test Connection" and "Save"
-
-	![](images/300/AgentImage105-TestSaveSrcConnection.png)
-
--   Search for source connection ONPREM_SRC in catalog
-
-	![](images/300/AgentImage110-SearchConnectionCatalog.png)
-
-    ![](images/300/AgentImage111-ViewSrcConnectionCatalog.png)
-
--   Click connection name to view summary
-
-    ![](images/300/AgentImage112-ViewSrcConnectionSummary.png)
-
--   Click metadata tab
-
-    ![](images/300/AgentImage113-ViewSrcConnectionMetadata.png)
-
-
-### **STEP 14**: [OnPremiseVM] Create blank target Schema ONPREM_TRG
-
--   Create schema and ensure necessary privileges
--   SQL> create user onprem_trg identified by welcome1;
--   SQL> grant connect, resource, unlimited tablespace to onprem_trg;
--   SQL> grant create database link to onprem_trg;
--   
--   View schema tables and row count - should be empty
--   SQL> connect onprem_trg
--   SQL> select table_name from user_tables;
-
-	![](images/300/AgentImage115-OnpremTrgSchema.png)
-
-
-### **STEP 15**: [DIPC 18.2.3] Create Target Connection to Schema ONPREM_TRG
-
--   Enter target connection information to schema ONPREM_TRG
--   Use same remote agent on port 7010 for target connection
-
-    - Name:        ONPREM_TRG
-    - Description: Connection to target schema onprem_trg
-	- Agent:       localhost:7010
-	- Type:        Oracle
-	- Connection Settings
-	  - Hostname:   localhost
-	  - Port:       1521
-	  - Username:   ONPREM_TRG
-	  - Password:   welcome1
-	  - Service:    Service Name: dics12c
-
--   Click "Test Connection"
-
-	![](images/300/AgentImage120-CreateOnpremTargetConnection.png)
-
--   Click "Save" to save target connection
-
-	![](images/300/AgentImage121-TestSaveTargetConnection.png)
-
--   View Target Connection
-
-	![](images/300/AgentImage122-ViewTargetConnection.png)
-
-### **STEP 16**: [DIPC 18.2.3] Create Sync Job between Source and Target
-
--   In DIPC Console click "Home" in left toolbar
--   Click "Synchronize Data"
-
-	![](images/300/AgentImage125-CreateSyncJob.png)
-
--   Enter Sync Job Information
-    - General Information
-	  - Name:        SYNC ONPREM SCHEMA
-	  - Description: Job to sync on-prem schema with cloud target schema
-	- Source Configuration
-	  - Connection: ONPREM_SRC
-	  - Schema:     DIPC_SRC
-	- Target Configuration
-	  - Connection: ONPREM_TRG
-	  - Schema: ONPREM_TRG
-	- Advanced Options
-	  - Include Initial Load: check for initial load
-	  - Include Replication: check for replication
-
--   Click "Save & Run"
-
-	![](images/300/AgentImage125-EnterSynJobInfo.png)
-
--   Click Job to review Sync Job Details
-
-	![](images/300/AgentImage130-SyncJobMonitor.png)
-
--   Monitor Target Schema for table creation and row count
-AgentImage135-SyncJobMonitorSchema.png
-
-	![](images/300/AgentImage135-SyncJobMonitorSchema.png)
-
-	![](images/300/AgentImage136-SyncJobMonitorSchema2.png)
-
-	![](images/300/AgentImage137-SyncJobMonitorSchema3.png)
+### Verify Data in Target DB (Optional)
+** MISSING STEPS
+** MISSING IMAGES
 

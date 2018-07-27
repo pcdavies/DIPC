@@ -1,112 +1,150 @@
 
-# Lab 600: Oracle Data Integration Lab Execution
+# Lab 600 - Oracle Data Integration Lab Execution
 ![](images/600/image600_0.png)
-# Overview 
 
-Time to Complete 
-- Perform all tasks – 20 Minutes 
-- Prerequisites 
-Before you begin this tutorial, you should 
-•	Have a general understanding of RDBMS and data integration concepts. 
-•	Have a general understanding of ETL and data synchronization concepts. 
+## Before You Begin
 
-Lab Environment 
-For this lab, the Data Integration Platform Cloud and the client environment are contained within on environment for simplicity.  Most user interactions with Data Integration Platform Cloud will be through a browser installed on your local machine (Chrome preferred, Firefox is also supported).   
+### Purpose
+This lab shows you how to create and execute an ODI Execution elevated task.
+
+### Time to Complete 
+Approximately 20 minutes.
+
+### What Do You Need?
+Your will need:
+- DIPC Instance URL
+- DIPC User and Password
+- General understanding of RDBMS and data integration concepts
+- General understanding of ETL and data synchronization concepts
+
+## ODI Execution Elevated Task
+This scenario joins SRC_ORDERS and SRC_ORDER_LINES in the SALES DB (source), aggregates the data, filters for ORDERS with Status of "CLO" as well as performs an incremental update so only replicated rows, that have a status of "CLO" (closed) will be loaded to the target Data Ware House (DWH).
+
+### Verify Sales table in the DWH before execution (optional)
+Before we execute the ODI task that will aggregate the data, you might want to verify that the Sales table in the DWH is empty.
+1.	Go to SQL Developer. On the connections panel, select your DWH (WS - TRG_AGG_SALES) and click on the plus (+) sign to open the connection
+
+	![](images/600/image600_1.png)
+
+2.	Once opened, copy and paste the following statements in the panel on the right:
+SELECT COUNT(*) FROM TRG_SALES;
+
+	![](images/600/image600_2.png)
+
+3.	Execute the statements by clicking on the “Run script” icon (first one from left to right on the icon bar)
+4.	This will show the count on the results panel (lower section)
+ 
+	![](images/600/image600_3.png)
 
 
-### **STEP 1**: [DIPC 18.2.3] Log into DIPC Console and go to Agent Page
+### Create ODI Execution task
+1.	Log into your DIPC server, provide the URL (it should look like this): 
+https://osc132657dipc-oscnas001.uscom-central-1.oraclecloud.com/dicloud
+2.	Provide your user name and password, then click "Sign In" button
 
--   Log into dashboard url provided with your single signon (update url for delivery)
--   https://myservices-gse00015126.console.oraclecloud.com/mycloud/cloudportal/dashboard
+![](images/300/image300_2.png)
 
--   Enter single signon user id or id provided
-	![](images/300/AgentImage011-DemoLogin.png)
+Or, if you are already in the application, go to the "Home" page by selecting the "Home"hyperlink from the left panel. 
+ 
 
-	![](images/300/AgentImage012-DemoLogin.png)
+3.	In the Home Page click on "Next" icon (>) located at the far right side of the top panel to locate the "ODI Execution" task icon
 
--   Click "Data Integration Platform Cloud" (no login info was required)
--   Login may be required if accessing directly using console url
--   https://myservices-gse00015126.console.oraclecloud.com/mycloud/cloudportal/dashboard
+![](images/500/image500_3.png) 
 
-	![](images/300/AgentImage015-DIPC_Console.png)
+4.	Once you have located the “ODI Execution” task icon, click on it.  
 
--   Click "Open Service Console" in top right of page to view DIPC instance "DIPCINST'
-	![](images/300/AgentImage016-DIPC_Console.png)
-
--   Click menu on right and select "Data Integration Platform Console
-	![](images/300/AgentImage017-DIPC_Console.png)	
-	
-2. Click Home 
-
-## Logging Into Oracle Cloud Instance using VNC
-- Use VNC to log into the VM. Use your favorite VNC client and enter \<hostname>:5901 as the URL to connect to  
 ![](images/600/image600_4.png)
-- When prompted enter the password: welcome1 and click OK 
+
+5.	Provide the following information:
+	- Name:  Load Sales DWH
+	- Description: Execute ODI Scenario to load OLTP data into DWH
+
 ![](images/600/image600_5.png)
 
+6.	In the “Connections” section, click on “Import" button to import a deployment archive created in ODI Studio that contains the Scenario we want to execute.
+7.	Navigate to the directory in which you copied the files provided for the labs and select “LD_SALES_DIPC_18.2.3.zip”. Click on “Open” button.
 
-3. Use DIPC Demo Client 
-- This hands-on lab uses a JDBC utility client that was built specifically for this demo.  This client is NOT part of DIPC, however it does help visualize the 
-Synchronize Data and ODI Execution Job process 
-- Open a Terminal 
+![](images/600/image600_6.png)
 
-- From the home directory execute ./startDIPCDemoClient.sh 
+8.	Wait for the import operation to complete (this will take some time). Once completed, click on “Scenario” drop-down menu
+
+![](images/600/image600_7.png)
+ 
+9.	Select “LD_TRG_SALES_001”. This will show the connections the scenario uses and that we need to map
+
+![](images/600/image600_8.png)
+
+10.	We already have some connections defined but we will define a new connection to our DWH. Click on the plus icon on the first row
+
 ![](images/600/image600_9.png)
 
-- Demo Client will open up and should be populated with the following data 
+11.	Provide the following information:
+	- Name: DIPC_DWH
+	- Description: Data Warehouse
+	- Agent: <LOCAL_AGENT>
+	- Type Oracle
+	- Hostname: <TARGET_DB>
+	- Port: 1521
+	- Username: TRG_AGG_SALES
+	- Password: Welcome#123
+	- Service Name: <TARGET_DB_SERVICE_NAME>
+	- Schema Name: TRG_AGG_SALES (Default)
+12.	Click on “Test Connection” button at the bottom. A green message should appear on top when everything is in order 
 
 ![](images/600/image600_10.png)
 
-# Task 1: Create ODI Execution Task 
+13.	Click on “Save” button at the bottom. DIPC will create the connection and return to the original screen with that connection selected.
 
-1. Click on Home in Navigation Bar
+![](images/600/image600_11.png)
 
-2. Click on ODI Execution (you may need to scroll right in the carousel to see it)
-![](images/600/image600_12b.png)
-scroll right
-![](images/600/image600_12a.png)
-scroll right
-![](images/600/image600_12c.png)
+14.	Using the drop-down menu on the “Schema” attribute of the first row, select “TRG_AGG_SALES”
 
-3. The ODI Execution Task screen appears - double click on it
+![](images/600/image600_12.png)
+
+15.	Using the drop-down menu on the “Connection” attribute of the second row, select “SALES_SRC”
+16.	Using the drop-down menu on the “Schema” attribute of the second row, select “SALES_SRC”
+
 ![](images/600/image600_13.png)
 
-4. Enter
-•	Name: Load Sales DW 
-•	Description: Execute ODI Scenario to load OLTP data into DW 
+17.	Click on “Save and Run” button located on the top right corner of the screen to execute the task
+18.	You will be navigated to the “Jobs” screen. After some time, a message will appear in the notification bar
 
-5.	Under Connections click on Import to import a deployment archive created in ODI Studio that contains the Scenario we want to execute 
-- Navigate to DIPC/DIPC 18.2.3 and select LD_SALES_DIPC_18.2.3.zip 
 ![](images/600/image600_14.png)
 
-- Click Open and wait for the import operation to complete (this will take about 2-3 minutes) 
-- Click on the Scenario Name drop-down and select LD_TRG_SALES 001 
+19.	The job will automatically appear within the "Jobs" page. This may take up to 1 minute
+
 ![](images/600/image600_15.png)
 
-This scenario joins SRC_ORDERS and SRC_ORDER_LINES, aggregates the data, filters for ORDERS with Status of ‘CLO’ as well as performs an incremental update. 
-So only replicated rows that have a status of ‘CLO’ closed, will be loaded to the target Sales DW. 
 
-6.	In the Connection table pick the following Connections and Schemas: 
-- ODI_DEMO_TRG:  
-- Connection: Sync Target 
-- Schema: ODI_TGT 
+### Review Job in DIPC
+1.	You should be in the “Jobs” screen. Click on the job to see details. The "ODI Execution" action will show "Successful" after a little while
 
-- ODI_DEMO_SRC 
-- Connection: Sync Target 
-- Schema: DIPC_TGT 
 ![](images/600/image600_16.png)
-7.	Click on Save & Run to execute the Task  
-8.	You will be redirected to the Jobs page and you will see a notification that a new Job execution started 
-9.	When the Job appears in the list you can click on it to get more details 
+
+2.	Once done, the “ODI Execution” action can be expanded to review the various steps underneath
+
 ![](images/600/image600_17.png)
-10.	The Job Details contains all the details about the scenario execution in ODI 
+
+3.	Click on “Insert new rows:IKM Oracle Incremental Update” to review the code generated by DIPC for the task. 
+4.	Click "Done" when you’ve completed the code review
+
 ![](images/600/image600_18.png)
 
-You can click on any Step in the Job Execution to review the code generated by ODI 
-![](images/600/image600_19.png)
 
-When the Job has completed successfully you will see that the data has been fully loaded into the Target Sales Data Warehouse using OPI through the ODI execution task in the DIPC console
-![](images/600/image600_20.png)
+### Verify Sales table in the DWH after execution (Optional)
+1.	Go to SQL Developer. On the connections panel, select your DWH (WS - TRG_AGG_SALES) and click on the plus (+) sign to open the connection
 
-# Summary
-In this lab, we have seen how DIPC and standalone ODI running in DIPC can work hand in hand to implement an end-to-end data flow.   
+	![](images/600/image600_1.png)
+ 
+2.	Once opened, copy and paste the following statements in the panel on the right:
+SELECT COUNT(*) FROM TRG_SALES;
+
+	![](images/600/image600_2.png)
+
+3.	Execute the statements by clicking on the “Run script” ( ) icon (second from left to right on the icon bar
+4.	This will show the count on the results panel (lower section)
+	![](images/600/image600_19.png)
+ 
+
+## Summary
+In this lab, we have seen how it is possible to import ODI flows into DIPC and execute them; making possible for DIPC and standalone ODI to work hand in hand to implement an end-to-end data flow.
