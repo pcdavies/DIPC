@@ -105,8 +105,6 @@ Click on "Select a default staging connection" hyperlink. You will navigate to t
 
 ![](images/500/image500_12.png)
 
-
-
 6.	Let's review the file option DIPC offers, Click on "Options" button.
 7. Provide the following information:
 	- Edcoding: UTF-8
