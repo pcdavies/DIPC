@@ -669,28 +669,46 @@ Notice how the two columns, “Country.Replaced” and “Derived Country” hav
 
 ### Prepare EDQ process for ODI consumption 
 
-We will create a job that runs data through the process we just created. Next, we will configure the Job to run within an ODI package to automate the Data Quality project. 
-1.	The first step is direct EDQ to export the out file. Navigate to the “Project Browser” on the left side of the screen and right-click on ‘Clean Customers” under the “Staged Data” category (expand the “Staged Data” category if you do not see it). Right click on it and select “Export Staged Data…”
- 
+We will create a job that runs data through the process we just created.This job can be called from an ODI package to automate the Data Quality project. 
+1.	The first step is direct EDQ to export the output file. Navigate to the “Project Browser” on the left side of the screen and right-click on "Clean Customers” under the “Staged Data” category (expand the “Staged Data” category if you do not see it). Right click on it and select “Export Staged Data…”
+
+![](images/700/image700_EDQ_107.png)
+
 2.	 Click “Next” on the first window of the dialog since the Staged Data is already selected
- 
+
+![](images/700/image700_EDQ_108.png)
+
 3.	Select “Connection to Oracle Database” for Output data store. Click “Next”
- 
+
+![](images/700/image700_EDQ_109.png)
+
 4.	Select “CLEAN_CUSTOMERS” table. Click on “Next”
- 
+
+![](images/700/image700_EDQ_110.png)
+
 5.	You can leave the default name or assign a new one. We will leave the default this time. Make sure “Run now?” box is NOT checked. Click “Finish”
- 
+
+![](images/700/image700_EDQ_111.png)
+
 6.	We now need to create a job that could be invoked externally. Navigate to the “Project Browser”, and select the “Jobs” category, right-click it and select “New Job…”
- 
+
+![](images/700/image700_EDQ_112.png)
+
 7.	Name the job by typing “Clean US Customers”, click “Finish”.
- 
+
+![](images/700/image700_EDQ_113.png)
+
 8.	The “Job Canvas” is displayed next with a slightly different “Tool Palette”. The “Tool Palette” contains all of the runnable configuration tasks in the project including snapshots, processes, exports, etc. Notice the icons at the top of the “Tool Palette” are different – click through them to explore
- 
+
+![](images/700/image700_EDQ_114.png)
+
 9.	Click the   icon in the “Tool Palette” to display the “Snapshots” and drag the “US_Customer_Data” snapshot onto the canvas
 10.	Next, click the   icon in the “Tool Palette” to display the “Processes” and drag the “Clean Data” process onto the canvas
- 
-11.	Lastly, click the  icon on the right side of the “Tool Palette” to display the “Exports”. Drag and drop the “Clean Customers to Connection to Oracle” for output export onto the canvas
- 
-12.	Click the Run icon in the toolbar to run the job. Note the Tasks Window in the bottom left of the Director
 
- 
+![](images/700/image700_EDQ_115.png)
+
+11.	Lastly, click the  icon on the right side of the “Tool Palette” to display the “Exports”. Drag and drop the “Clean Customers to Connection to Oracle” for output export onto the canvas
+
+![](images/700/image700_EDQ_116.png)
+
+12.	Click the "Run" icon in the toolbar to run the job. Note the "Tasks Window" in the bottom left of the "Director"
