@@ -461,123 +461,214 @@ then click “Finish”
  
 
 ### Copy Reference Data
-To save time, we will copy “Reference Data” previously created into our project.
+To save time, we will copy reference data previously created into our project.
 1.	In the “Project Browser” find a project titled “Examples”, expand it
- 
+
+![](images/700/image700_EDQ_67.png)
+
 2.	Expand the “Reference Data” item and right-click on “City to Country Mappings” then select “Copy”
+
+![](images/700/image700_EDQ_68.png)
  
-3.	Return to your Project (Exploring Customer Data) and find the “Reference Data” item, right-click and select “Paste”
- 
-4.	Repeat these steps to copy “Country Variants” and “US Common Titles1” under “Reference Data”
- 
+3.	Return to your project (Exploring Customer Data) and find the “Reference Data” item, right-click and select “Paste”
+
+![](images/700/image700_EDQ_69.png)
+
+4.	Repeat these steps to copy “Country Variants” and “US Common Titles1” under “Reference Data” of your project (Exploring Customer Data)
+
+![](images/700/image700_EDQ_70.png)
+
 5.	In the “Reference Data” section of your project (Exploring Customer Data), click on “City to Country Mappings”. Notice in the “Results Browser” that this is a two column Reference Data set. The “City” (yellow) column signifies the Lookup Column, similar to the two sets of reference data we created in previous steps for “Gender” and “Zip Code”. The “Country” (green) column signifies the Return Column. This means, wherever the Lookup Column value contains data, the “City to Country Mappings” Reference Data set can be used to return the “Country” that “City” is in. This will help us standardize the values found in the “Country” column.
  
+ ![](images/700/image700_EDQ_71.png)
 
 
-Auditing Data
-We will now begin to create a new Process for Auditing our US Customer Data. The Reference Data we just created in the past few steps will be utilized by some of the out of the box Audit Processors within our Audit (data checking) Process
-1.	Return to the Project Browser in the left side of your Director window, and underneath your Project right-click on “Processes” and click “New Process…”
+### Auditing Data
+We will now begin to create a new Process for Auditing our US Customer data. The reference data we just created in the past few steps will be utilized by some of the out-of-the-box "Audit Processors" within our Audit (data checking) Process
+1.	Return to the "Project Browser" in the left side of your "Director" window, and underneath your project right-click on “Processes” and click “New Process…”
+
+![](images/700/image700_EDQ_72.png)
  
 2.	Select “US Customer Data”, then click “Next”. Click “Next” on the next screen (we will not add any profiling here). Provide the following Data:
-•	Name: Auditing Customer Data
-•	Description: Auditing Customer Data
-Click “Finish” to continue
+    - Name: Auditing Customer Data
+    - Description: Auditing Customer Data
+
+    Click “Finish” to continue
+
+![](images/700/image700_EDQ_73.png)
+
+3.	As with the first process we created, a "Reader Processor" is automatically added to the "Project Canvas". In the "Tool Palette" find the “Audit” category.
+
+![](images/700/image700_EDQ_74.png)
+
+4.	First, drag and drop a “No Data Check” processor onto the "Process Canvas". 
+
+![](images/700/image700_EDQ_75.png)
+
+5.	Right click on the "No Data Check" processor and select “Rename” to re-name it to “Email Populated” and press the enter key. 
+6.	Drag and Drop the end triangle from the “Reader” to your newly named “Email Populated” audit processor. The "Email Populated" configuration dialog appears
+
+![](images/700/image700_EDQ_76.png)
  
-3.	As with the first process we created, a Reader Processor is automatically added to the Project Canvas. In the Tool Palette find the “Audit” category.
-  
-4.	First, drag and drop a “No Data Check” processor onto the Process canvas. 
+7.	Select “eMail” from “Available Attributes” and click the button to add it to “Selected Attributes”, click "OK" 
  
-5.	Right click on the No Data Check processor and select “Rename” to re-name it to “Email Populated” and press the enter key. 
-6.	Drag and Drop the end triangle from the “Reader” to your newly named “Email Populated”audit processor. The Email Populated configuration dialog appears
- 
-7.	Select “eMail” from “Available Attributes” and click the button to add it to “Selected Attributes”, click OK 
- 
-8.	Click the “Run” icon ( ) in the toolbar (top of the Project Canvas) to run the process. Once it finishes, select the “Email Populated” audit processor to view the results
- 
-Note: If desired, we can continue to develop this process using one or more of the end point output data stream triangles from the Processor by choosing “Data”, “No Data” or “Al”l.
-9.	Next, find the “Pattern Check” processor in the Tool Palette. Drag and drop it into the canvas and rename it to “Zip Code in Right Format” by double clicking on Processor.
- 
-10.	Connect the “All” end triangle from “Email Populated” to the “Zip Code in Right Format” processor. The configuration dialog for the Pattern Check processor appears.
-11.	Select “ZIP” from “Available Attributes” as the “Field for validation” using the   button
- 
-12.	Click the “Options” tab at the top of the dialog box, then click the   button in the “Valid Patterns” section in the middle of the window
- 
-13.	Uncheck “Filter by Category” in the “Select Resource” applet. This is where you will select the Reference Data we created for the different types of valid Zip Codes. Click on “Valid Zip Patterns”, then click “OK” 
- 
+![](images/700/image700_EDQ_77.png)
+
+8.	Click the “Run” icon in the toolbar (top of the Project Canvas) to run the process. Once it finishes, select the “Email Populated” audit processor to view the results
+
+![](images/700/image700_EDQ_78.png)
+
+**Note: If desired, we can continue to develop this process using one or more of the end point output data stream triangles from the Processor by choosing “Data”, “No Data” or “All".**
+
+9.	Next, find the “Pattern Check” processor in the Tool Palette. Drag and drop it into the canvas and rename it to “Zip Code in Right Format” by double clicking on processor.
+
+![](images/700/image700_EDQ_79.png)
+
+10.	Connect the “All” end triangle from “Email Populated” to the “Zip Code in Right Format” processor. The configuration dialog for the "Pattern Check" processor appears.
+11.	Select “ZIP” from “Available Attributes” as the “Field for validation” using the ">" icon
+
+![](images/700/image700_EDQ_80.png)
+
+12.	Click the “Options” tab at the top of the dialog box, then click the "..."  button in the “Valid Patterns” section in the middle of the window
+
+![](images/700/image700_EDQ_81.png)
+
+13.	Uncheck “Filter by Category” in the “Select Resource” applet. This is where you will select the Reference Data we created for the different types of valid zip codes. Click on “Valid Zip Patterns”, then click “OK” 
+
+![](images/700/image700_EDQ_82.png)
+
 14.	In the section under “Valid Patterns”, click the drop-down box to change “Categorize unmatched as” to “Invalid”, then click “OK” to continue
- 
-15.	Click the “Run” icon ( ) in the toolbar (top of the Project Canvas) to run the process. Once it finishes, click the “Zip Code in Right Format” processor to view the results
- 
+
+![](images/700/image700_EDQ_83.png)
+
+15.	Click the “Run” icon in the toolbar (top of the Project Canvas) to run the process. Once it finishes, click the “Zip Code in Right Format” processor to view the results
+
+![](images/700/image700_EDQ_84.png)
+
 Notice that there are 5362 Valid Records and 76 Invalid Records. That is, there are 76 records that fail the rule, that is they do not match the patterns “NNNNN” or “NNNNNpNNNN”.
-16.	Return to the Tool Palette and find the “List Check” processor. Drag and drop it onto the Project Canvas
+
+16.	Return to the "Tool Palette" and find the “List Check” processor. Drag and drop it onto the "Project Canvas"
+
+![](images/700/image700_EDQ_85.png)
  
-17.	Link the “All” triangle from “Zip Code in Right Format” to the “List Check” processor, the “List Check” dialog comes up; select “Gender” in “Available Attributes” and click on the   button to add it to the “Selected Attributes”.
-18.	Click the “Options” tab in the top of the dialog box to add the Reference Data. On the section “Valid Values” click on the   button 
- 
-19.	Select the “Valid Genders” Reference Data, then click “OK” to continue
- 
+17.	Link the “All” triangle from “Zip Code in Right Format” to the “List Check” processor, the “List Check” dialog comes up; select “Gender” in “Available Attributes” and click on the ">' icon to add it to the “Selected Attributes”.
+18.	Click the “Options” tab in the top of the dialog box to add reference data. On the section “Valid Values” click on the "..." button 
+
+![](images/700/image700_EDQ_86.png)
+
+19.	Select the “Valid Genders” reference data, then click “OK” to continue
+
+![](images/700/image700_EDQ_87.png)
+
 20.	Click “OK” to close the “List Check” dialog box. 
 21.	Double-click the “List Check” processor to rename it to “Check for Valid Gender”.
-22.	 Finally, click the “Run” icon ( ) to start the process
-We now have a better understanding of our data and its issues. Next step is create a process that will fix the those issues.
-Data Standardization and Enhancement
+22.	 Finally, click the “Run” icon to start the process
+
+We now have a better understanding of our data and its issues. Next step is create a process that will fix those issues.
+
+
+### Data Standardization and Enhancement
 1.	Create a New Process under your project in the “Project Browser” by right-clicking on “Processes” and clicking “New Process…”
-2.	Select the “US Customer Data” and click “Next”. Click “Next” without adding any Profiling
-3.	Name your process “Clean Data” then click Finish
-4.	Return to the “Tool Palette” on the right side of the screen and find the “Normalize Whitespace” processor under the “Transformation” ( ) category
-Note: You can always use the search box on the bottom of the “Tool Palette” to help you find the processor you are looking for.
- 
-5.	Connect the “Reader” to the “Normalize Whitespace” processor. The Normalize Whitespace Dialog Box appears. Click on “Select All” icon ( ) and click “OK”. 
- 
-6.	Click the “Run” icon ( ) to start the process.
-7.	Find the “Enhance from Map” processor from the “Tool Palette” (you can use Search, type Enhance). Drag and drop the processor to the Process canvas. Double click the “Enhance from Map” and rename it to “Country from City”
- 
-8.	Connect “Normalize Whitespace” processor to “Country from City” processor. In the “Country from City” Dialog Box, expand the City field from the “Available Attributes” to observe the extra metadata value(s) created by the “Normalize Whitespace” processor. Double-click on “City” (the “City” to the right of the blue arrow) to add “City” to the “Field to Match”. Next, click the “Options” tab at the top of the dialog box 
- 
-9.	Click the “Browse” button ( ) within the “Value Map” section to select the reference data we will use. 
- 
+2.	Select “US Customer Data” and click “Next”. Click “Next” without adding any profiling
+3.	Name your process “Clean Data” then click "Finish"
+4.	Return to the “Tool Palette” on the right side of the screen and find the “Normalize Whitespace” processor under the “Transformation” category
+
+**Note: You can always use the search box on the bottom of the “Tool Palette” to help you find the processor you are looking for.**
+
+![](images/700/image700_EDQ_88.png)
+
+5.	Connect the “Reader” to the “Normalize Whitespace” processor. The Normalize Whitespace Dialog Box appears. Click on “Select All” icon and click “OK”.
+
+![](images/700/image700_EDQ_89.png)
+
+6.	Click the “Run” icon to start the process.
+7.	Find the “Enhance from Map” processor from the “Tool Palette” (you can use the "Search" field, type "Enhance"). Drag and drop the processor to the "Process Canvas". Double click the “Enhance from Map” and rename it to “Country from City”
+
+![](images/700/image700_EDQ_90.png)
+
+8.	Connect “Normalize Whitespace” processor to “Country from City” processor. In the “Country from City” dialog box, expand the "City" field from the “Available Attributes” to observe the extra metadata value(s) created by the “Normalize Whitespace” processor. Double-click on “City” (the “City” to the right of the blue arrow) to add “City” to the “Field to Match”. Next, click the “Options” tab at the top of the dialog box 
+
+![](images/700/image700_EDQ_91.png)
+
+9.	Click the “Browse” button within the “Value Map” section to select the reference data we will use. 
+
+![](images/700/image700_EDQ_92.png)
+
 10.	Select “City to Country Mappings”, click “OK” to continue
- 
+
+![](images/700/image700_EDQ_93.png)
+
 11.	Click “Attributes” tab on the top left corner of the dialog box to adjust the name of the “Output Attribute”. Double click in the current value (EnhancedResult) and change it to “Derived Country”, then click “OK”
- 
-12.	Click the “Run” icon ( ) to start the process.
-13.	You will notice several unenhanced results, but we are not done yet! Feel free to drill down on the “Enhanced” and “Unenhanced” values (Result Browser) to glance at what this processor did. 
- 
-14.	In the “Tool Palette” to search for the “Replace” processor. Drag and drop the “Replace” processor to the “Project Canvas”. Rename “Replace” processor to rename “Standardize Country”.
+
+![](images/700/image700_EDQ_94.png)
+
+12.	Click the “Run” icon to start the process.
+13.	You will notice several unenhanced results, but we are not done yet! Feel free to drill down on the “Enhanced” and “Unenhanced” values (Result Browser panel) to glance at what this processor did. 
+
+![](images/700/image700_EDQ_95.png)
+
+14.	Go back to the “Tool Palette” and search for the “Replace” processor. Drag and drop the “Replace” processor to the “Project Canvas”. Rename “Replace” processor to “Standardize Country”.
 15.	Connect the “All” end triangle from the “Country from City” processor to the “Standardize Country” processor. The configuration dialog appears, double-click the “Country” field to add “Country.WhitespaceNormalized” to the “Input field”. Then click the “Options” tab at the top of the dialog box to setup the replacements
- 
-Note: If you want, you could select the original 'country' value from the source data. By default, EDQ will take the most recent field conversion as the input attribute (e.g. it will take fullname.whitespacenormalized and not the original fullname field from the source data) 
-16.	Click the “Browse” button ( ) on the “Replacements” row 
- 
+
+![](images/700/image700_EDQ_96.png)
+
+**Note: If you want, you could select the original 'country' value from the source data. By default, EDQ will take the most recent field conversion as the input attribute (e.g. it will take fullname.whitespacenormalized and not the original fullname field from the source data)**
+
+16.	Click the “Browse” button on the “Replacements” row 
+
+![](images/700/image700_EDQ_97.png)
+
 17.	Select “Country Variants” and click “OK”
- 
-18.	Click the “Run” icon ( ) to start the process
+
+![](images/700/image700_EDQ_98.png)
+
+18.	Click the “Run” icon to start the process
 19.	Return to the “Tool Palette” and search for “Merge”. Drag and drop the “Merge Attributes” processor onto the “Project Canvas” and rename it to “Create Best Country Attribute”
- 
+
+![](images/700/image700_EDQ_99.png)
+
 We will use this to combine the “Country” and “Derived Country” columns to a single attribute.
+
 20.	Connect the “All” end triangle from “Standardize Country” to the “Create Best Country Attribute” processor. In the dialog applet, double-click on “Country.Replaced” and “Derived Country” from the “Available Attributes” to add to the “Merged Attributes”. Lastly, double click on “Merged (string)” at the top of the “Merged Attribute” section and type “Best Country”, then click “OK” to continue
- 
-21.	Click the “Run” icon ( ) to start the process then click on “Create Best Country Attribute” processor to view the results in the “Results Browser”
- 
+
+![](images/700/image700_EDQ_100.png)
+
+21.	Click the “Run” icon to start the process then click on “Create Best Country Attribute” processor to view the results in the “Results Browser” panel
+
+![](images/700/image700_EDQ_101.png)
+
 Notice how the two columns, “Country.Replaced” and “Derived Country” have now been merged to a single column “Best Country”
+
 22.	In the “Tool Palette”, search for “Writer”. This processor enables an EDQ process to write data to different types of data stores, for example, Staged Data. Drag and drop the “Writer” to the right of the “Create Best Country Attribute” processor on the Project Canvas
- 
+
+![](images/700/image700_EDQ_102.png)
+
 23.	Connect the end triangle from the “Create Best Country Attribute” processor to the “Writer” processor. The writer dialog comes up; click button    to select all “Available Attributes”. Using button   send back attributes “Country” and “Derived Country”. Drag and drop “Best Country” until it is after “ZIP” and before “Phone”
- 
-24.	Now press the   button on the right side of the “Writer Configuration” dialog box to add a new Staged Data set
- 
+
+![](images/700/image700_EDQ_103.png)
+
+24.	Now press the "+" button on the right side of the “Writer Configuration” dialog box to add a new ataged data set
+
+![](images/700/image700_EDQ_104.png)
+
 25.	Double click on “Best Country” and rename it to “Country”
  
-26.	Click “Next” to accept the default configuration of creating the Staged Data Set
+![](images/700/image700_EDQ_105.png)
+
+26.	Click “Next” to accept the default configuration of creating the staged data set
 27.	Provide the following information:
-•	Name: Clean Customers
-•	Description: Clean Customers
+    - Name: Clean Customers
+    - Description: Clean Customers
 28.	Click “Finish”
 29.	Click OK to finish setting up the Writer Configuration
- 
-30.	Click the “Run” icon ( ) to start the process
 
-Prepare EDQ process for ODI consumption 
+![](images/700/image700_EDQ_106.png)
+
+30.	Click the “Run” icon to start the process
+
+
+### Prepare EDQ process for ODI consumption 
+
 We will create a job that runs data through the process we just created. Next, we will configure the Job to run within an ODI package to automate the Data Quality project. 
 1.	The first step is direct EDQ to export the out file. Navigate to the “Project Browser” on the left side of the screen and right-click on ‘Clean Customers” under the “Staged Data” category (expand the “Staged Data” category if you do not see it). Right click on it and select “Export Staged Data…”
  
