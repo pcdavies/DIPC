@@ -401,41 +401,66 @@ While we can continue to add Profilers to further investigate the data, perhaps 
 ### Generate Reference Data 
 We will take advantage of the results generated while we were profiling the data to create reference data that will be used later.
 
-1.	Click on the “Frequency Profile Country, DoB, and Gender” processor, then click on the Gender tab in the bottom left corner of the Results Browser
+1.	Click on the “Frequency Profile Country, DoB, and Gender” processor, then click on the "Gender" tab in the bottom left corner of the "Results Browser" panel
 2.	Hold down CTRL key and click on the M and F values
 
 ![](images/700/image700_EDQ_55.png)
 
 3.	Right-click and select “Create Reference Data”. 
- 
-4.	The New Reference Data dialog appears. Rename the attribute name to “Gender”, click “Next”
+
+![](images/700/image700_EDQ_56.png)
+
+4.	The "New Reference Data" dialog appears. Rename the attribute name to “Gender”, click “Next”
+
+![](images/700/image700_EDQ_57.png)
  
 5.	Add “Gender” to the Lookup Column using the   button, then click “Next”. Click “Next” on the next two screens to keep the defaults
+
+![](images/700/image700_EDQ_58.png)
  
 6.	Provide the following information:
-•	Name: Valid Genders
-•	Description: Valid Genders
-then click “Finish”
+    - Name: Valid Genders
+    - Description: Valid Genders
+
+    then click “Finish”
  
-7.	The Reference Data Editor appears next. Here, you can modify the Reference Data to Add Rows or Delete Rows. EDQ comes with many different types of Reference Data out of the box which can dramatically speed up the time it takes to create data check processes. Click OK to return to the Project Canvas
+![](images/700/image700_EDQ_59.png)
+
+7.	The "Reference Data Editor" appears next. Here, you can modify the reference data to add rows or delete rows. EDQ comes with many different types of reference data out of the box which can dramatically speed up the time it takes to create data check processes. Click "OK" to return to the "Project Canvas"
+
+![](images/700/image700_EDQ_60.png)
+
+8.	Next, we will need to create Reference Data for the valid types of ZIP Codes. To easily create this reference data, we will use the results of the "Pattern Profiler"; click the "Pattern Profiler" processor and view the results in the "Results Browser"panel
+
+**Note: "N" signifies a number, "p" signifies punctuation, "a" signifies an alpha character, and "_" signifies a space.**
+
+![](images/700/image700_EDQ_61.png)
  
-8.	Next, we will need to create Reference Data for the valid types of ZIP Codes. To easily create this Reference Data, we will use the results of the Pattern Profiler; click the Pattern Profiler processor and view the results in the Results Browser
-Note: N signifies a number, p signifies punctuation, a signifies an alpha character, and _ signifies a space.
- 
-9.	This is pattern information from which we can create Reference Data. Since we want 5 digits or 5 digits followed by 4 digits, CTRL click on NNNNN and NNNNNpNNNN then right-click on the NNNNN and select “Create Reference Data”
- 
-10.	The New Reference Data Dialog appears. Rename the attribute name to “Zip Pattern”, click “Next”
- 
-11.	Add “Zip Pattern” to the Lookup Column using the   button, then click “Next”. Click “Next” on the next two screens to keep the defaults
+9.	This is pattern information from which we can create reference data. Since we want 5 digits or 5 digits followed by 4 digits, CTRL click on "NNNNN" and "NNNNNpNNNN" then right-click on either one and select “Create Reference Data”
+
+![](images/700/image700_EDQ_62.png)
+
+10.	The "New Reference Data" dialog appears. Rename the attribute name to “Zip Pattern”, click “Next”
+
+![](images/700/image700_EDQ_63.png)
+
+11.	Add “Zip Pattern” to the Lookup Column using the ">" icon, then click “Next”. Click “Next” on the next two screens to keep the defaults
+
+![](images/700/image700_EDQ_64.png)
  
 12.	Provide the following information:
-•	Name: Valid Zip Patterns
-•	Description: Valid Zip Patterns
+    - Name: Valid Zip Patterns
+    - Description: Valid Zip Patterns
 then click “Finish”
+
+![](images/700/image700_EDQ_65.png)
+
+13.	The "Reference Data Editor" appears next. Click "OK" to return to the "Project Canvas"
+
+![](images/700/image700_EDQ_66.png)
  
-13.	The Reference Data Editor appears next. Click OK to return to the Project Canvas
- 
-Copy Reference Data
+
+### Copy Reference Data
 To save time, we will copy “Reference Data” previously created into our project.
 1.	In the “Project Browser” find a project titled “Examples”, expand it
  
