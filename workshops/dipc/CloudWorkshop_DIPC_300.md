@@ -137,7 +137,7 @@ Your will need:
 	- Service Name: orcl
     - Schema Name: AMER_SRC (Default)	
 
-** MISSING ![](images/300/image300_32.png)
+![](images/300/image300_32.png)
 
 5. Click on "Test Connection" button at the bottom. a green message should appear on top when everything is in order
 6. Click on "Save"
