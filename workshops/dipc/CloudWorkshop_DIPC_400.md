@@ -12,16 +12,23 @@ This lab supports the following use cases:
 -   Synchronize On-Premise Database
 
 ### Objectives
--   Ensure Remote Agent is trusted by DIPC instance
--   Agent Download
--   Agent Installation and Configuration
--   Configure Agent SSL
--	Agent Administration - Starting and Stopping.
--   Synchronize On-Premise Database
+-   Review downloading process, installation and configuration of DIPC remote agent
+-   Migrate an on-prem database to a database cloud service
 
 ### Time to complete
 Approximately 45 minutes.
 
+### What Do You Need?
+Your will need:
+- DIPC Instance URL
+- DIPC User and Password
+- DB information for on-prem source system: server name, user/password and service name
+- DB information for cloud target system: server name, user/password and service name
+- Private keys in OpenSSH format for all instances 
+- OnPremiseVM public IP address
+- Putty for SSH connection to instances
+- VNC viewer
+- SQL developer
 
 ## Remote Agent
 If you have already downloaded the agent to your "On-Prem" environment, please skip this section
@@ -194,3 +201,7 @@ https://osc132657dipc-oscnas001.uscom-central-1.oraclecloud.com/dicloud
 ### Verify Data in Target DB (Optional)
 ** MISSING STEPS
 ** MISSING IMAGES
+
+
+## Summary
+You have now successfully completed the Hands-on Lab, and have successfully installed the remote agent and migrated a database from on-prem to cloud.

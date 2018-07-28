@@ -1,11 +1,12 @@
 
-# Lab 600 - Oracle Data Integration Lab Execution
+# Lab 600 - ODI Execution elevated Task 
 ![](images/600/image600_0.png)
 
 ## Before You Begin
 
-### Purpose
-This lab shows you how to create and execute an ODI Execution elevated task.
+### Objectives
+-   Undertsand how to import ODI scenarios
+-   Execute and monitor ODI scenarios using DIPC
 
 ### Time to Complete 
 Approximately 20 minutes.
@@ -14,8 +15,11 @@ Approximately 20 minutes.
 Your will need:
 - DIPC Instance URL
 - DIPC User and Password
+- DB information for source system: server name, user/password and service name
+- File "LD_SALES_DIPC_18.2.3.zip"
 - General understanding of RDBMS and data integration concepts
 - General understanding of ETL and data synchronization concepts
+- SQL Developer
 
 ## ODI Execution Elevated Task
 This scenario joins SRC_ORDERS and SRC_ORDER_LINES in the SALES DB (source), aggregates the data, filters for ORDERS with Status of "CLO" as well as performs an incremental update so only replicated rows, that have a status of "CLO" (closed) will be loaded to the target Data Ware House (DWH).

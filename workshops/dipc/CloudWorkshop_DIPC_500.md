@@ -5,8 +5,10 @@
 
 ## Before You Begin
 
-### Purpose
-This lab shows you how to execute a Data Preparation elevated task; as well as how to define all necessary elements to run the task.
+### Objectives
+-   Prepare data from flat files
+-   Transform data elements
+-   Administer transformations
 
 ### Time to Complete 
 Approximately 15 minutes.
@@ -15,7 +17,9 @@ Approximately 15 minutes.
 Your will need:
 - DIPC Instance URL
 - DIPC User and Password
+- DB information for target system: server name, user/password and service name
 - Flat file "webclicks.txt"
+- SQL Developer
 
 
 ## Execute Data Preparation Elevated Task
@@ -182,5 +186,5 @@ Clicking apply updates data, metadata and profiling statistics.  Also note the t
  
 
 ## Summary 
- 
-You have now successfully completed the Hands on Lab, and have successfully performed an Data Preparation task through Oracle’s Data Integration Platform Cloud. 
+ You have now successfully completed the Hands on Lab, and have successfully performed a Data Preparation task through Oracle’s Data Integration Platform Cloud. 
+

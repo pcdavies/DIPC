@@ -1,52 +1,21 @@
 # Lab 100 -  Creating a Data Integration Platform Cloud Instance
 ![](images/100/image100_0.png)
+
+
 ## Before You Begin
 
-### Introduction
-Oracle Data Integration Platform Cloud is a platform that unifies various Data Integration components and leverages their core strengths and functionality to offer a seamless set of data integration services in the cloud.
-
-When using the Oracle Data Integration Platform Cloud, you create a Data Integration environment in the cloud. After you complete the instance creation wizard, your environment is provisioned and fully integrated for replication, extract, load and transform, streaming, data preparation, and data governance.
-
-For Data Integration Platform Cloud, you can select one of the following editions:
-
-- Standard Edition: For a bulk copy of your data sources to the cloud, or to extract, load and transform your data.
-- Enterprise Edition: For a selective copy or real time replication of your data sources, or to extract, load and transform your data.
-- Governance Edition: To extract, load, transform, manage, replicate, and Data Quality.
-
-### Purpose
-The pupose of this lab is to show you how to create and start an instance of a Data Integration Platform Service (DIPC).
+### Objectives
+- Review steps to provision a Database Cloud Service to be used for DIPC
+- Provision a Data Integration Cloud Service instance (DIPC).
 
 ### Time to Complete
 Approximately 30 minutes, not including wait time for service activations.
 
 ### What Do You Need?
-Your Oracle Cloud user name, password, and identity domain, which you should have received from Oracle
-
--  An Oracle Cloud subscription with the following services:
-    1. Data Integration Platform Cloud Service
-    2. Database Cloud Service
-    3. Compute Classic Cloud Service
-    4. Storage Cloud Service
--  Cloud Dashboard URL
--  Cloud Dashboard login credentials:
-    1. identity domain / account
-    2. username
-    3. password
-
--   Private keys in OpenSSH format for all instances 
--   Public IP address for each workshop service instance
--   VNC Client Desktop Software
--	Putty Desktop Software for ssh connection to instances
-
-
-What is the baseline architecture?
-The above cloud services will be used to create:
--   1 DIPC Instance - DIPCINST
--   2 DBCS Instances - DBCSAMER, DBCSEMEA
--   1 Compute Instance - OnPremiseVM
-
-
-![](images/100/image90_0.png)
+Your will need:
+- Oracle Cloud URL
+- Oracle Cloud User and Password
+- General understanding of RDBMS and data integration concepts
 
 
 ## Logging Into Oracle Cloud Instance
@@ -181,3 +150,7 @@ In this section, you create an Oracle Data Integration Platform Cloud instance u
 ![](images/100/image100_16.png)
 
 7. Click "Next" button and review your Data Integration Platform Cloud instance configuration details. If you need to make any changes, click "Previous" or use the navigation train to go back. Otherwise, click **"CANCEL". Please DO NOT Create!**, the instance creation process would normally take up to 30 minutes, so we have already created the instance in advance for the workshop.
+
+
+## Summary
+You have now successfully completed the Hands-on Lab, and reviewed the requirements and necessary steps to provision a Data Integration Platform Cloud (DIPC) instance.

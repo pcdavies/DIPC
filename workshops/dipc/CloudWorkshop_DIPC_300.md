@@ -13,24 +13,23 @@ This lab supports the following use cases:
 -   Synchronize two On-Premise Databases
 
 ### Objectives
--	Ensure Remote Agent is trusted by DIPC instance
--   Agent Download
--   Agent Installation and Configuration
--	Agent Administration - Starting and Stopping.
+-	Review downloading process, installation and configuration of DIPC remote agent
 -   Synchronize two On-Premise Databases
    
 ### Time to complete
 Approximately 45 minutes.
 
-### What would you need
--   Cloud Dashboard URL and login credentials
--   1 DIPC Instance - DIPCINST
--   2 DBCS Instances - DBCSAMER, DBCSEMEA
--   1 Compute Instance - OnPremiseVM
--   Private keys in OpenSSH format for all instances 
--   OnPremiseVM public IP address
--   VNC Client
--	Putty for ssh connection to instances
+### What Do You Need?
+Your will need:
+- DIPC Instance URL
+- DIPC User and Password
+- DB information for on-prem source system: server name, user/password and service name
+- DB information for on-prem target system: server name, user/password and service name
+- Private keys in OpenSSH format for all instances 
+- OnPremiseVM public IP address
+- Putty for SSH connection to instances
+- VNC viewer
+- SQL developer
 
 ## Remote Agent
 
@@ -202,3 +201,5 @@ Approximately 45 minutes.
 ** MISSING STEPS
 ** MISSING IMAGES
 
+## Summary
+You have now successfully completed the Hands-on Lab, and have successfully installed the remote agent and synchronized two on-prem databases.

@@ -4,8 +4,9 @@
 
 ## Before You Begin
 
-### Purpose
-This lab shows you how to execute a Data Synch elevated task; as well as how to define all necessary elements to run the task.
+### Objectives
+- Review how to create connections
+- Review how to execute a Synchonize Data elevated task
 
 ### Time to Complete 
 Approximately 60 minutes.
@@ -14,6 +15,9 @@ Approximately 60 minutes.
 Your will need:
 - DIPC Instance URL
 - DIPC User and Password
+- DB information for source system: server name, user/password and service name
+- DB information for target system: server name, user/password and service name
+- SQL Developer
 - General understanding of RDBMS and data integration concepts
 
 ## Log into DIPC Server
@@ -375,4 +379,3 @@ As data is updated, inserted or deleted from the source the data will be automat
 
 ## Summary
 You have now successfully completed the Hands-on Lab, and have successfully performed an end-to-end data synchronization task through Oracle’s Data Integration Platform Cloud.
- 
