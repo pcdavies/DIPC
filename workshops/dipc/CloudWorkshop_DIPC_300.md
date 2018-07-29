@@ -1,8 +1,6 @@
 # Lab 300 - Remote Agent Install and On-prem to On-prem DB Synchronization
 
-
 ![](images/300/image300_0.png)
-
 
 ## Before You Begin
 
