@@ -136,17 +136,14 @@ Your will need:
 	- Password: Welcome#123
 	- Service Name: orcl
     - Schema Name: AMER_SRC (Default)	
-
-** MISSING ![](images/300/image300_32.png)
-
 5. Click on "Test Connection" button at the bottom. a green message should appear on top when everything is in order
 6. Click on "Save"
 
-** MISSING ![](images/300/image300_33.png)
+![](images/300/image300_32.png)
 
 7. From the top bar, open the drop-down menu and the select "Connection"
 
-** MISSING ![](images/300/image300_34.png)
+![](images/300/image300_34.png)
 
 8. Enter the following information:
     - Name: ONPREM_TRG
@@ -159,17 +156,14 @@ Your will need:
 	- Password: Welcome#123
 	- Service Name: orcl
     - Schema Name: EMEA_TRG (Default)	
-
-** MISSING ![](images/300/image300_35.png)
-
 5. Click on "Test Connection" button at the bottom. a green message should appear on top when everything is in order
 6. Click on "Save"
 
-** MISSING ![](images/300/image300_36.png)
+![](images/300/image300_35.png)
 
 7. From the top bar, open the drop-down menu and the select "Synchronize Data"
 
-** MISSING ![](images/300/image300_37.png)
+![](images/300/image300_37.png)
 
 8. Enter the following information:
 	- Name: Sync OnPrem Schemas
