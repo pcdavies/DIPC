@@ -136,13 +136,10 @@ Your will need:
 	- Password: Welcome#123
 	- Service Name: orcl
     - Schema Name: AMER_SRC (Default)	
-
-![](images/300/image300_32.png)
-
 5. Click on "Test Connection" button at the bottom. a green message should appear on top when everything is in order
 6. Click on "Save"
 
-![](images/300/image300_33.png)
+![](images/300/image300_32.png)
 
 7. From the top bar, open the drop-down menu and the select "Connection"
 
@@ -159,13 +156,10 @@ Your will need:
 	- Password: Welcome#123
 	- Service Name: orcl
     - Schema Name: EMEA_TRG (Default)	
-
-![](images/300/image300_35.png)
-
 5. Click on "Test Connection" button at the bottom. a green message should appear on top when everything is in order
 6. Click on "Save"
 
-![](images/300/image300_36.png)
+![](images/300/image300_35.png)
 
 7. From the top bar, open the drop-down menu and the select "Synchronize Data"
 
@@ -181,12 +175,12 @@ Your will need:
 	- Advanced - Include Initial Load: SELECTED
 	- Advanced - Include Replication: SELECTED
 
-![](images/300/image300_38.png)
+** MISSING ![](images/300/image300_38.png)
 
 9. Click on "Save & Run" button on the top right of the screen to execute the task
 10. You will be navigated to teh "Jobs"screen. After some time, a message will appear in the notification bar
 
-![](images/300/image300_39.png)
+** MISSING ![](images/300/image300_39.png)
 
 11. The job will automatically appear within the "Jobs" page
 
