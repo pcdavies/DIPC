@@ -2,7 +2,7 @@
 
 ## 8/4/2018 - Collaborating with Paul Miller & team
 
-### Lab Notes
+### Lab Notes 
 
 - Intent of this lab is to show the various engines within DIPC that do various types of processing like ODI for batch ELT processing and GoldenGate for streaming replication processing.
 - This helps to communicate the value of DIPCS by showing the power of the individual "engines" that are part of DIPCS.
